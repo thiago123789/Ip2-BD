@@ -1,5 +1,5 @@
 package poo.negocios.beans;
 
-public class Periodo {
+public class Semestre {
 	
 }
