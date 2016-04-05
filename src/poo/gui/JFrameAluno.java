@@ -15,12 +15,12 @@ import poo.gui.myframes.*;
  *
  * @author Thiago Gomes
  */
-public class JFrameAdmin extends javax.swing.JFrame {
+public class JFrameAluno extends javax.swing.JFrame {
 
     /**
      * Creates new form JFrameAdmin
      */
-    public JFrameAdmin() {
+    public JFrameAluno() {
         initComponents();
     }
 
@@ -39,10 +39,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         desktop = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        mnuMinhaContaAlterarSenha = new javax.swing.JMenuItem();
-        jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        mnuMinhaContaSair = new javax.swing.JMenuItem();
         mnuUsuario = new javax.swing.JMenu();
         mnuUsuarioAdicionar = new javax.swing.JMenuItem();
         mnuUsuarioEditar = new javax.swing.JMenuItem();
@@ -76,7 +72,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenuItem11.setText("jMenuItem11");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sistema Academico - DEINFO (Administrador)");
+        setTitle("Sistema Academico - DEINFO (Aluno)");
         setLocation(new java.awt.Point(200, 150));
 
         javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
@@ -91,27 +87,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
         );
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        jMenu1.setText("Minha Conta");
-
-        mnuMinhaContaAlterarSenha.setText("Alterar senha");
-        mnuMinhaContaAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuMinhaContaAlterarSenhaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mnuMinhaContaAlterarSenha);
-        jMenu1.add(jSeparator3);
-
-        mnuMinhaContaSair.setText("Sair");
-        mnuMinhaContaSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuMinhaContaSairActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mnuMinhaContaSair);
-
-        jMenuBar1.add(jMenu1);
 
         mnuUsuario.setText("Usuario");
 
@@ -292,20 +267,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
         f.setVisible(true);
     }//GEN-LAST:event_mnuUsuarioDesativarActionPerformed
 
-    private void mnuMinhaContaAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMinhaContaAlterarSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuMinhaContaAlterarSenhaActionPerformed
-
-    private void mnuMinhaContaSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMinhaContaSairActionPerformed
-        // TODO add your handling code here:
-        /*
-        FALTA FAZER METODO NA CAMADA DE NEGOCIOS PARA LOGOUT
-        */
-        JFLogin f = new JFLogin();
-        f.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_mnuMinhaContaSairActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -323,27 +284,27 @@ public class JFrameAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameAdmin().setVisible(true);
+                new JFrameAluno().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
@@ -356,11 +317,8 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JMenu mnuBuscar;
     private javax.swing.JMenu mnuDisciplina;
-    private javax.swing.JMenuItem mnuMinhaContaAlterarSenha;
-    private javax.swing.JMenuItem mnuMinhaContaSair;
     private javax.swing.JMenu mnuProfessor;
     private javax.swing.JMenuItem mnuProfessorAdd;
     private javax.swing.JMenuItem mnuProfessorAtualizar;

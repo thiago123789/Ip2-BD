@@ -9,12 +9,12 @@ package poo.gui.myframes;
  *
  * @author Thiago Gomes
  */
-public class Frame1 extends javax.swing.JInternalFrame {
+public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Frame1
      */
-    public Frame1() {
+    public FrameCadastroProfessor() {
         initComponents();
     }
 
@@ -28,6 +28,7 @@ public class Frame1 extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         setClosable(true);
+        setMaximizable(true);
         setResizable(true);
         setTitle("Cadastro Professor");
 

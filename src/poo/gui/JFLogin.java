@@ -49,6 +49,8 @@ public class JFLogin extends javax.swing.JFrame {
         tipoUsuarioParaLogar.add(jRBAdmin);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema Academico - DEINFO");
+        setLocation(new java.awt.Point(0, 0));
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -226,7 +228,8 @@ public class JFLogin extends javax.swing.JFrame {
 
         bindingGroup.bind();
 
-        pack();
+        setSize(new java.awt.Dimension(832, 538));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTUsuarioActionPerformed
@@ -240,31 +243,40 @@ public class JFLogin extends javax.swing.JFrame {
     private void jBLimparLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparLoginActionPerformed
         // TODO add your handling code here:
         jTUsuario.setText(null);
-        
+
         jPSenhaLogin.setText("");
-        
+
     }//GEN-LAST:event_jBLimparLoginActionPerformed
 
     private void jBLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLogarActionPerformed
         // TODO add your handling code here:
+        if (jRBAluno.isSelected()) {
+            JFrameAluno f = new JFrameAluno();
+            f.setVisible(true);
+            this.setVisible(false);
+        } else if (jRBAdmin.isSelected()) {
+            JFrameAdmin f = new JFrameAdmin();
+            f.setVisible(true);
+            this.setVisible(false);
+        } else {
+            JFrameProfessor f = new JFrameProfessor();
+            f.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jBLogarActionPerformed
 
     private void jRBAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBAlunoActionPerformed
         // TODO add your handling code here:
-        if(jRBAluno.isEnabled()){
+        if (jRBAluno.isSelected()) {
             jPSenhaLogin.setEnabled(false);
             jTUsuario.setText("Clique em login");
             jTUsuario.setEnabled(false);
-        }else{
-            jPSenhaLogin.setEnabled(true);
-            jTUsuario.setText("");
-            jTUsuario.setEnabled(true);
         }
     }//GEN-LAST:event_jRBAlunoActionPerformed
 
     private void jRBProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBProfessorActionPerformed
         // TODO add your handling code here:
-        if(jRBProfessor.isEnabled()){
+        if (jRBProfessor.isSelected()) {
             jPSenhaLogin.setEnabled(true);
             jTUsuario.setText("");
             jTUsuario.setEnabled(true);
@@ -273,7 +285,7 @@ public class JFLogin extends javax.swing.JFrame {
 
     private void jRBAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBAdminActionPerformed
         // TODO add your handling code here:
-        if(jRBAdmin.isEnabled()){
+        if (jRBAdmin.isSelected()) {
             jPSenhaLogin.setEnabled(true);
             jTUsuario.setText("");
             jTUsuario.setEnabled(true);
