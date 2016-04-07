@@ -37,6 +37,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         desktop = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -61,7 +62,11 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         mnuBuscar = new javax.swing.JMenu();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        mnuBuscarNovaConsulta = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         mnuSobre = new javax.swing.JMenu();
         mnuSobreVersao = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -74,6 +79,8 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenuItem9.setText("jMenuItem9");
 
         jMenuItem11.setText("jMenuItem11");
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Academico - DEINFO (Administrador)");
@@ -204,10 +211,33 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
         mnuBuscar.setText("Buscar");
 
-        jMenuItem13.setText("Nova consulta");
-        mnuBuscar.add(jMenuItem13);
+        mnuBuscarNovaConsulta.setText("Nova consulta");
+        mnuBuscarNovaConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBuscarNovaConsultaActionPerformed(evt);
+            }
+        });
+        mnuBuscar.add(mnuBuscarNovaConsulta);
 
         jMenuBar1.add(mnuBuscar);
+
+        jMenu2.setText("Relatórios");
+
+        jMenuItem1.setText("Relatório Professor");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuItem12.setText("Relatório Periodo");
+        jMenu2.add(jMenuItem12);
+
+        jMenuItem4.setText("Relatório Disciplina");
+        jMenu2.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu2);
 
         mnuSobre.setText("Sobre");
 
@@ -306,6 +336,17 @@ public class JFrameAdmin extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_mnuMinhaContaSairActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void mnuBuscarNovaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBuscarNovaConsultaActionPerformed
+        // TODO add your handling code here:
+        FrameNovaConsulta f = new FrameNovaConsulta();
+        desktop.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_mnuBuscarNovaConsultaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -344,11 +385,15 @@ public class JFrameAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
@@ -358,6 +403,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JMenu mnuBuscar;
+    private javax.swing.JMenuItem mnuBuscarNovaConsulta;
     private javax.swing.JMenu mnuDisciplina;
     private javax.swing.JMenuItem mnuMinhaContaAlterarSenha;
     private javax.swing.JMenuItem mnuMinhaContaSair;

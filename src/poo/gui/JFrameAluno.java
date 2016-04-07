@@ -39,25 +39,18 @@ public class JFrameAluno extends javax.swing.JFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         desktop = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        mnuUsuario = new javax.swing.JMenu();
-        mnuUsuarioAdicionar = new javax.swing.JMenuItem();
-        mnuUsuarioEditar = new javax.swing.JMenuItem();
-        mnuUsuarioBuscar = new javax.swing.JMenuItem();
-        mnuUsuarioListar = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        mnuUsuarioDesativar = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem2 = new javax.swing.JMenuItem();
         mnuProfessor = new javax.swing.JMenu();
-        mnuProfessorAdd = new javax.swing.JMenuItem();
-        mnuProfessorAtualizar = new javax.swing.JMenuItem();
-        mnuProfessorRemover = new javax.swing.JMenuItem();
         mnuProfessorListar = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         mnuDisciplina = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
         mnuBuscar = new javax.swing.JMenu();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        mnuBuscarNovaConsulta = new javax.swing.JMenuItem();
         mnuSobre = new javax.swing.JMenu();
         mnuSobreVersao = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -88,99 +81,46 @@ public class JFrameAluno extends javax.swing.JFrame {
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        mnuUsuario.setText("Usuario");
+        jMenu1.setText("Minha Conta");
 
-        mnuUsuarioAdicionar.setText("Adicionar");
-        mnuUsuarioAdicionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuUsuarioAdicionarActionPerformed(evt);
-            }
-        });
-        mnuUsuario.add(mnuUsuarioAdicionar);
+        jMenuItem1.setText("Alterar Senha");
+        jMenu1.add(jMenuItem1);
+        jMenu1.add(jSeparator3);
 
-        mnuUsuarioEditar.setText("Editar");
-        mnuUsuarioEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuUsuarioEditarActionPerformed(evt);
-            }
-        });
-        mnuUsuario.add(mnuUsuarioEditar);
+        jMenuItem2.setText("Sair");
+        jMenu1.add(jMenuItem2);
 
-        mnuUsuarioBuscar.setText("Buscar");
-        mnuUsuarioBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuUsuarioBuscarActionPerformed(evt);
-            }
-        });
-        mnuUsuario.add(mnuUsuarioBuscar);
-
-        mnuUsuarioListar.setText("Listar");
-        mnuUsuarioListar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuUsuarioListarActionPerformed(evt);
-            }
-        });
-        mnuUsuario.add(mnuUsuarioListar);
-        mnuUsuario.add(jSeparator1);
-
-        mnuUsuarioDesativar.setText("Desativar Usuario");
-        mnuUsuarioDesativar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuUsuarioDesativarActionPerformed(evt);
-            }
-        });
-        mnuUsuario.add(mnuUsuarioDesativar);
-
-        jMenuBar1.add(mnuUsuario);
+        jMenuBar1.add(jMenu1);
 
         mnuProfessor.setText("Professor");
 
-        mnuProfessorAdd.setText("Adicionar Professor");
-        mnuProfessorAdd.setToolTipText("");
-        mnuProfessorAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuProfessorAddActionPerformed(evt);
-            }
-        });
-        mnuProfessor.add(mnuProfessorAdd);
-        mnuProfessorAdd.getAccessibleContext().setAccessibleDescription("Adicionar professor ao sistema");
-
-        mnuProfessorAtualizar.setText("Alterar Professor");
-        mnuProfessorAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuProfessorAtualizarActionPerformed(evt);
-            }
-        });
-        mnuProfessor.add(mnuProfessorAtualizar);
-
-        mnuProfessorRemover.setText("Remover Professor");
-        mnuProfessor.add(mnuProfessorRemover);
-
         mnuProfessorListar.setText("Listar Professores");
         mnuProfessor.add(mnuProfessorListar);
+
+        jMenuItem4.setText("Buscar Professor");
+        mnuProfessor.add(jMenuItem4);
 
         jMenuBar1.add(mnuProfessor);
 
         mnuDisciplina.setText("Disciplina");
 
-        jMenuItem5.setText("Adicionar Disciplina");
-        mnuDisciplina.add(jMenuItem5);
-
-        jMenuItem7.setText("Atualizar Disciplina");
-        mnuDisciplina.add(jMenuItem7);
-
-        jMenuItem8.setText("Remover Disciplina");
-        mnuDisciplina.add(jMenuItem8);
-
         jMenuItem10.setText("Listar Disciplinas");
         mnuDisciplina.add(jMenuItem10);
+
+        jMenuItem12.setText("Buscar Disciplina");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        mnuDisciplina.add(jMenuItem12);
 
         jMenuBar1.add(mnuDisciplina);
 
         mnuBuscar.setText("Buscar");
 
-        jMenuItem13.setText("Nova consulta");
-        mnuBuscar.add(jMenuItem13);
+        mnuBuscarNovaConsulta.setText("Nova consulta");
+        mnuBuscar.add(mnuBuscarNovaConsulta);
 
         jMenuBar1.add(mnuBuscar);
 
@@ -216,56 +156,14 @@ public class JFrameAluno extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mnuProfessorAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuProfessorAddActionPerformed
-        // TODO add your handling code here:
-        FrameCadastroProfessor f = new FrameCadastroProfessor();
-        desktop.add(f);
-        f.setVisible(true);
-    }//GEN-LAST:event_mnuProfessorAddActionPerformed
-
-    private void mnuProfessorAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuProfessorAtualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuProfessorAtualizarActionPerformed
-
-    private void mnuUsuarioEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUsuarioEditarActionPerformed
-        // TODO add your handling code here:
-        FrameEditarUsuario f = new FrameEditarUsuario();
-        desktop.add(f);
-        f.setVisible(true);
-    }//GEN-LAST:event_mnuUsuarioEditarActionPerformed
-
     private void mnuSobreVersaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSobreVersaoActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Sistema academico - DEinfo\nVersão 1.0", "Versão do sistema", -1);
     }//GEN-LAST:event_mnuSobreVersaoActionPerformed
 
-    private void mnuUsuarioAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUsuarioAdicionarActionPerformed
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
-        FrameCadastroUsuario f = new FrameCadastroUsuario();
-        desktop.add(f);
-        f.setVisible(true);
-    }//GEN-LAST:event_mnuUsuarioAdicionarActionPerformed
-
-    private void mnuUsuarioListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUsuarioListarActionPerformed
-        // TODO add your handling code here:
-        FrameListarUsuarios f = new FrameListarUsuarios();
-        desktop.add(f);
-        f.setVisible(true);
-    }//GEN-LAST:event_mnuUsuarioListarActionPerformed
-
-    private void mnuUsuarioBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUsuarioBuscarActionPerformed
-        // TODO add your handling code here:
-        FrameBuscarUsuario f = new FrameBuscarUsuario();
-        desktop.add(f);
-        f.setVisible(true);
-    }//GEN-LAST:event_mnuUsuarioBuscarActionPerformed
-
-    private void mnuUsuarioDesativarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUsuarioDesativarActionPerformed
-        // TODO add your handling code here:
-        FrameDesativarUsuario f = new FrameDesativarUsuario();
-        desktop.add(f);
-        f.setVisible(true);
-    }//GEN-LAST:event_mnuUsuarioDesativarActionPerformed
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,33 +203,26 @@ public class JFrameAluno extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JMenu mnuBuscar;
+    private javax.swing.JMenuItem mnuBuscarNovaConsulta;
     private javax.swing.JMenu mnuDisciplina;
     private javax.swing.JMenu mnuProfessor;
-    private javax.swing.JMenuItem mnuProfessorAdd;
-    private javax.swing.JMenuItem mnuProfessorAtualizar;
     private javax.swing.JMenuItem mnuProfessorListar;
-    private javax.swing.JMenuItem mnuProfessorRemover;
     private javax.swing.JMenu mnuSobre;
     private javax.swing.JMenuItem mnuSobreSistema;
     private javax.swing.JMenuItem mnuSobreVersao;
-    private javax.swing.JMenu mnuUsuario;
-    private javax.swing.JMenuItem mnuUsuarioAdicionar;
-    private javax.swing.JMenuItem mnuUsuarioBuscar;
-    private javax.swing.JMenuItem mnuUsuarioDesativar;
-    private javax.swing.JMenuItem mnuUsuarioEditar;
-    private javax.swing.JMenuItem mnuUsuarioListar;
     // End of variables declaration//GEN-END:variables
 }
