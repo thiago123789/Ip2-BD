@@ -6,20 +6,31 @@ import java.util.InputMismatchException;
 import poo.excecoes.CPFInvalidoException;
 
 public class Pessoa {
-	private String nome;
+	private String pNome;
+        private String uNome;
 	private String cpf;
 	
-	public Pessoa(String nome, String cpf) throws CPFInvalidoException
+	public Pessoa(String pNome, String uNome, String cpf) throws CPFInvalidoException
 	{
-		this.setNome(nome);
+		this.setPnome(pNome);
 		this.setCpf(cpf);
 	}
+        
+        public void setUnome(String nome){
+            if(nome != null){
+                this.uNome = nome;
+            }
+        }
+        
+        public String getUnome(){
+            return this.uNnome;
+        }
 	
-	public void setNome(String nome)
+	public void setPnome(String nome)
 	{
 		if(nome != null)
 		{
-			this.nome = nome;
+			this.pNome = nome;
 		}
 	}
 	
@@ -35,9 +46,9 @@ public class Pessoa {
 		}
 	}
 	
-	public String getNome()
+	public String getPnome()
 	{
-		return this.nome;
+		return this.pNome;
 	}
 	
 	public String getCpf()
