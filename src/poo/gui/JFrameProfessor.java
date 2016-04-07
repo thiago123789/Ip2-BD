@@ -43,7 +43,7 @@ public class JFrameProfessor extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mnuMyAccSair = new javax.swing.JMenuItem();
         mnuProfessor = new javax.swing.JMenu();
         mnuProfessorListar = new javax.swing.JMenuItem();
         mnuDisciplina = new javax.swing.JMenu();
@@ -93,8 +93,13 @@ public class JFrameProfessor extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
         jMenu1.add(jSeparator1);
 
-        jMenuItem4.setText("Sair");
-        jMenu1.add(jMenuItem4);
+        mnuMyAccSair.setText("Sair");
+        mnuMyAccSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuMyAccSairActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuMyAccSair);
 
         jMenuBar1.add(jMenu1);
 
@@ -160,6 +165,13 @@ public class JFrameProfessor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void mnuMyAccSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMyAccSairActionPerformed
+        // TODO add your handling code here:
+        JFLogin f = new JFLogin();
+        f.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnuMyAccSairActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -205,13 +217,13 @@ public class JFrameProfessor extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenu mnuBuscar;
     private javax.swing.JMenu mnuDisciplina;
+    private javax.swing.JMenuItem mnuMyAccSair;
     private javax.swing.JMenu mnuProfessor;
     private javax.swing.JMenuItem mnuProfessorListar;
     private javax.swing.JMenu mnuSobre;

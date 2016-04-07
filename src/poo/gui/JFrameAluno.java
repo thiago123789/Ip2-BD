@@ -40,9 +40,9 @@ public class JFrameAluno extends javax.swing.JFrame {
         desktop = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mnuMyAccAlterarSenha = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mnuMyAccSair = new javax.swing.JMenuItem();
         mnuProfessor = new javax.swing.JMenu();
         mnuProfessorListar = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -83,12 +83,17 @@ public class JFrameAluno extends javax.swing.JFrame {
 
         jMenu1.setText("Minha Conta");
 
-        jMenuItem1.setText("Alterar Senha");
-        jMenu1.add(jMenuItem1);
+        mnuMyAccAlterarSenha.setText("Alterar Senha");
+        jMenu1.add(mnuMyAccAlterarSenha);
         jMenu1.add(jSeparator3);
 
-        jMenuItem2.setText("Sair");
-        jMenu1.add(jMenuItem2);
+        mnuMyAccSair.setText("Sair");
+        mnuMyAccSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuMyAccSairActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuMyAccSair);
 
         jMenuBar1.add(jMenu1);
 
@@ -165,6 +170,13 @@ public class JFrameAluno extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
+    private void mnuMyAccSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMyAccSairActionPerformed
+        // TODO add your handling code here:
+        JFLogin f = new JFLogin();
+        f.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnuMyAccSairActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -205,11 +217,9 @@ public class JFrameAluno extends javax.swing.JFrame {
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
@@ -219,6 +229,8 @@ public class JFrameAluno extends javax.swing.JFrame {
     private javax.swing.JMenu mnuBuscar;
     private javax.swing.JMenuItem mnuBuscarNovaConsulta;
     private javax.swing.JMenu mnuDisciplina;
+    private javax.swing.JMenuItem mnuMyAccAlterarSenha;
+    private javax.swing.JMenuItem mnuMyAccSair;
     private javax.swing.JMenu mnuProfessor;
     private javax.swing.JMenuItem mnuProfessorListar;
     private javax.swing.JMenu mnuSobre;
