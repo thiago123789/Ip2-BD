@@ -3935,5 +3935,9 @@
 	<classpathentry kind="lib" path="lib/locale/org-netbeans-tax_pt_BR.jar"/>
 	<classpathentry kind="lib" path="lib/locale/org-netbeans-tax_ru.jar"/>
 	<classpathentry kind="lib" path="lib/locale/org-netbeans-tax_zh_CN.jar"/>
+	<classpathentry kind="lib" path="lib/AbsoluteLayout.jar"/>
+	<classpathentry kind="lib" path="lib/beansbinding-1.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.38.zip"/>
+	<classpathentry kind="lib" path="lib/org-jdesktop-beansbinding_ja.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
