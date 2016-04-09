@@ -37,8 +37,9 @@ public class Administrador extends Pessoa{
     public String gerarUsuario(){
         String resultado = "";
         boolean existeUsuario = false;
-        char symbol = this.gerarSimbolo();
+        
         do{
+        	char symbol = this.gerarSimbolo();
             resultado = this.getPnome()+symbol+this.getUnome();
             /*
                 CRIAR METODO PARA VERIFICAR SE USUARIO JA EXISTE OU NAO;
