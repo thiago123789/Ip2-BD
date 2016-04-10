@@ -10,5 +10,5 @@ package poo.negocios;
  * @author Thiago Gomes
  */
 public class GerarUsuario {
-    
+
 }

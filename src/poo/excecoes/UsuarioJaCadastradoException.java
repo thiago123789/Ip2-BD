@@ -9,6 +9,8 @@ package poo.excecoes;
  *
  * @author Thiago Gomes
  */
-public class UsuarioJaCadastradoException {
-    
+public class UsuarioJaCadastradoException extends Exception{
+    public UsuarioJaCadastradoException(){
+        
+    }
 }
