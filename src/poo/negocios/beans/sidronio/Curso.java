@@ -10,6 +10,10 @@ public class Curso {
 		this.setNome(nome);
 	}
 	
+	public Curso(){
+		
+	}
+	
 	public void setNome(String nome)
 	{
 		if(nome != null)
@@ -35,5 +39,11 @@ public class Curso {
 	{
 		return this.departamento;
 	}
+
+	@Override
+	public String toString() {
+		return "Curso [nome=" + nome + ", departamento=" + departamento + "]";
+	}
+	
 	
 }
