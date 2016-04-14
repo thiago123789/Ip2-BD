@@ -1,35 +1,47 @@
 package poo.negocios.beans.sidronio;
 
-public class PosGraduacao {
+import poo.negocios.beans.davi.AreaDePesquisa;
+import poo.negocios.beans.davi.SubArea;
 
-	private String nome;
-	private String area;
+public class PosGraduacao extends Curso{
+
+	private int codigo;
+	private boolean mestrado,doutorado;
 	private String especialidade;
+	private AreaDePesquisa area;
+	private SubArea sub_area;
 	
-	public PosGraduacao(String nome, String area, String especialidade){
-		this.nome=nome;
+	public PosGraduacao(int codigo,boolean mestrado, boolean doutorado, String especialidade, AreaDePesquisa area, SubArea sub_area){
+		this.codigo=codigo;
+		this.mestrado=mestrado;
+		this.doutorado=doutorado;
 		this.area=area;
-		this.especialidade=especialidade;
-	}
-	
-	public PosGraduacao(){
-		
+		this.sub_area=sub_area;
+
 	}
 
-	public String getNome() {
-		return nome;
+	public int getCodigo() {
+		return codigo;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
-	public String getArea() {
-		return area;
+	public boolean isMestrado() {
+		return mestrado;
 	}
 
-	public void setArea(String area) {
-		this.area = area;
+	public void setMestrado(boolean mestrado) {
+		this.mestrado = mestrado;
+	}
+
+	public boolean isDoutorado() {
+		return doutorado;
+	}
+
+	public void setDoutorado(boolean doutorado) {
+		this.doutorado = doutorado;
 	}
 
 	public String getEspecialidade() {
@@ -40,10 +52,29 @@ public class PosGraduacao {
 		this.especialidade = especialidade;
 	}
 
+	public AreaDePesquisa getArea() {
+		return area;
+	}
+
+	public void setArea(AreaDePesquisa area) {
+		this.area = area;
+	}
+
+	public SubArea getSub_area() {
+		return sub_area;
+	}
+
+	public void setSub_area(SubArea sub_area) {
+		this.sub_area = sub_area;
+	}
+
 	@Override
 	public String toString() {
-		return "PosGraduacao [nome=" + nome + ", area=" + area + ", especialidade=" + especialidade + "]";
+		return "PosGraduacao [codigo=" + codigo + ", mestrado=" + mestrado + ", doutorado=" + doutorado
+				+ ", especialidade=" + especialidade + ", area=" + area + ", sub_area=" + sub_area + "]";
 	}
 	
 	
+	
 }
+	

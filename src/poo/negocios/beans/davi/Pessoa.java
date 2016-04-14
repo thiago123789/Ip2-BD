@@ -7,7 +7,7 @@ import poo.excecoes.CPFInvalidoException;
 
 public class Pessoa {
 	private String pNome;
-        private String uNome;
+    private String uNome;
 	private String cpf;
 	
 	public Pessoa(String pNome, String uNome, String cpf) throws CPFInvalidoException
@@ -23,7 +23,7 @@ public class Pessoa {
         }
         
         public String getUnome(){
-            return this.uNnome;
+            return this.uNome;
         }
 	
 	public void setPnome(String nome)

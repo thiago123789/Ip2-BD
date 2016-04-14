@@ -2,38 +2,59 @@ package poo.negocios.beans.sidronio;
 
 public class Graduacao {
 
-	private String nome;
-	private String area;
+	private Professor coordenador,vice;
+	private Funcionario secretario;
+	private int codigo;
 	
-	public Graduacao(String nome, String area){
-		this.nome=nome;
-		this.area=area;
+	public Graduacao(Professor coordenador, Professor vice, Funcionario secretario, int codigo){
+		this.coordenador=coordenador;
+		this.vice=vice;
+		this.secretario=secretario;
+		this.codigo=codigo;
 	}
 	
 	public Graduacao(){
 		
 	}
 
-	public String getNome() {
-		return nome;
+	public Professor getCoordenador() {
+		return coordenador;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setCoordenador(Professor coordenador) {
+		this.coordenador = coordenador;
 	}
 
-	public String getArea() {
-		return area;
+	public Professor getVice() {
+		return vice;
 	}
 
-	public void setArea(String area) {
-		this.area = area;
+	public void setVice(Professor vice) {
+		this.vice = vice;
+	}
+
+	public Funcionario getSecretario() {
+		return secretario;
+	}
+
+	public void setSecretario(Funcionario secretario) {
+		this.secretario = secretario;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 	@Override
 	public String toString() {
-		return "Graduacao [nome=" + nome + ", area=" + area + "]";
+		return "Graduacao [codigo=" + codigo + "]";
 	}
+
+	
 	
 	
 }

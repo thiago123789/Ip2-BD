@@ -2,12 +2,12 @@ package poo.negocios.beans.sidronio;
 
 public class Curso {
 	private String nome;
-	private String departamento;
+	private Aluno [] alunos;
+	private Disciplina [] disciplinas;
 	
-	public Curso(String nome, String departamento)
+	public Curso(String nome)
 	{
-		this.setDepartamento(departamento);
-		this.setNome(nome);
+		this.nome=nome;;
 	}
 	
 	public Curso(){
@@ -22,28 +22,34 @@ public class Curso {
 		}	
 	}
 	
-	public void setDepartamento(String departamento)
-	{
-		if(departamento != null)
-		{
-			this.departamento = departamento;
-		}
-	}
 	
 	public String getNome()
 	{
 		return this.nome;
 	}
-	
-	public String getDepartamento()
-	{
-		return this.departamento;
+
+	public Aluno[] getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(Aluno[] alunos) {
+		this.alunos = alunos;
+	}
+
+	public Disciplina[] getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(Disciplina[] disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 
 	@Override
 	public String toString() {
-		return "Curso [nome=" + nome + ", departamento=" + departamento + "]";
+		return "Curso [nome=" + nome + "]"; 
 	}
+	
+	
 	
 	
 }
