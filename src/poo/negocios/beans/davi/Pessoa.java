@@ -13,6 +13,7 @@ public class Pessoa {
 	public Pessoa(String pNome, String uNome, String cpf) throws CPFInvalidoException
 	{
 		this.setPnome(pNome);
+		this.setUnome(uNome);
 		this.setCpf(cpf);
 	}
         

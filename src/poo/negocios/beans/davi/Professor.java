@@ -7,14 +7,14 @@ import poo.negocios.beans.sidronio.Curso;
 public class Professor extends Pessoa{
 	private String titulo;
 	private Curso curso;
-	private String lates;
+	private String lattes;
 	
-	public Professor(String titulo, String lates, Curso curso, String nome, String cpf) throws CPFInvalidoException
+	public Professor(String titulo, String lattes, Curso curso, String pNome, String uNome, String cpf) throws CPFInvalidoException
 	{
-		super(nome, cpf);
+		super(pNome, uNome, cpf);
 		this.setTitulo(titulo);
 		this.setCurso(curso);
-		this.setLates(lates);
+		this.setLattes(lattes);
 	}
 	
 	public void setTitulo(String titulo)
@@ -33,11 +33,11 @@ public class Professor extends Pessoa{
 		}
 	}
 	
-	public void setLates(String lates)
+	public void setLattes(String lattes)
 	{
-		if(lates != null)
+		if(lattes != null)
 		{
-			this.lates = lates;
+			this.lattes = lattes;
 		}
 	}
 	
@@ -51,9 +51,9 @@ public class Professor extends Pessoa{
 		return this.curso;
 	}
 	
-	public String getLates()
+	public String getLattes()
 	{
-		return this.lates;
+		return this.lattes;
 	}
 	
 }
