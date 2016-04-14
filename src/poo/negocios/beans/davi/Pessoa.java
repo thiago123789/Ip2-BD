@@ -2,19 +2,29 @@
 package poo.negocios.beans.davi;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.InputMismatchException;
 import poo.excecoes.CPFInvalidoException;
 
 public class Pessoa {
 	private String pNome;
-    private String uNome;
+     private String uNome;
 	private String cpf;
+	private Date dataNascimento;
+	private String sexo;
+	private String senha;
+	private String email;
+	private Endereco endereco;
 	
-	public Pessoa(String pNome, String uNome, String cpf) throws CPFInvalidoException
+	public Pessoa(String pNome, String uNome, String cpf, String sexo, String senha, String email, Endereco endereco) throws CPFInvalidoException
 	{
 		this.setPnome(pNome);
 		this.setUnome(uNome);
 		this.setCpf(cpf);
+		this.setSexo(sexo);
+		this.setSenha(senha);
+		this.setEmail(email);
+		this.setEndereco(endereco);
 	}
         
         public void setUnome(String nome){
@@ -57,6 +67,55 @@ public class Pessoa {
 		return this.cpf;
 	}
 	
+	
+	public Date getDataNascimento() {
+		return this.dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		if(dataNascimento != null){
+		this.dataNascimento = dataNascimento;
+		}
+	}
+
+	public String getSexo() {
+		return this.sexo;
+	}
+
+	public void setSexo(String sexo) {
+		if(sexo != null){
+		this.sexo = sexo;
+		}
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		if(senha != null){
+		this.senha = senha;
+		}
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		if(email != null){
+		this.email = email;
+		}
+	}
+
+	public Endereco getEndereco() {
+		return this.endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
 	public boolean validarCPF(String numeroCPF) throws CPFInvalidoException {
 
 		// considera-se erro CPF's formados por uma sequencia de numeros iguais
