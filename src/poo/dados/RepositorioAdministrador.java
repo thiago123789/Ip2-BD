@@ -143,11 +143,11 @@ public class RepositorioAdministrador implements Serializable{
 //			e.printStackTrace();
 //		}
             try{
-		RepositorioAdministrador aux = new RepositorioAdministrador();
+            	RepositorioAdministrador aux = new RepositorioAdministrador();
             }catch(SQLException e){
                 e.printStackTrace();
             }
-            Administrador aux = new Administrador();
+           // Administrador aux = new Administrador();
             
 	}
 
