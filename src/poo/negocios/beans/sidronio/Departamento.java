@@ -3,6 +3,7 @@ package poo.negocios.beans.sidronio;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import poo.negocios.beans.Funcionario;
 import poo.negocios.beans.davi.Professor;
 
 public class Departamento {
@@ -17,13 +18,17 @@ public class Departamento {
 		
 	}
 	
-	public Departamento(String nome, String codigo, Professor diretor, Professor vice){
-		this.nome=nome;
-		this.sigla=sigla; 
-		this.diretor=diretor;
-		this.vice=vice;
-
+	public Departamento(String nome, String sigla, Professor diretor, Professor vice,
+			ArrayList<Curso> cursos, ArrayList<Funcionario> funcionarios){
+		this.setNome(nome);
+		this.setDiretor(diretor);;
+		this.setVice(vice);
+		this.setSigla(sigla);
+		this.setFuncionarios(funcionarios);
+		this.setCursos(cursos);
 	}
+	
+	
 
 	public String getNome() {
 		return nome;
@@ -41,19 +46,19 @@ public class Departamento {
 		this.sigla = sigla;
 	}
 
-	public Curso[] getCursos() {
-		return cursos;
+	public ArrayList<Curso> getCursos(){
+		return this.cursos;
 	}
 
-	public void setCursos(Curso[] cursos) {
+	public void setCursos(ArrayList<Curso> cursos) {
 		this.cursos = cursos;
 	}
 
-	public Funcionario[] getFuncionarios() {
-		return funcionarios;
+	public ArrayList<Funcionario> getFuncionarios() {
+		return this.funcionarios;
 	}
 
-	public void setFuncionarios(Funcionario[] funcionarios) {
+	public void setFuncionarios(ArrayList<Funcionario> funcionarios) {
 		this.funcionarios = funcionarios;
 	}
 	
@@ -74,11 +79,12 @@ public class Departamento {
 		this.vice = vice;
 	}
 
+	/*
 	@Override
 	public String toString() {
 		return "Departamento [nome=" + nome + ", sigla=" + sigla + ", cursos=" + Arrays.toString(cursos) + "]";
 	}
-
+	 */
 	
 
 	

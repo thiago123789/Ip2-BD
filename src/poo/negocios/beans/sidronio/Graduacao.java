@@ -1,17 +1,17 @@
 package poo.negocios.beans.sidronio;
-import poo.negocios.beans.davi.*;
-import poo.negocios.beans.veneranda.*;
-public class Graduacao extends {
+import poo.negocios.beans.Funcionario;
+import poo.negocios.beans.davi.Professor;
+public class Graduacao extends Curso{
 
 	private Professor coordenador,vice;
 	private Funcionario secretario;
 	private int codigo;
 	
 	public Graduacao(Professor coordenador, Professor vice, Funcionario secretario, int codigo){
-		this.coordenador=coordenador;
-		this.vice=vice;
-		this.secretario=secretario;
-		this.codigo=codigo;
+		this.setCoordenador(coordenador);
+		this.setVice(vice);
+		this.setSecretario(secretario);
+		this.setCodigo(codigo);
 	}
 	
 	public Graduacao(){
@@ -49,12 +49,12 @@ public class Graduacao extends {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-
+	/*
 	@Override
 	public String toString() {
 		return "Graduacao [codigo=" + codigo + "]";
 	}
-
+	 */
 	
 	
 	

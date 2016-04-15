@@ -11,12 +11,10 @@ public class PosGraduacao extends Curso{
 	private AreaDePesquisa area;
 	private SubArea sub_area;
 	
-	public PosGraduacao(int codigo,boolean mestrado, boolean doutorado, String especialidade, AreaDePesquisa area, SubArea sub_area){
-		this.codigo=codigo;
-		this.mestrado=mestrado;
-		this.doutorado=doutorado;
-		this.area=area;
-		this.sub_area=sub_area;
+	public PosGraduacao(int codigo, String especialidade, AreaDePesquisa area, SubArea sub_area){
+		this.setCodigo(codigo);
+		this.setArea(area);
+		this.setSub_area(sub_area);
 
 	}
 
@@ -28,19 +26,33 @@ public class PosGraduacao extends Curso{
 		this.codigo = codigo;
 	}
 
+	public void setTipo(int op){
+		if(op == 0){
+			this.setMestrado(true);
+			this.setDoutorado(false);
+		}else{
+			this.setMestrado(false);
+			this.setDoutorado(true);
+		}
+	}
+		
+	///QUE PORRA É ISSO ?????????
 	public boolean isMestrado() {
 		return mestrado;
 	}
 
-	public void setMestrado(boolean mestrado) {
+	///SET ALTERADO PARA PRIVADO
+	private void setMestrado(boolean mestrado) {
 		this.mestrado = mestrado;
 	}
 
+	///QUE KRALHO É ESSE ????????
 	public boolean isDoutorado() {
 		return doutorado;
 	}
 
-	public void setDoutorado(boolean doutorado) {
+	///SET ALTERADO PARA PRIVADO
+	private void setDoutorado(boolean doutorado) {
 		this.doutorado = doutorado;
 	}
 
