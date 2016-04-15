@@ -1,5 +1,8 @@
 package poo.negocios.beans;
 
-public class Funcionario {
+import poo.negocios.beans.sidronio.Departamento;
 
+public class Funcionario {
+	private int permissaoDeAcesso;
+	private Departamento departamento;
 }
