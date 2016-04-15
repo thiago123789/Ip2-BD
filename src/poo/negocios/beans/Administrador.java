@@ -4,9 +4,6 @@ import java.util.Date;
 
 import poo.excecoes.CPFInvalidoException;
 import poo.excecoes.PermissaoInvalidaException;
-import poo.negocios.beans.davi.*;
-import poo.negocios.beans.sidronio.*;
-
 public class Administrador {
 //    private int permissao;
 //       

@@ -1,8 +1,5 @@
 package poo.negocios.beans;
 
-import poo.negocios.beans.davi.*;
-import poo.negocios.beans.veneranda.*;
-
 public class Curso {
 	private String nome;
 	private Aluno [] alunos;
