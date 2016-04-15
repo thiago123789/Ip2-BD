@@ -1,16 +1,16 @@
 package poo.negocios.beans.sidronio;
 
-import poo.negocios.beans.davi.*;
-import poo.negocios.beans.veneranda.*;
-
+import java.util.ArrayList;
 import java.util.Arrays;
+
+import poo.negocios.beans.davi.Professor;
 
 public class Departamento {
 
 	private String nome;
 	private String sigla;
-	private Curso[] cursos;
-	private Funcionario[] funcionarios;
+	private ArrayList<Curso> cursos;
+	private ArrayList<Funcionario> funcionarios;
 	private Professor diretor,vice;
 	
 	public Departamento(){

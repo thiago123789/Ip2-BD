@@ -8,7 +8,7 @@ import poo.excecoes.CPFInvalidoException;
 
 public class Pessoa {
 	private String pNome;
-     private String uNome;
+    private String uNome;
 	private String cpf;
 	private Date dataNascimento;
 	private String sexo;

@@ -4,26 +4,26 @@ package poo.negocios.beans.davi;
 import poo.excecoes.CPFInvalidoException;
 import poo.negocios.beans.sidronio.Curso;
 import poo.negocios.beans.sidronio.Graduacao;
-import poo.negocios.beans.veneranda.Semestre;
+import poo.negocios.beans.veneranda.OfertaDisciplina;
 
 public class Aluno extends Pessoa{
 	private Curso curso;
 	private Graduacao graduacao;
-	private Semestre semestre;
+	private OfertaDisciplina ofertaDisciplina;
 	private String turno;
 	private int anoEntrada, semestreEntrada;
 	private Historico historico;
 	private boolean prioridade;
 	
         
-    public Aluno(Curso curso, Graduacao graduacao,Semestre semestre, String pNome, 
+    public Aluno(Curso curso, Graduacao graduacao,OfertaDisciplina ofertaDisciplina, String pNome, 
     		String uNome, String cpf, String turno, int anoEntrada, 
     		int semestreEntrada, Historico historico,
     		boolean prioridade, String sexo, String senha, String email, Endereco endereco) throws CPFInvalidoException {
 	super(pNome, uNome, cpf, sexo, senha, email, endereco);
 	this.setCurso(curso);
 	this.setGraduacao(graduacao);
-	this.setSemestre(semestre);
+	this.setSemestre(ofertaDisciplina);
 	this.setAnoEntrada(anoEntrada);
 	this.setTurno(turno);
 	this.setHistorico(historico);
@@ -43,9 +43,9 @@ public void setGraduacao(Graduacao graduacao){
 	}
 }
 
-public void setSemestre(Semestre semestre){
-	if(semestre != null){
-		this.semestre = semestre;
+public void setSemestre(OfertaDisciplina ofertaDisciplina){
+	if(ofertaDisciplina != null){
+		this.ofertaDisciplina = ofertaDisciplina;
 	}
 }
 public Curso getCurso(){
@@ -56,8 +56,8 @@ public Graduacao getGraduacao(){
 	return this.graduacao;
 }
 
-public Semestre getSemestre(){
-	return this.semestre;
+public OfertaDisciplina getSemestre(){
+	return this.ofertaDisciplina;
 }
 
 public String getTurno() {
@@ -65,7 +65,7 @@ public String getTurno() {
 }
 
 public void setTurno(String turno) {
-	if(semestre != null){
+	if(ofertaDisciplina != null){
 	this.turno = turno;
 	}
 }
@@ -75,7 +75,7 @@ public int getAnoEntrada() {
 }
 
 public void setAnoEntrada(int anoEntrada) {
-	if(semestre != null){
+	if(ofertaDisciplina != null){
 	this.anoEntrada = anoEntrada;
 	}
 }
@@ -85,7 +85,7 @@ public int getSemestreEntrada() {
 }
 
 public void setSemestreEntrada(int semestreEntrada) {
-	if(semestre != null){
+	if(ofertaDisciplina != null){
 	this.semestreEntrada = semestreEntrada;
 	}
 }
@@ -95,15 +95,15 @@ public Historico getHistorico() {
 }
 
 public void setHistorico(Historico historico) {
-	if(semestre != null){
+	if(ofertaDisciplina != null){
 	this.historico = historico;
 	}
 }
 
-public boolean setPrioridade() {
-	if(semestre != null){
-	return prioridade;
-	}
+public boolean getPrioridade() {
+	
+		return this.prioridade;
+	
 }
 
 public void setPrioridade(boolean prioridade) {

@@ -1,7 +1,7 @@
 package poo.negocios.beans.sidronio;
 import poo.negocios.beans.davi.*;
 import poo.negocios.beans.veneranda.*;
-public class Graduacao {
+public class Graduacao extends {
 
 	private Professor coordenador,vice;
 	private Funcionario secretario;

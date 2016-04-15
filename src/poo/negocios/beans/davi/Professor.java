@@ -9,9 +9,11 @@ public class Professor extends Pessoa{
 	private Curso curso;
 	private String lattes;
 	
-	public Professor(String titulo, String lattes, Curso curso, String pNome, String uNome, String cpf) throws CPFInvalidoException
+	public Professor(String titulo, String lattes,String sexo, String senha, 
+			String email, Endereco endereco, Curso curso, 
+			String pNome, String uNome, String cpf) throws CPFInvalidoException
 	{
-		super(pNome, uNome, cpf);
+		super(pNome, uNome, cpf, sexo, senha, email, endereco);
 		this.setTitulo(titulo);
 		this.setCurso(curso);
 		this.setLattes(lattes);
