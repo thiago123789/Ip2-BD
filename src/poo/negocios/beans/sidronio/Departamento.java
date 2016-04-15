@@ -1,5 +1,8 @@
 package poo.negocios.beans.sidronio;
 
+import poo.negocios.beans.davi.*;
+import poo.negocios.beans.veneranda.*;
+
 import java.util.Arrays;
 
 public class Departamento {
