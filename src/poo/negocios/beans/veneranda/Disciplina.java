@@ -13,12 +13,17 @@ public class Disciplina {
 	private Curso curso;
 	private String area, trilha;
 	
-	public Disciplina(String nome, int codigo, ArrayList<Disciplina> preRequisito, ArrayList<Disciplina> coRequisito, Professor professoes[]){
+	public Disciplina(String nome, int codigo, ArrayList<Disciplina> preRequisito, ArrayList<Disciplina> coRequisito, ArrayList<Professor> professores, String trilha, String area, Curso curso, int tipoDisciplina, int tipoDisciplinaCurso){
 		this.setCodigo(codigo);
 		this.setNome(nome);
 		this.setPreRequisito(preRequisito);
 		this.setCoRequisito(coRequisito);
 		this.setProfessores(professores);
+		this.setTipoDisciplina(tipoDisciplina);
+		this.setTipoDisciplinaCurso(tipoDisciplinaCurso);	
+		this.setTrilha(trilha);
+		this.setCurso(curso);
+		this.setArea(area);
 	}
 	
 	public boolean getGraducao(){
@@ -144,7 +149,5 @@ public class Disciplina {
 			this.professores = professores;
 		}
 	}
-	
-	
-	
+		
 }
