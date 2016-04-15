@@ -1,8 +1,7 @@
 //CLASSE PARA DAVI;
-package poo.negocios.beans.davi;
+package poo.negocios.beans;
 
 import poo.excecoes.CPFInvalidoException;
-import poo.negocios.beans.sidronio.Curso;
 
 public class Professor extends Pessoa{
 	private String titulo;

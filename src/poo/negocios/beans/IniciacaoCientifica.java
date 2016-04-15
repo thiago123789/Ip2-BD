@@ -1,4 +1,4 @@
-package poo.negocios.beans.veneranda;
+package poo.negocios.beans;
 
 public class IniciacaoCientifica extends Projeto{
 

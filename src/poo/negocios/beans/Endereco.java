@@ -1,4 +1,4 @@
-package poo.negocios.beans.davi;
+package poo.negocios.beans;
 public class Endereco{
 	//Atributos
 	private String logradouro, numero, bairro, cidade, cep;

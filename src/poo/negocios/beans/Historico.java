@@ -1,8 +1,6 @@
-package poo.negocios.beans.davi;
+package poo.negocios.beans;
 
 import java.util.ArrayList;
-
-import poo.negocios.beans.veneranda.OfertaDisciplina;
 
 public class Historico {
 	private ArrayList<OfertaDisciplina> ofertasDisciplinas;

@@ -1,7 +1,5 @@
-package poo.negocios.beans.sidronio;
+package poo.negocios.beans;
 
-import poo.negocios.beans.davi.AreaDePesquisa;
-import poo.negocios.beans.davi.SubArea;
 
 public class PosGraduacao extends Curso{
 

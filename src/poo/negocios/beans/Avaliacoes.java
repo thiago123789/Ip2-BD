@@ -1,4 +1,4 @@
-package poo.negocios.beans.sidronio;
+package poo.negocios.beans;
 
 import java.util.Arrays;
 

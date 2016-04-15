@@ -1,4 +1,4 @@
-package poo.negocios.beans.sidronio;
+package poo.negocios.beans;
 
 import poo.negocios.beans.davi.*;
 import poo.negocios.beans.veneranda.*;

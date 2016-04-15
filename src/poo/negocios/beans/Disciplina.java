@@ -1,8 +1,5 @@
-package poo.negocios.beans.veneranda;
+package poo.negocios.beans;
 import java.util.ArrayList;
-
-import poo.negocios.beans.davi.Professor;
-import poo.negocios.beans.sidronio.Curso;
 
 public class Disciplina {
 	private String nome;

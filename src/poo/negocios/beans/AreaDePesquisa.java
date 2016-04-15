@@ -1,5 +1,5 @@
 //CLASSE PARA DAVI;
-package poo.negocios.beans.davi;
+package poo.negocios.beans;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,4 @@
-package poo.negocios.beans.sidronio;
-import poo.negocios.beans.Funcionario;
-import poo.negocios.beans.davi.Professor;
+package poo.negocios.beans;
 public class Graduacao extends Curso{
 
 	private Professor coordenador,vice;

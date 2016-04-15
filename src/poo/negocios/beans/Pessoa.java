@@ -1,5 +1,5 @@
 //CLASSE P/ DAVI
-package poo.negocios.beans.davi;
+package poo.negocios.beans;
 
 import java.io.IOException;
 import java.util.Date;

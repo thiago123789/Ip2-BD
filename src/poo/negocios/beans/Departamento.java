@@ -1,10 +1,7 @@
-package poo.negocios.beans.sidronio;
+package poo.negocios.beans;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import poo.negocios.beans.Funcionario;
-import poo.negocios.beans.davi.Professor;
 
 public class Departamento {
 

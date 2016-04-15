@@ -1,10 +1,7 @@
 //CLASSE P/ DAVI
-package poo.negocios.beans.davi;
+package poo.negocios.beans;
 
 import poo.excecoes.CPFInvalidoException;
-import poo.negocios.beans.sidronio.Curso;
-import poo.negocios.beans.sidronio.Graduacao;
-import poo.negocios.beans.veneranda.OfertaDisciplina;
 
 public class Aluno extends Pessoa{
 	private Curso curso;
