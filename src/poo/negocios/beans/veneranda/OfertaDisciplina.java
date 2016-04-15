@@ -1,5 +1,5 @@
 package poo.negocios.beans.veneranda;
 
-public class Semestre {
+public class OfertaDisciplina {
 	
 }
