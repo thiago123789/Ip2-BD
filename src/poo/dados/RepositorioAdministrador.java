@@ -83,12 +83,12 @@ public class RepositorioAdministrador implements Serializable{
 			Connection con = getConexao();
 //			Statement simplaStatement = con.createStatement();
 			PreparedStatement smt = (PreparedStatement) con.prepareStatement(comando);
-			smt.setString(1, administrador.getCpf());
-			smt.setString(2, administrador.getPnome());
-			smt.setString(3, administrador.getUnome());
-			smt.setString(4, administrador.getUsuario());
-			smt.setString(5, administrador.getSenha());
-			smt.setDate(6, new Date(administrador.getData_nasc().getTime()));
+//			smt.setString(1, administrador.getCpf());
+//			smt.setString(2, administrador.getPnome());
+//			smt.setString(3, administrador.getUnome());
+//			smt.setString(4, administrador.getUsuario());
+//			smt.setString(5, administrador.getSenha());
+//			smt.setDate(6, new Date(administrador.getData_nasc().getTime()));
 			smt.execute();
 			smt.close();
 		}catch(Exception e){
