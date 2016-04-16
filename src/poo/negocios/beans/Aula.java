@@ -6,18 +6,28 @@ import poo.excecoes.HorarioInvalidoTMQIException;
 import poo.excecoes.MinutosInvalidosException;
 
 public class Aula {
+	private String sala;
 	private int dia, horaInicio, minutosInicio, horaTermino, minutosTermino;
 	
-	public Aula(int dia, int horaInicio,int minutosInicio,
+	public Aula(String sala, int dia, int horaInicio,int minutosInicio,
                 int horaTermino, int minutosTermino) 
 					throws HorarioInvalidoException, MinutosInvalidosException,
 					HorarioInvalidoTMQIException, DiaNaoSelecionadoException
 	{
 		this.setDia(dia);
+		this.setSala(sala);
 		this.setHorarioInicioCompleto(horaInicio, minutosInicio);
         this.setHorarioTerminoCompleto(horaTermino, minutosTermino);
 	}
+	public String getSala(){
+		return this.sala;
+	}
 
+	public void setSala(String sala){
+		if(sala != null){
+			this.sala = sala;
+		}
+	}
 	public void setHorarioTerminoCompleto(int horas, int minutos) 
 			throws HorarioInvalidoException, MinutosInvalidosException, 
 			HorarioInvalidoTMQIException{
