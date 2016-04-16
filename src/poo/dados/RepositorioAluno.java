@@ -1,6 +1,6 @@
 package poo.dados;
 import poo.negocios.beans.Aluno;
-import poo.negocios.beans.davi.*;
+
 
 import java.io.Serializable;
 

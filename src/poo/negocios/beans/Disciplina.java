@@ -9,8 +9,13 @@ public class Disciplina {
 	private boolean optativa, obrigatoria, graduacao, posGraducao;
 	private Curso curso;
 	private String area, trilha;
+	private Horario horario;
 	
-	public Disciplina(String nome, int codigo, ArrayList<Disciplina> preRequisito, ArrayList<Disciplina> coRequisito, ArrayList<Professor> professores, String trilha, String area, Curso curso, int tipoDisciplina, int tipoDisciplinaCurso){
+	public Disciplina(String nome, int codigo, 
+			ArrayList<Disciplina> preRequisito, 
+			ArrayList<Disciplina> coRequisito, ArrayList<Professor> professores, 
+			String trilha, String area, Curso curso, int tipoDisciplina, 
+			int tipoDisciplinaCurso, Horario horario){
 		this.setCodigo(codigo);
 		this.setNome(nome);
 		this.setPreRequisito(preRequisito);
@@ -21,8 +26,17 @@ public class Disciplina {
 		this.setTrilha(trilha);
 		this.setCurso(curso);
 		this.setArea(area);
+		this.setHorario(horario);
 	}
 	
+	public Horario getHorario() {
+		return horario;
+	}
+
+	public void setHorario(Horario horario) {
+		this.horario = horario;
+	}
+
 	public boolean getGraducao(){
 		return this.graduacao;
 	}

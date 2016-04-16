@@ -2,21 +2,21 @@ package poo.negocios.beans;
 
 import java.util.Arrays;
 
-public class Avaliacoes {
+public class Avaliacao {
 
 	private int notas[];
 	private String descricao;
 	private boolean anonima;
 	private String nome_aluno;
 	
-	public Avaliacoes(String descricao,boolean anonima, String nome_aluno ){
+	public Avaliacao(String descricao,boolean anonima, String nome_aluno ){
 		this.descricao=descricao;
 		this.anonima=anonima;
 		this.nome_aluno=nome_aluno;
 		this.notas= new int[5];
 	}
 	
-	public Avaliacoes(){
+	public Avaliacao(){
 		
 	}
 

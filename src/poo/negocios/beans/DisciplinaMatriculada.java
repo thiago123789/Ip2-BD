@@ -13,9 +13,9 @@ public class DisciplinaMatriculada extends Disciplina{
 			ArrayList<Disciplina> coRequisito,
 			ArrayList<Professor> professores, String trilha, String area,
 			Curso curso, int tipoDisciplina, int tipoDisciplinaCurso, Aluno aluno, float av1, float av2,
-			float av3, float pfinal, float media) {
+			float av3, float pfinal, float media, Horario horario) {
 		super(nome, codigo, preRequisito, coRequisito, professores, trilha, area,
-				curso, tipoDisciplina, tipoDisciplinaCurso);
+				curso, tipoDisciplina, tipoDisciplinaCurso, horario);
 		this.setSituacao(situacao);
 		this.setaV1(av1);
 		this.setaV2(av2);

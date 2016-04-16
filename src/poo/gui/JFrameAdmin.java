@@ -196,6 +196,11 @@ public class JFrameAdmin extends javax.swing.JFrame {
         mnuDisciplina.setText("Disciplina");
 
         jMenuItem5.setText("Adicionar Disciplina");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         mnuDisciplina.add(jMenuItem5);
 
         jMenuItem7.setText("Atualizar Disciplina");
@@ -346,6 +351,13 @@ public class JFrameAdmin extends javax.swing.JFrame {
         desktop.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_mnuBuscarNovaConsultaActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        FrameCadastroDisciplina f = new FrameCadastroDisciplina();
+        desktop.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
