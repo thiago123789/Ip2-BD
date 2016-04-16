@@ -1,9 +1,5 @@
 package poo.negocios.beans;
 
-import java.util.Date;
-
-import poo.excecoes.CPFInvalidoException;
-import poo.excecoes.PermissaoInvalidaException;
 public class Administrador {
 //    private int permissao;
 //       

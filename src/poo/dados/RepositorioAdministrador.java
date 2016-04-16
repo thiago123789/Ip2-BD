@@ -5,19 +5,18 @@
  */
 package poo.dados;
 import java.io.Serializable;
-import java.sql.Date;
-
 //BIBLIOTECAS PARA BANCO DE DADOS
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.*;
-import com.mysql.jdbc.PreparedStatement;
 
-import poo.negocios.beans.*;
+import poo.negocios.beans.Administrador;
+
+import com.mysql.jdbc.PreparedStatement;
 /**
  *
  * @author Thiago Gomes

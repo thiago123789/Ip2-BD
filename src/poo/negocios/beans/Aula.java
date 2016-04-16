@@ -1,5 +1,6 @@
 package poo.negocios.beans;
 
+import poo.excecoes.DiaNaoSelecionadoException;
 import poo.excecoes.HorarioInvalidoException;
 import poo.excecoes.HorarioInvalidoTMQIException;
 import poo.excecoes.MinutosInvalidosException;
@@ -7,30 +8,33 @@ import poo.excecoes.MinutosInvalidosException;
 public class Aula {
 	private int dia, horaInicio, minutosInicio, horaTermino, minutosTermino;
 	
-	public Aula(int dia, int horaInicio, int horaTermino, 
-			int minutosInicio, int minutosTermino) 
+	public Aula(int dia, int horaInicio,int minutosInicio,
+                int horaTermino, int minutosTermino) 
 					throws HorarioInvalidoException, MinutosInvalidosException,
-					HorarioInvalidoTMQIException
+					HorarioInvalidoTMQIException, DiaNaoSelecionadoException
 	{
 		this.setDia(dia);
 		this.setHorarioInicioCompleto(horaInicio, minutosInicio);
+        this.setHorarioTerminoCompleto(horaTermino, minutosTermino);
 	}
-	
+
 	public void setHorarioTerminoCompleto(int horas, int minutos) 
 			throws HorarioInvalidoException, MinutosInvalidosException, 
 			HorarioInvalidoTMQIException{
 		if(horas >= 00 && horas <= 23){
-			this.setHoraTermino(horas);
-		}else if(horas < this.horaInicio){
-			throw new HorarioInvalidoTMQIException();
-		}else if(horas == this.horaInicio){
-			if(minutos < this.minutosInicio){
+			if(horas < this.horaInicio){
 				throw new HorarioInvalidoTMQIException();
+			}else if(horas == this.horaInicio){
+				if(minutos < this.minutosInicio){
+					throw new HorarioInvalidoTMQIException();
+				}
+			}else{
+				this.setHoraTermino(horas);
 			}
 		}else{
 			throw new HorarioInvalidoException();
 		}
-		
+
 		if(minutos>= 00 && minutos <= 59){
 			this.setMinutosTermino(minutos);
 		}else{
@@ -57,8 +61,12 @@ public class Aula {
 		return dia;
 	}
 
-	public void setDia(int dia) {
-		this.dia = dia;
+	public void setDia(int dia) throws DiaNaoSelecionadoException{
+            if(dia != -1){
+            	this.dia = dia;
+            }else{
+                throw new DiaNaoSelecionadoException();
+            }
 	}
 
 	public int getHoraInicio() {
@@ -100,7 +108,7 @@ public class Aula {
 			dia = "Segunda";
 			break;
 		case 3:
-			dia = "Ter�a";
+			dia = "Terca";
 			break;
 		case 4:
 			dia = "Quarta";

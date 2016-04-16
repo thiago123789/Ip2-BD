@@ -1,8 +1,7 @@
 package poo.dados;
-import poo.negocios.beans.Aluno;
-
-
 import java.io.Serializable;
+
+import poo.negocios.beans.Aluno;
 
 public class RepositorioAluno implements Serializable{
 	

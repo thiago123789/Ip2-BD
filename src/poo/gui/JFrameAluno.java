@@ -6,10 +6,6 @@
 package poo.gui;
 
 import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
-import poo.gui.myframes.FrameCadastroProfessor;
-import poo.gui.myframes.FrameCadastroUsuario;
-import poo.gui.myframes.*;
 
 /**
  *

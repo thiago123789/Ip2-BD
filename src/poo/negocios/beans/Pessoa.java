@@ -1,9 +1,9 @@
 //CLASSE P/ DAVI
 package poo.negocios.beans;
 
-import java.io.IOException;
 import java.util.Date;
 import java.util.InputMismatchException;
+
 import poo.excecoes.CPFInvalidoException;
 
 public class Pessoa {
