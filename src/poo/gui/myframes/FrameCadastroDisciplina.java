@@ -261,6 +261,7 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+    	String sala = "Sala 01";
         int dia = -1, horaInicio, minutoInicio, horaTermino, minutoTermino;
         if(jRSegunda.isSelected()){
             dia = 2;
@@ -278,7 +279,7 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
         horaTermino = Integer.parseInt(jTHoraTermino.getText());
         minutoTermino = Integer.parseInt(jTMinutoTermino.getText());
         try{
-            Aula a = new Aula(dia, horaInicio, minutoInicio, horaTermino, minutoTermino);
+            Aula a = new Aula(sala, dia, horaInicio, minutoInicio, horaTermino, minutoTermino);
             list1.add(a.toString());
         }catch(HorarioInvalidoException e){
             jTHoraInicio.setText(null);
