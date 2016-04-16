@@ -160,5 +160,9 @@ public class Disciplina {
 			this.professores = professores;
 		}
 	}
+	
+	public String getString(){
+		return this.trilha;
+	}
 		
 }
