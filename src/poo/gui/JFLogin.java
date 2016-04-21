@@ -230,9 +230,7 @@ public class JFLogin extends javax.swing.JFrame {
     private void jBLimparLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparLoginActionPerformed
         // TODO add your handling code here:
         jTUsuario.setText(null);
-
         jPSenhaLogin.setText("");
-
     }//GEN-LAST:event_jBLimparLoginActionPerformed
 
     private void jBLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLogarActionPerformed

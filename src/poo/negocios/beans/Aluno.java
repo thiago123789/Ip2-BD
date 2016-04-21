@@ -1,5 +1,4 @@
-package src.poo.negocios.beans;
-
+package poo.negocios.beans;
 
 import poo.excecoes.CPFInvalidoException;
 import poo.negocios.beans.*;

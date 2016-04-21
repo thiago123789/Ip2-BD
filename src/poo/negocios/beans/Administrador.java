@@ -1,5 +1,4 @@
-package src.poo.negocios.beans;
-
+package poo.negocios.beans;
 public class Administrador {
 //    private int permissao;
 //       
