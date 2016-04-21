@@ -1,7 +1,8 @@
-//CLASSE P/ DAVI
-package poo.negocios.beans;
+package src.poo.negocios.beans;
+
 
 import poo.excecoes.CPFInvalidoException;
+import poo.negocios.beans.*;
 
 public class Aluno extends Pessoa{
 	private Curso curso;
