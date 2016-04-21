@@ -97,6 +97,11 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
         jTMinutoTermino.setText("MM");
 
         jTMinutoInicio.setText("MM");
+        jTMinutoInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTMinutoInicioActionPerformed(evt);
+            }
+        });
 
         jRSegunda.setText("Seg");
 
@@ -308,6 +313,10 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTMinutoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMinutoInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTMinutoInicioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
