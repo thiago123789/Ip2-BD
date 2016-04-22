@@ -1,19 +1,29 @@
 package poo.negocios.beans;
 
 public class Curso {
+	private int codigo;
 	private String nome;
 	private Aluno [] alunos;
 	private Disciplina [] disciplinas;
 	
-	public Curso(String nome)
+	public Curso(int codigo, String nome)
 	{
-		this.nome=nome;;
+		this.setCodigo(codigo);
+		this.nome=nome;
 	}
 	
 	public Curso(){
 		
 	}
 	
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
 	public void setNome(String nome)
 	{
 		if(nome != null)
