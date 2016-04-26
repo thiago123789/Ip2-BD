@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- JNLP File for Quaqua Test Application -->
+<jnlp
+  spec="1.5.0+"
+  codebase="http://www.randelshofer.ch/quaqua/jws"
+  href="quaqua-test.jnlp">
+  <information>
+    <title>Quaqua Test Application</title>
+    <vendor>Werner Randelshofer</vendor>
+    <homepage href="http://www.randelshofer.ch/quaqua/download.html"/>
+    <description>Quaqua Test Application</description>
+    <description kind="short">A test of the Quaqua Look and Feel.</description>
+    <offline-allowed/>
+    <shortcut online="false">
+    	<desktop/>
+    	<menu submenu="Quaqua Look and Feel"/>
+    </shortcut>
+  </information>
+  <security> 
+      <all-permissions/> 
+  </security> 
+  <resources>
+    <j2se version="1.5+"/>
+    <property name="apple.awt.graphics.UseQuartz" value="true"/>
+    <nativelib href="libquaqua.jnilib.jar"/> 
+    <nativelib href="libquaqua64.jnilib.jar"/> 
+    <nativelib href="libquaqua64.dylib.jar"/> 
+    <jar href="quaqua-test.jar"/>
+    <jar href="quaqua.jar"/>
+  </resources>
+  <application-desc main-class="test.Main"/>
+</jnlp> 

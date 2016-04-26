@@ -20,7 +20,7 @@ import poo.negocios.beans.Aula;
  * @author Thiago Gomes
  */
 public class FrameCadastrarHorario extends javax.swing.JInternalFrame {
-private static ArrayList<String> horarios;
+	private static String[] horarios;
     /**
      * Creates new form FrameCadastrarHorario
      */

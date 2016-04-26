@@ -1,0 +1,35 @@
+
+/////////>>> COMANDO MYSQL PARA CRIAR FOREIGN KEYS NA TABELA DISCIPLINA 
+
+ALTER TABLE `deinfo`.`disciplina` 
+ADD INDEX `fk_pre_requisito1_idx` (`PRE_REQUISITO1` ASC),
+ADD INDEX `fk_pre_requisito2_idx` (`PRE_REQUISITO2` ASC),
+ADD INDEX `fk_pre_requisito3_idx` (`PRE_REQUISITO3` ASC),
+ADD INDEX `fk_pre_requisito4_idx` (`PRE_REQUISITO4` ASC),
+ADD INDEX `fk_co_requisito_idx` (`CO_REQUISITO` ASC);
+ALTER TABLE `deinfo`.`disciplina` 
+ADD CONSTRAINT `fk_pre_requisito1`
+  FOREIGN KEY (`PRE_REQUISITO1`)
+  REFERENCES `deinfo`.`disciplina` (`CODIGO_DIS`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE,
+ADD CONSTRAINT `fk_pre_requisito2`
+  FOREIGN KEY (`PRE_REQUISITO2`)
+  REFERENCES `deinfo`.`disciplina` (`CODIGO_DIS`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE,
+ADD CONSTRAINT `fk_pre_requisito3`
+  FOREIGN KEY (`PRE_REQUISITO3`)
+  REFERENCES `deinfo`.`disciplina` (`CODIGO_DIS`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE,
+ADD CONSTRAINT `fk_pre_requisito4`
+  FOREIGN KEY (`PRE_REQUISITO4`)
+  REFERENCES `deinfo`.`disciplina` (`CODIGO_DIS`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE,
+ADD CONSTRAINT `fk_co_requisito`
+  FOREIGN KEY (`CO_REQUISITO`)
+  REFERENCES `deinfo`.`disciplina` (`CODIGO_DIS`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;

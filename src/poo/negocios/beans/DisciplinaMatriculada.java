@@ -2,20 +2,16 @@ package poo.negocios.beans;
 
 import java.util.ArrayList;
 
-public class DisciplinaMatriculada extends Disciplina{
+public class DisciplinaMatriculada{
 	
+	private Oferta oferta;
 	private Aluno aluno;
+	private Disciplina disciplina;
 	private float aV1, aV2, aV3, pFinal, media;
 	private String situacao;
 	
-	public DisciplinaMatriculada(String nome, int codigo,
-			ArrayList<Disciplina> preRequisito,
-			ArrayList<Disciplina> coRequisito,
-			ArrayList<Professor> professores, String trilha, String area,
-			Curso curso, int tipoDisciplina, int tipoDisciplinaCurso, Aluno aluno, float av1, float av2,
-			float av3, float pfinal, float media, Horario horario) {
-		super(nome, codigo, preRequisito, coRequisito, professores, trilha, area,
-				curso, tipoDisciplina, tipoDisciplinaCurso, horario);
+	public DisciplinaMatriculada(int codigo, Aluno aluno, float av1, float av2,
+			float av3, float pfinal, float media) {
 		this.setSituacao(situacao);
 		this.setaV1(av1);
 		this.setaV2(av2);

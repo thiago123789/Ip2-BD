@@ -5,7 +5,10 @@
  */
 package poo.gui;
 
+import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 import poo.gui.myframes.FrameBuscarUsuario;
 import poo.gui.myframes.FrameCadastroDisciplina;
@@ -89,7 +92,8 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Academico - DEINFO (Administrador)");
-        setLocation(new java.awt.Point(200, 150));
+        setLocation(new java.awt.Point(400, 30));
+        setPreferredSize(new java.awt.Dimension(600, 700));
 
         javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
         desktop.setLayout(desktopLayout);
@@ -360,7 +364,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         FrameCadastroDisciplina f = new FrameCadastroDisciplina();
-        desktop.add(f);
+		desktop.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
@@ -374,12 +378,13 @@ public class JFrameAdmin extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+            UIManager.setLookAndFeel("ch.randelshofer.quaqua.QuaquaLookAndFeel");
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(JFrameAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {

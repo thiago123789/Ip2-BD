@@ -4,21 +4,24 @@ import java.util.ArrayList;
 public class Disciplina {
 	private String nome;
 	private String codigo;
-	private ArrayList<Disciplina> preRequisito, coRequisito;
-	private Disciplina[] preReq;
+	private Disciplina preRequisito1, preRequisito2,preRequisito3, preRequisito4, coRequisito;
+//	private Disciplina[] preReq;
 	private boolean optativa, obrigatoria, graduacao, posGraducao;
 	private Curso curso;
 	private Trilha trilha;
 	private int cargaHoraria;
 
 	public Disciplina(String nome, int requisito,
-			ArrayList<Disciplina> preRequisito, int corequisito,
-			ArrayList<Disciplina> coRequisito, 
+			Disciplina preRequisito1,Disciplina preRequisito2,Disciplina preRequisito3,Disciplina preRequisito4, int corequisito,
+			Disciplina coRequisito, 
 			Trilha trilha, Curso curso, int tipoDisciplina, 
 			int tipoDisciplinaCurso){
 		this.setNome(nome);
 		if(requisito == 1){
-			this.setPreRequisito(preRequisito);
+			this.setPreRequisito(preRequisito1);
+			this.setPreRequisito2(preRequisito2);
+			this.setPreRequisito3(preRequisito3);
+			this.setPreRequisito4(preRequisito4);
 		}
 		if(corequisito == 1){
 			this.setCoRequisito(coRequisito);
@@ -30,9 +33,17 @@ public class Disciplina {
 		this.setCodigo();
 	}
 
-	public Disciplina[] getPreReq(){
-		return this.preReq;
+	
+	public Disciplina() {
+		// TODO Auto-generated constructor stub
 	}
+
+
+	public Disciplina(String codigo, String nome) {
+		this.setCodigo(codigo);
+		this.setNome(nome);
+	}
+
 
 	public int getCargaHoraria(){
 		return this.cargaHoraria;
@@ -126,6 +137,10 @@ public class Disciplina {
 		return codigo;
 	}
 
+	private void setCodigo(String codigo){
+		this.codigo = codigo;
+	}
+	
 	private void setCodigo() {
 		String codigoFinal = "";
 		boolean espace = false;
@@ -165,36 +180,36 @@ public class Disciplina {
 			}
 		}
 
-		codigoFinal+="-";
-		if(this.getGraducao()){
-			codigoFinal+="GRA";
-		}else{
-			codigoFinal+="POS";
-		}
-		codigoFinal+="-";
-		if(this.getObrigatoria()){
-			codigoFinal+="OBG";
-		}else{
-			codigoFinal+="OPT";
-		}
+//		codigoFinal+="-";
+//		if(this.getGraducao()){
+//			codigoFinal+="GRA";
+//		}else{
+//			codigoFinal+="POS";
+//		}
+//		codigoFinal+="-";
+//		if(this.getObrigatoria()){
+//			codigoFinal+="OBG";
+//		}else{
+//			codigoFinal+="OPT";
+//		}
 		this.codigo = codigoFinal.toUpperCase();
 	}
 
-	public ArrayList<Disciplina> getPreRequisito() {
-		return preRequisito;
+	public Disciplina getPreRequisito() {
+		return this.preRequisito1;
 	}
 
-	public void setPreRequisito(ArrayList<Disciplina> preRequisito) {
-		if(preRequisito != null){
-			this.preRequisito = preRequisito;
+	public void setPreRequisito(Disciplina preRequisito1) {
+		if(preRequisito1 != null){
+			this.preRequisito1 = preRequisito1;
 		}
 	}
 
-	public ArrayList<Disciplina> getCoRequisito() {
-		return coRequisito;
+	public Disciplina getCoRequisito() {
+		return this.coRequisito;
 	}
 
-	public void setCoRequisito(ArrayList<Disciplina> coRequisito) {
+	public void setCoRequisito(Disciplina coRequisito) {
 		if(coRequisito != null){
 			this.coRequisito = coRequisito;
 		}
@@ -212,17 +227,60 @@ public class Disciplina {
 		}else{
 			resultado += "Pos-graducao";
 		}
-		if(this.getPreRequisito() != null){
+		
+		if(this.getPreRequisito() != null || this.getPreRequisito2() != null || this.getPreRequisito3() != null || this.getPreRequisito4() != null){
 			resultado += "\nPre-requisitos\\/\n";
-			for(Disciplina a: this.getPreRequisito()){
-				resultado += a.getCodigo()+"\n";
+			if(this.getPreRequisito() != null){
+				resultado += this.preRequisito1.getCodigo()+"\n";
 			}
+			if(this.getPreRequisito2() != null){
+				resultado += this.preRequisito2.getCodigo()+"\n";
+			}
+			if(this.getPreRequisito3() != null){
+				resultado += this.preRequisito3.getCodigo()+"\n";
+			}
+			if(this.getPreRequisito4() != null){
+				resultado += this.preRequisito4.getCodigo()+"\n";
+			}
+//			resultado += this.preRequisito2.getCodigo()+"\n";
+//			resultado += this.preRequisito3.getCodigo()+"\n";
+//			resultado += this.preRequisito4.getCodigo()+"\n";
 		}else{
 			resultado += "\nPre-requisitos\\/\nNone";
 		}
 
 
 		return resultado;
+	}
+
+
+	public Disciplina getPreRequisito2() {
+		return this.preRequisito2;
+	}
+
+
+	public void setPreRequisito2(Disciplina preRequisito2) {
+		this.preRequisito2 = preRequisito2;
+	}
+
+
+	public Disciplina getPreRequisito3() {
+		return this.preRequisito3;
+	}
+
+
+	public void setPreRequisito3(Disciplina preRequisito3) {
+		this.preRequisito3 = preRequisito3;
+	}
+
+
+	public Disciplina getPreRequisito4() {
+		return this.preRequisito4;
+	}
+
+
+	public void setPreRequisito4(Disciplina preRequisito4) {
+		this.preRequisito4 = preRequisito4;
 	}
 
 

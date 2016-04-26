@@ -63,7 +63,8 @@ public class JFrameProfessor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Academico - DEINFO (Professor)");
-        setLocation(new java.awt.Point(200, 150));
+        setLocation(new java.awt.Point(150, 150));
+        setPreferredSize(new java.awt.Dimension(900, 440));
 
         javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
         desktop.setLayout(desktopLayout);
