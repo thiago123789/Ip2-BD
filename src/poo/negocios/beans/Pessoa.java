@@ -11,12 +11,14 @@ public class Pessoa {
     private String uNome;
 	private String cpf;
 	private Date dataNascimento;
-	private String sexo;
+	private boolean sexo;
 	private String senha;
 	private String email;
 	private Endereco endereco;
+        private int tipo_pessoa;
 	
-	public Pessoa(String pNome, String uNome, String cpf, String sexo, String senha, String email, Endereco endereco) throws CPFInvalidoException
+	public Pessoa(String pNome, String uNome, String cpf, boolean sexo, 
+                String senha, String email, Endereco endereco, int tipo_pessoa) throws CPFInvalidoException
 	{
 		this.setPnome(pNome);
 		this.setUnome(uNome);
@@ -25,7 +27,20 @@ public class Pessoa {
 		this.setSenha(senha);
 		this.setEmail(email);
 		this.setEndereco(endereco);
+                this.setTipo(tipo_pessoa);
 	}
+        
+        
+        
+        public int getTipo(){
+            return this.tipo_pessoa;
+        }
+        
+        public void setTipo(int tp){
+            if(tp >= 0 && tp <= 2){
+                this.tipo_pessoa = tp;
+            }
+        }
         
         public void setUnome(String nome){
             if(nome != null){
@@ -78,15 +93,13 @@ public class Pessoa {
 		}
 	}
 
-	public String getSexo() {
+	public boolean getSexo() {
 		return this.sexo;
 	}
 
-	public void setSexo(String sexo) {
-		if(sexo != null){
-		this.sexo = sexo;
-		}
-	}
+	public void setSexo(boolean sexo) {
+            this.sexo = sexo;
+        }
 
 	public String getSenha() {
 		return senha;

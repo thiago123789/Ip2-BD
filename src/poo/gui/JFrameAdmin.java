@@ -5,6 +5,8 @@
  */
 package poo.gui;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
@@ -18,20 +20,49 @@ import poo.gui.myframes.FrameDesativarUsuario;
 import poo.gui.myframes.FrameEditarUsuario;
 import poo.gui.myframes.FrameListarUsuarios;
 import poo.gui.myframes.FrameNovaConsulta;
+import poo.gui.myframes.JFrameAlterarSenha;
 
 /**
  *
  * @author Thiago Gomes
  */
 public class JFrameAdmin extends javax.swing.JFrame {
-
+    private String nome, cpf;
+    
     /**
      * Creates new form JFrameAdmin
      */
+    
+    
+    public void setValores(String nome, String cpf){
+        this.nome = nome;
+        this.cpf = cpf;   
+    }
+    
     public JFrameAdmin() {
+        this.setValores(nome, cpf);
+        System.out.println(nome+cpf);
         initComponents();
+        Font nova = new Font("Arial", Font.BOLD, 14);
+        jTNameUser.setFont(nova);
+        Color padrao = new Color(28, 247, 215);
+        jTNameUser.setText(this.nome);
+        jTCPFUser.setText(this.cpf);
+        jTCPFUser.setEditable(false);
+        jTNameUser.setEditable(false);
+        jTLastLogin.setEditable(false);
+        jTCPFUser.setBackground(padrao);
+        jTNameUser.setBackground(padrao);
+        jTLastLogin.setBackground(padrao);
     }
 
+    
+    public void recebeValor(String nome, String cpf){
+        this.nome = nome;
+        this.cpf = cpf;
+        jTNameUser.setText(nome);
+        jTCPFUser.setText(cpf);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,6 +78,14 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         desktop = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTNameUser = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTCPFUser = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTLastLogin = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuMinhaContaAlterarSenha = new javax.swing.JMenuItem();
@@ -95,16 +134,65 @@ public class JFrameAdmin extends javax.swing.JFrame {
         setLocation(new java.awt.Point(400, 30));
         setPreferredSize(new java.awt.Dimension(600, 700));
 
-        javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
-        desktop.setLayout(desktopLayout);
-        desktopLayout.setHorizontalGroup(
-            desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 821, Short.MAX_VALUE)
+        desktop.setLayout(new java.awt.BorderLayout());
+        getContentPane().add(desktop, java.awt.BorderLayout.CENTER);
+
+        jLabel1.setText("NOME USUÁRIO: ");
+
+        jLabel2.setText("CPF:");
+
+        jTCPFUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTCPFUserActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("ULTIMO LOGIN: ");
+
+        jTLastLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTLastLoginActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTNameUser, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTCPFUser, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTLastLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        desktopLayout.setVerticalGroup(
-            desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 419, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTNameUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jTCPFUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTLastLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        jSeparator5.setForeground(new java.awt.Color(0, 204, 204));
+        jSeparator5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jSeparator5, java.awt.BorderLayout.PAGE_END);
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -271,17 +359,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktop)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktop)
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -338,6 +415,11 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
     private void mnuMinhaContaAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMinhaContaAlterarSenhaActionPerformed
         // TODO add your handling code here:
+        JFrameAlterarSenha f = new JFrameAlterarSenha();
+        f.setVisible(true);
+        f.recebeUsuario(jTCPFUser.getText());
+        f.setLocation(new java.awt.Point(500, 200));
+        
     }//GEN-LAST:event_mnuMinhaContaAlterarSenhaActionPerformed
 
     private void mnuMinhaContaSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMinhaContaSairActionPerformed
@@ -364,9 +446,17 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         FrameCadastroDisciplina f = new FrameCadastroDisciplina();
-		desktop.add(f);
+        desktop.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jTCPFUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCPFUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTCPFUserActionPerformed
+
+    private void jTLastLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTLastLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTLastLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -406,6 +496,9 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -421,9 +514,14 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JTextField jTCPFUser;
+    private javax.swing.JTextField jTLastLogin;
+    private javax.swing.JTextField jTNameUser;
     private javax.swing.JMenu mnuBuscar;
     private javax.swing.JMenuItem mnuBuscarNovaConsulta;
     private javax.swing.JMenu mnuDisciplina;
