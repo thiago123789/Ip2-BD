@@ -23,7 +23,7 @@
     <meta name="viewport" content="width=1020">
     
     
-    <title>Ip2-BD/FrameCadastrarAluno.java at master · thiago123789/Ip2-BD</title>
+    <title>Ip2-BD/FrameCadastroProfessor.java at master · thiago123789/Ip2-BD</title>
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
     <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -43,7 +43,7 @@
       <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
     <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
     <link rel="assets" href="https://assets-cdn.github.com/">
-    <link rel="web-socket" href="wss://live.github.com/_sockets/MTE3MDIzNzI6OTk1YWY2NTYxYjlkMTE3ZjA0ODA4NzUxMDQ1MGYyYTM6MzFmNTc5NGQ0NzM1NjQ4NmNjZGIxNzA3MWYxYjdiY2U4ZDBiODZlZTkzN2ZlOTQ3OTU0MjBiMDIwNjc0NTE0Zg==--3ff2a81a131a6cf233bbfeee00338ab4be614a9d">
+    <link rel="web-socket" href="wss://live.github.com/_sockets/MTE3MDIzNzI6OTk1YWY2NTYxYjlkMTE3ZjA0ODA4NzUxMDQ1MGYyYTM6Njc0NzViY2M2ZWQ1MWU3OTBkMTFiYjc4NmJkYjQ0Mzc2ODQyZTdkYjlhNGY3OGU2MjhjNDcyMGFhMzkxZGEzYQ==--b21e5b41ae753bc0c19aaca037ad500c908a1a52">
     <meta name="pjax-timeout" content="1000">
     <link rel="sudo-modal" href="/sessions/sudo_modal">
 
@@ -55,7 +55,7 @@
 <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
     <meta name="google-analytics" content="UA-3769691-2">
 
-<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="B1CEFCC8:53F3:1077FFDF:5720D981" name="octolytics-dimension-request_id" /><meta content="11702372" name="octolytics-actor-id" /><meta content="thiago123789" name="octolytics-actor-login" /><meta content="fc7518e4fe9c8ce6a3e677a1fb9e022a22237ae815d423e85483de61a6db5574" name="octolytics-actor-hash" />
+<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="B1CEFCC8:53F7:19ED61F3:5720D9B0" name="octolytics-dimension-request_id" /><meta content="11702372" name="octolytics-actor-id" /><meta content="thiago123789" name="octolytics-actor-login" /><meta content="fc7518e4fe9c8ce6a3e677a1fb9e022a22237ae815d423e85483de61a6db5574" name="octolytics-actor-hash" />
 <meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" name="analytics-location" />
 
 
@@ -68,7 +68,7 @@
     <meta name="user-login" content="thiago123789">
 
         <meta name="expected-hostname" content="github.com">
-      <meta name="js-proxy-site-detection-payload" content="OWY0NWM3ZGY3NWEwNjYxYjc1NzE5YWIyMjMxYmJiMGIzNDljZDFhNDQzYTFkY2U5ZDFkZGJhZWE1N2RlOTM5OXx7InJlbW90ZV9hZGRyZXNzIjoiMTc3LjIwNi4yNTIuMjAwIiwicmVxdWVzdF9pZCI6IkIxQ0VGQ0M4OjUzRjM6MTA3N0ZGREY6NTcyMEQ5ODEiLCJ0aW1lc3RhbXAiOjE0NjE3NzA2MzJ9">
+      <meta name="js-proxy-site-detection-payload" content="MjJkZDM5MjRjNjM0M2U4OTEwY2VmZThhNTdjMGU2ZTQwNTFkMzVjNDhlZTg4MjJjZTVkY2VkMDVlZDU1NjZmNHx7InJlbW90ZV9hZGRyZXNzIjoiMTc3LjIwNi4yNTIuMjAwIiwicmVxdWVzdF9pZCI6IkIxQ0VGQ0M4OjUzRjc6MTlFRDYxRjM6NTcyMEQ5QjAiLCJ0aW1lc3RhbXAiOjE0NjE3NzA2NzV9">
 
 
       <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#4078c0">
@@ -87,7 +87,7 @@
   <link href="https://github.com/thiago123789/Ip2-BD/commits/master.atom" rel="alternate" title="Recent Commits to Ip2-BD:master" type="application/atom+xml">
 
 
-      <link rel="canonical" href="https://github.com/thiago123789/Ip2-BD/blob/master/src/poo/gui/myframes/FrameCadastrarAluno.java" data-pjax-transient>
+      <link rel="canonical" href="https://github.com/thiago123789/Ip2-BD/blob/master/src/poo/gui/myframes/FrameCadastroProfessor.java" data-pjax-transient>
   </head>
 
 
@@ -229,7 +229,7 @@
             Settings
           </a>
 
-          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="LPR09hg9xsfS74ehrYja0/nXqUWmrgAg0Ef/ALaHmaV1d51PDxMw+jhjU0FiYauvpwNxRByamt63R2nSO7hUSg==" /></div>
+          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="TZ0Se/99+whT0K7HO0k1T/gn3I4kN9iD8Qbps9976rAxUs2K6sHbmW7N9Hkes8/lUAKqcpcGXJ6HJ11CjsmcsQ==" /></div>
             <button class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
               Sign out
             </button>
@@ -266,7 +266,7 @@
 <ul class="pagehead-actions">
 
   <li>
-        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ygZgLRD9XbKrnQ2KH46zGSI9o+z/GkoSvK+VEqx8AvpZGJFYowvg8qOZR5krWXGZwNWpvDxHj+DkRrxUfOmKAQ==" /></div>      <input class="form-control" id="repository_id" name="repository_id" type="hidden" value="53637704" />
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="gOYeqWNynHJavUoPy3wt6nPExahz1dC2OgMxTaIX+m18/7sjEHdw6/9WIJ/fjE6DNtNbe3xEE8487E02Wc7xsg==" /></div>      <input class="form-control" id="repository_id" name="repository_id" type="hidden" value="53637704" />
 
         <div class="select-menu js-menu-container js-select-menu">
           <a href="/thiago123789/Ip2-BD/subscription"
@@ -341,7 +341,7 @@
     
   <div class="js-toggler-container js-social-container starring-container ">
 
-    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/thiago123789/Ip2-BD/unstar" class="js-toggler-form starred" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="rW7w5VCV2MkfEn2iqKe1M79qGRgUKqLO5WGLNxo1TgbfeHSCLGkdlOXnjIs5wQqpiv4YBezHsX0eGSb160f1Fg==" /></div>
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/thiago123789/Ip2-BD/unstar" class="js-toggler-form starred" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="1sl5E3EE0N6Nd8aIIEtibe1+CRdb4oN+7O2cloKj3ntfiNgsqDuSx8sYpARUsJHaVxiVTT/FhLNhXWWVzP0K8w==" /></div>
       <button
         class="btn btn-sm btn-with-count js-toggler-target"
         aria-label="Unstar this repository" title="Unstar thiago123789/Ip2-BD"
@@ -353,7 +353,7 @@
           0
         </a>
 </form>
-    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/thiago123789/Ip2-BD/star" class="js-toggler-form unstarred" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="UsIFC2/9JMrEgf83eB46C7E8SZ0CeDH40gQxRzchxAnpwHM2d9VSPiW14CAj5ori78ok0VJDATTrf7gA4iNobA==" /></div>
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/thiago123789/Ip2-BD/star" class="js-toggler-form unstarred" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="cwcrfC7JxiM7waK/tF3/bCjbwxxdF30ukN9sAGX18hp2NQGMWWkJgg8m3FQcyspeS7gy7Ri/Tvgy5ZPjqgjvZw==" /></div>
       <button
         class="btn btn-sm btn-with-count js-toggler-target"
         aria-label="Star this repository" title="Star thiago123789/Ip2-BD"
@@ -369,7 +369,7 @@
   </li>
 
   <li>
-          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/thiago123789/Ip2-BD/fork" class="btn-with-count" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="7wVPsax3Pl3QYO1GFKukuKompy830aLP+mowV3pplRbLDfeWXHV3BWSNHXyxvhVQnUBhHOH0wh+tZfnzBvxbqg==" /></div>
+          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/thiago123789/Ip2-BD/fork" class="btn-with-count" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="IjKeClmF+QBJeAaZMT3nQi/lnj1AgUsz8sGpJvSkzo0du9wurDaHufmNTCNzkeN0MWyf4GiA1TBFVqLswu0uvA==" /></div>
             <button
                 type="submit"
                 class="btn btn-sm btn-with-count"
@@ -453,9 +453,9 @@
 
     
 
-<a href="/thiago123789/Ip2-BD/blob/9c8a01ed98d4d6afd9263f606a5f132d7350f36b/src/poo/gui/myframes/FrameCadastrarAluno.java" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
+<a href="/thiago123789/Ip2-BD/blob/9c8a01ed98d4d6afd9263f606a5f132d7350f36b/src/poo/gui/myframes/FrameCadastroProfessor.java" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
 
-<!-- blob contrib key: blob_contributors:v21:8cec0fa25e16315c73dd0c54568f4b54 -->
+<!-- blob contrib key: blob_contributors:v21:3c177d6c42e2c2bb946e06e808c7c5e2 -->
 
 <div class="file-navigation js-zeroclipboard-container">
   
@@ -497,7 +497,7 @@
 
 
             <a class="select-menu-item js-navigation-item js-navigation-open selected"
-               href="/thiago123789/Ip2-BD/blob/master/src/poo/gui/myframes/FrameCadastrarAluno.java"
+               href="/thiago123789/Ip2-BD/blob/master/src/poo/gui/myframes/FrameCadastroProfessor.java"
                data-name="master"
                data-skip-pjax="true"
                rel="nofollow">
@@ -508,7 +508,7 @@
             </a>
         </div>
 
-          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/thiago123789/Ip2-BD/branches" class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="o65x0gXnsRV9HFoga//WJfgejC7XcPmI8Ydzmk5ZqF7FQ47paxbdM7De2OTp3hBpUFMwWfRAhFKt3Qj/qK24UQ==" /></div>
+          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/thiago123789/Ip2-BD/branches" class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="x43LZqSl3Pr9VXgTqnkktMhBhUh6SvBBd1OMqeL/x70XJ3aJQGi+JPG98OYu0QwIjxiHFHsaBiarQs/M3X18kA==" /></div>
           <svg aria-hidden="true" class="octicon octicon-git-branch select-menu-item-icon" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-0.89-2-2-2s-2 0.89-2 2c0 0.73 0.41 1.38 1 1.72v0.3c-0.02 0.52-0.23 0.98-0.63 1.38s-0.86 0.61-1.38 0.63c-0.83 0.02-1.48 0.16-2 0.45V4.72c0.59-0.34 1-0.98 1-1.72 0-1.11-0.89-2-2-2S0 1.89 0 3c0 0.73 0.41 1.38 1 1.72v6.56C0.41 11.63 0 12.27 0 13c0 1.11 0.89 2 2 2s2-0.89 2-2c0-0.53-0.2-1-0.53-1.36 0.09-0.06 0.48-0.41 0.59-0.47 0.25-0.11 0.56-0.17 0.94-0.17 1.05-0.05 1.95-0.45 2.75-1.25s1.2-1.98 1.25-3.02h-0.02c0.61-0.36 1.02-1 1.02-1.73zM2 1.8c0.66 0 1.2 0.55 1.2 1.2s-0.55 1.2-1.2 1.2-1.2-0.55-1.2-1.2 0.55-1.2 1.2-1.2z m0 12.41c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z m6-8c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z"></path></svg>
             <div class="select-menu-item-text">
               <span class="select-menu-item-heading">Create branch: <span class="js-new-item-name"></span></span>
@@ -516,7 +516,7 @@
             </div>
             <input type="hidden" name="name" id="name" class="js-new-item-value">
             <input type="hidden" name="branch" id="branch" value="master">
-            <input type="hidden" name="path" id="path" value="src/poo/gui/myframes/FrameCadastrarAluno.java">
+            <input type="hidden" name="path" id="path" value="src/poo/gui/myframes/FrameCadastroProfessor.java">
 </form>
       </div>
 
@@ -543,11 +543,11 @@
     <button aria-label="Copy file path to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button">Copy path</button>
   </div>
   <div class="breadcrumb js-zeroclipboard-target">
-    <span class="repo-root js-repo-root"><span class="js-path-segment"><a href="/thiago123789/Ip2-BD"><span>Ip2-BD</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a href="/thiago123789/Ip2-BD/tree/master/src"><span>src</span></a></span><span class="separator">/</span><span class="js-path-segment"><a href="/thiago123789/Ip2-BD/tree/master/src/poo"><span>poo</span></a></span><span class="separator">/</span><span class="js-path-segment"><a href="/thiago123789/Ip2-BD/tree/master/src/poo/gui"><span>gui</span></a></span><span class="separator">/</span><span class="js-path-segment"><a href="/thiago123789/Ip2-BD/tree/master/src/poo/gui/myframes"><span>myframes</span></a></span><span class="separator">/</span><strong class="final-path">FrameCadastrarAluno.java</strong>
+    <span class="repo-root js-repo-root"><span class="js-path-segment"><a href="/thiago123789/Ip2-BD"><span>Ip2-BD</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a href="/thiago123789/Ip2-BD/tree/master/src"><span>src</span></a></span><span class="separator">/</span><span class="js-path-segment"><a href="/thiago123789/Ip2-BD/tree/master/src/poo"><span>poo</span></a></span><span class="separator">/</span><span class="js-path-segment"><a href="/thiago123789/Ip2-BD/tree/master/src/poo/gui"><span>gui</span></a></span><span class="separator">/</span><span class="js-path-segment"><a href="/thiago123789/Ip2-BD/tree/master/src/poo/gui/myframes"><span>myframes</span></a></span><span class="separator">/</span><strong class="final-path">FrameCadastroProfessor.java</strong>
   </div>
 </div>
 
-<include-fragment class="commit-tease" src="/thiago123789/Ip2-BD/contributors/master/src/poo/gui/myframes/FrameCadastrarAluno.java">
+<include-fragment class="commit-tease" src="/thiago123789/Ip2-BD/contributors/master/src/poo/gui/myframes/FrameCadastroProfessor.java">
   <div>
     Fetching contributors&hellip;
   </div>
@@ -562,24 +562,24 @@
   <div class="file-actions">
 
     <div class="btn-group">
-      <a href="/thiago123789/Ip2-BD/raw/master/src/poo/gui/myframes/FrameCadastrarAluno.java" class="btn btn-sm " id="raw-url">Raw</a>
-        <a href="/thiago123789/Ip2-BD/blame/master/src/poo/gui/myframes/FrameCadastrarAluno.java" class="btn btn-sm js-update-url-with-hash">Blame</a>
-      <a href="/thiago123789/Ip2-BD/commits/master/src/poo/gui/myframes/FrameCadastrarAluno.java" class="btn btn-sm " rel="nofollow">History</a>
+      <a href="/thiago123789/Ip2-BD/raw/master/src/poo/gui/myframes/FrameCadastroProfessor.java" class="btn btn-sm " id="raw-url">Raw</a>
+        <a href="/thiago123789/Ip2-BD/blame/master/src/poo/gui/myframes/FrameCadastroProfessor.java" class="btn btn-sm js-update-url-with-hash">Blame</a>
+      <a href="/thiago123789/Ip2-BD/commits/master/src/poo/gui/myframes/FrameCadastroProfessor.java" class="btn btn-sm " rel="nofollow">History</a>
     </div>
 
         <a class="btn-octicon tooltipped tooltipped-nw"
-           href="github-windows://openRepo/https://github.com/thiago123789/Ip2-BD?branch=master&amp;filepath=src%2Fpoo%2Fgui%2Fmyframes%2FFrameCadastrarAluno.java"
+           href="github-windows://openRepo/https://github.com/thiago123789/Ip2-BD?branch=master&amp;filepath=src%2Fpoo%2Fgui%2Fmyframes%2FFrameCadastroProfessor.java"
            aria-label="Open this file in GitHub Desktop"
            data-ga-click="Repository, open with desktop, type:windows">
             <svg aria-hidden="true" class="octicon octicon-device-desktop" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M15 2H1c-0.55 0-1 0.45-1 1v9c0 0.55 0.45 1 1 1h5.34c-0.25 0.61-0.86 1.39-2.34 2h8c-1.48-0.61-2.09-1.39-2.34-2h5.34c0.55 0 1-0.45 1-1V3c0-0.55-0.45-1-1-1z m0 9H1V3h14v8z"></path></svg>
         </a>
 
-        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/thiago123789/Ip2-BD/edit/master/src/poo/gui/myframes/FrameCadastrarAluno.java" class="inline-form js-update-url-with-hash" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="5g4uNHcddfw3j+ynoDWzq01YIhQEOe/NuHcdznp8BjVQjAlYTRnTbMXGHvw/u4NWUD7VfoN8CZU71PLzAhl/sg==" /></div>
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/thiago123789/Ip2-BD/edit/master/src/poo/gui/myframes/FrameCadastroProfessor.java" class="inline-form js-update-url-with-hash" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="+UWuiKjU31x7YbnHchm0H+Q2A3WecW/YjQBNUBf4t+CKHr0W4iVHZdFqby5pSVckcvbX9JDmKwbdCs6kyLlmXQ==" /></div>
           <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
             aria-label="Edit this file" data-hotkey="e" data-disable-with>
             <svg aria-hidden="true" class="octicon octicon-pencil" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M0 12v3h3l8-8-3-3L0 12z m3 2H1V12h1v1h1v1z m10.3-9.3l-1.3 1.3-3-3 1.3-1.3c0.39-0.39 1.02-0.39 1.41 0l1.59 1.59c0.39 0.39 0.39 1.02 0 1.41z"></path></svg>
           </button>
-</form>        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/thiago123789/Ip2-BD/delete/master/src/poo/gui/myframes/FrameCadastrarAluno.java" class="inline-form" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="9CnuhxZV1o13wU0RDApYU9CHuv5xteAs8teLnk3Ep+121Sp4rx+SgGsSKzn/7Wo5xpZyl/kqI+qVzYegHmeIUw==" /></div>
+</form>        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/thiago123789/Ip2-BD/delete/master/src/poo/gui/myframes/FrameCadastroProfessor.java" class="inline-form" data-form-nonce="cf1f526697aa79a1f2d22cdf49e7d6cd58ea1648" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="3SYnfG8W0i4Jz5Sn9Ja50/EbrMJc6D8SLhY60YN9TmULr8tXSA9+YgHaDIcg4irWEe9KqJyuwss1B+3DaXVRRg==" /></div>
           <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
             aria-label="Delete this file" data-disable-with>
             <svg aria-hidden="true" class="octicon octicon-trashcan" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M10 2H8c0-0.55-0.45-1-1-1H4c-0.55 0-1 0.45-1 1H1c-0.55 0-1 0.45-1 1v1c0 0.55 0.45 1 1 1v9c0 0.55 0.45 1 1 1h7c0.55 0 1-0.45 1-1V5c0.55 0 1-0.45 1-1v-1c0-0.55-0.45-1-1-1z m-1 12H2V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9z m1-10H1v-1h9v1z"></path></svg>
@@ -587,9 +587,9 @@
 </form>  </div>
 
   <div class="file-info">
-      321 lines (283 sloc)
+      334 lines (295 sloc)
       <span class="file-info-divider"></span>
-    19.1 KB
+    18.8 KB
   </div>
 </div>
 
@@ -644,7 +644,7 @@
       </tr>
       <tr>
         <td id="L12" class="blob-num js-line-number" data-line-number="12"></td>
-        <td id="LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">FrameCadastrarAluno</span> <span class="pl-k">extends</span> <span class="pl-e">javax.swing<span class="pl-k">.</span>JInternalFrame</span> {</td>
+        <td id="LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">FrameCadastroProfessor</span> <span class="pl-k">extends</span> <span class="pl-e">javax.swing<span class="pl-k">.</span>JInternalFrame</span> {</td>
       </tr>
       <tr>
         <td id="L13" class="blob-num js-line-number" data-line-number="13"></td>
@@ -657,7 +657,7 @@
       </tr>
       <tr>
         <td id="L15" class="blob-num js-line-number" data-line-number="15"></td>
-        <td id="LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Creates new form FrameCadastrarAluno</span></td>
+        <td id="LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Creates new form Frame1</span></td>
       </tr>
       <tr>
         <td id="L16" class="blob-num js-line-number" data-line-number="16"></td>
@@ -665,7 +665,7 @@
       </tr>
       <tr>
         <td id="L17" class="blob-num js-line-number" data-line-number="17"></td>
-        <td id="LC17" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">public</span> <span class="pl-en">FrameCadastrarAluno</span>() {</td>
+        <td id="LC17" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">public</span> <span class="pl-en">FrameCadastroProfessor</span>() {</td>
       </tr>
       <tr>
         <td id="L18" class="blob-num js-line-number" data-line-number="18"></td>
@@ -719,7 +719,7 @@
       </tr>
       <tr>
         <td id="L30" class="blob-num js-line-number" data-line-number="30"></td>
-        <td id="LC30" class="blob-code blob-code-inner js-file-line">        jPanel1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JPanel</span>();</td>
+        <td id="LC30" class="blob-code blob-code-inner js-file-line">        jTextField1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span>();</td>
       </tr>
       <tr>
         <td id="L31" class="blob-num js-line-number" data-line-number="31"></td>
@@ -727,23 +727,23 @@
       </tr>
       <tr>
         <td id="L32" class="blob-num js-line-number" data-line-number="32"></td>
-        <td id="LC32" class="blob-code blob-code-inner js-file-line">        jLabel13 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC32" class="blob-code blob-code-inner js-file-line">        jLabel3 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
       </tr>
       <tr>
         <td id="L33" class="blob-num js-line-number" data-line-number="33"></td>
-        <td id="LC33" class="blob-code blob-code-inner js-file-line">        jLabel6 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC33" class="blob-code blob-code-inner js-file-line">        jLabel4 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
       </tr>
       <tr>
         <td id="L34" class="blob-num js-line-number" data-line-number="34"></td>
-        <td id="LC34" class="blob-code blob-code-inner js-file-line">        jLabel5 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC34" class="blob-code blob-code-inner js-file-line">        jRadioButton1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JRadioButton</span>();</td>
       </tr>
       <tr>
         <td id="L35" class="blob-num js-line-number" data-line-number="35"></td>
-        <td id="LC35" class="blob-code blob-code-inner js-file-line">        jLabel9 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC35" class="blob-code blob-code-inner js-file-line">        jRadioButton2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JRadioButton</span>();</td>
       </tr>
       <tr>
         <td id="L36" class="blob-num js-line-number" data-line-number="36"></td>
-        <td id="LC36" class="blob-code blob-code-inner js-file-line">        jFormattedTextField2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span>();</td>
+        <td id="LC36" class="blob-code blob-code-inner js-file-line">        jTextField2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span>();</td>
       </tr>
       <tr>
         <td id="L37" class="blob-num js-line-number" data-line-number="37"></td>
@@ -755,43 +755,43 @@
       </tr>
       <tr>
         <td id="L39" class="blob-num js-line-number" data-line-number="39"></td>
-        <td id="LC39" class="blob-code blob-code-inner js-file-line">        jLabel3 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC39" class="blob-code blob-code-inner js-file-line">        jLabel6 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
       </tr>
       <tr>
         <td id="L40" class="blob-num js-line-number" data-line-number="40"></td>
-        <td id="LC40" class="blob-code blob-code-inner js-file-line">        jFormattedTextField1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span>();</td>
+        <td id="LC40" class="blob-code blob-code-inner js-file-line">        jLabel7 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
       </tr>
       <tr>
         <td id="L41" class="blob-num js-line-number" data-line-number="41"></td>
-        <td id="LC41" class="blob-code blob-code-inner js-file-line">        jLabel2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC41" class="blob-code blob-code-inner js-file-line">        jLabel8 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
       </tr>
       <tr>
         <td id="L42" class="blob-num js-line-number" data-line-number="42"></td>
-        <td id="LC42" class="blob-code blob-code-inner js-file-line">        jTextField4 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span>();</td>
+        <td id="LC42" class="blob-code blob-code-inner js-file-line">        jTextField6 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span>();</td>
       </tr>
       <tr>
         <td id="L43" class="blob-num js-line-number" data-line-number="43"></td>
-        <td id="LC43" class="blob-code blob-code-inner js-file-line">        jLabel4 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC43" class="blob-code blob-code-inner js-file-line">        jLabel9 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
       </tr>
       <tr>
         <td id="L44" class="blob-num js-line-number" data-line-number="44"></td>
-        <td id="LC44" class="blob-code blob-code-inner js-file-line">        jComboBox1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">javax.swing.JComboBox&lt;&gt;</span>();</td>
+        <td id="LC44" class="blob-code blob-code-inner js-file-line">        jFormattedTextField1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span>();</td>
       </tr>
       <tr>
         <td id="L45" class="blob-num js-line-number" data-line-number="45"></td>
-        <td id="LC45" class="blob-code blob-code-inner js-file-line">        jLabel7 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC45" class="blob-code blob-code-inner js-file-line">        jFormattedTextField2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span>();</td>
       </tr>
       <tr>
         <td id="L46" class="blob-num js-line-number" data-line-number="46"></td>
-        <td id="LC46" class="blob-code blob-code-inner js-file-line">        jComboBox2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">javax.swing.JComboBox&lt;&gt;</span>();</td>
+        <td id="LC46" class="blob-code blob-code-inner js-file-line">        jFormattedTextField3 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span>();</td>
       </tr>
       <tr>
         <td id="L47" class="blob-num js-line-number" data-line-number="47"></td>
-        <td id="LC47" class="blob-code blob-code-inner js-file-line">        jLabel8 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC47" class="blob-code blob-code-inner js-file-line">        jLabel5 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
       </tr>
       <tr>
         <td id="L48" class="blob-num js-line-number" data-line-number="48"></td>
-        <td id="LC48" class="blob-code blob-code-inner js-file-line">        jFormattedTextField4 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span>();</td>
+        <td id="LC48" class="blob-code blob-code-inner js-file-line">        jTextField3 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span>();</td>
       </tr>
       <tr>
         <td id="L49" class="blob-num js-line-number" data-line-number="49"></td>
@@ -799,127 +799,130 @@
       </tr>
       <tr>
         <td id="L50" class="blob-num js-line-number" data-line-number="50"></td>
-        <td id="LC50" class="blob-code blob-code-inner js-file-line">        jComboBox3 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">javax.swing.JComboBox&lt;&gt;</span>();</td>
+        <td id="LC50" class="blob-code blob-code-inner js-file-line">        jLabel11 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
       </tr>
       <tr>
         <td id="L51" class="blob-num js-line-number" data-line-number="51"></td>
-        <td id="LC51" class="blob-code blob-code-inner js-file-line">        jLabel11 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC51" class="blob-code blob-code-inner js-file-line">        jTextField4 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span>();</td>
       </tr>
       <tr>
         <td id="L52" class="blob-num js-line-number" data-line-number="52"></td>
-        <td id="LC52" class="blob-code blob-code-inner js-file-line">        jComboBox4 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">javax.swing.JComboBox&lt;&gt;</span>();</td>
+        <td id="LC52" class="blob-code blob-code-inner js-file-line">        jTextField5 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span>();</td>
       </tr>
       <tr>
         <td id="L53" class="blob-num js-line-number" data-line-number="53"></td>
-        <td id="LC53" class="blob-code blob-code-inner js-file-line">        jLabel12 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC53" class="blob-code blob-code-inner js-file-line">        jTextField8 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span>();</td>
       </tr>
       <tr>
         <td id="L54" class="blob-num js-line-number" data-line-number="54"></td>
-        <td id="LC54" class="blob-code blob-code-inner js-file-line">        jPasswordField1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JPasswordField</span>();</td>
+        <td id="LC54" class="blob-code blob-code-inner js-file-line">        jLabel12 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
       </tr>
       <tr>
         <td id="L55" class="blob-num js-line-number" data-line-number="55"></td>
-        <td id="LC55" class="blob-code blob-code-inner js-file-line">        jLabel14 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC55" class="blob-code blob-code-inner js-file-line">        jPasswordField1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JPasswordField</span>();</td>
       </tr>
       <tr>
         <td id="L56" class="blob-num js-line-number" data-line-number="56"></td>
-        <td id="LC56" class="blob-code blob-code-inner js-file-line">        jRadioButton1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JRadioButton</span>();</td>
+        <td id="LC56" class="blob-code blob-code-inner js-file-line">        jPanel1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JPanel</span>();</td>
       </tr>
       <tr>
         <td id="L57" class="blob-num js-line-number" data-line-number="57"></td>
-        <td id="LC57" class="blob-code blob-code-inner js-file-line">        jRadioButton2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JRadioButton</span>();</td>
+        <td id="LC57" class="blob-code blob-code-inner js-file-line">        jLabel13 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
       </tr>
       <tr>
         <td id="L58" class="blob-num js-line-number" data-line-number="58"></td>
-        <td id="LC58" class="blob-code blob-code-inner js-file-line">        jTextField5 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span>();</td>
+        <td id="LC58" class="blob-code blob-code-inner js-file-line">        jLayeredPane1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLayeredPane</span>();</td>
       </tr>
       <tr>
         <td id="L59" class="blob-num js-line-number" data-line-number="59"></td>
-        <td id="LC59" class="blob-code blob-code-inner js-file-line">        jTextField7 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span>();</td>
+        <td id="LC59" class="blob-code blob-code-inner js-file-line">        jLabel2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
       </tr>
       <tr>
         <td id="L60" class="blob-num js-line-number" data-line-number="60"></td>
-        <td id="LC60" class="blob-code blob-code-inner js-file-line">        jTextField8 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span>();</td>
+        <td id="LC60" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L61" class="blob-num js-line-number" data-line-number="61"></td>
-        <td id="LC61" class="blob-code blob-code-inner js-file-line">        jFormattedTextField5 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span>();</td>
+        <td id="LC61" class="blob-code blob-code-inner js-file-line">        setClosable(<span class="pl-c1">true</span>);</td>
       </tr>
       <tr>
         <td id="L62" class="blob-num js-line-number" data-line-number="62"></td>
-        <td id="LC62" class="blob-code blob-code-inner js-file-line">        jLabel15 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span>();</td>
+        <td id="LC62" class="blob-code blob-code-inner js-file-line">        setResizable(<span class="pl-c1">true</span>);</td>
       </tr>
       <tr>
         <td id="L63" class="blob-num js-line-number" data-line-number="63"></td>
-        <td id="LC63" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC63" class="blob-code blob-code-inner js-file-line">        setTitle(<span class="pl-s"><span class="pl-pds">&quot;</span>Cadastro Professor<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L64" class="blob-num js-line-number" data-line-number="64"></td>
-        <td id="LC64" class="blob-code blob-code-inner js-file-line">        setCursor(<span class="pl-k">new</span> <span class="pl-smi">java.awt<span class="pl-k">.</span>Cursor</span>(<span class="pl-smi">java.awt<span class="pl-k">.</span>Cursor</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_CURSOR</span>));</td>
+        <td id="LC64" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L65" class="blob-num js-line-number" data-line-number="65"></td>
-        <td id="LC65" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC65" class="blob-code blob-code-inner js-file-line">        jLabel1<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Nome :<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L66" class="blob-num js-line-number" data-line-number="66"></td>
-        <td id="LC66" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span> jPanel1Layout <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span>(jPanel1);</td>
+        <td id="LC66" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L67" class="blob-num js-line-number" data-line-number="67"></td>
-        <td id="LC67" class="blob-code blob-code-inner js-file-line">        jPanel1<span class="pl-k">.</span>setLayout(jPanel1Layout);</td>
+        <td id="LC67" class="blob-code blob-code-inner js-file-line">        jLabel3<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Cpf :<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L68" class="blob-num js-line-number" data-line-number="68"></td>
-        <td id="LC68" class="blob-code blob-code-inner js-file-line">        jPanel1Layout<span class="pl-k">.</span>setHorizontalGroup(</td>
+        <td id="LC68" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L69" class="blob-num js-line-number" data-line-number="69"></td>
-        <td id="LC69" class="blob-code blob-code-inner js-file-line">            jPanel1Layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
+        <td id="LC69" class="blob-code blob-code-inner js-file-line">        jLabel4<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Sexo :<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L70" class="blob-num js-line-number" data-line-number="70"></td>
-        <td id="LC70" class="blob-code blob-code-inner js-file-line">            .add(<span class="pl-c1">0</span>, <span class="pl-c1">54</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>)</td>
+        <td id="LC70" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L71" class="blob-num js-line-number" data-line-number="71"></td>
-        <td id="LC71" class="blob-code blob-code-inner js-file-line">        );</td>
+        <td id="LC71" class="blob-code blob-code-inner js-file-line">        jRadioButton1<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Masculino<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L72" class="blob-num js-line-number" data-line-number="72"></td>
-        <td id="LC72" class="blob-code blob-code-inner js-file-line">        jPanel1Layout<span class="pl-k">.</span>setVerticalGroup(</td>
+        <td id="LC72" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L73" class="blob-num js-line-number" data-line-number="73"></td>
-        <td id="LC73" class="blob-code blob-code-inner js-file-line">            jPanel1Layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
+        <td id="LC73" class="blob-code blob-code-inner js-file-line">        jRadioButton2<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Feminino<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L74" class="blob-num js-line-number" data-line-number="74"></td>
-        <td id="LC74" class="blob-code blob-code-inner js-file-line">            .add(<span class="pl-c1">0</span>, <span class="pl-c1">475</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>)</td>
+        <td id="LC74" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L75" class="blob-num js-line-number" data-line-number="75"></td>
-        <td id="LC75" class="blob-code blob-code-inner js-file-line">        );</td>
+        <td id="LC75" class="blob-code blob-code-inner js-file-line">        jTextField2<span class="pl-k">.</span>addActionListener(<span class="pl-k">new</span> <span class="pl-smi">java.awt.event<span class="pl-k">.</span>ActionListener</span>() {</td>
       </tr>
       <tr>
         <td id="L76" class="blob-num js-line-number" data-line-number="76"></td>
-        <td id="LC76" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC76" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">actionPerformed</span>(<span class="pl-smi">java.awt.event<span class="pl-k">.</span>ActionEvent</span> <span class="pl-v">evt</span>) {</td>
       </tr>
       <tr>
         <td id="L77" class="blob-num js-line-number" data-line-number="77"></td>
-        <td id="LC77" class="blob-code blob-code-inner js-file-line">        jLabel1<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Nome :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC77" class="blob-code blob-code-inner js-file-line">                jTextField2ActionPerformed(evt);</td>
       </tr>
       <tr>
         <td id="L78" class="blob-num js-line-number" data-line-number="78"></td>
-        <td id="LC78" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC78" class="blob-code blob-code-inner js-file-line">            }</td>
       </tr>
       <tr>
         <td id="L79" class="blob-num js-line-number" data-line-number="79"></td>
-        <td id="LC79" class="blob-code blob-code-inner js-file-line">        jLabel13<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Endereço :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC79" class="blob-code blob-code-inner js-file-line">        });</td>
       </tr>
       <tr>
         <td id="L80" class="blob-num js-line-number" data-line-number="80"></td>
@@ -928,7 +931,7 @@
       </tr>
       <tr>
         <td id="L81" class="blob-num js-line-number" data-line-number="81"></td>
-        <td id="LC81" class="blob-code blob-code-inner js-file-line">        jLabel6<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Cep :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC81" class="blob-code blob-code-inner js-file-line">        jButton1<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Cadastrar<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L82" class="blob-num js-line-number" data-line-number="82"></td>
@@ -937,7 +940,7 @@
       </tr>
       <tr>
         <td id="L83" class="blob-num js-line-number" data-line-number="83"></td>
-        <td id="LC83" class="blob-code blob-code-inner js-file-line">        jLabel5<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>E-mail :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC83" class="blob-code blob-code-inner js-file-line">        jButton2<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Cancelar<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L84" class="blob-num js-line-number" data-line-number="84"></td>
@@ -946,7 +949,7 @@
       </tr>
       <tr>
         <td id="L85" class="blob-num js-line-number" data-line-number="85"></td>
-        <td id="LC85" class="blob-code blob-code-inner js-file-line">        jLabel9<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Data de Nascimento :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC85" class="blob-code blob-code-inner js-file-line">        jLabel6<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Cep :<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L86" class="blob-num js-line-number" data-line-number="86"></td>
@@ -955,41 +958,41 @@
       </tr>
       <tr>
         <td id="L87" class="blob-num js-line-number" data-line-number="87"></td>
-        <td id="LC87" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">try</span> {</td>
+        <td id="LC87" class="blob-code blob-code-inner js-file-line">        jLabel7<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Cargo :<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L88" class="blob-num js-line-number" data-line-number="88"></td>
-        <td id="LC88" class="blob-code blob-code-inner js-file-line">            jFormattedTextField2<span class="pl-k">.</span>setFormatterFactory(<span class="pl-k">new</span> <span class="pl-smi">javax.swing.text<span class="pl-k">.</span>DefaultFormatterFactory</span>(<span class="pl-k">new</span> <span class="pl-smi">javax.swing.text<span class="pl-k">.</span>MaskFormatter</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>##/##/####<span class="pl-pds">&quot;</span></span>)));</td>
+        <td id="LC88" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L89" class="blob-num js-line-number" data-line-number="89"></td>
-        <td id="LC89" class="blob-code blob-code-inner js-file-line">        } <span class="pl-k">catch</span> (<span class="pl-smi">java.text<span class="pl-k">.</span>ParseException</span> ex) {</td>
+        <td id="LC89" class="blob-code blob-code-inner js-file-line">        jLabel8<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Departamento :<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L90" class="blob-num js-line-number" data-line-number="90"></td>
-        <td id="LC90" class="blob-code blob-code-inner js-file-line">            ex<span class="pl-k">.</span>printStackTrace();</td>
+        <td id="LC90" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L91" class="blob-num js-line-number" data-line-number="91"></td>
-        <td id="LC91" class="blob-code blob-code-inner js-file-line">        }</td>
+        <td id="LC91" class="blob-code blob-code-inner js-file-line">        jTextField6<span class="pl-k">.</span>addActionListener(<span class="pl-k">new</span> <span class="pl-smi">java.awt.event<span class="pl-k">.</span>ActionListener</span>() {</td>
       </tr>
       <tr>
         <td id="L92" class="blob-num js-line-number" data-line-number="92"></td>
-        <td id="LC92" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC92" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">actionPerformed</span>(<span class="pl-smi">java.awt.event<span class="pl-k">.</span>ActionEvent</span> <span class="pl-v">evt</span>) {</td>
       </tr>
       <tr>
         <td id="L93" class="blob-num js-line-number" data-line-number="93"></td>
-        <td id="LC93" class="blob-code blob-code-inner js-file-line">        jButton1<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Cadastrar<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC93" class="blob-code blob-code-inner js-file-line">                jTextField6ActionPerformed(evt);</td>
       </tr>
       <tr>
         <td id="L94" class="blob-num js-line-number" data-line-number="94"></td>
-        <td id="LC94" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC94" class="blob-code blob-code-inner js-file-line">            }</td>
       </tr>
       <tr>
         <td id="L95" class="blob-num js-line-number" data-line-number="95"></td>
-        <td id="LC95" class="blob-code blob-code-inner js-file-line">        jButton2<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Cancelar<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC95" class="blob-code blob-code-inner js-file-line">        });</td>
       </tr>
       <tr>
         <td id="L96" class="blob-num js-line-number" data-line-number="96"></td>
@@ -998,7 +1001,7 @@
       </tr>
       <tr>
         <td id="L97" class="blob-num js-line-number" data-line-number="97"></td>
-        <td id="LC97" class="blob-code blob-code-inner js-file-line">        jLabel3<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Cpf :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC97" class="blob-code blob-code-inner js-file-line">        jLabel9<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Data de Nascimento :<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L98" class="blob-num js-line-number" data-line-number="98"></td>
@@ -1027,108 +1030,105 @@
       </tr>
       <tr>
         <td id="L104" class="blob-num js-line-number" data-line-number="104"></td>
-        <td id="LC104" class="blob-code blob-code-inner js-file-line">        jFormattedTextField1<span class="pl-k">.</span>setToolTipText(<span class="pl-s"><span class="pl-pds">&quot;</span>Digite Apenas Números<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC104" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L105" class="blob-num js-line-number" data-line-number="105"></td>
-        <td id="LC105" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC105" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">try</span> {</td>
       </tr>
       <tr>
         <td id="L106" class="blob-num js-line-number" data-line-number="106"></td>
-        <td id="LC106" class="blob-code blob-code-inner js-file-line">        jLabel2<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Curso :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC106" class="blob-code blob-code-inner js-file-line">            jFormattedTextField2<span class="pl-k">.</span>setFormatterFactory(<span class="pl-k">new</span> <span class="pl-smi">javax.swing.text<span class="pl-k">.</span>DefaultFormatterFactory</span>(<span class="pl-k">new</span> <span class="pl-smi">javax.swing.text<span class="pl-k">.</span>MaskFormatter</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>##/##/####<span class="pl-pds">&quot;</span></span>)));</td>
       </tr>
       <tr>
         <td id="L107" class="blob-num js-line-number" data-line-number="107"></td>
-        <td id="LC107" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC107" class="blob-code blob-code-inner js-file-line">        } <span class="pl-k">catch</span> (<span class="pl-smi">java.text<span class="pl-k">.</span>ParseException</span> ex) {</td>
       </tr>
       <tr>
         <td id="L108" class="blob-num js-line-number" data-line-number="108"></td>
-        <td id="LC108" class="blob-code blob-code-inner js-file-line">        jLabel4<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Turno :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC108" class="blob-code blob-code-inner js-file-line">            ex<span class="pl-k">.</span>printStackTrace();</td>
       </tr>
       <tr>
         <td id="L109" class="blob-num js-line-number" data-line-number="109"></td>
-        <td id="LC109" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC109" class="blob-code blob-code-inner js-file-line">        }</td>
       </tr>
       <tr>
         <td id="L110" class="blob-num js-line-number" data-line-number="110"></td>
-        <td id="LC110" class="blob-code blob-code-inner js-file-line">        jComboBox1<span class="pl-k">.</span>setModel(<span class="pl-k">new</span> <span class="pl-k">javax.swing.DefaultComboBoxModel&lt;&gt;</span>(<span class="pl-k">new</span> <span class="pl-smi">String</span>[] { <span class="pl-s"><span class="pl-pds">&quot;</span>Manhã<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>Tarde<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>Noite<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span> <span class="pl-pds">&quot;</span></span> }));</td>
+        <td id="LC110" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L111" class="blob-num js-line-number" data-line-number="111"></td>
-        <td id="LC111" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC111" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">try</span> {</td>
       </tr>
       <tr>
         <td id="L112" class="blob-num js-line-number" data-line-number="112"></td>
-        <td id="LC112" class="blob-code blob-code-inner js-file-line">        jLabel7<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Modalidade :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC112" class="blob-code blob-code-inner js-file-line">            jFormattedTextField3<span class="pl-k">.</span>setFormatterFactory(<span class="pl-k">new</span> <span class="pl-smi">javax.swing.text<span class="pl-k">.</span>DefaultFormatterFactory</span>(<span class="pl-k">new</span> <span class="pl-smi">javax.swing.text<span class="pl-k">.</span>MaskFormatter</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#####-###<span class="pl-pds">&quot;</span></span>)));</td>
       </tr>
       <tr>
         <td id="L113" class="blob-num js-line-number" data-line-number="113"></td>
-        <td id="LC113" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC113" class="blob-code blob-code-inner js-file-line">        } <span class="pl-k">catch</span> (<span class="pl-smi">java.text<span class="pl-k">.</span>ParseException</span> ex) {</td>
       </tr>
       <tr>
         <td id="L114" class="blob-num js-line-number" data-line-number="114"></td>
-        <td id="LC114" class="blob-code blob-code-inner js-file-line">        jComboBox2<span class="pl-k">.</span>setModel(<span class="pl-k">new</span> <span class="pl-k">javax.swing.DefaultComboBoxModel&lt;&gt;</span>(<span class="pl-k">new</span> <span class="pl-smi">String</span>[] { <span class="pl-s"><span class="pl-pds">&quot;</span>Graduação<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>Pós Graduação/Mestrado<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>Doutorado<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span> <span class="pl-pds">&quot;</span></span> }));</td>
+        <td id="LC114" class="blob-code blob-code-inner js-file-line">            ex<span class="pl-k">.</span>printStackTrace();</td>
       </tr>
       <tr>
         <td id="L115" class="blob-num js-line-number" data-line-number="115"></td>
-        <td id="LC115" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC115" class="blob-code blob-code-inner js-file-line">        }</td>
       </tr>
       <tr>
         <td id="L116" class="blob-num js-line-number" data-line-number="116"></td>
-        <td id="LC116" class="blob-code blob-code-inner js-file-line">        jLabel8<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Ano de Entrada :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC116" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L117" class="blob-num js-line-number" data-line-number="117"></td>
-        <td id="LC117" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC117" class="blob-code blob-code-inner js-file-line">        jLabel5<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>E-mail :<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L118" class="blob-num js-line-number" data-line-number="118"></td>
-        <td id="LC118" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">try</span> {</td>
+        <td id="LC118" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L119" class="blob-num js-line-number" data-line-number="119"></td>
-        <td id="LC119" class="blob-code blob-code-inner js-file-line">            jFormattedTextField4<span class="pl-k">.</span>setFormatterFactory(<span class="pl-k">new</span> <span class="pl-smi">javax.swing.text<span class="pl-k">.</span>DefaultFormatterFactory</span>(<span class="pl-k">new</span> <span class="pl-smi">javax.swing.text<span class="pl-k">.</span>MaskFormatter</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>####<span class="pl-pds">&quot;</span></span>)));</td>
+        <td id="LC119" class="blob-code blob-code-inner js-file-line">        jLabel10<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Título :<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L120" class="blob-num js-line-number" data-line-number="120"></td>
-        <td id="LC120" class="blob-code blob-code-inner js-file-line">        } <span class="pl-k">catch</span> (<span class="pl-smi">java.text<span class="pl-k">.</span>ParseException</span> ex) {</td>
+        <td id="LC120" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L121" class="blob-num js-line-number" data-line-number="121"></td>
-        <td id="LC121" class="blob-code blob-code-inner js-file-line">            ex<span class="pl-k">.</span>printStackTrace();</td>
+        <td id="LC121" class="blob-code blob-code-inner js-file-line">        jLabel11<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Lattes :<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L122" class="blob-num js-line-number" data-line-number="122"></td>
-        <td id="LC122" class="blob-code blob-code-inner js-file-line">        }</td>
+        <td id="LC122" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L123" class="blob-num js-line-number" data-line-number="123"></td>
-        <td id="LC123" class="blob-code blob-code-inner js-file-line">        jFormattedTextField4<span class="pl-k">.</span>setToolTipText(<span class="pl-s"><span class="pl-pds">&quot;</span>Digite o Ano no Formato /aaaa<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC123" class="blob-code blob-code-inner js-file-line">        jTextField4<span class="pl-k">.</span>addActionListener(<span class="pl-k">new</span> <span class="pl-smi">java.awt.event<span class="pl-k">.</span>ActionListener</span>() {</td>
       </tr>
       <tr>
         <td id="L124" class="blob-num js-line-number" data-line-number="124"></td>
-        <td id="LC124" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC124" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">actionPerformed</span>(<span class="pl-smi">java.awt.event<span class="pl-k">.</span>ActionEvent</span> <span class="pl-v">evt</span>) {</td>
       </tr>
       <tr>
         <td id="L125" class="blob-num js-line-number" data-line-number="125"></td>
-        <td id="LC125" class="blob-code blob-code-inner js-file-line">        jLabel10<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Semestre de Entrada :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC125" class="blob-code blob-code-inner js-file-line">                jTextField4ActionPerformed(evt);</td>
       </tr>
       <tr>
         <td id="L126" class="blob-num js-line-number" data-line-number="126"></td>
-        <td id="LC126" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC126" class="blob-code blob-code-inner js-file-line">            }</td>
       </tr>
       <tr>
         <td id="L127" class="blob-num js-line-number" data-line-number="127"></td>
-        <td id="LC127" class="blob-code blob-code-inner js-file-line">        jComboBox3<span class="pl-k">.</span>setModel(<span class="pl-k">new</span> <span class="pl-k">javax.swing.DefaultComboBoxModel&lt;&gt;</span>(<span class="pl-k">new</span> <span class="pl-smi">String</span>[] { <span class="pl-s"><span class="pl-pds">&quot;</span>2016.1<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>2016.2<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span> <span class="pl-pds">&quot;</span></span> }));</td>
+        <td id="LC127" class="blob-code blob-code-inner js-file-line">        });</td>
       </tr>
       <tr>
         <td id="L128" class="blob-num js-line-number" data-line-number="128"></td>
@@ -1137,7 +1137,7 @@
       </tr>
       <tr>
         <td id="L129" class="blob-num js-line-number" data-line-number="129"></td>
-        <td id="LC129" class="blob-code blob-code-inner js-file-line">        jLabel11<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Prioridade :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC129" class="blob-code blob-code-inner js-file-line">        jLabel12<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Senha :<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L130" class="blob-num js-line-number" data-line-number="130"></td>
@@ -1146,72 +1146,70 @@
       </tr>
       <tr>
         <td id="L131" class="blob-num js-line-number" data-line-number="131"></td>
-        <td id="LC131" class="blob-code blob-code-inner js-file-line">        jComboBox4<span class="pl-k">.</span>setModel(<span class="pl-k">new</span> <span class="pl-k">javax.swing.DefaultComboBoxModel&lt;&gt;</span>(<span class="pl-k">new</span> <span class="pl-smi">String</span>[] { <span class="pl-s"><span class="pl-pds">&quot;</span>Sim<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>Não<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span> <span class="pl-pds">&quot;</span></span> }));</td>
+        <td id="LC131" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span> jPanel1Layout <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span>(jPanel1);</td>
       </tr>
       <tr>
         <td id="L132" class="blob-num js-line-number" data-line-number="132"></td>
-        <td id="LC132" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC132" class="blob-code blob-code-inner js-file-line">        jPanel1<span class="pl-k">.</span>setLayout(jPanel1Layout);</td>
       </tr>
       <tr>
         <td id="L133" class="blob-num js-line-number" data-line-number="133"></td>
-        <td id="LC133" class="blob-code blob-code-inner js-file-line">        jLabel12<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Senha :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC133" class="blob-code blob-code-inner js-file-line">        jPanel1Layout<span class="pl-k">.</span>setHorizontalGroup(</td>
       </tr>
       <tr>
         <td id="L134" class="blob-num js-line-number" data-line-number="134"></td>
-        <td id="LC134" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC134" class="blob-code blob-code-inner js-file-line">            jPanel1Layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
       </tr>
       <tr>
         <td id="L135" class="blob-num js-line-number" data-line-number="135"></td>
-        <td id="LC135" class="blob-code blob-code-inner js-file-line">        jLabel14<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Sexo :<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC135" class="blob-code blob-code-inner js-file-line">            .addGap(<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>)</td>
       </tr>
       <tr>
         <td id="L136" class="blob-num js-line-number" data-line-number="136"></td>
-        <td id="LC136" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC136" class="blob-code blob-code-inner js-file-line">        );</td>
       </tr>
       <tr>
         <td id="L137" class="blob-num js-line-number" data-line-number="137"></td>
-        <td id="LC137" class="blob-code blob-code-inner js-file-line">        jRadioButton1<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Feminino<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC137" class="blob-code blob-code-inner js-file-line">        jPanel1Layout<span class="pl-k">.</span>setVerticalGroup(</td>
       </tr>
       <tr>
         <td id="L138" class="blob-num js-line-number" data-line-number="138"></td>
-        <td id="LC138" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC138" class="blob-code blob-code-inner js-file-line">            jPanel1Layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
       </tr>
       <tr>
         <td id="L139" class="blob-num js-line-number" data-line-number="139"></td>
-        <td id="LC139" class="blob-code blob-code-inner js-file-line">        jRadioButton2<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Masculino<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC139" class="blob-code blob-code-inner js-file-line">            .addGap(<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>)</td>
       </tr>
       <tr>
         <td id="L140" class="blob-num js-line-number" data-line-number="140"></td>
-        <td id="LC140" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC140" class="blob-code blob-code-inner js-file-line">        );</td>
       </tr>
       <tr>
         <td id="L141" class="blob-num js-line-number" data-line-number="141"></td>
-        <td id="LC141" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">try</span> {</td>
+        <td id="LC141" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L142" class="blob-num js-line-number" data-line-number="142"></td>
-        <td id="LC142" class="blob-code blob-code-inner js-file-line">            jFormattedTextField5<span class="pl-k">.</span>setFormatterFactory(<span class="pl-k">new</span> <span class="pl-smi">javax.swing.text<span class="pl-k">.</span>DefaultFormatterFactory</span>(<span class="pl-k">new</span> <span class="pl-smi">javax.swing.text<span class="pl-k">.</span>MaskFormatter</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#####-###<span class="pl-pds">&quot;</span></span>)));</td>
+        <td id="LC142" class="blob-code blob-code-inner js-file-line">        jLabel13<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">&quot;</span>Endereço :<span class="pl-pds">&quot;</span></span>);</td>
       </tr>
       <tr>
         <td id="L143" class="blob-num js-line-number" data-line-number="143"></td>
-        <td id="LC143" class="blob-code blob-code-inner js-file-line">        } <span class="pl-k">catch</span> (<span class="pl-smi">java.text<span class="pl-k">.</span>ParseException</span> ex) {</td>
+        <td id="LC143" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L144" class="blob-num js-line-number" data-line-number="144"></td>
-        <td id="LC144" class="blob-code blob-code-inner js-file-line">            ex<span class="pl-k">.</span>printStackTrace();</td>
+        <td id="LC144" class="blob-code blob-code-inner js-file-line">        jLabel2<span class="pl-k">.</span>setIcon(<span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>ImageIcon</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>C:<span class="pl-cce">\\</span>Users<span class="pl-cce">\\</span>Lucas<span class="pl-cce">\\</span>Desktop<span class="pl-cce">\\</span>teacher-icon.png<span class="pl-pds">&quot;</span></span>)); <span class="pl-c">// NOI18N</span></td>
       </tr>
       <tr>
         <td id="L145" class="blob-num js-line-number" data-line-number="145"></td>
-        <td id="LC145" class="blob-code blob-code-inner js-file-line">        }</td>
+        <td id="LC145" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L146" class="blob-num js-line-number" data-line-number="146"></td>
-        <td id="LC146" class="blob-code blob-code-inner js-file-line">        jFormattedTextField5<span class="pl-k">.</span>setToolTipText(<span class="pl-s"><span class="pl-pds">&quot;</span>Digite Apenas Números<span class="pl-pds">&quot;</span></span>);</td>
+        <td id="LC146" class="blob-code blob-code-inner js-file-line">        jLayeredPane1<span class="pl-k">.</span>setLayer(jLabel2, <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLayeredPane</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_LAYER</span>);</td>
       </tr>
       <tr>
         <td id="L147" class="blob-num js-line-number" data-line-number="147"></td>
@@ -1220,550 +1218,548 @@
       </tr>
       <tr>
         <td id="L148" class="blob-num js-line-number" data-line-number="148"></td>
-        <td id="LC148" class="blob-code blob-code-inner js-file-line">        jLabel15<span class="pl-k">.</span>setIcon(<span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>ImageIcon</span>(getClass()<span class="pl-k">.</span>getResource(<span class="pl-s"><span class="pl-pds">&quot;</span>/Imagens/engineer-icon.png<span class="pl-pds">&quot;</span></span>))); <span class="pl-c">// NOI18N</span></td>
+        <td id="LC148" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span> jLayeredPane1Layout <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span>(jLayeredPane1);</td>
       </tr>
       <tr>
         <td id="L149" class="blob-num js-line-number" data-line-number="149"></td>
-        <td id="LC149" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC149" class="blob-code blob-code-inner js-file-line">        jLayeredPane1<span class="pl-k">.</span>setLayout(jLayeredPane1Layout);</td>
       </tr>
       <tr>
         <td id="L150" class="blob-num js-line-number" data-line-number="150"></td>
-        <td id="LC150" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span> layout <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span>(getContentPane());</td>
+        <td id="LC150" class="blob-code blob-code-inner js-file-line">        jLayeredPane1Layout<span class="pl-k">.</span>setHorizontalGroup(</td>
       </tr>
       <tr>
         <td id="L151" class="blob-num js-line-number" data-line-number="151"></td>
-        <td id="LC151" class="blob-code blob-code-inner js-file-line">        getContentPane()<span class="pl-k">.</span>setLayout(layout);</td>
+        <td id="LC151" class="blob-code blob-code-inner js-file-line">            jLayeredPane1Layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
       </tr>
       <tr>
         <td id="L152" class="blob-num js-line-number" data-line-number="152"></td>
-        <td id="LC152" class="blob-code blob-code-inner js-file-line">        layout<span class="pl-k">.</span>setHorizontalGroup(</td>
+        <td id="LC152" class="blob-code blob-code-inner js-file-line">            .addGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>TRAILING</span>, jLayeredPane1Layout<span class="pl-k">.</span>createSequentialGroup()</td>
       </tr>
       <tr>
         <td id="L153" class="blob-num js-line-number" data-line-number="153"></td>
-        <td id="LC153" class="blob-code blob-code-inner js-file-line">            layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
+        <td id="LC153" class="blob-code blob-code-inner js-file-line">                .addContainerGap(<span class="pl-c1">155</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>)</td>
       </tr>
       <tr>
         <td id="L154" class="blob-num js-line-number" data-line-number="154"></td>
-        <td id="LC154" class="blob-code blob-code-inner js-file-line">            .add(layout<span class="pl-k">.</span>createSequentialGroup()</td>
+        <td id="LC154" class="blob-code blob-code-inner js-file-line">                .addComponent(jLabel2)</td>
       </tr>
       <tr>
         <td id="L155" class="blob-num js-line-number" data-line-number="155"></td>
-        <td id="LC155" class="blob-code blob-code-inner js-file-line">                .add(jPanel1, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
+        <td id="LC155" class="blob-code blob-code-inner js-file-line">                .addGap(<span class="pl-c1">18</span>, <span class="pl-c1">18</span>, <span class="pl-c1">18</span>))</td>
       </tr>
       <tr>
         <td id="L156" class="blob-num js-line-number" data-line-number="156"></td>
-        <td id="LC156" class="blob-code blob-code-inner js-file-line">                .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>TRAILING</span>)</td>
+        <td id="LC156" class="blob-code blob-code-inner js-file-line">        );</td>
       </tr>
       <tr>
         <td id="L157" class="blob-num js-line-number" data-line-number="157"></td>
-        <td id="LC157" class="blob-code blob-code-inner js-file-line">                    .add(layout<span class="pl-k">.</span>createSequentialGroup()</td>
+        <td id="LC157" class="blob-code blob-code-inner js-file-line">        jLayeredPane1Layout<span class="pl-k">.</span>setVerticalGroup(</td>
       </tr>
       <tr>
         <td id="L158" class="blob-num js-line-number" data-line-number="158"></td>
-        <td id="LC158" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>TRAILING</span>)</td>
+        <td id="LC158" class="blob-code blob-code-inner js-file-line">            jLayeredPane1Layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
       </tr>
       <tr>
         <td id="L159" class="blob-num js-line-number" data-line-number="159"></td>
-        <td id="LC159" class="blob-code blob-code-inner js-file-line">                            .add(jLabel3)</td>
+        <td id="LC159" class="blob-code blob-code-inner js-file-line">            .addGroup(jLayeredPane1Layout<span class="pl-k">.</span>createSequentialGroup()</td>
       </tr>
       <tr>
         <td id="L160" class="blob-num js-line-number" data-line-number="160"></td>
-        <td id="LC160" class="blob-code blob-code-inner js-file-line">                            .add(jLabel2)</td>
+        <td id="LC160" class="blob-code blob-code-inner js-file-line">                .addGap(<span class="pl-c1">19</span>, <span class="pl-c1">19</span>, <span class="pl-c1">19</span>)</td>
       </tr>
       <tr>
         <td id="L161" class="blob-num js-line-number" data-line-number="161"></td>
-        <td id="LC161" class="blob-code blob-code-inner js-file-line">                            .add(jLabel4)</td>
+        <td id="LC161" class="blob-code blob-code-inner js-file-line">                .addComponent(jLabel2, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">140</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L162" class="blob-num js-line-number" data-line-number="162"></td>
-        <td id="LC162" class="blob-code blob-code-inner js-file-line">                            .add(jLabel7)</td>
+        <td id="LC162" class="blob-code blob-code-inner js-file-line">                .addContainerGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>))</td>
       </tr>
       <tr>
         <td id="L163" class="blob-num js-line-number" data-line-number="163"></td>
-        <td id="LC163" class="blob-code blob-code-inner js-file-line">                            .add(jLabel8)</td>
+        <td id="LC163" class="blob-code blob-code-inner js-file-line">        );</td>
       </tr>
       <tr>
         <td id="L164" class="blob-num js-line-number" data-line-number="164"></td>
-        <td id="LC164" class="blob-code blob-code-inner js-file-line">                            .add(jLabel10)</td>
+        <td id="LC164" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L165" class="blob-num js-line-number" data-line-number="165"></td>
-        <td id="LC165" class="blob-code blob-code-inner js-file-line">                            .add(jLabel9)</td>
+        <td id="LC165" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span> layout <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span>(getContentPane());</td>
       </tr>
       <tr>
         <td id="L166" class="blob-num js-line-number" data-line-number="166"></td>
-        <td id="LC166" class="blob-code blob-code-inner js-file-line">                            .add(jLabel11)</td>
+        <td id="LC166" class="blob-code blob-code-inner js-file-line">        getContentPane()<span class="pl-k">.</span>setLayout(layout);</td>
       </tr>
       <tr>
         <td id="L167" class="blob-num js-line-number" data-line-number="167"></td>
-        <td id="LC167" class="blob-code blob-code-inner js-file-line">                            .add(jLabel12)</td>
+        <td id="LC167" class="blob-code blob-code-inner js-file-line">        layout<span class="pl-k">.</span>setHorizontalGroup(</td>
       </tr>
       <tr>
         <td id="L168" class="blob-num js-line-number" data-line-number="168"></td>
-        <td id="LC168" class="blob-code blob-code-inner js-file-line">                            .add(jLabel14)</td>
+        <td id="LC168" class="blob-code blob-code-inner js-file-line">            layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
       </tr>
       <tr>
         <td id="L169" class="blob-num js-line-number" data-line-number="169"></td>
-        <td id="LC169" class="blob-code blob-code-inner js-file-line">                            .add(jLabel5)</td>
+        <td id="LC169" class="blob-code blob-code-inner js-file-line">            .addGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>TRAILING</span>, layout<span class="pl-k">.</span>createSequentialGroup()</td>
       </tr>
       <tr>
         <td id="L170" class="blob-num js-line-number" data-line-number="170"></td>
-        <td id="LC170" class="blob-code blob-code-inner js-file-line">                            .add(jLabel6)</td>
+        <td id="LC170" class="blob-code blob-code-inner js-file-line">                .addContainerGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>)</td>
       </tr>
       <tr>
         <td id="L171" class="blob-num js-line-number" data-line-number="171"></td>
-        <td id="LC171" class="blob-code blob-code-inner js-file-line">                            .add(jLabel13)</td>
+        <td id="LC171" class="blob-code blob-code-inner js-file-line">                .addComponent(jButton2)</td>
       </tr>
       <tr>
         <td id="L172" class="blob-num js-line-number" data-line-number="172"></td>
-        <td id="LC172" class="blob-code blob-code-inner js-file-line">                            .add(jLabel1))</td>
+        <td id="LC172" class="blob-code blob-code-inner js-file-line">                .addGap(<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>)</td>
       </tr>
       <tr>
         <td id="L173" class="blob-num js-line-number" data-line-number="173"></td>
-        <td id="LC173" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
+        <td id="LC173" class="blob-code blob-code-inner js-file-line">                .addComponent(jButton1, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">81</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
       </tr>
       <tr>
         <td id="L174" class="blob-num js-line-number" data-line-number="174"></td>
-        <td id="LC174" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
+        <td id="LC174" class="blob-code blob-code-inner js-file-line">            .addGroup(layout<span class="pl-k">.</span>createSequentialGroup()</td>
       </tr>
       <tr>
         <td id="L175" class="blob-num js-line-number" data-line-number="175"></td>
-        <td id="LC175" class="blob-code blob-code-inner js-file-line">                            .add(layout<span class="pl-k">.</span>createSequentialGroup()</td>
+        <td id="LC175" class="blob-code blob-code-inner js-file-line">                .addComponent(jPanel1, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L176" class="blob-num js-line-number" data-line-number="176"></td>
-        <td id="LC176" class="blob-code blob-code-inner js-file-line">                                .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
+        <td id="LC176" class="blob-code blob-code-inner js-file-line">                .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
       </tr>
       <tr>
         <td id="L177" class="blob-num js-line-number" data-line-number="177"></td>
-        <td id="LC177" class="blob-code blob-code-inner js-file-line">                                    .add(jComboBox1, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
+        <td id="LC177" class="blob-code blob-code-inner js-file-line">                    .addGroup(layout<span class="pl-k">.</span>createSequentialGroup()</td>
       </tr>
       <tr>
         <td id="L178" class="blob-num js-line-number" data-line-number="178"></td>
-        <td id="LC178" class="blob-code blob-code-inner js-file-line">                                    .add(jFormattedTextField4, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">31</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
+        <td id="LC178" class="blob-code blob-code-inner js-file-line">                        .addGap(<span class="pl-c1">69</span>, <span class="pl-c1">69</span>, <span class="pl-c1">69</span>)</td>
       </tr>
       <tr>
         <td id="L179" class="blob-num js-line-number" data-line-number="179"></td>
-        <td id="LC179" class="blob-code blob-code-inner js-file-line">                                    .add(jComboBox3, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
+        <td id="LC179" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>TRAILING</span>)</td>
       </tr>
       <tr>
         <td id="L180" class="blob-num js-line-number" data-line-number="180"></td>
-        <td id="LC180" class="blob-code blob-code-inner js-file-line">                                    .add(jComboBox4, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
+        <td id="LC180" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel11)</td>
       </tr>
       <tr>
         <td id="L181" class="blob-num js-line-number" data-line-number="181"></td>
-        <td id="LC181" class="blob-code blob-code-inner js-file-line">                                    .add(jPasswordField1, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">90</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
+        <td id="LC181" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel10)</td>
       </tr>
       <tr>
         <td id="L182" class="blob-num js-line-number" data-line-number="182"></td>
-        <td id="LC182" class="blob-code blob-code-inner js-file-line">                                    .add(jFormattedTextField1, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">85</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
+        <td id="LC182" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel12)</td>
       </tr>
       <tr>
         <td id="L183" class="blob-num js-line-number" data-line-number="183"></td>
-        <td id="LC183" class="blob-code blob-code-inner js-file-line">                                    .add(layout<span class="pl-k">.</span>createSequentialGroup()</td>
+        <td id="LC183" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel4))</td>
       </tr>
       <tr>
         <td id="L184" class="blob-num js-line-number" data-line-number="184"></td>
-        <td id="LC184" class="blob-code blob-code-inner js-file-line">                                        .add(jRadioButton2)</td>
+        <td id="LC184" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L185" class="blob-num js-line-number" data-line-number="185"></td>
-        <td id="LC185" class="blob-code blob-code-inner js-file-line">                                        .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>RELATED</span>)</td>
+        <td id="LC185" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
       </tr>
       <tr>
         <td id="L186" class="blob-num js-line-number" data-line-number="186"></td>
-        <td id="LC186" class="blob-code blob-code-inner js-file-line">                                        .add(jRadioButton1))</td>
+        <td id="LC186" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField5, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">109</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L187" class="blob-num js-line-number" data-line-number="187"></td>
-        <td id="LC187" class="blob-code blob-code-inner js-file-line">                                    .add(jComboBox2, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
+        <td id="LC187" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField4, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">85</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L188" class="blob-num js-line-number" data-line-number="188"></td>
-        <td id="LC188" class="blob-code blob-code-inner js-file-line">                                    .add(jTextField4, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">200</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC188" class="blob-code blob-code-inner js-file-line">                            .addComponent(jPasswordField1, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">109</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L189" class="blob-num js-line-number" data-line-number="189"></td>
-        <td id="LC189" class="blob-code blob-code-inner js-file-line">                                .addContainerGap(<span class="pl-c1">251</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>))</td>
+        <td id="LC189" class="blob-code blob-code-inner js-file-line">                            .addGroup(layout<span class="pl-k">.</span>createSequentialGroup()</td>
       </tr>
       <tr>
         <td id="L190" class="blob-num js-line-number" data-line-number="190"></td>
-        <td id="LC190" class="blob-code blob-code-inner js-file-line">                            .add(layout<span class="pl-k">.</span>createSequentialGroup()</td>
+        <td id="LC190" class="blob-code blob-code-inner js-file-line">                                .addComponent(jRadioButton1)</td>
       </tr>
       <tr>
         <td id="L191" class="blob-num js-line-number" data-line-number="191"></td>
-        <td id="LC191" class="blob-code blob-code-inner js-file-line">                                .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
+        <td id="LC191" class="blob-code blob-code-inner js-file-line">                                .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L192" class="blob-num js-line-number" data-line-number="192"></td>
-        <td id="LC192" class="blob-code blob-code-inner js-file-line">                                    .add(jFormattedTextField2, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">63</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
+        <td id="LC192" class="blob-code blob-code-inner js-file-line">                                .addComponent(jRadioButton2))))</td>
       </tr>
       <tr>
         <td id="L193" class="blob-num js-line-number" data-line-number="193"></td>
-        <td id="LC193" class="blob-code blob-code-inner js-file-line">                                    .add(jFormattedTextField5, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">60</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
+        <td id="LC193" class="blob-code blob-code-inner js-file-line">                    .addGroup(layout<span class="pl-k">.</span>createSequentialGroup()</td>
       </tr>
       <tr>
         <td id="L194" class="blob-num js-line-number" data-line-number="194"></td>
-        <td id="LC194" class="blob-code blob-code-inner js-file-line">                                    .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>TRAILING</span>, <span class="pl-c1">false</span>)</td>
+        <td id="LC194" class="blob-code blob-code-inner js-file-line">                        .addGap(<span class="pl-c1">54</span>, <span class="pl-c1">54</span>, <span class="pl-c1">54</span>)</td>
       </tr>
       <tr>
         <td id="L195" class="blob-num js-line-number" data-line-number="195"></td>
-        <td id="LC195" class="blob-code blob-code-inner js-file-line">                                        .add(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>, jTextField5, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-c1">150</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>)</td>
+        <td id="LC195" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>TRAILING</span>)</td>
       </tr>
       <tr>
         <td id="L196" class="blob-num js-line-number" data-line-number="196"></td>
-        <td id="LC196" class="blob-code blob-code-inner js-file-line">                                        .add(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>, jTextField7)</td>
+        <td id="LC196" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel6)</td>
       </tr>
       <tr>
         <td id="L197" class="blob-num js-line-number" data-line-number="197"></td>
-        <td id="LC197" class="blob-code blob-code-inner js-file-line">                                        .add(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>, jTextField8)))</td>
+        <td id="LC197" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel5)</td>
       </tr>
       <tr>
         <td id="L198" class="blob-num js-line-number" data-line-number="198"></td>
-        <td id="LC198" class="blob-code blob-code-inner js-file-line">                                .addContainerGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>))))</td>
+        <td id="LC198" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel13)</td>
       </tr>
       <tr>
         <td id="L199" class="blob-num js-line-number" data-line-number="199"></td>
-        <td id="LC199" class="blob-code blob-code-inner js-file-line">                    .add(layout<span class="pl-k">.</span>createSequentialGroup()</td>
+        <td id="LC199" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel1))</td>
       </tr>
       <tr>
         <td id="L200" class="blob-num js-line-number" data-line-number="200"></td>
-        <td id="LC200" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>RELATED</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>)</td>
+        <td id="LC200" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L201" class="blob-num js-line-number" data-line-number="201"></td>
-        <td id="LC201" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
+        <td id="LC201" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
       </tr>
       <tr>
         <td id="L202" class="blob-num js-line-number" data-line-number="202"></td>
-        <td id="LC202" class="blob-code blob-code-inner js-file-line">                            .add(jLabel15, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">140</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
+        <td id="LC202" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField3, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">150</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L203" class="blob-num js-line-number" data-line-number="203"></td>
-        <td id="LC203" class="blob-code blob-code-inner js-file-line">                            .add(layout<span class="pl-k">.</span>createSequentialGroup()</td>
+        <td id="LC203" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField1, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">150</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L204" class="blob-num js-line-number" data-line-number="204"></td>
-        <td id="LC204" class="blob-code blob-code-inner js-file-line">                                .add(jButton2)</td>
+        <td id="LC204" class="blob-code blob-code-inner js-file-line">                            .addComponent(jFormattedTextField3, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">60</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L205" class="blob-num js-line-number" data-line-number="205"></td>
-        <td id="LC205" class="blob-code blob-code-inner js-file-line">                                .add(<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>)</td>
+        <td id="LC205" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField2, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">150</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)))</td>
       </tr>
       <tr>
         <td id="L206" class="blob-num js-line-number" data-line-number="206"></td>
-        <td id="LC206" class="blob-code blob-code-inner js-file-line">                                .add(jButton1, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">81</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))))))</td>
+        <td id="LC206" class="blob-code blob-code-inner js-file-line">                    .addGroup(layout<span class="pl-k">.</span>createSequentialGroup()</td>
       </tr>
       <tr>
         <td id="L207" class="blob-num js-line-number" data-line-number="207"></td>
-        <td id="LC207" class="blob-code blob-code-inner js-file-line">        );</td>
+        <td id="LC207" class="blob-code blob-code-inner js-file-line">                        .addGap(<span class="pl-c1">3</span>, <span class="pl-c1">3</span>, <span class="pl-c1">3</span>)</td>
       </tr>
       <tr>
         <td id="L208" class="blob-num js-line-number" data-line-number="208"></td>
-        <td id="LC208" class="blob-code blob-code-inner js-file-line">        layout<span class="pl-k">.</span>setVerticalGroup(</td>
+        <td id="LC208" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>TRAILING</span>)</td>
       </tr>
       <tr>
         <td id="L209" class="blob-num js-line-number" data-line-number="209"></td>
-        <td id="LC209" class="blob-code blob-code-inner js-file-line">            layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
+        <td id="LC209" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel3)</td>
       </tr>
       <tr>
         <td id="L210" class="blob-num js-line-number" data-line-number="210"></td>
-        <td id="LC210" class="blob-code blob-code-inner js-file-line">            .add(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>TRAILING</span>, layout<span class="pl-k">.</span>createSequentialGroup()</td>
+        <td id="LC210" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel9)</td>
       </tr>
       <tr>
         <td id="L211" class="blob-num js-line-number" data-line-number="211"></td>
-        <td id="LC211" class="blob-code blob-code-inner js-file-line">                .addContainerGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>)</td>
+        <td id="LC211" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel7)</td>
       </tr>
       <tr>
         <td id="L212" class="blob-num js-line-number" data-line-number="212"></td>
-        <td id="LC212" class="blob-code blob-code-inner js-file-line">                .add(jPanel1, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC212" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel8))</td>
       </tr>
       <tr>
         <td id="L213" class="blob-num js-line-number" data-line-number="213"></td>
-        <td id="LC213" class="blob-code blob-code-inner js-file-line">            .add(layout<span class="pl-k">.</span>createSequentialGroup()</td>
+        <td id="LC213" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L214" class="blob-num js-line-number" data-line-number="214"></td>
-        <td id="LC214" class="blob-code blob-code-inner js-file-line">                .add(<span class="pl-c1">18</span>, <span class="pl-c1">18</span>, <span class="pl-c1">18</span>)</td>
+        <td id="LC214" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
       </tr>
       <tr>
         <td id="L215" class="blob-num js-line-number" data-line-number="215"></td>
-        <td id="LC215" class="blob-code blob-code-inner js-file-line">                .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
+        <td id="LC215" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField6, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">85</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L216" class="blob-num js-line-number" data-line-number="216"></td>
-        <td id="LC216" class="blob-code blob-code-inner js-file-line">                    .add(layout<span class="pl-k">.</span>createSequentialGroup()</td>
+        <td id="LC216" class="blob-code blob-code-inner js-file-line">                            .addComponent(jFormattedTextField1, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">85</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L217" class="blob-num js-line-number" data-line-number="217"></td>
-        <td id="LC217" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>TRAILING</span>)</td>
+        <td id="LC217" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField8, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">85</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L218" class="blob-num js-line-number" data-line-number="218"></td>
-        <td id="LC218" class="blob-code blob-code-inner js-file-line">                            .add(layout<span class="pl-k">.</span>createSequentialGroup()</td>
+        <td id="LC218" class="blob-code blob-code-inner js-file-line">                            .addComponent(jFormattedTextField2, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">63</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))))</td>
       </tr>
       <tr>
         <td id="L219" class="blob-num js-line-number" data-line-number="219"></td>
-        <td id="LC219" class="blob-code blob-code-inner js-file-line">                                .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC219" class="blob-code blob-code-inner js-file-line">                .addGap(<span class="pl-c1">54</span>, <span class="pl-c1">54</span>, <span class="pl-c1">54</span>)</td>
       </tr>
       <tr>
         <td id="L220" class="blob-num js-line-number" data-line-number="220"></td>
-        <td id="LC220" class="blob-code blob-code-inner js-file-line">                                    .add(jLabel1)</td>
+        <td id="LC220" class="blob-code blob-code-inner js-file-line">                .addComponent(jLayeredPane1, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L221" class="blob-num js-line-number" data-line-number="221"></td>
-        <td id="LC221" class="blob-code blob-code-inner js-file-line">                                    .add(jTextField8, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC221" class="blob-code blob-code-inner js-file-line">                .addContainerGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>))</td>
       </tr>
       <tr>
         <td id="L222" class="blob-num js-line-number" data-line-number="222"></td>
-        <td id="LC222" class="blob-code blob-code-inner js-file-line">                                .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
+        <td id="LC222" class="blob-code blob-code-inner js-file-line">        );</td>
       </tr>
       <tr>
         <td id="L223" class="blob-num js-line-number" data-line-number="223"></td>
-        <td id="LC223" class="blob-code blob-code-inner js-file-line">                                .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC223" class="blob-code blob-code-inner js-file-line">        layout<span class="pl-k">.</span>setVerticalGroup(</td>
       </tr>
       <tr>
         <td id="L224" class="blob-num js-line-number" data-line-number="224"></td>
-        <td id="LC224" class="blob-code blob-code-inner js-file-line">                                    .add(jLabel13)</td>
+        <td id="LC224" class="blob-code blob-code-inner js-file-line">            layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>)</td>
       </tr>
       <tr>
         <td id="L225" class="blob-num js-line-number" data-line-number="225"></td>
-        <td id="LC225" class="blob-code blob-code-inner js-file-line">                                    .add(jTextField7, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC225" class="blob-code blob-code-inner js-file-line">            .addGroup(layout<span class="pl-k">.</span>createSequentialGroup()</td>
       </tr>
       <tr>
         <td id="L226" class="blob-num js-line-number" data-line-number="226"></td>
-        <td id="LC226" class="blob-code blob-code-inner js-file-line">                                .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
+        <td id="LC226" class="blob-code blob-code-inner js-file-line">                .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>LEADING</span>, <span class="pl-c1">false</span>)</td>
       </tr>
       <tr>
         <td id="L227" class="blob-num js-line-number" data-line-number="227"></td>
-        <td id="LC227" class="blob-code blob-code-inner js-file-line">                                .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC227" class="blob-code blob-code-inner js-file-line">                    .addGroup(layout<span class="pl-k">.</span>createSequentialGroup()</td>
       </tr>
       <tr>
         <td id="L228" class="blob-num js-line-number" data-line-number="228"></td>
-        <td id="LC228" class="blob-code blob-code-inner js-file-line">                                    .add(jLabel6)</td>
+        <td id="LC228" class="blob-code blob-code-inner js-file-line">                        .addGap(<span class="pl-c1">29</span>, <span class="pl-c1">29</span>, <span class="pl-c1">29</span>)</td>
       </tr>
       <tr>
         <td id="L229" class="blob-num js-line-number" data-line-number="229"></td>
-        <td id="LC229" class="blob-code blob-code-inner js-file-line">                                    .add(jFormattedTextField5, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC229" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L230" class="blob-num js-line-number" data-line-number="230"></td>
-        <td id="LC230" class="blob-code blob-code-inner js-file-line">                                .add(<span class="pl-c1">7</span>, <span class="pl-c1">7</span>, <span class="pl-c1">7</span>)</td>
+        <td id="LC230" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel1)</td>
       </tr>
       <tr>
         <td id="L231" class="blob-num js-line-number" data-line-number="231"></td>
-        <td id="LC231" class="blob-code blob-code-inner js-file-line">                                .add(jTextField5, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC231" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField1, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
       </tr>
       <tr>
         <td id="L232" class="blob-num js-line-number" data-line-number="232"></td>
-        <td id="LC232" class="blob-code blob-code-inner js-file-line">                            .add(jLabel5))</td>
+        <td id="LC232" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L233" class="blob-num js-line-number" data-line-number="233"></td>
-        <td id="LC233" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>RELATED</span>)</td>
+        <td id="LC233" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L234" class="blob-num js-line-number" data-line-number="234"></td>
-        <td id="LC234" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC234" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField2, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>)</td>
       </tr>
       <tr>
         <td id="L235" class="blob-num js-line-number" data-line-number="235"></td>
-        <td id="LC235" class="blob-code blob-code-inner js-file-line">                            .add(jLabel9)</td>
+        <td id="LC235" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel13))</td>
       </tr>
       <tr>
         <td id="L236" class="blob-num js-line-number" data-line-number="236"></td>
-        <td id="LC236" class="blob-code blob-code-inner js-file-line">                            .add(jFormattedTextField2, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC236" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L237" class="blob-num js-line-number" data-line-number="237"></td>
-        <td id="LC237" class="blob-code blob-code-inner js-file-line">                        .add(<span class="pl-c1">14</span>, <span class="pl-c1">14</span>, <span class="pl-c1">14</span>)</td>
+        <td id="LC237" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L238" class="blob-num js-line-number" data-line-number="238"></td>
-        <td id="LC238" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC238" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel6)</td>
       </tr>
       <tr>
         <td id="L239" class="blob-num js-line-number" data-line-number="239"></td>
-        <td id="LC239" class="blob-code blob-code-inner js-file-line">                            .add(jLabel3)</td>
+        <td id="LC239" class="blob-code blob-code-inner js-file-line">                            .addComponent(jFormattedTextField3, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
       </tr>
       <tr>
         <td id="L240" class="blob-num js-line-number" data-line-number="240"></td>
-        <td id="LC240" class="blob-code blob-code-inner js-file-line">                            .add(jFormattedTextField1, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC240" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L241" class="blob-num js-line-number" data-line-number="241"></td>
-        <td id="LC241" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
+        <td id="LC241" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L242" class="blob-num js-line-number" data-line-number="242"></td>
-        <td id="LC242" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC242" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel5)</td>
       </tr>
       <tr>
         <td id="L243" class="blob-num js-line-number" data-line-number="243"></td>
-        <td id="LC243" class="blob-code blob-code-inner js-file-line">                            .add(jLabel2)</td>
+        <td id="LC243" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField3, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
       </tr>
       <tr>
         <td id="L244" class="blob-num js-line-number" data-line-number="244"></td>
-        <td id="LC244" class="blob-code blob-code-inner js-file-line">                            .add(jTextField4, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC244" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L245" class="blob-num js-line-number" data-line-number="245"></td>
-        <td id="LC245" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
+        <td id="LC245" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L246" class="blob-num js-line-number" data-line-number="246"></td>
-        <td id="LC246" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC246" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel9)</td>
       </tr>
       <tr>
         <td id="L247" class="blob-num js-line-number" data-line-number="247"></td>
-        <td id="LC247" class="blob-code blob-code-inner js-file-line">                            .add(jLabel4)</td>
+        <td id="LC247" class="blob-code blob-code-inner js-file-line">                            .addComponent(jFormattedTextField2, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
       </tr>
       <tr>
         <td id="L248" class="blob-num js-line-number" data-line-number="248"></td>
-        <td id="LC248" class="blob-code blob-code-inner js-file-line">                            .add(jComboBox1, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC248" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L249" class="blob-num js-line-number" data-line-number="249"></td>
-        <td id="LC249" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
+        <td id="LC249" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L250" class="blob-num js-line-number" data-line-number="250"></td>
-        <td id="LC250" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC250" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel3)</td>
       </tr>
       <tr>
         <td id="L251" class="blob-num js-line-number" data-line-number="251"></td>
-        <td id="LC251" class="blob-code blob-code-inner js-file-line">                            .add(jLabel7)</td>
+        <td id="LC251" class="blob-code blob-code-inner js-file-line">                            .addComponent(jFormattedTextField1, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
       </tr>
       <tr>
         <td id="L252" class="blob-num js-line-number" data-line-number="252"></td>
-        <td id="LC252" class="blob-code blob-code-inner js-file-line">                            .add(jComboBox2, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC252" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L253" class="blob-num js-line-number" data-line-number="253"></td>
-        <td id="LC253" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
+        <td id="LC253" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L254" class="blob-num js-line-number" data-line-number="254"></td>
-        <td id="LC254" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC254" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel7)</td>
       </tr>
       <tr>
         <td id="L255" class="blob-num js-line-number" data-line-number="255"></td>
-        <td id="LC255" class="blob-code blob-code-inner js-file-line">                            .add(jLabel8)</td>
+        <td id="LC255" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField6, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
       </tr>
       <tr>
         <td id="L256" class="blob-num js-line-number" data-line-number="256"></td>
-        <td id="LC256" class="blob-code blob-code-inner js-file-line">                            .add(jFormattedTextField4, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC256" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L257" class="blob-num js-line-number" data-line-number="257"></td>
-        <td id="LC257" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
+        <td id="LC257" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L258" class="blob-num js-line-number" data-line-number="258"></td>
-        <td id="LC258" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC258" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel8)</td>
       </tr>
       <tr>
         <td id="L259" class="blob-num js-line-number" data-line-number="259"></td>
-        <td id="LC259" class="blob-code blob-code-inner js-file-line">                            .add(jLabel10)</td>
+        <td id="LC259" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField8, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
       </tr>
       <tr>
         <td id="L260" class="blob-num js-line-number" data-line-number="260"></td>
-        <td id="LC260" class="blob-code blob-code-inner js-file-line">                            .add(jComboBox3, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC260" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L261" class="blob-num js-line-number" data-line-number="261"></td>
-        <td id="LC261" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
+        <td id="LC261" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L262" class="blob-num js-line-number" data-line-number="262"></td>
-        <td id="LC262" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC262" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel10)</td>
       </tr>
       <tr>
         <td id="L263" class="blob-num js-line-number" data-line-number="263"></td>
-        <td id="LC263" class="blob-code blob-code-inner js-file-line">                            .add(jLabel11)</td>
+        <td id="LC263" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField4, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
       </tr>
       <tr>
         <td id="L264" class="blob-num js-line-number" data-line-number="264"></td>
-        <td id="LC264" class="blob-code blob-code-inner js-file-line">                            .add(jComboBox4, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC264" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L265" class="blob-num js-line-number" data-line-number="265"></td>
-        <td id="LC265" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
+        <td id="LC265" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L266" class="blob-num js-line-number" data-line-number="266"></td>
-        <td id="LC266" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC266" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel11)</td>
       </tr>
       <tr>
         <td id="L267" class="blob-num js-line-number" data-line-number="267"></td>
-        <td id="LC267" class="blob-code blob-code-inner js-file-line">                            .add(jLabel12)</td>
+        <td id="LC267" class="blob-code blob-code-inner js-file-line">                            .addComponent(jTextField5, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
       </tr>
       <tr>
         <td id="L268" class="blob-num js-line-number" data-line-number="268"></td>
-        <td id="LC268" class="blob-code blob-code-inner js-file-line">                            .add(jPasswordField1, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC268" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L269" class="blob-num js-line-number" data-line-number="269"></td>
-        <td id="LC269" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
+        <td id="LC269" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L270" class="blob-num js-line-number" data-line-number="270"></td>
-        <td id="LC270" class="blob-code blob-code-inner js-file-line">                        .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC270" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel12)</td>
       </tr>
       <tr>
         <td id="L271" class="blob-num js-line-number" data-line-number="271"></td>
-        <td id="LC271" class="blob-code blob-code-inner js-file-line">                            .add(jLabel14)</td>
+        <td id="LC271" class="blob-code blob-code-inner js-file-line">                            .addComponent(jPasswordField1, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
       </tr>
       <tr>
         <td id="L272" class="blob-num js-line-number" data-line-number="272"></td>
-        <td id="LC272" class="blob-code blob-code-inner js-file-line">                            .add(jRadioButton1)</td>
+        <td id="LC272" class="blob-code blob-code-inner js-file-line">                        .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>UNRELATED</span>)</td>
       </tr>
       <tr>
         <td id="L273" class="blob-num js-line-number" data-line-number="273"></td>
-        <td id="LC273" class="blob-code blob-code-inner js-file-line">                            .add(jRadioButton2)))</td>
+        <td id="LC273" class="blob-code blob-code-inner js-file-line">                        .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L274" class="blob-num js-line-number" data-line-number="274"></td>
-        <td id="LC274" class="blob-code blob-code-inner js-file-line">                    .add(jLabel15, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>, <span class="pl-c1">140</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>PREFERRED_SIZE</span>))</td>
+        <td id="LC274" class="blob-code blob-code-inner js-file-line">                            .addComponent(jLabel4)</td>
       </tr>
       <tr>
         <td id="L275" class="blob-num js-line-number" data-line-number="275"></td>
-        <td id="LC275" class="blob-code blob-code-inner js-file-line">                .addPreferredGap(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>LayoutStyle</span><span class="pl-c1"><span class="pl-k">.</span>RELATED</span>, <span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>)</td>
+        <td id="LC275" class="blob-code blob-code-inner js-file-line">                            .addComponent(jRadioButton1)</td>
       </tr>
       <tr>
         <td id="L276" class="blob-num js-line-number" data-line-number="276"></td>
-        <td id="LC276" class="blob-code blob-code-inner js-file-line">                .add(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">org.jdesktop.layout<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
+        <td id="LC276" class="blob-code blob-code-inner js-file-line">                            .addComponent(jRadioButton2)))</td>
       </tr>
       <tr>
         <td id="L277" class="blob-num js-line-number" data-line-number="277"></td>
-        <td id="LC277" class="blob-code blob-code-inner js-file-line">                    .add(jButton1)</td>
+        <td id="LC277" class="blob-code blob-code-inner js-file-line">                    .addComponent(jLayeredPane1))</td>
       </tr>
       <tr>
         <td id="L278" class="blob-num js-line-number" data-line-number="278"></td>
-        <td id="LC278" class="blob-code blob-code-inner js-file-line">                    .add(jButton2)))</td>
+        <td id="LC278" class="blob-code blob-code-inner js-file-line">                .addPreferredGap(<span class="pl-smi">javax.swing<span class="pl-k">.</span>LayoutStyle</span><span class="pl-k">.</span><span class="pl-smi">ComponentPlacement</span><span class="pl-c1"><span class="pl-k">.</span>RELATED</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>)</td>
       </tr>
       <tr>
         <td id="L279" class="blob-num js-line-number" data-line-number="279"></td>
-        <td id="LC279" class="blob-code blob-code-inner js-file-line">        );</td>
+        <td id="LC279" class="blob-code blob-code-inner js-file-line">                .addGroup(layout<span class="pl-k">.</span>createParallelGroup(<span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-k">.</span><span class="pl-smi">Alignment</span><span class="pl-c1"><span class="pl-k">.</span>BASELINE</span>)</td>
       </tr>
       <tr>
         <td id="L280" class="blob-num js-line-number" data-line-number="280"></td>
-        <td id="LC280" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC280" class="blob-code blob-code-inner js-file-line">                    .addComponent(jButton1)</td>
       </tr>
       <tr>
         <td id="L281" class="blob-num js-line-number" data-line-number="281"></td>
-        <td id="LC281" class="blob-code blob-code-inner js-file-line">        pack();</td>
+        <td id="LC281" class="blob-code blob-code-inner js-file-line">                    .addComponent(jButton2)))</td>
       </tr>
       <tr>
         <td id="L282" class="blob-num js-line-number" data-line-number="282"></td>
-        <td id="LC282" class="blob-code blob-code-inner js-file-line">    }<span class="pl-c">// &lt;/editor-fold&gt;//GEN-END:initComponents</span></td>
+        <td id="LC282" class="blob-code blob-code-inner js-file-line">            .addComponent(jPanel1, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">javax.swing<span class="pl-k">.</span>GroupLayout</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT_SIZE</span>, <span class="pl-smi">Short</span><span class="pl-c1"><span class="pl-k">.</span>MAX_VALUE</span>)</td>
       </tr>
       <tr>
         <td id="L283" class="blob-num js-line-number" data-line-number="283"></td>
-        <td id="LC283" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC283" class="blob-code blob-code-inner js-file-line">        );</td>
       </tr>
       <tr>
         <td id="L284" class="blob-num js-line-number" data-line-number="284"></td>
@@ -1772,147 +1768,204 @@
       </tr>
       <tr>
         <td id="L285" class="blob-num js-line-number" data-line-number="285"></td>
-        <td id="LC285" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// Variables declaration - do not modify//GEN-BEGIN:variables</span></td>
+        <td id="LC285" class="blob-code blob-code-inner js-file-line">        pack();</td>
       </tr>
       <tr>
         <td id="L286" class="blob-num js-line-number" data-line-number="286"></td>
-        <td id="LC286" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JButton</span> jButton1;</td>
+        <td id="LC286" class="blob-code blob-code-inner js-file-line">    }<span class="pl-c">// &lt;/editor-fold&gt;//GEN-END:initComponents</span></td>
       </tr>
       <tr>
         <td id="L287" class="blob-num js-line-number" data-line-number="287"></td>
-        <td id="LC287" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JButton</span> jButton2;</td>
+        <td id="LC287" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L288" class="blob-num js-line-number" data-line-number="288"></td>
-        <td id="LC288" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-k">javax.swing.JComboBox&lt;<span class="pl-smi">String</span>&gt;</span> jComboBox1;</td>
+        <td id="LC288" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-k">void</span> <span class="pl-en">jTextField2ActionPerformed</span>(<span class="pl-smi">java.awt.event<span class="pl-k">.</span>ActionEvent</span> <span class="pl-v">evt</span>) {<span class="pl-c">//GEN-FIRST:event_jTextField2ActionPerformed</span></td>
       </tr>
       <tr>
         <td id="L289" class="blob-num js-line-number" data-line-number="289"></td>
-        <td id="LC289" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-k">javax.swing.JComboBox&lt;<span class="pl-smi">String</span>&gt;</span> jComboBox2;</td>
+        <td id="LC289" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// TODO add your handling code here:</span></td>
       </tr>
       <tr>
         <td id="L290" class="blob-num js-line-number" data-line-number="290"></td>
-        <td id="LC290" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-k">javax.swing.JComboBox&lt;<span class="pl-smi">String</span>&gt;</span> jComboBox3;</td>
+        <td id="LC290" class="blob-code blob-code-inner js-file-line">    }<span class="pl-c">//GEN-LAST:event_jTextField2ActionPerformed</span></td>
       </tr>
       <tr>
         <td id="L291" class="blob-num js-line-number" data-line-number="291"></td>
-        <td id="LC291" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-k">javax.swing.JComboBox&lt;<span class="pl-smi">String</span>&gt;</span> jComboBox4;</td>
+        <td id="LC291" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L292" class="blob-num js-line-number" data-line-number="292"></td>
-        <td id="LC292" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span> jFormattedTextField1;</td>
+        <td id="LC292" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-k">void</span> <span class="pl-en">jTextField6ActionPerformed</span>(<span class="pl-smi">java.awt.event<span class="pl-k">.</span>ActionEvent</span> <span class="pl-v">evt</span>) {<span class="pl-c">//GEN-FIRST:event_jTextField6ActionPerformed</span></td>
       </tr>
       <tr>
         <td id="L293" class="blob-num js-line-number" data-line-number="293"></td>
-        <td id="LC293" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span> jFormattedTextField2;</td>
+        <td id="LC293" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// TODO add your handling code here:</span></td>
       </tr>
       <tr>
         <td id="L294" class="blob-num js-line-number" data-line-number="294"></td>
-        <td id="LC294" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span> jFormattedTextField4;</td>
+        <td id="LC294" class="blob-code blob-code-inner js-file-line">    }<span class="pl-c">//GEN-LAST:event_jTextField6ActionPerformed</span></td>
       </tr>
       <tr>
         <td id="L295" class="blob-num js-line-number" data-line-number="295"></td>
-        <td id="LC295" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span> jFormattedTextField5;</td>
+        <td id="LC295" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L296" class="blob-num js-line-number" data-line-number="296"></td>
-        <td id="LC296" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel1;</td>
+        <td id="LC296" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-k">void</span> <span class="pl-en">jTextField4ActionPerformed</span>(<span class="pl-smi">java.awt.event<span class="pl-k">.</span>ActionEvent</span> <span class="pl-v">evt</span>) {<span class="pl-c">//GEN-FIRST:event_jTextField4ActionPerformed</span></td>
       </tr>
       <tr>
         <td id="L297" class="blob-num js-line-number" data-line-number="297"></td>
-        <td id="LC297" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel10;</td>
+        <td id="LC297" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// TODO add your handling code here:</span></td>
       </tr>
       <tr>
         <td id="L298" class="blob-num js-line-number" data-line-number="298"></td>
-        <td id="LC298" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel11;</td>
+        <td id="LC298" class="blob-code blob-code-inner js-file-line">    }<span class="pl-c">//GEN-LAST:event_jTextField4ActionPerformed</span></td>
       </tr>
       <tr>
         <td id="L299" class="blob-num js-line-number" data-line-number="299"></td>
-        <td id="LC299" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel12;</td>
+        <td id="LC299" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L300" class="blob-num js-line-number" data-line-number="300"></td>
-        <td id="LC300" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel13;</td>
+        <td id="LC300" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L301" class="blob-num js-line-number" data-line-number="301"></td>
-        <td id="LC301" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel14;</td>
+        <td id="LC301" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// Variables declaration - do not modify//GEN-BEGIN:variables</span></td>
       </tr>
       <tr>
         <td id="L302" class="blob-num js-line-number" data-line-number="302"></td>
-        <td id="LC302" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel15;</td>
+        <td id="LC302" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JButton</span> jButton1;</td>
       </tr>
       <tr>
         <td id="L303" class="blob-num js-line-number" data-line-number="303"></td>
-        <td id="LC303" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel2;</td>
+        <td id="LC303" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JButton</span> jButton2;</td>
       </tr>
       <tr>
         <td id="L304" class="blob-num js-line-number" data-line-number="304"></td>
-        <td id="LC304" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel3;</td>
+        <td id="LC304" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span> jFormattedTextField1;</td>
       </tr>
       <tr>
         <td id="L305" class="blob-num js-line-number" data-line-number="305"></td>
-        <td id="LC305" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel4;</td>
+        <td id="LC305" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span> jFormattedTextField2;</td>
       </tr>
       <tr>
         <td id="L306" class="blob-num js-line-number" data-line-number="306"></td>
-        <td id="LC306" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel5;</td>
+        <td id="LC306" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JFormattedTextField</span> jFormattedTextField3;</td>
       </tr>
       <tr>
         <td id="L307" class="blob-num js-line-number" data-line-number="307"></td>
-        <td id="LC307" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel6;</td>
+        <td id="LC307" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel1;</td>
       </tr>
       <tr>
         <td id="L308" class="blob-num js-line-number" data-line-number="308"></td>
-        <td id="LC308" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel7;</td>
+        <td id="LC308" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel10;</td>
       </tr>
       <tr>
         <td id="L309" class="blob-num js-line-number" data-line-number="309"></td>
-        <td id="LC309" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel8;</td>
+        <td id="LC309" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel11;</td>
       </tr>
       <tr>
         <td id="L310" class="blob-num js-line-number" data-line-number="310"></td>
-        <td id="LC310" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel9;</td>
+        <td id="LC310" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel12;</td>
       </tr>
       <tr>
         <td id="L311" class="blob-num js-line-number" data-line-number="311"></td>
-        <td id="LC311" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JPanel</span> jPanel1;</td>
+        <td id="LC311" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel13;</td>
       </tr>
       <tr>
         <td id="L312" class="blob-num js-line-number" data-line-number="312"></td>
-        <td id="LC312" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JPasswordField</span> jPasswordField1;</td>
+        <td id="LC312" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel2;</td>
       </tr>
       <tr>
         <td id="L313" class="blob-num js-line-number" data-line-number="313"></td>
-        <td id="LC313" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JRadioButton</span> jRadioButton1;</td>
+        <td id="LC313" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel3;</td>
       </tr>
       <tr>
         <td id="L314" class="blob-num js-line-number" data-line-number="314"></td>
-        <td id="LC314" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JRadioButton</span> jRadioButton2;</td>
+        <td id="LC314" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel4;</td>
       </tr>
       <tr>
         <td id="L315" class="blob-num js-line-number" data-line-number="315"></td>
-        <td id="LC315" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span> jTextField4;</td>
+        <td id="LC315" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel5;</td>
       </tr>
       <tr>
         <td id="L316" class="blob-num js-line-number" data-line-number="316"></td>
-        <td id="LC316" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span> jTextField5;</td>
+        <td id="LC316" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel6;</td>
       </tr>
       <tr>
         <td id="L317" class="blob-num js-line-number" data-line-number="317"></td>
-        <td id="LC317" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span> jTextField7;</td>
+        <td id="LC317" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel7;</td>
       </tr>
       <tr>
         <td id="L318" class="blob-num js-line-number" data-line-number="318"></td>
-        <td id="LC318" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span> jTextField8;</td>
+        <td id="LC318" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel8;</td>
       </tr>
       <tr>
         <td id="L319" class="blob-num js-line-number" data-line-number="319"></td>
-        <td id="LC319" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// End of variables declaration//GEN-END:variables</span></td>
+        <td id="LC319" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLabel</span> jLabel9;</td>
       </tr>
       <tr>
         <td id="L320" class="blob-num js-line-number" data-line-number="320"></td>
-        <td id="LC320" class="blob-code blob-code-inner js-file-line">}</td>
+        <td id="LC320" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JLayeredPane</span> jLayeredPane1;</td>
+      </tr>
+      <tr>
+        <td id="L321" class="blob-num js-line-number" data-line-number="321"></td>
+        <td id="LC321" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JPanel</span> jPanel1;</td>
+      </tr>
+      <tr>
+        <td id="L322" class="blob-num js-line-number" data-line-number="322"></td>
+        <td id="LC322" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JPasswordField</span> jPasswordField1;</td>
+      </tr>
+      <tr>
+        <td id="L323" class="blob-num js-line-number" data-line-number="323"></td>
+        <td id="LC323" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JRadioButton</span> jRadioButton1;</td>
+      </tr>
+      <tr>
+        <td id="L324" class="blob-num js-line-number" data-line-number="324"></td>
+        <td id="LC324" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JRadioButton</span> jRadioButton2;</td>
+      </tr>
+      <tr>
+        <td id="L325" class="blob-num js-line-number" data-line-number="325"></td>
+        <td id="LC325" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span> jTextField1;</td>
+      </tr>
+      <tr>
+        <td id="L326" class="blob-num js-line-number" data-line-number="326"></td>
+        <td id="LC326" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span> jTextField2;</td>
+      </tr>
+      <tr>
+        <td id="L327" class="blob-num js-line-number" data-line-number="327"></td>
+        <td id="LC327" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span> jTextField3;</td>
+      </tr>
+      <tr>
+        <td id="L328" class="blob-num js-line-number" data-line-number="328"></td>
+        <td id="LC328" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span> jTextField4;</td>
+      </tr>
+      <tr>
+        <td id="L329" class="blob-num js-line-number" data-line-number="329"></td>
+        <td id="LC329" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span> jTextField5;</td>
+      </tr>
+      <tr>
+        <td id="L330" class="blob-num js-line-number" data-line-number="330"></td>
+        <td id="LC330" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span> jTextField6;</td>
+      </tr>
+      <tr>
+        <td id="L331" class="blob-num js-line-number" data-line-number="331"></td>
+        <td id="LC331" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">private</span> <span class="pl-smi">javax.swing<span class="pl-k">.</span>JTextField</span> jTextField8;</td>
+      </tr>
+      <tr>
+        <td id="L332" class="blob-num js-line-number" data-line-number="332"></td>
+        <td id="LC332" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// End of variables declaration//GEN-END:variables</span></td>
+      </tr>
+      <tr>
+        <td id="L333" class="blob-num js-line-number" data-line-number="333"></td>
+        <td id="LC333" class="blob-code blob-code-inner js-file-line">}</td>
       </tr>
 </table>
 
@@ -1953,7 +2006,7 @@
       <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" version="1.1" viewBox="0 0 16 16" width="24"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
 </a>
     <ul class="site-footer-links">
-      <li>&copy; 2016 <span title="0.13008s from github-fe135-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+      <li>&copy; 2016 <span title="0.10495s from github-fe156-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
         <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
         <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
         <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
