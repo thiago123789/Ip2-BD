@@ -4,14 +4,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import poo.dados.DisciplinaDAO;
+import poo.dados.UsuarioDAO;
+import poo.excecoes.CPFInvalidoException;
 import poo.negocios.ListarDisciplinas;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Disciplina;
+import poo.negocios.beans.Endereco;
+import poo.negocios.beans.Pessoa;
 
 public class TesteDisciplina {
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException, CPFInvalidoException {
+                UsuarioDAO rep1 = new UsuarioDAO();
 		DisciplinaDAO rep = new DisciplinaDAO();
-		Curso bcc = new Curso(1, "Bacharelado em Ciencia da Computação");
+		Curso bcc = new Curso(1, "Bacharelado em Ciencia da Computaï¿½ï¿½o");
 		Disciplina a, b, c, d, e, f, g, h, i;
 		ListarDisciplinas listar = new ListarDisciplinas();
 		
@@ -22,21 +27,25 @@ public class TesteDisciplina {
 //		test.add(c);
 		d = new Disciplina("Introducao a programacao 2", 1, a, c, null, null, 0, null, null, bcc, 0, 0);
 		e = new Disciplina("Algebra Linear", 0, null,null, null ,null, 0, null, null, bcc, 0, 0);
-		f = new Disciplina("Introdução a ciencia da computação", 0, null, null, null ,null, 0, null, null, bcc, 0, 0);
+		f = new Disciplina("Introduï¿½ï¿½o a ciencia da computaï¿½ï¿½o", 0, null, null, null ,null, 0, null, null, bcc, 0, 0);
 		g = new Disciplina("Matematica Discreta", 0, null,null, null ,null, 0, null, null, bcc, 0, 0);
 		h = new Disciplina("Banco de dados", 1, a, c, null, null, 0, null, null, bcc, 0, 0);
 		
-		rep.inserir(a);
+//		rep.inserir(a);
 		a = new Disciplina("Introducao a programacao 1", 0, null, null, null, null, 0, null, null, bcc, 1, 0);
-		rep.atualiza(a);
-		rep.inserir(b);
-		rep.inserir(c);
-		rep.inserir(d);
-		rep.inserir(e);
-		rep.inserir(f);
-		rep.inserir(g);
-		rep.inserir(h);
-		
+//		rep.atualiza(a);
+//		rep.inserir(b);
+//		rep.inserir(c);
+//		rep.inserir(d);
+//		rep.inserir(e);
+//		rep.inserir(f);
+//		rep.inserir(g);
+//		rep.inserir(h);
+                Endereco endereco = new Endereco("Rua da Guia", 58, "san martin", "Recife", "50761-030", "PE");
+                Pessoa admin = new Pessoa("Thiago", "Gomes", "09198875469", false, "teste", "thiago123789@gmail.com", endereco, 0);
+		Pessoa root = new Pessoa("root", "root", "34232646086", false, "root", "thiago123789@gmail.com", endereco, 2);
+		rep1.inserir(root);
+                rep1.inserir(admin);
 		System.out.println(a.toString());
 		System.out.println();
 		System.out.println(b.toString());

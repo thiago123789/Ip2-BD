@@ -5,15 +5,24 @@
  */
 package poo.gui;
 
+import poo.dados.UsuarioDAO;
+import poo.negocios.FormatacaoAuxiliar;
+
 /**
  *
  * @author Thiago Gomes
  */
-public class JFLogin extends javax.swing.JFrame {
 
+
+public class JFLogin extends javax.swing.JFrame {
+    JFrameAdmin admin;
+    FormatacaoAuxiliar format;
     /**
      * Creates new form JFLogin
      */
+    
+    
+    
     public JFLogin() {
         initComponents();
     }
@@ -26,10 +35,7 @@ public class JFLogin extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        tipoUsuarioParaLogar = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -38,16 +44,8 @@ public class JFLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jBLogar = new javax.swing.JButton();
-        jTUsuario = new javax.swing.JTextField();
         jPSenhaLogin = new javax.swing.JPasswordField();
-        jPanel3 = new javax.swing.JPanel();
-        jRBAluno = new javax.swing.JRadioButton();
-        jRBProfessor = new javax.swing.JRadioButton();
-        jRBAdmin = new javax.swing.JRadioButton();
-
-        tipoUsuarioParaLogar.add(jRBAluno);
-        tipoUsuarioParaLogar.add(jRBProfessor);
-        tipoUsuarioParaLogar.add(jRBAdmin);
+        jTUsuario = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Academico - DEINFO");
@@ -56,8 +54,6 @@ public class JFLogin extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Thiago Gomes\\Desktop\\unnamed.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,38 +96,37 @@ public class JFLogin extends javax.swing.JFrame {
             }
         });
 
-        jTUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTUsuarioActionPerformed(evt);
-            }
-        });
-
         jPSenhaLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPSenhaLoginActionPerformed(evt);
             }
         });
 
+        try {
+            jTUsuario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPSenhaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jBLimparLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPSenhaLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .addComponent(jTUsuario))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jBLimparLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -139,8 +134,8 @@ public class JFLogin extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jTUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPSenhaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,74 +149,9 @@ public class JFLogin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 204, -1, -1));
 
-        jRBAluno.setText("Aluno");
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tipoUsuarioParaLogar, org.jdesktop.beansbinding.ELProperty.create("${selection.enabled}"), jRBAluno, org.jdesktop.beansbinding.BeanProperty.create("selected"));
-        bindingGroup.addBinding(binding);
-
-        jRBAluno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRBAlunoActionPerformed(evt);
-            }
-        });
-
-        jRBProfessor.setText("Professor");
-
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tipoUsuarioParaLogar, org.jdesktop.beansbinding.ELProperty.create("${selection.enabled}"), jRBProfessor, org.jdesktop.beansbinding.BeanProperty.create("selected"));
-        bindingGroup.addBinding(binding);
-
-        jRBProfessor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRBProfessorActionPerformed(evt);
-            }
-        });
-
-        jRBAdmin.setText("Administrador");
-
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tipoUsuarioParaLogar, org.jdesktop.beansbinding.ELProperty.create("${selection.enabled}"), jRBAdmin, org.jdesktop.beansbinding.BeanProperty.create("selected"));
-        bindingGroup.addBinding(binding);
-
-        jRBAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRBAdminActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRBAluno)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRBProfessor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRBAdmin)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRBAluno)
-                    .addComponent(jRBProfessor)
-                    .addComponent(jRBAdmin))
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 331, -1, -1));
-
-        bindingGroup.bind();
-
         setSize(new java.awt.Dimension(832, 538));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTUsuarioActionPerformed
 
     private void jPSenhaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPSenhaLoginActionPerformed
         // TODO add your handling code here:
@@ -235,47 +165,65 @@ public class JFLogin extends javax.swing.JFrame {
 
     private void jBLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLogarActionPerformed
         // TODO add your handling code here:
-        if (jRBAluno.isSelected()) {
-            JFrameAluno f = new JFrameAluno();
-            f.setVisible(true);
-            this.setVisible(false);
-        } else if (jRBAdmin.isSelected()) {
-            JFrameAdmin f = new JFrameAdmin();
-            f.setVisible(true);
-            this.setVisible(false);
-        } else {
-            JFrameProfessor f = new JFrameProfessor();
-            f.setVisible(true);
-            this.setVisible(false);
+        UsuarioDAO re = new UsuarioDAO();
+        String usuario1 = jTUsuario.getText();
+        char[] senhaC = jPSenhaLogin.getPassword();
+        String senha = "";
+        
+        for(int i = 0; i < senhaC.length; i++){
+            senha += senhaC[i];
         }
+        
+        if(format == null){
+            format = new FormatacaoAuxiliar();
+            System.out.println(format.soNumerosCPF(usuario1));
+        }
+        
+        String usuario = format.soNumerosCPF(usuario1);
+        
+        System.out.println("Senha na tela:"+senha);
+        if(re.tipoDeUsuario(usuario) == 0){
+            if(re.autenticar(usuario, senha)){
+                JFrameAluno f = new JFrameAluno();
+                f.setVisible(true);
+                this.setVisible(false);
+                f.setExtendedState(JFrameAluno.MAXIMIZED_BOTH);
+            }           
+        }else if(re.tipoDeUsuario(usuario) == 2){
+            if(re.autenticar(usuario, senha)){
+                if(admin == null || format == null){
+                    format = new FormatacaoAuxiliar();
+                    admin = new JFrameAdmin();
+                    admin.setVisible(true);
+                    admin.recebeValor(re.nomeUsuario(usuario), format.formatarCpf(usuario));
+                    admin.setExtendedState(admin.MAXIMIZED_BOTH);
+                    this.setVisible(false);
+                }else{
+                    admin.setVisible(true);
+                    admin.recebeValor(re.nomeUsuario(usuario), format.formatarCpf(usuario));
+                    admin.setExtendedState(admin.MAXIMIZED_BOTH);
+                    this.setVisible(false);
+                }
+            }           
+        }
+        
+//        if (jRBAluno.isSelected()) {
+//            JFrameAluno f = new JFrameAluno();
+//            f.setVisible(true);
+//            this.setVisible(false);
+//            f.setExtendedState(JFrameAluno.MAXIMIZED_BOTH);
+//        } else if (jRBAdmin.isSelected()) {
+//            JFrameAdmin f = new JFrameAdmin();
+//            f.setVisible(true);
+//            this.setVisible(false);
+//            f.setExtendedState(JFrameAdmin.MAXIMIZED_BOTH);
+//        } else {
+//            JFrameProfessor f = new JFrameProfessor();
+//            f.setVisible(true);
+//            this.setVisible(false);
+//            f.setExtendedState(JFrameProfessor.MAXIMIZED_BOTH);
+//        }
     }//GEN-LAST:event_jBLogarActionPerformed
-
-    private void jRBAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBAlunoActionPerformed
-        // TODO add your handling code here:
-        if (jRBAluno.isSelected()) {
-            jPSenhaLogin.setEnabled(false);
-            jTUsuario.setText("Clique em login");
-            jTUsuario.setEnabled(false);
-        }
-    }//GEN-LAST:event_jRBAlunoActionPerformed
-
-    private void jRBProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBProfessorActionPerformed
-        // TODO add your handling code here:
-        if (jRBProfessor.isSelected()) {
-            jPSenhaLogin.setEnabled(true);
-            jTUsuario.setText("");
-            jTUsuario.setEnabled(true);
-        }
-    }//GEN-LAST:event_jRBProfessorActionPerformed
-
-    private void jRBAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBAdminActionPerformed
-        // TODO add your handling code here:
-        if (jRBAdmin.isSelected()) {
-            jPSenhaLogin.setEnabled(true);
-            jTUsuario.setText("");
-            jTUsuario.setEnabled(true);
-        }
-    }//GEN-LAST:event_jRBAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,7 +261,6 @@ public class JFLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jBLimparLogin;
     private javax.swing.JButton jBLogar;
     private javax.swing.JLabel jLabel1;
@@ -323,12 +270,6 @@ public class JFLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPSenhaLogin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRBAdmin;
-    private javax.swing.JRadioButton jRBAluno;
-    private javax.swing.JRadioButton jRBProfessor;
-    private javax.swing.JTextField jTUsuario;
-    private javax.swing.ButtonGroup tipoUsuarioParaLogar;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
+    private javax.swing.JFormattedTextField jTUsuario;
     // End of variables declaration//GEN-END:variables
 }
