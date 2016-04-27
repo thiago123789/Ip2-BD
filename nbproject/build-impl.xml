@@ -29,6 +29,7 @@ is divided into following sections:
     </fail>
     <target depends="test,jar,javadoc" description="Build and test whole project." name="default"/>
     <!-- 
+
                 ======================
                 INITIALIZATION SECTION 
                 ======================
