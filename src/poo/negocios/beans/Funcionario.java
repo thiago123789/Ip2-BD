@@ -6,9 +6,10 @@ public class Funcionario extends Pessoa {
 	private int permissaoDeAcesso;
 	private Departamento departamento;
 	
-	public Funcionario(String pNome, String uNome, String cpf, String sexo, String senha, String email, Endereco endereco) throws CPFInvalidoException
+	public Funcionario(String pNome, String uNome, String cpf, boolean sexo, 
+                String senha, String email, Endereco endereco) throws CPFInvalidoException
 	{
-	super(pNome, uNome, cpf, sexo, senha, email, endereco);
+	super(pNome, uNome, cpf, sexo, senha, email, endereco, 2);
 }
 	public int getPermissaoDeAcesso(){
 		return this.permissaoDeAcesso;
