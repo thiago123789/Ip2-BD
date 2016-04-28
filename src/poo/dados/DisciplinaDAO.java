@@ -81,7 +81,11 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 	 */
 	public static Connection getConexao() throws SQLException {
 
-		Connection retorno = null;
+                String server = "72.13.93.206:3307";
+                String dataBase = "thiago123789";
+                String user = "thiago123789";
+                String senha = "thiago.123";
+                Connection retorno = null;
 		/*
 		 * Formato: 
 		 * - Par�metro 1: URLConex�o:@endere�o:porta 
@@ -90,14 +94,14 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		 */
 		retorno = DriverManager.getConnection(
 
-				"jdbc:mysql://127.0.0.1:3306/deinfo?autoReconnect=true&useSSL=false", "root", "MAradona.58b"); // nome do esquema, usu�rio e senha
+				"jdbc:mysql://"+server+"/"+dataBase+"?autoReconnect=true&useSSL=false", user, senha); // nome do esquema, usu�rio e senha
 		System.out.println("conectou");
 		return retorno;
 	}
 
 	public boolean inserir(Disciplina disciplina) throws SQLException{
 		boolean inseriu = false;
-		String sql = "INSERT INTO deinfo.disciplina(codigo_dis, nome, curso, carga_horaria, trilha, "
+		String sql = "INSERT INTO thiago123789.disciplina(codigo_dis, nome, curso, carga_horaria, trilha, "
 				+ "pre_requisito1, pre_requisito2, pre_requisito3, pre_requisito4, co_requisito, optativa, OBRIGATORIOA, graduacao, posgraduacao) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		this.conexao = getConexao();
 		Statement simplaStatement;
@@ -211,7 +215,7 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 
 	public ArrayList<Disciplina> consulta(){
 		ArrayList<Disciplina> a = new ArrayList<Disciplina>();
-		String query = "SELECT * FROM disciplina";
+		String query = "SELECT * FROM thiago123789.disciplina";
 		try{
 			Connection con = getConexao();
 //			System.out.println("teste1");
