@@ -16,29 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `historico_login`
+-- Dumping events for database 'deinfo'
 --
 
-DROP TABLE IF EXISTS `historico_login`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `historico_login` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `CPF_LOG` varchar(20) NOT NULL,
-  `DATA_LOGIN` datetime(6) NOT NULL,
-  PRIMARY KEY (`ID`,`CPF_LOG`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 --
--- Dumping data for table `historico_login`
+-- Dumping routines for database 'deinfo'
 --
-
-LOCK TABLES `historico_login` WRITE;
-/*!40000 ALTER TABLE `historico_login` DISABLE KEYS */;
-INSERT INTO `historico_login` VALUES (2,'091.988.754-69','2016-04-29 03:12:29.571000'),(3,'091.988.754-69','2016-04-29 03:13:27.268000'),(4,'34232646086','2016-04-29 15:17:06.019000'),(5,'34232646086','2016-04-29 15:18:36.381000'),(6,'34232646086','2016-04-29 15:19:29.471000'),(7,'34232646086','2016-04-29 15:22:04.399000'),(8,'34232646086','2016-04-29 15:22:16.865000');
-/*!40000 ALTER TABLE `historico_login` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -49,4 +32,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-29 15:34:05
+-- Dump completed on 2016-04-29 15:34:08

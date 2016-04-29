@@ -16,34 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `disciplina`
+-- Table structure for table `avaliacao`
 --
 
-DROP TABLE IF EXISTS `disciplina`;
+DROP TABLE IF EXISTS `avaliacao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `disciplina` (
-  `CODIGO_DIS` varchar(20) NOT NULL,
-  `NOME` varchar(50) NOT NULL,
-  `CURSO` int(10) NOT NULL,
-  `CARGA_HORARIA` int(11) NOT NULL,
-  `TRILHA` varchar(30) DEFAULT NULL,
-  `OPTATIVA` tinyint(1) DEFAULT NULL,
-  `OBRIGATORIOA` tinyint(1) DEFAULT NULL,
-  `GRADUACAO` tinyint(1) DEFAULT NULL,
-  `POSGRADUACAO` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`CODIGO_DIS`)
+CREATE TABLE `avaliacao` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NOTA` int(2) NOT NULL,
+  `ANONIMA` tinyint(1) NOT NULL,
+  `CPF_ALU` varchar(20) NOT NULL,
+  `CPF_PROF` varchar(20) NOT NULL,
+  `DATA_AVA` date NOT NULL,
+  `DESCRICAO` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `disciplina`
+-- Dumping data for table `avaliacao`
 --
 
-LOCK TABLES `disciplina` WRITE;
-/*!40000 ALTER TABLE `disciplina` DISABLE KEYS */;
-INSERT INTO `disciplina` VALUES ('ALG.EST','Algoritmo e estrutura de dados',1,0,NULL,0,1,1,0),('ALG.LIN','Algebra Linear',1,0,NULL,0,1,1,0),('BAN.DAD','Banco de dados',1,0,NULL,0,1,1,0),('CAL.1','Calculo 1',1,0,NULL,0,1,1,0),('INT.CIE','Introdução a ciencia da computação',1,0,NULL,0,1,1,0),('INT.PRO.1','Introducao a programacao 1',1,0,NULL,0,1,1,0),('INT.PRO.2','Introducao a programacao 2',1,0,NULL,0,1,1,0),('MAT.DIS','Matematica Discreta',1,0,NULL,0,1,1,0);
-/*!40000 ALTER TABLE `disciplina` ENABLE KEYS */;
+LOCK TABLES `avaliacao` WRITE;
+/*!40000 ALTER TABLE `avaliacao` DISABLE KEYS */;
+/*!40000 ALTER TABLE `avaliacao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-29 15:34:06
+-- Dump completed on 2016-04-29 15:34:08

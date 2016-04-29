@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
--- Host: localhost    Database: deinfo
+-- Host: 127.0.0.1    Database: deinfo
 -- ------------------------------------------------------
 -- Server version	5.7.11-log
 
@@ -36,6 +36,7 @@ CREATE TABLE `pessoa` (
   `BAIRRO` varchar(45) NOT NULL,
   `NUMERO` int(11) NOT NULL,
   `ESTADO` varchar(2) NOT NULL,
+  `DATA_NASC` date NOT NULL,
   PRIMARY KEY (`CPF_P`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -46,7 +47,7 @@ CREATE TABLE `pessoa` (
 
 LOCK TABLES `pessoa` WRITE;
 /*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-INSERT INTO `pessoa` VALUES ('09198875469','Thiago','Gomes',1,'teste','thiago123789@gmail.com','Rua da Guia','50761-030',0,'Recife','san martin',58,'PE'),('34232646086','root','root',1,'root','thiago123789@gmail.com','Rua da Guia','50761-030',2,'Recife','san martin',58,'PE');
+INSERT INTO `pessoa` VALUES ('09198875469','Thiago','Gomes',1,'teste','thiago123789@gmail.com','Rua da Guia','50761-030',0,'Recife','san martin',58,'PE','0000-00-00'),('34232646086','root','root',1,'root','thiago123789@gmail.com','Rua da Guia','50761-030',2,'Recife','san martin',58,'PE','0000-00-00');
 /*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-27 18:10:19
+-- Dump completed on 2016-04-29 15:34:07

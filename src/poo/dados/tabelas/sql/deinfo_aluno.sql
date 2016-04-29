@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
--- Host: localhost    Database: deinfo
+-- Host: 127.0.0.1    Database: deinfo
 -- ------------------------------------------------------
 -- Server version	5.7.11-log
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-27 18:10:19
+-- Dump completed on 2016-04-29 15:34:07

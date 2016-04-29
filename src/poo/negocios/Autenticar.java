@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import poo.dados.HistoricoLoginDAO;
 import poo.dados.UsuarioDAO;
-import poo.dados.tabelas.HistoricoLogin;
 import poo.excecoes.SenhaIncorretaException;
 import poo.excecoes.UsuarioNaoExiste;
 
