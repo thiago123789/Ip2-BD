@@ -81,7 +81,7 @@ public class UsuarioDAO {
 		retorno = DriverManager.getConnection(
 
 				"jdbc:mysql://127.0.0.1:3306/deinfo?autoReconnect=true&useSSL=false", "projetoipbd", "ufrpe@2016"); // nome do esquema, usu�rio e senha
-		System.out.println("conectou");
+//		System.out.println("conectou");
 		return retorno;
 	}
         
@@ -108,42 +108,7 @@ public class UsuarioDAO {
                         smt.setString(11, p.getEndereco().getBairro());
                         smt.setInt(12, p.getEndereco().getNumero());
                         smt.setString(13, p.getEndereco().getEstado());
-                        System.out.println("terminou de adicionar");
-//                      if (disciplina.getTrilha() == null) {;
-//				smt.setNull(5, Types.INTEGER);
-//			} else {
-//				smt.setInt(5, disciplina.getTrilha().getCodigo());
-//			}
-//			if (disciplina.getPreRequisito() == null) {
-//				smt.setNull(6, Types.VARCHAR);
-//			} else {
-//				smt.setString(6, disciplina.getPreRequisito().getCodigo());
-//			}
-//
-//			if (disciplina.getPreRequisito2() == null) {
-//				smt.setNull(7, Types.VARCHAR);
-//			} else {
-//				smt.setString(7, disciplina.getPreRequisito2().getCodigo());
-//			}
-//			if (disciplina.getPreRequisito3() == null) {
-//				smt.setNull(8, Types.VARCHAR);
-//			} else {
-//				smt.setString(8, disciplina.getPreRequisito3().getCodigo());
-//			}
-//			if (disciplina.getPreRequisito4() == null) {
-//				smt.setNull(9, Types.VARCHAR);
-//			} else {
-//				smt.setString(9, disciplina.getPreRequisito4().getCodigo());
-//			}
-//			if (disciplina.getCoRequisito() == null) {
-//				smt.setNull(10, Types.VARCHAR);
-//			} else {
-//				smt.setString(10, disciplina.getCoRequisito().getCodigo());
-//			}
-//			smt.setInt(11, (disciplina.getOptativa())? 1 : 0);
-//			smt.setInt(12, (disciplina.getObrigatoria())? 1 : 0);
-//			smt.setInt(13, (disciplina.getGraducao())? 1 : 0);
-//			smt.setInt(14, (disciplina.getPosGraduacao())? 1 : 0);
+//                        System.out.println("terminou de adicionar");
 			smt.execute();
 			smt.close();
 			inseriu = true;
@@ -251,6 +216,32 @@ public class UsuarioDAO {
 		}
 
 		return completo;
+
+        }
+    
+        public boolean existeUsuario(String cpf){
+                boolean ok = false;
+                
+		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
+		try{
+			Connection con = getConexao();
+//			System.out.println("teste1");
+			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+			resultSet = statement.executeQuery();
+//			System.out.println("teste2");
+//			metaData = resultSet.getMetaData();
+			if(resultSet.isBeforeFirst()){
+                            ok = true;
+                            System.out.println(ok);
+                        }                        
+			statement.close();
+		}catch(SQLException e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+
+		return ok;
 
         }
         

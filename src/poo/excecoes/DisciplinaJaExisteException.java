@@ -11,6 +11,6 @@ package poo.excecoes;
  */
 public class DisciplinaJaExisteException extends Exception{
     public DisciplinaJaExisteException(){
-        super("Disciplina já existe");
+        super("Disciplina já está cadastrada no sistema");
     }
 }

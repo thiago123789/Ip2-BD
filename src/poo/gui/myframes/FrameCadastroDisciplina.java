@@ -40,11 +40,11 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
         model = new DefaultListModel();
         preencherModel();
         initComponents();
-        jTPre1.setEnabled(false);
-        jTPre4.setEnabled(false);
-        jTPre2.setEnabled(false);
-        jTPre3.setEnabled(false);
-        jTCo.setEnabled(false);
+        jTPre1.setEditable(false);
+        jTPre4.setEditable(false);
+        jTPre2.setEditable(false);
+        jTPre3.setEditable(false);
+        jTCo.setEditable(false);
         jTtrilha.setEnabled(false);
 //        System.out.println(model.toString());
     }
@@ -87,6 +87,7 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
         jTtrilha = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jCarga = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jTPre4 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -118,15 +119,15 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados da disciplina"));
 
-        jLabel10.setText("Tipo:");
+        jLabel10.setText("Tipo:*");
 
         jLabel5.setText("Trilha:");
 
-        jLabel2.setText("Nome:");
+        jLabel2.setText("Nome:*");
 
-        jLabel4.setText("Area:");
+        jLabel4.setText("Area:*");
 
-        jLabel3.setText("Curso:");
+        jLabel3.setText("Curso:*");
 
         jROptativa.setText("Optativa");
         jROptativa.addActionListener(new java.awt.event.ActionListener() {
@@ -160,9 +161,11 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel11.setText("Carga Horaria");
+        jLabel11.setText("Carga Horaria:*");
 
         jCarga.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "30", "60", "120", "240" }));
+
+        jLabel13.setText("(*) Campos obrigatorios");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -181,21 +184,25 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
                             .addComponent(jTNomeDis)
                             .addComponent(jTNomeCurso)
                             .addComponent(jTNomeArea)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRObrigatoria)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jROptativa)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                                .addComponent(jLabel5))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(jCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
-                        .addComponent(jCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRObrigatoria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jROptativa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTtrilha, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTtrilha, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -224,7 +231,8 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jCarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -448,7 +456,6 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
 
     private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
         // TODO add your handling code here:
-        DisciplinaDAO de = new DisciplinaDAO();
         CadastroDisciplina cadastro = new CadastroDisciplina();
         try{
             Curso curso1 = new Curso(1, "Bacharelado em ciencia da computação");
@@ -496,6 +503,7 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

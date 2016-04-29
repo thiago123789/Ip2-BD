@@ -27,20 +27,20 @@ import poo.gui.myframes.JFrameAlterarSenha;
  * @author Thiago Gomes
  */
 public class JFrameAdmin extends javax.swing.JFrame {
-    private String nome, cpf;
+    private String nome, cpf, lastLogin;
     
     /**
      * Creates new form JFrameAdmin
      */
     
     
-    public void setValores(String nome, String cpf){
+    public void setValores(String nome, String cpf, String last){
         this.nome = nome;
         this.cpf = cpf;   
+        this.lastLogin = last;
     }
     
     public JFrameAdmin() {
-        this.setValores(nome, cpf);
         System.out.println(nome+cpf);
         initComponents();
         Font nova = new Font("Arial", Font.BOLD, 14);
@@ -61,9 +61,11 @@ public class JFrameAdmin extends javax.swing.JFrame {
     }
 
     
-    public void recebeValor(String nome, String cpf){
+    public void recebeValor(String nome, String cpf, String last){
         this.nome = nome;
         this.cpf = cpf;
+        this.lastLogin = last;
+        jTLastLogin.setText(last);
         jTNameUser.setText(nome);
         jTCPFUser.setText(cpf);
     }
@@ -109,6 +111,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         mnuProfessorListar = new javax.swing.JMenuItem();
         mnuDisciplina = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
@@ -304,6 +307,14 @@ public class JFrameAdmin extends javax.swing.JFrame {
         });
         mnuDisciplina.add(jMenuItem5);
 
+        jMenuItem13.setText("Adicionar Pre-Requisito");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
+        mnuDisciplina.add(jMenuItem13);
+
         jMenuItem7.setText("Atualizar Disciplina");
         mnuDisciplina.add(jMenuItem7);
 
@@ -462,6 +473,10 @@ public class JFrameAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTLastLoginActionPerformed
 
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -510,6 +525,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

@@ -5,7 +5,15 @@
  */
 package poo.gui;
 
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.JRootPane;
+import javax.swing.SwingUtilities;
 import poo.dados.UsuarioDAO;
+import poo.excecoes.SenhaIncorretaException;
+import poo.excecoes.UsuarioNaoExiste;
+import poo.negocios.Autenticar;
 import poo.negocios.FormatacaoAuxiliar;
 
 /**
@@ -16,6 +24,7 @@ import poo.negocios.FormatacaoAuxiliar;
 
 public class JFLogin extends javax.swing.JFrame {
     JFrameAdmin admin;
+    JFrameAluno aluno;
     FormatacaoAuxiliar format;
     /**
      * Creates new form JFLogin
@@ -25,6 +34,8 @@ public class JFLogin extends javax.swing.JFrame {
     
     public JFLogin() {
         initComponents();
+        JRootPane rootPane = SwingUtilities.getRootPane(jBLogar); 
+        rootPane.setDefaultButton(jBLogar);
     }
 
     /**
@@ -93,6 +104,11 @@ public class JFLogin extends javax.swing.JFrame {
         jBLogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBLogarActionPerformed(evt);
+            }
+        });
+        jBLogar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jBLogarKeyPressed(evt);
             }
         });
 
@@ -165,7 +181,7 @@ public class JFLogin extends javax.swing.JFrame {
 
     private void jBLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLogarActionPerformed
         // TODO add your handling code here:
-        UsuarioDAO re = new UsuarioDAO();
+        Autenticar auto = new Autenticar();
         String usuario1 = jTUsuario.getText();
         char[] senhaC = jPSenhaLogin.getPassword();
         String senha = "";
@@ -180,31 +196,62 @@ public class JFLogin extends javax.swing.JFrame {
         }
         
         String usuario = format.soNumerosCPF(usuario1);
-        
+        try{
         System.out.println("Senha na tela:"+senha);
-        if(re.tipoDeUsuario(usuario) == 0){
-            if(re.autenticar(usuario, senha)){
-                JFrameAluno f = new JFrameAluno();
-                f.setVisible(true);
-                this.setVisible(false);
-                f.setExtendedState(JFrameAluno.MAXIMIZED_BOTH);
-            }           
-        }else if(re.tipoDeUsuario(usuario) == 2){
-            if(re.autenticar(usuario, senha)){
-                if(admin == null || format == null){
-                    format = new FormatacaoAuxiliar();
-                    admin = new JFrameAdmin();
-                    admin.setVisible(true);
-                    admin.recebeValor(re.nomeUsuario(usuario), format.formatarCpf(usuario));
-                    admin.setExtendedState(admin.MAXIMIZED_BOTH);
-                    this.setVisible(false);
-                }else{
-                    admin.setVisible(true);
-                    admin.recebeValor(re.nomeUsuario(usuario), format.formatarCpf(usuario));
-                    admin.setExtendedState(admin.MAXIMIZED_BOTH);
-                    this.setVisible(false);
+        boolean existe = auto.usuarioExiste(usuario);
+            if(existe){
+                if(auto.tipoDeUsuario(usuario) == 0){
+                    boolean ok = auto.autenticaSenha(usuario, senha);
+                    if(ok){
+                        if(aluno == null || format == null){
+                            format = new FormatacaoAuxiliar();
+                            aluno = new JFrameAluno();
+                            aluno.setVisible(true);
+                            aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
+                            aluno.setExtendedState(aluno.MAXIMIZED_BOTH);
+                            this.setVisible(false);
+                            auto.logar(usuario);
+                        }else{
+                            aluno.setVisible(true);
+                            aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
+                            aluno.setExtendedState(aluno.MAXIMIZED_BOTH);
+                            this.setVisible(false);
+                            auto.logar(usuario);
+                        }
+                    }       
+                }else if(auto.tipoDeUsuario(usuario) == 2){
+                    boolean ok = auto.autenticaSenha(usuario, senha);
+                    if(ok){
+                        if(admin == null || format == null){
+                            format = new FormatacaoAuxiliar();
+                            admin = new JFrameAdmin();
+                            admin.setVisible(true);
+                            admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
+                            admin.setExtendedState(admin.MAXIMIZED_BOTH);
+                            this.setVisible(false);
+                            auto.logar(usuario);
+                        }else{
+                            admin.setVisible(true);
+                            admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
+                            admin.setExtendedState(admin.MAXIMIZED_BOTH);
+                            this.setVisible(false);
+                            auto.logar(usuario);
+                        }
+                    }           
                 }
-            }           
+            }
+        }catch(UsuarioNaoExiste e){
+            jTUsuario.setText(null);
+            jPSenhaLogin.setText(null);
+            JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+        }catch(SenhaIncorretaException e){
+            jPSenhaLogin.setText(null);
+            JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+            
+        }catch(SQLException e){
+            jPSenhaLogin.setText(null);
+            JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+            
         }
         
 //        if (jRBAluno.isSelected()) {
@@ -224,6 +271,13 @@ public class JFLogin extends javax.swing.JFrame {
 //            f.setExtendedState(JFrameProfessor.MAXIMIZED_BOTH);
 //        }
     }//GEN-LAST:event_jBLogarActionPerformed
+
+    private void jBLogarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jBLogarKeyPressed
+        // TODO add your handling code here:
+//         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+//             this.jBLogarActionPerformed(java.awt.event.ActionEvent a);
+//         }
+    }//GEN-LAST:event_jBLogarKeyPressed
 
     /**
      * @param args the command line arguments

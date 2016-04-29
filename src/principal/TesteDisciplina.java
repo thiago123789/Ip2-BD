@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import poo.dados.DisciplinaDAO;
 import poo.dados.UsuarioDAO;
 import poo.excecoes.CPFInvalidoException;
-import poo.negocios.CadastroDisciplina;
-import poo.negocios.ListarDisciplinas;
+import poo.excecoes.DisciplinaJaExisteException;
+import poo.negocios.*;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Disciplina;
 import poo.negocios.beans.Endereco;
 import poo.negocios.beans.Pessoa;
 
 public class TesteDisciplina {
-	public static void main(String[] args) throws SQLException, CPFInvalidoException {
+	public static void main(String[] args) throws SQLException, CPFInvalidoException, DisciplinaJaExisteException {
                 UsuarioDAO rep1 = new UsuarioDAO();
 		DisciplinaDAO rep = new DisciplinaDAO();
                 CadastroDisciplina cad = new CadastroDisciplina();
@@ -22,28 +22,38 @@ public class TesteDisciplina {
 		Disciplina a, b, c, d, e, f, g, h, i;
                 ArrayList<Disciplina> test = new ArrayList<Disciplina>();
 		ListarDisciplinas listar = new ListarDisciplinas();
+                Autenticar auto = new Autenticar();
 		
-		a = new Disciplina("Introducao a programacao 1", 0, null, 0, null, null, bcc, 0, 0);
-		test.add(a);
-		b = new Disciplina("Calculo 1", 0, null, 0, null, null, bcc, 0, 0);
-		c = new Disciplina("Algoritmo e estrutura de dados", 1, test, 0, null, null, bcc, 0, 0);
-		test.add(c);
-		d = new Disciplina("Introducao a programacao 2", 1, test, 0, null, null, bcc, 0, 0);
-		e = new Disciplina("Algebra Linear", 0, null, 0, null, null, bcc, 0, 0);
-		f = new Disciplina("Introdução a ciencia da computação", 0, null, 0, null, null, bcc, 0, 0);
-		g = new Disciplina("Matematica Discreta", 0, null, 0, null, null, bcc, 0, 0);
-		h = new Disciplina("Banco de dados", 1, test, 0, null, null, bcc, 0, 0);
+//		a = new Disciplina("Introducao a programacao 1", 0, null, 0, null, null, bcc, 0, 0);
+//		cad.inserirDisciplina(a);
+//                test.add(a);
+//		b = new Disciplina("Calculo 1", 0, null, 0, null, null, bcc, 0, 0);
+//                cad.inserirDisciplina(b);
+//                d = new Disciplina("Introducao a programacao 2", 1, test, 0, null, null, bcc, 0, 0);
+//                cad.inserirDisciplina(d);
+//		c = new Disciplina("Algoritmo e estrutura de dados", 1, test, 0, null, null, bcc, 0, 0);
+//                cad.inserirDisciplina(c);
+//		test.add(c);
+//		
+//		e = new Disciplina("Algebra Linear", 0, null, 0, null, null, bcc, 0, 0);
+//                cad.inserirDisciplina(e);
+//		f = new Disciplina("Introdução a ciencia da computação", 0, null, 0, null, null, bcc, 0, 0);
+//                cad.inserirDisciplina(f);
+//		g = new Disciplina("Matematica Discreta", 0, null, 0, null, null, bcc, 0, 0);
+//                cad.inserirDisciplina(g);
+//                h = new Disciplina("Banco de dados", 1, test, 0, null, null, bcc, 0, 0);
+//		cad.inserirDisciplina(h);
 		
-		rep.inserir(a);
+                auto.getDateTime();
+                System.out.println(auto.getDateTime());
 //		a = new Disciplina("Introducao a programacao 1", 0, null, null, null, null, 0, null, null, bcc, 1, 0);
-		rep.atualiza(a);
-		cad.inserirDisciplina(b);
-		cad.inserirDisciplina(c);
-		cad.inserirDisciplina(d);
-		cad.inserirDisciplina(e);
-		cad.inserirDisciplina(f);
-		cad.inserirDisciplina(g);
-		cad.inserirDisciplina(h);
+//		rep.atualiza(a);
+		
+		
+		
+		
+		
+		
 //                Endereco endereco = new Endereco("Rua da Guia", 58, "san martin", "Recife", "50761-030", "PE");
 //                Pessoa admin = new Pessoa("Thiago", "Gomes", "09198875469", false, "teste", "thiago123789@gmail.com", endereco, 0);
 //		Pessoa root = new Pessoa("root", "root", "34232646086", false, "root", "thiago123789@gmail.com", endereco, 2);

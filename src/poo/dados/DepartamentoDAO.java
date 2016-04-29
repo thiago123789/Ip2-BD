@@ -15,16 +15,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import poo.negocios.beans.Departamento;
 import poo.negocios.beans.Disciplina;
 
 /**
  *
  * @author Thiago Gomes
  */
-public class PreRequisitoDAO {
+public class DepartamentoDAO {
     private Connection conexao;
 	public static ResultSet resultSet;
 	public static ResultSetMetaData metaData;
@@ -53,13 +52,14 @@ public class PreRequisitoDAO {
 		return instance;
 	}
 
-	public PreRequisitoDAO(){
-            try {
-                this.conexao = getConexao();
-            } catch (SQLException ex) {
-                Logger.getLogger(PreRequisitoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-    	}
+	public DepartamentoDAO(){
+		try{
+			this.conexao = getConexao();
+			Connection con = getConexao();
+                }catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * M�todo para retornar uma nova conex�o com o banco de dados
 	 * 
@@ -70,7 +70,7 @@ public class PreRequisitoDAO {
 	 *           conex�o
 	 */
 	public static Connection getConexao() throws SQLException {
-
+     
                 Connection retorno = null;
 		/*
 		 * Formato: 
@@ -85,24 +85,23 @@ public class PreRequisitoDAO {
 		return retorno;
 	}
 
-	public boolean inserir(Disciplina disciplina) throws SQLException{
-                ArrayList<Disciplina> temp = disciplina.getPreRequisito();
-                boolean inseriu = false;
-                for(Disciplina a: temp){
-                    String sql = "INSERT INTO deinfo.pre_requisito(disciplina, prerequisito) values(?,?)";
-                    this.conexao = getConexao();
-                    Statement simplaStatement;
-                    try{
-                            PreparedStatement smt = (PreparedStatement) conexao.prepareStatement(sql);
-                            smt.setString(1, disciplina.getCodigo());
-                            smt.setString(2, a.getCodigo());
-                            smt.execute();
-                            smt.close();
-                            inseriu = true;
-                    }catch(Exception e){
-                            JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-                    }
-                }
+	public boolean inserir(Departamento depat) throws SQLException{
+		boolean inseriu = false;
+		String sql = "INSERT INTO deinfo.departamento(nome, sigla, diretor, vice) values(?,?,?,?)";
+		this.conexao = getConexao();
+		Statement simplaStatement;
+		try{
+			PreparedStatement smt = (PreparedStatement) conexao.prepareStatement(sql);
+			smt.setString(1, depat.getNome());
+			smt.setString(2, depat.getSigla());
+			smt.setString(3, depat.getDiretor().getCpf());
+			smt.setString(4, depat.getVice().getCpf());		
+			smt.execute();
+			smt.close();
+			inseriu = true;
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
 		return inseriu;
 	}
 
@@ -110,7 +109,7 @@ public class PreRequisitoDAO {
 	public boolean atualiza(Disciplina disciplina) throws SQLException{
 		boolean atualizou = false;
 		String sql = "UPDATE deinfo.disciplina SET codigo_dis = ?, nome = ?, curso = ?, carga_horaria = ?, trilha = ?, "
-				+ "pre_requisito = ?, optativa = ?, OBRIGATORIOA = ?, graduacao = ?, posgraduacao = ?"
+				+ "optativa = ?, OBRIGATORIOA = ?, graduacao = ?, posgraduacao = ?"
 				+ "WHERE CODIGO_DIS = ?";
 		Connection con = getConexao();
 		Statement simplaStatement;
@@ -125,6 +124,10 @@ public class PreRequisitoDAO {
 			} else {
 				smt.setInt(5, disciplina.getTrilha().getCodigo());
 			}
+			smt.setInt(6, (disciplina.getOptativa())? 1 : 0);
+			smt.setInt(7, (disciplina.getObrigatoria())? 1 : 0);
+			smt.setInt(8, (disciplina.getGraducao())? 1 : 0);
+			smt.setInt(9, (disciplina.getPosGraduacao())? 1 : 0);
 			smt.execute();
 			smt.close();
 			atualizou = true;
@@ -192,4 +195,36 @@ public class PreRequisitoDAO {
 		return a;
 
 	}
+        
+        
+        public boolean buscaDis(String codigoDis){
+		boolean a = false;
+		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \""+codigoDis+"\"";
+		try{
+			Connection con = getConexao();
+//			System.out.println("teste1");
+			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+			resultSet = statement.executeQuery();
+//			System.out.println("teste2");
+//			metaData = resultSet.getMetaData();
+//                        System.out.println(resultSet.g);
+			while(resultSet.next()){
+				String codigo = resultSet.getString("CODIGO_DIS");
+//				System.out.println(codigo);
+				String nome = resultSet.getString("NOME");
+//				System.out.println(nome);
+                                a = true;
+				
+			}			
+			statement.close();
+		}catch(SQLException e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+
+		return a;
+
+	}
+
 }

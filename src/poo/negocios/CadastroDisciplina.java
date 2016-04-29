@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import poo.dados.DisciplinaDAO;
 import poo.dados.PreRequisitoDAO;
+import poo.excecoes.DisciplinaJaExisteException;
 import poo.negocios.beans.Disciplina;
 
 public class CadastroDisciplina {
@@ -16,7 +17,7 @@ public class CadastroDisciplina {
 //		this.inserirDisciplina(a);
 	}
 	
-	public void inserirDisciplina(Disciplina a){
+	public void inserirDisciplina(Disciplina a) throws DisciplinaJaExisteException{
 		
                 try {
                     if(!comand.buscaDis(a.getCodigo())){
@@ -24,6 +25,8 @@ public class CadastroDisciplina {
                         if(a.getPreRequisito() != null){
                             comandA.inserir(a);
                         }
+                    }else{
+                        throw new DisciplinaJaExisteException();
                     }
 		} catch (SQLException e) {
                     e.printStackTrace();

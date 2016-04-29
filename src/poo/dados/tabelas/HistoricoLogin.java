@@ -42,6 +42,10 @@ public class HistoricoLogin implements Serializable {
         this.historicoLoginPK = new HistoricoLoginPK(cpfLog, dataLogin);
     }
 
+    public HistoricoLogin() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public HistoricoLoginPK getHistoricoLoginPK() {
         return historicoLoginPK;
     }
