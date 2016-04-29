@@ -80,7 +80,7 @@ public class UsuarioDAO {
 		 */
 		retorno = DriverManager.getConnection(
 
-				"jdbc:mysql://127.0.0.1:3306/deinfo?autoReconnect=true&useSSL=false", "root", "MAradona.58b"); // nome do esquema, usu�rio e senha
+				"jdbc:mysql://127.0.0.1:3306/deinfo?autoReconnect=true&useSSL=false", "projetoipbd", "ufrpe@2016"); // nome do esquema, usu�rio e senha
 		System.out.println("conectou");
 		return retorno;
 	}

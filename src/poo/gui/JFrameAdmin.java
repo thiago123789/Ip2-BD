@@ -44,8 +44,9 @@ public class JFrameAdmin extends javax.swing.JFrame {
         System.out.println(nome+cpf);
         initComponents();
         Font nova = new Font("Arial", Font.BOLD, 14);
+        Color branco = new Color(255,255,255);
         jTNameUser.setFont(nova);
-        Color padrao = new Color(28, 247, 215);
+        Color padrao = new Color(22, 34, 58);
         jTNameUser.setText(this.nome);
         jTCPFUser.setText(this.cpf);
         jTCPFUser.setEditable(false);
@@ -54,6 +55,9 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jTCPFUser.setBackground(padrao);
         jTNameUser.setBackground(padrao);
         jTLastLogin.setBackground(padrao);
+        jTCPFUser.setForeground(branco);
+        jTNameUser.setForeground(branco);
+        jTLastLogin.setForeground(branco);
     }
 
     

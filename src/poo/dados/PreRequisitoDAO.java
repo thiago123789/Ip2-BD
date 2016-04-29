@@ -1,5 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package poo.dados;
 
+import com.mysql.jdbc.PreparedStatement;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,18 +15,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
-
-import poo.negocios.beans.Curso;
 import poo.negocios.beans.Disciplina;
-import poo.negocios.beans.Horario;
-import poo.negocios.beans.Professor;
 
-import com.mysql.jdbc.PreparedStatement;
-
-public class DisciplinaDAO implements iRepositorioDisciplina{
-	private Connection conexao;
+/**
+ *
+ * @author Thiago Gomes
+ */
+public class PreRequisitoDAO {
+    private Connection conexao;
 	public static ResultSet resultSet;
 	public static ResultSetMetaData metaData;
 	public static Statement statement;
@@ -48,7 +51,7 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		return instance;
 	}
 
-	public DisciplinaDAO(){
+	public PreRequisitoDAO(){
 		try{
 			this.conexao = getConexao();
 			Connection con = getConexao();
@@ -271,6 +274,4 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		return a;
 
 	}
-
-
 }
