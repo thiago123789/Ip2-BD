@@ -26,7 +26,6 @@
 	<classpathentry kind="lib" path="lib/org-netbeans-api-debugger.jar"/>
 	<classpathentry kind="lib" path="lib/org-netbeans-upgrader.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.38-bin.jar"/>
-	<classpathentry kind="lib" path="Outros/quaqua-test.jnlp"/>
 	<classpathentry kind="lib" path="lib/quaqua-7.3.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

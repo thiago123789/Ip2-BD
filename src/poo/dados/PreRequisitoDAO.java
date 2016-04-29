@@ -90,58 +90,23 @@ public class PreRequisitoDAO {
 	}
 
 	public boolean inserir(Disciplina disciplina) throws SQLException{
-		boolean inseriu = false;
-		String sql = "INSERT INTO deinfo.disciplina(codigo_dis, nome, curso, carga_horaria, trilha, "
-				+ "optativa, OBRIGATORIOA, graduacao, posgraduacao) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		this.conexao = getConexao();
-		Statement simplaStatement;
-		try{
-			PreparedStatement smt = (PreparedStatement) conexao.prepareStatement(sql);
-			smt.setString(1, disciplina.getCodigo());
-			smt.setString(2, disciplina.getNome());
-			smt.setInt(3, disciplina.getCurso().getCodigo());
-			smt.setInt(4, disciplina.getCargaHoraria());
-			if (disciplina.getTrilha() == null) {
-				smt.setNull(5, Types.INTEGER);
-			} else {
-				smt.setInt(5, disciplina.getTrilha().getCodigo());
-			}
-			if (disciplina.getPreRequisito() == null) {
-				smt.setNull(6, Types.VARCHAR);
-			} else {
-				smt.setString(6, disciplina.getPreRequisito().getCodigo());
-			}
-
-			if (disciplina.getPreRequisito2() == null) {
-				smt.setNull(7, Types.VARCHAR);
-			} else {
-				smt.setString(7, disciplina.getPreRequisito2().getCodigo());
-			}
-			if (disciplina.getPreRequisito3() == null) {
-				smt.setNull(8, Types.VARCHAR);
-			} else {
-				smt.setString(8, disciplina.getPreRequisito3().getCodigo());
-			}
-			if (disciplina.getPreRequisito4() == null) {
-				smt.setNull(9, Types.VARCHAR);
-			} else {
-				smt.setString(9, disciplina.getPreRequisito4().getCodigo());
-			}
-			if (disciplina.getCoRequisito() == null) {
-				smt.setNull(10, Types.VARCHAR);
-			} else {
-				smt.setString(10, disciplina.getCoRequisito().getCodigo());
-			}
-			smt.setInt(11, (disciplina.getOptativa())? 1 : 0);
-			smt.setInt(12, (disciplina.getObrigatoria())? 1 : 0);
-			smt.setInt(13, (disciplina.getGraducao())? 1 : 0);
-			smt.setInt(14, (disciplina.getPosGraduacao())? 1 : 0);
-			smt.execute();
-			smt.close();
-			inseriu = true;
-		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-		}
+                ArrayList<Disciplina> temp = disciplina.getPreRequisito();
+                boolean inseriu = false;
+                for(Disciplina a: temp){
+                    String sql = "INSERT INTO deinfo.pre_requisito(disciplina, prerequisito) values(?,?)";
+                    this.conexao = getConexao();
+                    Statement simplaStatement;
+                    try{
+                            PreparedStatement smt = (PreparedStatement) conexao.prepareStatement(sql);
+                            smt.setString(1, disciplina.getCodigo());
+                            smt.setString(2, a.getCodigo());
+                            smt.execute();
+                            smt.close();
+                            inseriu = true;
+                    }catch(Exception e){
+                            JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+                    }
+                }
 		return inseriu;
 	}
 
@@ -164,36 +129,6 @@ public class PreRequisitoDAO {
 			} else {
 				smt.setInt(5, disciplina.getTrilha().getCodigo());
 			}
-			if (disciplina.getPreRequisito() == null) {
-				smt.setNull(6, Types.VARCHAR);
-			} else {
-				smt.setString(6, disciplina.getPreRequisito().getCodigo());
-			}
-
-			if (disciplina.getPreRequisito2() == null) {
-				smt.setNull(7, Types.VARCHAR);
-			} else {
-				smt.setString(7, disciplina.getPreRequisito2().getCodigo());
-			}
-			if (disciplina.getPreRequisito3() == null) {
-				smt.setNull(8, Types.VARCHAR);
-			} else {
-				smt.setString(8, disciplina.getPreRequisito3().getCodigo());
-			}
-			if (disciplina.getPreRequisito4() == null) {
-				smt.setNull(9, Types.VARCHAR);
-			} else {
-				smt.setString(9, disciplina.getPreRequisito4().getCodigo());
-			}
-			if (disciplina.getCoRequisito() == null) {
-				smt.setNull(10, Types.VARCHAR);
-			} else {
-				smt.setString(10, disciplina.getCoRequisito().getCodigo());
-			}
-			smt.setInt(11, (disciplina.getOptativa())? 1 : 0);
-			smt.setInt(12, (disciplina.getObrigatoria())? 1 : 0);
-			smt.setInt(13, (disciplina.getGraducao())? 1 : 0);
-			smt.setInt(14, (disciplina.getPosGraduacao())? 1 : 0);
 			smt.execute();
 			smt.close();
 			atualizou = true;

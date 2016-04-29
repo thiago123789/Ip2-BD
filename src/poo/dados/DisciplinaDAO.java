@@ -52,20 +52,20 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		try{
 			this.conexao = getConexao();
 			Connection con = getConexao();
-			String comando = "CREATE TABLE IF NOT EXISTS DEINFO.disciplina("
-					+ "CODIGO_DIS VARCHAR(20) NOT NULL PRIMARY KEY,"
-					+ "NOME VARCHAR(50) NOT NULL,"
-					+ "CURSO INT(5) NOT NULL,"
-					+ "CARGA_HORARIA INT(3) NOT NULL,"
-					+ "TRILHA INT(5),"
-					+ "OPTATIVA BOOLEAN,"
-					+ "OBRIGATORIOA BOOLEAN,"
-					+ "GRADUACAO BOOLEAN,"
-					+ "POSGRADUACAO BOOLEAN"
-					+ ") ENGINE = InnoDB;";
-			Statement smt = con.createStatement();
-			smt.execute(comando);
-			smt.close();
+//			String comando = "CREATE TABLE IF NOT EXISTS DEINFO.disciplina("
+//					+ "CODIGO_DIS VARCHAR(20) NOT NULL PRIMARY KEY,"
+//					+ "NOME VARCHAR(50) NOT NULL,"
+//					+ "CURSO INT(5) NOT NULL,"
+//					+ "CARGA_HORARIA INT(3) NOT NULL,"
+//					+ "TRILHA INT(5),"
+//					+ "OPTATIVA BOOLEAN,"
+//					+ "OBRIGATORIOA BOOLEAN,"
+//					+ "GRADUACAO BOOLEAN,"
+//					+ "POSGRADUACAO BOOLEAN"
+//					+ ") ENGINE = InnoDB;";
+//			Statement smt = con.createStatement();
+//			smt.execute(comando);
+//			smt.close();
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
@@ -102,7 +102,7 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 	public boolean inserir(Disciplina disciplina) throws SQLException{
 		boolean inseriu = false;
 		String sql = "INSERT INTO deinfo.disciplina(codigo_dis, nome, curso, carga_horaria, trilha, "
-				+ "optativa, OBRIGATORIOA, graduacao, posgraduacao) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "optativa, OBRIGATORIOA, graduacao, posgraduacao) values(?,?,?,?,?,?,?,?,?)";
 		this.conexao = getConexao();
 		Statement simplaStatement;
 		try{
@@ -116,36 +116,10 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 			} else {
 				smt.setInt(5, disciplina.getTrilha().getCodigo());
 			}
-			if (disciplina.getPreRequisito() == null) {
-				smt.setNull(6, Types.VARCHAR);
-			} else {
-				smt.setString(6, disciplina.getPreRequisito().getCodigo());
-			}
-
-			if (disciplina.getPreRequisito2() == null) {
-				smt.setNull(7, Types.VARCHAR);
-			} else {
-				smt.setString(7, disciplina.getPreRequisito2().getCodigo());
-			}
-			if (disciplina.getPreRequisito3() == null) {
-				smt.setNull(8, Types.VARCHAR);
-			} else {
-				smt.setString(8, disciplina.getPreRequisito3().getCodigo());
-			}
-			if (disciplina.getPreRequisito4() == null) {
-				smt.setNull(9, Types.VARCHAR);
-			} else {
-				smt.setString(9, disciplina.getPreRequisito4().getCodigo());
-			}
-			if (disciplina.getCoRequisito() == null) {
-				smt.setNull(10, Types.VARCHAR);
-			} else {
-				smt.setString(10, disciplina.getCoRequisito().getCodigo());
-			}
-			smt.setInt(11, (disciplina.getOptativa())? 1 : 0);
-			smt.setInt(12, (disciplina.getObrigatoria())? 1 : 0);
-			smt.setInt(13, (disciplina.getGraducao())? 1 : 0);
-			smt.setInt(14, (disciplina.getPosGraduacao())? 1 : 0);
+			smt.setInt(6, (disciplina.getOptativa())? 1 : 0);
+			smt.setInt(7, (disciplina.getObrigatoria())? 1 : 0);
+			smt.setInt(8, (disciplina.getGraducao())? 1 : 0);
+			smt.setInt(9, (disciplina.getPosGraduacao())? 1 : 0);
 			smt.execute();
 			smt.close();
 			inseriu = true;
@@ -159,7 +133,7 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 	public boolean atualiza(Disciplina disciplina) throws SQLException{
 		boolean atualizou = false;
 		String sql = "UPDATE deinfo.disciplina SET codigo_dis = ?, nome = ?, curso = ?, carga_horaria = ?, trilha = ?, "
-				+ "pre_requisito = ?, optativa = ?, OBRIGATORIOA = ?, graduacao = ?, posgraduacao = ?"
+				+ "optativa = ?, OBRIGATORIOA = ?, graduacao = ?, posgraduacao = ?"
 				+ "WHERE CODIGO_DIS = ?";
 		Connection con = getConexao();
 		Statement simplaStatement;
@@ -174,36 +148,10 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 			} else {
 				smt.setInt(5, disciplina.getTrilha().getCodigo());
 			}
-			if (disciplina.getPreRequisito() == null) {
-				smt.setNull(6, Types.VARCHAR);
-			} else {
-				smt.setString(6, disciplina.getPreRequisito().getCodigo());
-			}
-
-			if (disciplina.getPreRequisito2() == null) {
-				smt.setNull(7, Types.VARCHAR);
-			} else {
-				smt.setString(7, disciplina.getPreRequisito2().getCodigo());
-			}
-			if (disciplina.getPreRequisito3() == null) {
-				smt.setNull(8, Types.VARCHAR);
-			} else {
-				smt.setString(8, disciplina.getPreRequisito3().getCodigo());
-			}
-			if (disciplina.getPreRequisito4() == null) {
-				smt.setNull(9, Types.VARCHAR);
-			} else {
-				smt.setString(9, disciplina.getPreRequisito4().getCodigo());
-			}
-			if (disciplina.getCoRequisito() == null) {
-				smt.setNull(10, Types.VARCHAR);
-			} else {
-				smt.setString(10, disciplina.getCoRequisito().getCodigo());
-			}
-			smt.setInt(11, (disciplina.getOptativa())? 1 : 0);
-			smt.setInt(12, (disciplina.getObrigatoria())? 1 : 0);
-			smt.setInt(13, (disciplina.getGraducao())? 1 : 0);
-			smt.setInt(14, (disciplina.getPosGraduacao())? 1 : 0);
+			smt.setInt(6, (disciplina.getOptativa())? 1 : 0);
+			smt.setInt(7, (disciplina.getObrigatoria())? 1 : 0);
+			smt.setInt(8, (disciplina.getGraducao())? 1 : 0);
+			smt.setInt(9, (disciplina.getPosGraduacao())? 1 : 0);
 			smt.execute();
 			smt.close();
 			atualizou = true;
@@ -271,6 +219,38 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		return a;
 
 	}
+        
+        
+        public boolean buscaDis(String codigoDis){
+		boolean a = false;
+		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \""+codigoDis+"\"";
+		try{
+			Connection con = getConexao();
+//			System.out.println("teste1");
+			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+			resultSet = statement.executeQuery();
+//			System.out.println("teste2");
+//			metaData = resultSet.getMetaData();
+//                        System.out.println(resultSet.g);
+			while(resultSet.next()){
+				String codigo = resultSet.getString("CODIGO_DIS");
+//				System.out.println(codigo);
+				String nome = resultSet.getString("NOME");
+//				System.out.println(nome);
+                                a = true;
+				
+			}			
+			statement.close();
+		}catch(SQLException e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+
+		return a;
+
+	}
+
 
 
 }
