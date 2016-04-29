@@ -226,13 +226,13 @@ public class JFLogin extends javax.swing.JFrame {
                             format = new FormatacaoAuxiliar();
                             admin = new JFrameAdmin();
                             admin.setVisible(true);
-                            admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
+                            admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario),  auto.ultimoLogin(usuario));
                             admin.setExtendedState(admin.MAXIMIZED_BOTH);
                             this.setVisible(false);
                             auto.logar(usuario);
                         }else{
                             admin.setVisible(true);
-                            admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
+                            admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario),  auto.ultimoLogin(usuario));
                             admin.setExtendedState(admin.MAXIMIZED_BOTH);
                             this.setVisible(false);
                             auto.logar(usuario);

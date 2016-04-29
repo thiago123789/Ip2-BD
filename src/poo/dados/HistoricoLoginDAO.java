@@ -168,9 +168,9 @@ public class HistoricoLoginDAO {
 	}
         
         
-        public String buscaCN(String codigoDis){
+        public String buscaCN(String cpf){
 		String a = "";
-		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \""+codigoDis+"\"";
+		String query = "SELECT * FROM deinfo.historico_login WHERE cpf_log = \""+cpf+"\"";
 		try{
 			Connection con = getConexao();
 //			System.out.println("teste1");
@@ -179,9 +179,8 @@ public class HistoricoLoginDAO {
 //			System.out.println("teste2");
 //			metaData = resultSet.getMetaData();
 			while(resultSet.next()){
-				String codigo = resultSet.getTimestamp("data_login").toString();
-//				System.out.println(codigo);
-				
+				a = resultSet.getTimestamp("data_login").toString();
+//				System.out.println(codigo);				
 			}			
 			statement.close();
 		}catch(SQLException e){
