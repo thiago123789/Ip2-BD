@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import poo.negocios.beans.Disciplina;
 
@@ -52,27 +54,12 @@ public class PreRequisitoDAO {
 	}
 
 	public PreRequisitoDAO(){
-		try{
-			this.conexao = getConexao();
-			Connection con = getConexao();
-			String comando = "CREATE TABLE IF NOT EXISTS DEINFO.disciplina("
-					+ "CODIGO_DIS VARCHAR(20) NOT NULL PRIMARY KEY,"
-					+ "NOME VARCHAR(50) NOT NULL,"
-					+ "CURSO INT(5) NOT NULL,"
-					+ "CARGA_HORARIA INT(3) NOT NULL,"
-					+ "TRILHA INT(5),"
-					+ "OPTATIVA BOOLEAN,"
-					+ "OBRIGATORIOA BOOLEAN,"
-					+ "GRADUACAO BOOLEAN,"
-					+ "POSGRADUACAO BOOLEAN"
-					+ ") ENGINE = InnoDB;";
-			Statement smt = con.createStatement();
-			smt.execute(comando);
-			smt.close();
-		}catch(SQLException e){
-			e.printStackTrace();
-		}
-	}
+            try {
+                this.conexao = getConexao();
+            } catch (SQLException ex) {
+                Logger.getLogger(PreRequisitoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    	}
 	/**
 	 * M�todo para retornar uma nova conex�o com o banco de dados
 	 * 
