@@ -64,7 +64,14 @@ public class Autenticar {
 
     
     public String ultimoLogin(String cpf){
-        return comandA.buscaCN(cpf).substring(0, 19);
+        String aux = comandA.buscaCN(cpf);
+        System.out.println(aux);
+        if(aux.length() < 3){
+            return null;
+        }else{
+            return aux.substring(0, 19);
+        }
+               
     }
     
     
