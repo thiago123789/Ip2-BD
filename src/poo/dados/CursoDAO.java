@@ -17,16 +17,16 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import com.mysql.jdbc.PreparedStatement;
-
 import poo.negocios.beans.Curso;
-import poo.negocios.beans.Graduacao;
+import poo.negocios.beans.Departamento;
+
+import com.mysql.jdbc.PreparedStatement;
 /**
  *
  * @author Marcos Eduardo
  */
 public class CursoDAO {
-	 private Connection conexao;
+	private Connection conexao;
 		public static ResultSet resultSet;
 		public static ResultSetMetaData metaData;
 		public static Statement statement;
@@ -68,83 +68,74 @@ public class CursoDAO {
 		 * @return Uma nova Conexcao com banco de dados Postgres, base de dados
 		 *         HospitalDB
 		 * @throws SQLException
-		 *           Alguma possïvel exceïcao levantada durante o estabelecimento da
-		 *           conexïcao
+		 *           Alguma possï¿½vel exceï¿½cao levantada durante o estabelecimento da
+		 *           conexï¿½cao
 		 */
 		public static Connection getConexao() throws SQLException {
-	     
-	                Connection retorno = null;
+			Connection retorno = null;
 			/*
 			 * Formato: 
-			 * - Parametro 1: URLConexïcao:@endereco:porta 
+			 * - Parametro 1: URLConexï¿½cao:@endereco:porta 
 			 * - Parametro 2: usuario
 			 * - Parametro 3: senha
 			 */
 			retorno = DriverManager.getConnection(
-
 					"jdbc:mysql://127.0.0.1:3306/deinfo?autoReconnect=true&useSSL=false", "projetoipbd", "ufrpe@2016"); // nome do esquema, usuario e senha
-//			System.out.println("conectou");
 			return retorno;
 		}
 
-		public boolean inserir(Curso curso,Graduacao graduacao) throws SQLException{
+		public boolean inserir(String nome, String cpf_coo, String cpf_vice, boolean graduacao, Departamento depat) throws SQLException{
+			DepartamentoDAO aux = new DepartamentoDAO();
+			
 			boolean inseriu = false;
-			String sql = "INSERT INTO deinfo.curso(nome, coordenador, vice_coordenador) values(?,?,?)";
+			String sql = "INSERT INTO deinfo.curso(id, nome, coordenador, vice_coordenador, graduacao, posgraduacao, DEPARTAMENTO_ID) values(?,?,?,?,?,?,?)";
 			this.conexao = getConexao();
 			Statement simplaStatement;
 			try{
 				PreparedStatement smt = (PreparedStatement) conexao.prepareStatement(sql);
-				
-				if(!curso.equals(null) && !graduacao.equals(null)){
-					
-					if (!curso.getNome().equals("") &&
-					!graduacao.getCoordenador().getTitulo().equals("") &&
-					!graduacao.getVice().getTitulo().equals("") ){
-					
-						smt.setString(1, curso.getNome());
-						smt.setString(2, graduacao.getCoordenador().getTitulo());
-						smt.setString(3, graduacao.getVice().getTitulo());
-						
-						smt.execute();
-						smt.close();
-						inseriu = true;
-					}
-				
-				}
-
-				
-			}catch(Exception e){
+                            smt.setInt(1, 0);
+                            smt.setString(2, nome);
+                            if(cpf_coo == null){
+                            	smt.setNull(3, Types.VARCHAR);
+                            }else{
+                            	smt.setString(3, cpf_coo);
+                            }
+                            if(cpf_vice == null){
+                            	smt.setNull(4, Types.VARCHAR);
+                            }else{
+                              	smt.setString(4, cpf_vice);
+                            }
+                            smt.setInt(5, (graduacao)? 1 : 0);
+                            smt.setInt(6, (graduacao)? 0 : 1);
+                            System.out.println(aux.depatID(depat.getNome()));
+                            smt.setInt(7, aux.depatID(depat.getNome()));
+                            smt.execute();
+                            smt.close();
+                            inseriu = true;
+            }catch(Exception e){
 				JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 			}
 			return inseriu;
 		}
 
 
-		public boolean atualiza(Curso curso,Graduacao graduacao) throws SQLException{
+		public boolean atualiza(String nome, String cpf_coo, String cpf_vice, boolean graduacao) throws SQLException{
 			boolean atualizou = false;
-			String sql = "UPDATE deinfo.curso SET nome=?, coordenador=?, vice_coordenador=?, posgraduacao = ?"
-					+ "WHERE CODIGO_DIS = ?";
+			String sql = "UPDATE deinfo.curso SET id = ?, nome=?, coordenador=?, vice_coordenador=?, graduacao = ?, posgraduacao= ?"
+					+ "WHERE id = ?";
 			Connection con = getConexao();
 			Statement simplaStatement;
 			try{
 				PreparedStatement smt = (PreparedStatement) con.prepareStatement(sql);
-
-               if(!curso.equals(null) && !graduacao.equals(null)){
-					
-					if (!curso.getNome().equals("") &&
-					!graduacao.getCoordenador().getTitulo().equals("") &&
-					!graduacao.getVice().getTitulo().equals("") ){
-					
-						smt.setString(1, curso.getNome());
-						smt.setString(2, graduacao.getCoordenador().getTitulo());
-						smt.setString(3, graduacao.getVice().getTitulo());
+                                                
+                                                smt.setString(2, nome);
+						smt.setString(2, cpf_coo);
+						smt.setString(3, cpf_vice);
 						
 						smt.execute();
 						smt.close();
 						atualizou = true;
-					}
-				
-				}
+					
 				
 			}catch(Exception e){
 				JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
@@ -163,11 +154,8 @@ public class CursoDAO {
 //				System.out.println("teste2");
 //				metaData = resultSet.getMetaData();
 				while(resultSet.next()){
-					
 					int cod = resultSet.getInt("id");
-					
 					String nome = resultSet.getString("nome");
-
 					Curso curso = new Curso(cod, nome);
 					c.add(curso);
 				}			
@@ -181,7 +169,6 @@ public class CursoDAO {
 			return c;
 
 		}
-		
 }
 	        
 	        

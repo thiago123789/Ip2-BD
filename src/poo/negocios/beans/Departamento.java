@@ -3,13 +3,22 @@ package poo.negocios.beans;
 import java.util.ArrayList;
 
 public class Departamento {
-
+        private int id;
 	private String nome;
 	private String sigla;
 	private ArrayList<Curso> cursos;
 	private ArrayList<Funcionario> funcionarios;
 	private Professor diretor,vice;
 	
+	public Departamento(String nome){
+		this.setNome(nome);
+	}
+	
+        public Departamento(String nome, String sigla){
+            this.setNome(nome);
+            this.setSigla(sigla);
+        }
+        
 	public Departamento(){
 		
 	}
@@ -24,7 +33,11 @@ public class Departamento {
 		this.setCursos(cursos);
 	}
 	
-	
+	public void setId(int id){
+            if(id>=1){
+                this.id = id;
+            }
+        }
 
 	public String getNome() {
 		return nome;

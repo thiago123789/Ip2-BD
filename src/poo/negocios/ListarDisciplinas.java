@@ -5,18 +5,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import poo.dados.DisciplinaDAO;
+import poo.dados.PreRequisitoDAO;
 //import poo.dados.RepositorioDisciplina;
 import poo.dados.iRepositorioDisciplina;
 import poo.negocios.beans.Disciplina;
 
 public class ListarDisciplinas {
-	DisciplinaDAO repositorio;
+	private DisciplinaDAO repositorio;
+        private PreRequisitoDAO req;
 	
 	public ListarDisciplinas(){
 		repositorio = new DisciplinaDAO();
 	}
 	
-	public String[] listar(){
+	public String[] listarCodigo(){
 		
 		ArrayList<Disciplina> list = repositorio.consulta();
 		Disciplina[] aux = new Disciplina[list.size()];
@@ -31,7 +33,7 @@ public class ListarDisciplinas {
 		return codigos;
 	}
 	
-	public ArrayList<String> listarArray(){
+	public ArrayList<String> listarArrayCodigos(){
 		
 		ArrayList<Disciplina> list = repositorio.consulta();
 		ArrayList<String> listS = new ArrayList<String>();
@@ -45,7 +47,41 @@ public class ListarDisciplinas {
 		return listS;
 	}
 	
+        public String[] listarNomes(){
+                ArrayList<Disciplina> list = repositorio.consulta();
+		Disciplina[] aux = new Disciplina[list.size()];
+		String[] nomes = new String[aux.length];
+		int i = 0;
+		for(Disciplina a : list){
+//			System.out.println(a.getCodigo());
+			aux[i] = a;
+			nomes[i] = a.getNome();
+			i++;
+		}		
+		return nomes;
+        }
 	
+        public String mostrarDetalhes(Disciplina a){
+            String detalhes = "";
+            detalhes += "Codigo: "+a.getCodigo();
+            detalhes += "\nNome: "+a.getNome();
+            detalhes += "\nCarga Horaria: "+a.getCargaHoraria();
+            if(a.getObrigatoria()){
+                detalhes += "\nTipo: Obrigatoria";
+            }else if(a.getOptativa()){
+                detalhes += "\nTipo: Optativa";
+            }
+            
+            return detalhes;
+        } 
+        
+        public String[] listarCodigosPreRequisitos(String cod){
+            ArrayList<Disciplina> a = req.consulta();
+            String[] aux = new String[a.size];
+        }
 	
+        public String[] listarNomesPreRequisitos(String cod){
+            
+        }
 	
 }

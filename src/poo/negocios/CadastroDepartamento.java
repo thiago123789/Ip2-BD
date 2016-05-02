@@ -14,7 +14,7 @@ import poo.negocios.beans.Departamento;
  * @author Thiago Gomes
  */
 public class CadastroDepartamento {
-    DepartamentoDAO comand;
+    private DepartamentoDAO comand;
     
     public CadastroDepartamento(){
         this.comand = new DepartamentoDAO();

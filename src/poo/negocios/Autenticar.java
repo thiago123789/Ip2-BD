@@ -18,6 +18,10 @@ public class Autenticar {
         this.comandA = new HistoricoLoginDAO();
     }
     
+    public String verificaSenha(String user){
+    	return comand.verificaSenha(user);
+    }
+    
     public boolean autenticaSenha(String user, String senha) throws SenhaIncorretaException{
         boolean ok = false;
         if(comand.autenticar(user, senha)){

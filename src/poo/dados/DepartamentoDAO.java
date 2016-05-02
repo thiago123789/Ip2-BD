@@ -16,6 +16,7 @@ import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import static poo.dados.UsuarioDAO.resultSet;
 import poo.negocios.beans.Departamento;
 import poo.negocios.beans.Disciplina;
 
@@ -94,8 +95,17 @@ public class DepartamentoDAO {
 			PreparedStatement smt = (PreparedStatement) conexao.prepareStatement(sql);
 			smt.setString(1, depat.getNome());
 			smt.setString(2, depat.getSigla());
-			smt.setString(3, depat.getDiretor().getCpf());
-			smt.setString(4, depat.getVice().getCpf());		
+                        if(depat.getDiretor() == null){
+                            smt.setNull(3, Types.VARCHAR);
+                        }else{
+                            smt.setString(3, depat.getDiretor().getCpf());
+                        }
+                        
+                        if(depat.getVice() == null){
+                            smt.setNull(4, Types.VARCHAR);
+                        }else{
+                            smt.setString(4, depat.getVice().getCpf());	
+                        }
 			smt.execute();
 			smt.close();
 			inseriu = true;
@@ -106,28 +116,17 @@ public class DepartamentoDAO {
 	}
 
 
-	public boolean atualiza(Disciplina disciplina) throws SQLException{
+	public boolean atualiza(Departamento depat) throws SQLException{
 		boolean atualizou = false;
-		String sql = "UPDATE deinfo.disciplina SET codigo_dis = ?, nome = ?, curso = ?, carga_horaria = ?, trilha = ?, "
-				+ "optativa = ?, OBRIGATORIOA = ?, graduacao = ?, posgraduacao = ?"
-				+ "WHERE CODIGO_DIS = ?";
+		String sql = "UPDATE deinfo.departamento SET nome =?, sigla = ?, diretor =?, vice=?";
 		Connection con = getConexao();
 		Statement simplaStatement;
 		try{
 			PreparedStatement smt = (PreparedStatement) con.prepareStatement(sql);
-			smt.setString(1, disciplina.getCodigo());
-			smt.setString(2, disciplina.getNome());
-			smt.setInt(3, disciplina.getCurso().getCodigo());
-			smt.setInt(4, disciplina.getCargaHoraria());
-			if (disciplina.getTrilha() == null) {
-				smt.setNull(5, Types.INTEGER);
-			} else {
-				smt.setInt(5, disciplina.getTrilha().getCodigo());
-			}
-			smt.setInt(6, (disciplina.getOptativa())? 1 : 0);
-			smt.setInt(7, (disciplina.getObrigatoria())? 1 : 0);
-			smt.setInt(8, (disciplina.getGraducao())? 1 : 0);
-			smt.setInt(9, (disciplina.getPosGraduacao())? 1 : 0);
+			smt.setString(1, depat.getNome());
+			smt.setString(2, depat.getSigla());
+			smt.setString(3, depat.getDiretor().getCpf());
+			smt.setString(4, depat.getVice().getCpf());
 			smt.execute();
 			smt.close();
 			atualizou = true;
@@ -137,22 +136,21 @@ public class DepartamentoDAO {
 		return atualizou;
 	}
 
-	public ArrayList<Disciplina> consulta(){
-		ArrayList<Disciplina> a = new ArrayList<Disciplina>();
-		String query = "SELECT * FROM deinfo.disciplina";
+	public ArrayList<Departamento> consulta(){
+		ArrayList<Departamento> a = new ArrayList<Departamento>();
+		String query = "SELECT * FROM deinfo.departamento";
 		try{
 			Connection con = getConexao();
-//			System.out.println("teste1");
 			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
 			resultSet = statement.executeQuery();
-//			System.out.println("teste2");
-//			metaData = resultSet.getMetaData();
 			while(resultSet.next()){
-				String codigo = resultSet.getString("CODIGO_DIS");
-//				System.out.println(codigo);
+				int codigo = resultSet.getInt("ID_DEP");
 				String nome = resultSet.getString("NOME");
-//				System.out.println(nome);
-				Disciplina b = new Disciplina(codigo, nome);
+                String sigla = resultSet.getString("SIGLA");
+				Departamento b = new Departamento();
+				b.setId(codigo);
+                b.setNome(nome);
+                b.setSigla(sigla);
 				a.add(b);
 			}			
 			statement.close();
@@ -167,9 +165,9 @@ public class DepartamentoDAO {
 	}
         
         
-        public Disciplina buscaCN(String codigoDis){
-		Disciplina a = null;
-		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \""+codigoDis+"\"";
+        public Departamento buscaCN(String nomeBusca){
+		Departamento a = null;
+		String query = "SELECT * FROM deinfo.disciplina WHERE nome = \""+nomeBusca+"\"";
 		try{
 			Connection con = getConexao();
 //			System.out.println("teste1");
@@ -178,11 +176,16 @@ public class DepartamentoDAO {
 //			System.out.println("teste2");
 //			metaData = resultSet.getMetaData();
 			while(resultSet.next()){
-				String codigo = resultSet.getString("CODIGO_DIS");
+				int codigo = resultSet.getInt("CODIGO_DIS");
 //				System.out.println(codigo);
 				String nome = resultSet.getString("NOME");
 //				System.out.println(nome);
-                                a = new Disciplina(codigo, nome);
+                                String sigla = resultSet.getString("SIGLA");
+                                a = new Departamento();
+                                a.setId(codigo);
+                                a.setNome(nome);
+                                a.setSigla(sigla);
+                                   
 				
 			}			
 			statement.close();
@@ -197,25 +200,16 @@ public class DepartamentoDAO {
 	}
         
         
-        public boolean buscaDis(String codigoDis){
-		boolean a = false;
-		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \""+codigoDis+"\"";
+        public boolean buscaDept(String sigla){
+		boolean ok = false;
+		String query = "SELECT * FROM deinfo.disciplina WHERE sigla = \""+sigla+"\"";
 		try{
 			Connection con = getConexao();
-//			System.out.println("teste1");
 			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
 			resultSet = statement.executeQuery();
-//			System.out.println("teste2");
-//			metaData = resultSet.getMetaData();
-//                        System.out.println(resultSet.g);
-			while(resultSet.next()){
-				String codigo = resultSet.getString("CODIGO_DIS");
-//				System.out.println(codigo);
-				String nome = resultSet.getString("NOME");
-//				System.out.println(nome);
-                                a = true;
-				
-			}			
+			if(resultSet.isBeforeFirst()){
+                            ok = true;
+            } 			
 			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
@@ -223,8 +217,29 @@ public class DepartamentoDAO {
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
 
-		return a;
+		return ok;
 
 	}
+        
+        public int depatID(String nome){
+    		int ok = -1;
+    		String query = "SELECT * FROM deinfo.departamento WHERE nome = \""+nome+"\"";
+    		try{
+    			Connection con = getConexao();
+    			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+    			resultSet = statement.executeQuery();
+    			if(resultSet.next()){
+    				ok = resultSet.getInt("ID_DEP");
+                } 			
+    			statement.close();
+    		}catch(SQLException e){
+    			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+    		}catch(Exception e){
+    			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+    		}
+
+    		return ok;
+
+    	}
 
 }

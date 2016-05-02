@@ -5,11 +5,36 @@ public class Curso {
 	private String nome;
 	private Aluno [] alunos;
 	private Disciplina [] disciplinas;
+	private boolean graduacao, posgraduacao;
 	
 	public Curso(int codigo, String nome)
 	{
 		this.setCodigo(codigo);
-		this.nome=nome;
+		this.setNome(nome);
+	}
+	
+	public Curso(String nome, boolean graducao)
+	{
+		this.setCodigo(codigo);
+		this.setNome(nome);
+		this.setGraduacao(graduacao);
+		this.setPosGraducao(!graduacao);	
+	}
+	
+	public boolean getPosGraduacao(){
+		return this.posgraduacao;
+	}
+	
+	public boolean getGraducao(){
+		return this.graduacao;
+	}
+	
+	public void setGraduacao(boolean b){
+		this.graduacao = b;
+	}
+	
+	public void setPosGraducao(boolean c){
+		this.posgraduacao = c;
 	}
 	
 	public Curso(){

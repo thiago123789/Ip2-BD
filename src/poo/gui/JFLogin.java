@@ -7,13 +7,16 @@ package poo.gui;
 
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
+
 import poo.dados.UsuarioDAO;
 import poo.excecoes.SenhaIncorretaException;
 import poo.excecoes.UsuarioNaoExiste;
 import poo.negocios.Autenticar;
+import poo.negocios.FachadaUsuario;
 import poo.negocios.FormatacaoAuxiliar;
 
 /**
@@ -181,7 +184,7 @@ public class JFLogin extends javax.swing.JFrame {
 
     private void jBLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLogarActionPerformed
         // TODO add your handling code here:
-        Autenticar auto = new Autenticar();
+        FachadaUsuario auto = FachadaUsuario.getInstance();
         String usuario1 = jTUsuario.getText();
         char[] senhaC = jPSenhaLogin.getPassword();
         String senha = "";
@@ -255,23 +258,6 @@ public class JFLogin extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
             
         }
-        
-//        if (jRBAluno.isSelected()) {
-//            JFrameAluno f = new JFrameAluno();
-//            f.setVisible(true);
-//            this.setVisible(false);
-//            f.setExtendedState(JFrameAluno.MAXIMIZED_BOTH);
-//        } else if (jRBAdmin.isSelected()) {
-//            JFrameAdmin f = new JFrameAdmin();
-//            f.setVisible(true);
-//            this.setVisible(false);
-//            f.setExtendedState(JFrameAdmin.MAXIMIZED_BOTH);
-//        } else {
-//            JFrameProfessor f = new JFrameProfessor();
-//            f.setVisible(true);
-//            this.setVisible(false);
-//            f.setExtendedState(JFrameProfessor.MAXIMIZED_BOTH);
-//        }
     }//GEN-LAST:event_jBLogarActionPerformed
 
     private void jBLogarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jBLogarKeyPressed

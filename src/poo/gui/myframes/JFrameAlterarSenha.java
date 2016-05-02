@@ -7,13 +7,16 @@ package poo.gui.myframes;
 
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JOptionPane;
+import poo.negocios.FachadaUsuario;
 
 /**
  *
  * @author Thiago Gomes
  */
 public class JFrameAlterarSenha extends javax.swing.JFrame {
-    String usuario;
+    private String usuario;
+    FachadaUsuario fachada;
     /**
      * Creates new form JFrameAlterarSenha
      */
@@ -106,7 +109,12 @@ public class JFrameAlterarSenha extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Limpar");
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,10 +124,10 @@ public class JFrameAlterarSenha extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTUser))
@@ -144,8 +152,53 @@ public class JFrameAlterarSenha extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        fachada = FachadaUsuario.getInstance();
+        boolean alterou = false;
+        String senha = "";
+        char[] senhaChar = jPAtual.getPassword();
+        for(int i = 0; i < senhaChar.length; i++){
+            senha += senhaChar[i];
+        }
+        
+        char[] novaChar = jPNova.getPassword();
+        String nova = "";
+        for(int i = 0; i < novaChar.length; i++){
+            nova += novaChar[i];
+        }
+        
+        char[] novaAgainChar = jPNovaConfirmar.getPassword();
+        String novaAgain = "";
+        for(int i = 0; i < novaAgainChar.length; i++){
+            novaAgain += novaAgainChar[i];
+        }
+        System.out.println(senha);
+        if(fachada.verificaSenha(fachada.soNumerosCPF(usuario)).equals(senha)){
+            if(!nova.equals(novaAgain)){
+                jPNova.setText(null);
+                jPNovaConfirmar.setText(null);
+                JOptionPane.showConfirmDialog(null, "Senhas não correspondem.", "Erro", -1);
+            }else{
+                alterou = fachada.alterarSenha(fachada.soNumerosCPF(usuario), nova);
+                if(alterou){
+                    JOptionPane.showConfirmDialog(null, "Senha alterada com sucesso.", "Sucesso", -1);
+                    this.setVisible(false);
+                }else{
+                    jPNova.setText(null);
+                    jPNovaConfirmar.setText(null);
+                    JOptionPane.showConfirmDialog(null, "Não foi possivel alterar a senha.", "Erro", -1);
+                }
+            }
+        }else{
+            jPAtual.setText(null);
+            JOptionPane.showConfirmDialog(null, "Senha atual informada está incorreta", "Erro", -1);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

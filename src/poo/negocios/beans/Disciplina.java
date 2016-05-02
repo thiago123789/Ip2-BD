@@ -11,6 +11,16 @@ public class Disciplina {
 	private Trilha trilha;
 	private int cargaHoraria;
 
+        public Disciplina(String nome, Trilha trilha, Curso curso, int tipoDisciplina, 
+			int tipoDisciplinaCurso){
+		this.setNome(nome);
+		this.setTipoDisciplina(tipoDisciplina);
+		this.setTipoDisciplinaCurso(tipoDisciplinaCurso);	
+		this.setTrilha(trilha);
+		this.setCurso(curso);
+		this.setCodigo();
+	}
+        
 	public Disciplina(String nome, int requisito,
 			ArrayList<Disciplina> preRequisito, int corequisito,
 			ArrayList<Disciplina> coRequisito, 

@@ -52,20 +52,6 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		try{
 			this.conexao = getConexao();
 			Connection con = getConexao();
-//			String comando = "CREATE TABLE IF NOT EXISTS DEINFO.disciplina("
-//					+ "CODIGO_DIS VARCHAR(20) NOT NULL PRIMARY KEY,"
-//					+ "NOME VARCHAR(50) NOT NULL,"
-//					+ "CURSO INT(5) NOT NULL,"
-//					+ "CARGA_HORARIA INT(3) NOT NULL,"
-//					+ "TRILHA INT(5),"
-//					+ "OPTATIVA BOOLEAN,"
-//					+ "OBRIGATORIOA BOOLEAN,"
-//					+ "GRADUACAO BOOLEAN,"
-//					+ "POSGRADUACAO BOOLEAN"
-//					+ ") ENGINE = InnoDB;";
-//			Statement smt = con.createStatement();
-//			smt.execute(comando);
-//			smt.close();
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
@@ -81,10 +67,7 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 	 */
 	public static Connection getConexao() throws SQLException {
 
-                String server = "localhost/3306";
-                String dataBase = "deinfo";
-                String user = "root";
-                String senha = "MAradona.58b";
+              
                 Connection retorno = null;
 		/*
 		 * Formato: 
@@ -166,16 +149,11 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		String query = "SELECT * FROM deinfo.disciplina";
 		try{
 			Connection con = getConexao();
-//			System.out.println("teste1");
 			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
 			resultSet = statement.executeQuery();
-//			System.out.println("teste2");
-//			metaData = resultSet.getMetaData();
 			while(resultSet.next()){
 				String codigo = resultSet.getString("CODIGO_DIS");
-//				System.out.println(codigo);
 				String nome = resultSet.getString("NOME");
-//				System.out.println(nome);
 				Disciplina b = new Disciplina(codigo, nome);
 				a.add(b);
 			}			
@@ -185,29 +163,20 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
-
 		return a;
-
 	}
         
-        
-        public Disciplina buscaCN(String codigoDis){
+    public Disciplina buscaCN(String codigoDis){
 		Disciplina a = null;
 		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \""+codigoDis+"\"";
 		try{
 			Connection con = getConexao();
-//			System.out.println("teste1");
 			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
 			resultSet = statement.executeQuery();
-//			System.out.println("teste2");
-//			metaData = resultSet.getMetaData();
 			while(resultSet.next()){
 				String codigo = resultSet.getString("CODIGO_DIS");
-//				System.out.println(codigo);
 				String nome = resultSet.getString("NOME");
-//				System.out.println(nome);
-                                a = new Disciplina(codigo, nome);
-				
+                a = new Disciplina(codigo, nome);
 			}			
 			statement.close();
 		}catch(SQLException e){
@@ -215,30 +184,20 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
-
 		return a;
-
 	}
         
-        
-        public boolean buscaDis(String codigoDis){
+    public boolean buscaDis(String codigoDis){
 		boolean a = false;
 		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \""+codigoDis+"\"";
 		try{
 			Connection con = getConexao();
-//			System.out.println("teste1");
 			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
 			resultSet = statement.executeQuery();
-//			System.out.println("teste2");
-//			metaData = resultSet.getMetaData();
-//                        System.out.println(resultSet.g);
 			while(resultSet.next()){
 				String codigo = resultSet.getString("CODIGO_DIS");
-//				System.out.println(codigo);
 				String nome = resultSet.getString("NOME");
-//				System.out.println(nome);
-                                a = true;
-				
+                a = true;
 			}			
 			statement.close();
 		}catch(SQLException e){
@@ -246,11 +205,7 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
-
 		return a;
-
 	}
-
-
 
 }

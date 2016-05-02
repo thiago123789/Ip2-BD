@@ -11,15 +11,19 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import poo.dados.DisciplinaDAO;
+import javax.swing.event.ListDataEvent;
+import javax.swing.event.ListDataListener;
 
+import poo.dados.DisciplinaDAO;
 import poo.excecoes.DiaNaoSelecionadoException;
 import poo.excecoes.HorarioInvalidoException;
 import poo.excecoes.HorarioInvalidoTMQIException;
 import poo.excecoes.MinutosInvalidosException;
 import poo.negocios.CadastroDisciplina;
+import poo.negocios.FachadaSistema;
 import poo.negocios.ListarDisciplinas;
 import poo.negocios.beans.Aula;
 import poo.negocios.beans.Curso;
@@ -29,36 +33,41 @@ import poo.negocios.beans.Disciplina;
  * @author Thiago Gomes
  */
 public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
-	private ListarDisciplinas auto;
+	private FachadaSistema auto;
 	private String[] lista;
 	private DefaultListModel model;
+        
+        ComboBoxModel<String> model3;
     /**
      * Creates new form FrameCadastrarDisciplina
      * @throws SQLException 
      */
     public FrameCadastroDisciplina(){
-        model = new DefaultListModel();
-        preencherModel();
+//        model = new DefaultListModel();
         initComponents();
-        jTPre1.setEditable(false);
-        jTPre4.setEditable(false);
-        jTPre2.setEditable(false);
-        jTPre3.setEditable(false);
-        jTCo.setEditable(false);
         jTtrilha.setEnabled(false);
-//        System.out.println(model.toString());
+        preencherNomesCursos();
     }
     
-    public void preencherModel(){
-//    	System.out.println("entrei ");
-    	auto = new ListarDisciplinas();
-    	lista = auto.listar();
-    	for(int i = 0; i < lista.length; i++){
-        	System.out.println(lista[i]);
-        	model.addElement(lista[i]);
-        }
-//    	System.out.println("sai");
-//    	System.out.println(model.toString());
+//    public void preencherModel(){
+//    	auto = FachadaSistema.getInstance();
+//    	lista = auto.listarCodigo();
+//    	for(int i = 0; i < lista.length; i++){
+//        	System.out.println(lista[i]);
+//        	model.addElement(lista[i]);
+//        }
+//    }
+    
+    public void preencherNomesCursos(){
+    	auto = FachadaSistema.getInstance();
+    	ArrayList<String> aux = auto.listarCursosPorNomeList();
+        System.out.println(aux.toString());
+    	for(String a : aux){
+            System.out.println(a);
+    		jCNomeCurso.addItem(a);
+    	}
+    	
+    	
     }
 
     /**
@@ -83,29 +92,11 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
         jROptativa = new javax.swing.JRadioButton();
         jRObrigatoria = new javax.swing.JRadioButton();
         jTNomeDis = new javax.swing.JTextField();
-        jTNomeCurso = new javax.swing.JTextField();
         jTtrilha = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jCarga = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jTPre4 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jTPre2 = new javax.swing.JTextField();
-        jTPre1 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTPre3 = new javax.swing.JTextField();
-        jTCo = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
-        jToggleButton5 = new javax.swing.JToggleButton();
+        jCNomeCurso = new javax.swing.JComboBox<>();
         jToggleButton6 = new javax.swing.JToggleButton();
         jToggleButton7 = new javax.swing.JToggleButton();
 
@@ -149,12 +140,6 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
             }
         });
 
-        jTNomeCurso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTNomeCursoActionPerformed(evt);
-            }
-        });
-
         jTtrilha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTtrilhaActionPerformed(evt);
@@ -166,6 +151,12 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
         jCarga.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "30", "60", "120", "240" }));
 
         jLabel13.setText("(*) Campos obrigatorios");
+
+        jCNomeCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCNomeCursoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -182,8 +173,8 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTNomeDis)
-                            .addComponent(jTNomeCurso)
-                            .addComponent(jTNomeArea)))
+                            .addComponent(jTNomeArea)
+                            .addComponent(jCNomeCurso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -191,18 +182,17 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jRObrigatoria)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jROptativa)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                                .addComponent(jLabel5))
+                                .addComponent(jROptativa))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addGap(18, 18, 18)
-                                .addComponent(jCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTtrilha, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(jTtrilha))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -215,139 +205,25 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTNomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCNomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTNomeArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTtrilha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel10)
                         .addComponent(jRObrigatoria)
-                        .addComponent(jROptativa)
+                        .addComponent(jROptativa))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTtrilha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(jCarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Adicionar requisitos"));
-
-        jLabel7.setText("Pre-requisito 2:");
-
-        jLabel9.setText("Pre-requisito 4:");
-
-        jLabel12.setText("Co-requisito: ");
-
-        jLabel6.setText("Pre-requisito 1:");
-
-        jLabel8.setText("Pre-requisito 3:");
-
-        jList1.setModel(model);
-        jScrollPane1.setViewportView(jList1);
-
-        jToggleButton1.setText("<< Pre-1");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-
-        jToggleButton2.setText("<< Pre-2");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
-            }
-        });
-
-        jToggleButton3.setText("<< Pre-3");
-        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton3ActionPerformed(evt);
-            }
-        });
-
-        jToggleButton4.setText("<< Co-1 ");
-        jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton4ActionPerformed(evt);
-            }
-        });
-
-        jToggleButton5.setText("<< Pre-4");
-        jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton5ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTPre4)
-                    .addComponent(jTPre3)
-                    .addComponent(jTPre2)
-                    .addComponent(jTPre1)
-                    .addComponent(jTCo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jToggleButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTPre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTPre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addComponent(jToggleButton2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTPre3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(jToggleButton3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTPre4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)
-                            .addComponent(jToggleButton5))
-                        .addGap(9, 9, 9)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTCo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jToggleButton4))))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -368,29 +244,24 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
+                        .addGap(203, 203, 203)
                         .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jToggleButton6)
                     .addComponent(jToggleButton7))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
 
         pack();
@@ -399,10 +270,6 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
     private void jTNomeDisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNomeDisActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTNomeDisActionPerformed
-
-    private void jTNomeCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNomeCursoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTNomeCursoActionPerformed
 
     private void jTtrilhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTtrilhaActionPerformed
         // TODO add your handling code here:
@@ -423,72 +290,26 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jROptativaActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-        
-        String opcao = jList1.getSelectedValue();
-        jTPre1.setText(opcao);
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        // TODO add your handling code here:
-        String opcao = jList1.getSelectedValue();
-        jTPre2.setText(opcao);
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
-
-    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
-        // TODO add your handling code here:
-        String opcao = jList1.getSelectedValue();
-        jTPre3.setText(opcao);
-    }//GEN-LAST:event_jToggleButton3ActionPerformed
-
-    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
-        // TODO add your handling code here:
-        String opcao = jList1.getSelectedValue();
-        jTCo.setText(opcao);
-    }//GEN-LAST:event_jToggleButton4ActionPerformed
-
-    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
-        // TODO add your handling code here:
-        String opcao = jList1.getSelectedValue();
-        jTPre4.setText(opcao);
-    }//GEN-LAST:event_jToggleButton5ActionPerformed
-
     private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
         // TODO add your handling code here:
-        CadastroDisciplina cadastro = new CadastroDisciplina();
+        FachadaSistema comand = FachadaSistema.getInstance();
         try{
             Curso curso1 = new Curso(1, "Bacharelado em ciencia da computação");
             String nome = jTNomeDis.getText();
-            String curso = jTNomeCurso.getText();
+            String curso = jCNomeCurso.getSelectedItem().toString();
             String area = jTNomeArea.getText();
             String trilha = jTtrilha.getText();
             boolean obg = jRObrigatoria.isSelected();
             boolean opt = jROptativa.isSelected();
-            String pre1 = jTPre1.getText();
-            String pre2 = jTPre2.getText();
-            String pre3 = jTPre3.getText();
-            String pre4 = jTPre4.getText();
-            String co = jTCo.getText();
             Object carga = jCarga.getSelectedItem();
             String cargaFinal = carga.toString();
             int valor = Integer.parseInt(cargaFinal);
-            Disciplina preR1 = de.buscaCN(pre1);
-            Disciplina preR2 = de.buscaCN(pre2);
-            Disciplina preR3 = de.buscaCN(pre3);
-            Disciplina preR4 = de.buscaCN(pre4);
-            Disciplina co1 = de.buscaCN(co);
             int aux1 = 0 , aux2;
             if(obg){
                 aux1 = 0;
             }else{
                 aux1 = 1;
             }
-            Disciplina adiciona = new Disciplina(nome, 1,
-			preR1,preR2,preR3,preR4, 1,
-			co1, null, curso1, aux1, 0);
-            cadastro.inserirDisciplina(adiciona);
-//            System.out.println(cargaFinal);
         }catch(Exception e){
             
         }
@@ -496,41 +317,28 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jToggleButton6ActionPerformed
 
+    private void jCNomeCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCNomeCursoActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jCNomeCursoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jCNomeCurso;
     private javax.swing.JComboBox<String> jCarga;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRObrigatoria;
     private javax.swing.JRadioButton jROptativa;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTCo;
     private javax.swing.JTextField jTNomeArea;
-    private javax.swing.JTextField jTNomeCurso;
     private javax.swing.JTextField jTNomeDis;
-    private javax.swing.JTextField jTPre1;
-    private javax.swing.JTextField jTPre2;
-    private javax.swing.JTextField jTPre3;
-    private javax.swing.JTextField jTPre4;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
     private javax.swing.JTextField jTtrilha;

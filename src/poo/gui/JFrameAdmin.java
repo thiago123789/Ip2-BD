@@ -13,11 +13,14 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 import poo.gui.myframes.FrameBuscarUsuario;
+import poo.gui.myframes.FrameCadastroCurso;
+import poo.gui.myframes.FrameCadastroDepartamento;
 import poo.gui.myframes.FrameCadastroDisciplina;
 import poo.gui.myframes.FrameCadastroProfessor;
 import poo.gui.myframes.FrameCadastroUsuario;
 import poo.gui.myframes.FrameDesativarUsuario;
 import poo.gui.myframes.FrameEditarUsuario;
+import poo.gui.myframes.FrameListarDisciplinas;
 import poo.gui.myframes.FrameListarUsuarios;
 import poo.gui.myframes.FrameNovaConsulta;
 import poo.gui.myframes.JFrameAlterarSenha;
@@ -66,7 +69,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         this.cpf = cpf;
         this.lastLogin = last;
         jTLastLogin.setText(last);
-        jTNameUser.setText(nome);
+        jTNameUser.setText(nome.toUpperCase());
         jTCPFUser.setText(cpf);
     }
     /**
@@ -121,6 +124,13 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuItem17 = new javax.swing.JMenuItem();
+        jMenuItem18 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem15 = new javax.swing.JMenuItem();
+        jMenuItem16 = new javax.swing.JMenuItem();
         mnuSobre = new javax.swing.JMenu();
         mnuSobreVersao = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -322,6 +332,11 @@ public class JFrameAdmin extends javax.swing.JFrame {
         mnuDisciplina.add(jMenuItem8);
 
         jMenuItem10.setText("Listar Disciplinas");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         mnuDisciplina.add(jMenuItem10);
 
         jMenuBar1.add(mnuDisciplina);
@@ -355,6 +370,39 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Curso");
+
+        jMenuItem14.setText("Adicionar Curso");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem14);
+
+        jMenuItem17.setText("Adicionar Coordenador/Vice");
+        jMenu3.add(jMenuItem17);
+
+        jMenuItem18.setText("Listar Cursos");
+        jMenu3.add(jMenuItem18);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Departamento");
+
+        jMenuItem15.setText("Adicionar Departamento");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem15);
+
+        jMenuItem16.setText("Listar Departamentos");
+        jMenu4.add(jMenuItem16);
+
+        jMenuBar1.add(jMenu4);
 
         mnuSobre.setText("Sobre");
 
@@ -477,6 +525,28 @@ public class JFrameAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        FrameListarDisciplinas f = new FrameListarDisciplinas();
+        desktop.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        // TODO add your handling code here:
+        FrameCadastroCurso f = new FrameCadastroCurso();
+        desktop.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+        // TODO add your handling code here:
+        FrameCadastroDepartamento f = new FrameCadastroDepartamento();
+        desktop.add(f);
+        f.setVisible(true);
+                
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -520,12 +590,19 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
+    private javax.swing.JMenuItem jMenuItem17;
+    private javax.swing.JMenuItem jMenuItem18;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

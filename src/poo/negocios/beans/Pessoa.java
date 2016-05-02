@@ -15,7 +15,7 @@ public class Pessoa {
 	private String senha;
 	private String email;
 	private Endereco endereco;
-        private int tipo_pessoa;
+    private int tipo_pessoa;
 	
 	public Pessoa(String pNome, String uNome, String cpf, boolean sexo, 
                 String senha, String email, Endereco endereco, int tipo_pessoa) throws CPFInvalidoException
