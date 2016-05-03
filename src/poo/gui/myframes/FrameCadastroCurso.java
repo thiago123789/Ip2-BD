@@ -57,6 +57,9 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
+        buttonGroup1.add(jRGraduacao);
+        buttonGroup1.add(jRPosGraducao);
+
         setClosable(true);
         setTitle("Cadastro Curso");
 
