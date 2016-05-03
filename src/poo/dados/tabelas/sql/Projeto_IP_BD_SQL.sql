@@ -4,7 +4,7 @@ USE `deinfo`;
 --
 -- Host: localhost    Database: deinfo
 -- ------------------------------------------------------
--- Server version	5.7.11-log
+-- Server version	5.7.12-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -559,7 +559,7 @@ CREATE TABLE `situacaoes` (
 
 LOCK TABLES `situacaoes` WRITE;
 /*!40000 ALTER TABLE `situacaoes` DISABLE KEYS */;
-INSERT INTO `situacaoes` VALUES (1,'Aprovado'),(3,'Aprovado por média'),(6,'Cancelado com onus'),(5,'Cancelado sem onus'),(4,'Dispensado'),(2,'Reprovado');
+INSERT INTO `situacaoes` VALUES (1,'Aprovado'),(3,'Aprovado por média'),(6,'Cancelado com onus'),(5,'Cancelado sem onus'),(7,'Cursando'),(4,'Dispensado'),(2,'Reprovado');
 /*!40000 ALTER TABLE `situacaoes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -606,4 +606,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-03  1:00:48
+-- Dump completed on 2016-05-03 19:26:19

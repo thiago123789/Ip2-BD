@@ -24,7 +24,7 @@ public class JFrameAlterarSenha extends javax.swing.JFrame {
         initComponents();
         jTUser.setEditable(false);
         
-        Color padrao = new Color(28, 247, 215);
+        Color padrao = new Color(255, 255, 255);
         jTUser.setBackground(padrao);
         Font nova = new Font("Arial", Font.BOLD, 14);
         jTUser.setFont(nova);
