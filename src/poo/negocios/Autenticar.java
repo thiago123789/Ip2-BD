@@ -4,17 +4,18 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import poo.dados.HistoricoLoginDAO;
-import poo.dados.UsuarioDAO;
+
+import poo.dados.DAO.HistoricoLoginDAO;
+import poo.dados.DAO.PessoaDAO;
 import poo.excecoes.SenhaIncorretaException;
 import poo.excecoes.UsuarioNaoExiste;
 
 public class Autenticar {
-    UsuarioDAO comand;
+    PessoaDAO comand;
     HistoricoLoginDAO comandA;
     
     public Autenticar(){
-        this.comand = new UsuarioDAO();
+        this.comand = new PessoaDAO();
         this.comandA = new HistoricoLoginDAO();
     }
     

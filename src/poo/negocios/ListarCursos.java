@@ -7,7 +7,7 @@ package poo.negocios;
 
 import java.util.ArrayList;
 
-import poo.dados.CursoDAO;
+import poo.dados.DAO.CursoDAO;
 import poo.negocios.beans.Curso;
 
 /**

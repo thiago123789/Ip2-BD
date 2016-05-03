@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package poo.dados;
+package poo.dados.DAO;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import poo.dados.iRepositorioDisciplina;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Departamento;
 

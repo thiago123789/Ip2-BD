@@ -7,7 +7,7 @@ package poo.negocios;
 
 import java.util.ArrayList;
 
-import poo.dados.DepartamentoDAO;
+import poo.dados.DAO.DepartamentoDAO;
 import poo.negocios.beans.Departamento;
 
 /**

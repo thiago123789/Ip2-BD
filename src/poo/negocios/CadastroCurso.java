@@ -7,8 +7,8 @@ package poo.negocios;
 
 import java.sql.SQLException;
 
-import poo.dados.CursoDAO;
-import poo.dados.DepartamentoDAO;
+import poo.dados.DAO.CursoDAO;
+import poo.dados.DAO.DepartamentoDAO;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Departamento;
 

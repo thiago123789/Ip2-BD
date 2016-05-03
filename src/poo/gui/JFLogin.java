@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 
-import poo.dados.UsuarioDAO;
+import poo.dados.DAO.PessoaDAO;
 import poo.excecoes.SenhaIncorretaException;
 import poo.excecoes.UsuarioNaoExiste;
 import poo.negocios.Autenticar;

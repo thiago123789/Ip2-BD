@@ -5,12 +5,23 @@ import poo.excecoes.CPFInvalidoException;
 public class Funcionario extends Pessoa {
 	private int permissaoDeAcesso;
 	private Departamento departamento;
+	private String cargo;
 	
 	public Funcionario(String pNome, String uNome, String cpf, boolean sexo, 
-                String senha, String email, Endereco endereco) throws CPFInvalidoException
-	{
-	super(pNome, uNome, cpf, sexo, senha, email, endereco, 2);
-}
+                String senha, String email, Endereco endereco, 
+                String cargo) throws CPFInvalidoException{
+		super(pNome, uNome, cpf, sexo, senha, email, endereco, 2);
+	
+	}
+	
+	public String getCargo(){
+		return this.cargo;
+	}
+	
+	public void setCargo(String cargo){
+		this.cargo = cargo;
+	}
+	
 	public int getPermissaoDeAcesso(){
 		return this.permissaoDeAcesso;
 	}

@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import poo.dados.DisciplinaDAO;
-import poo.dados.PreRequisitoDAO;
 //import poo.dados.RepositorioDisciplina;
 import poo.dados.iRepositorioDisciplina;
+import poo.dados.DAO.DisciplinaDAO;
+import poo.dados.DAO.PreRequisitoDAO;
 import poo.negocios.beans.Disciplina;
 
 public class ListarDisciplinas {
@@ -77,11 +77,17 @@ public class ListarDisciplinas {
         
         public String[] listarCodigosPreRequisitos(String cod){
             ArrayList<Disciplina> a = req.consulta();
-            String[] aux = new String[a.size];
+            String[] aux = new String[a.size()];
+            
+            
+            return aux;
         }
 	
         public String[] listarNomesPreRequisitos(String cod){
+            String[] aux = new String[10];
             
+            
+            return aux;
         }
 	
 }

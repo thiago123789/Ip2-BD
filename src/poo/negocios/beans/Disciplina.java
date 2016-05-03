@@ -11,7 +11,15 @@ public class Disciplina {
 	private Trilha trilha;
 	private int cargaHoraria;
 
-        public Disciplina(String nome, Trilha trilha, Curso curso, int tipoDisciplina, 
+    public Disciplina(String codigo, String nome, int carga, boolean optativa, boolean obrigatoria){
+    	this.setCodigo(codigo);
+    	this.setNome(nome);
+    	this.setCargaHoraria(carga);
+    	this.setOptativa(optativa);
+    	this.setObrigatoria(obrigatoria);
+    }
+	
+	public Disciplina(String nome, Trilha trilha, Curso curso, int tipoDisciplina, 
 			int tipoDisciplinaCurso){
 		this.setNome(nome);
 		this.setTipoDisciplina(tipoDisciplina);

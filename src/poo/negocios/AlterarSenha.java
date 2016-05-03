@@ -7,7 +7,7 @@ package poo.negocios;
 
 import java.sql.SQLException;
 
-import poo.dados.UsuarioDAO;
+import poo.dados.DAO.PessoaDAO;
 import poo.negocios.beans.Pessoa;
 
 /**
@@ -15,10 +15,10 @@ import poo.negocios.beans.Pessoa;
  * @author Thiago Gomes
  */
 class AlterarSenha {
-    private UsuarioDAO comand;
+    private PessoaDAO comand;
     
     public AlterarSenha(){
-    	comand = new UsuarioDAO();
+    	comand = new PessoaDAO();
     }
     
     public boolean alterarSenha(String cpf, String novaSenha){

@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 
-import poo.dados.DisciplinaDAO;
+import poo.dados.DAO.DisciplinaDAO;
 import poo.excecoes.DiaNaoSelecionadoException;
 import poo.excecoes.HorarioInvalidoException;
 import poo.excecoes.HorarioInvalidoTMQIException;

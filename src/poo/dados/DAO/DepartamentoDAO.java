@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package poo.dados;
+package poo.dados.DAO;
 
 import com.mysql.jdbc.PreparedStatement;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,8 +16,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
-import static poo.dados.UsuarioDAO.resultSet;
+
+import static poo.dados.DAO.PessoaDAO.resultSet;
+import poo.dados.iRepositorioDisciplina;
 import poo.negocios.beans.Departamento;
 import poo.negocios.beans.Disciplina;
 

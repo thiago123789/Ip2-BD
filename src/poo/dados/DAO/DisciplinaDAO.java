@@ -1,4 +1,4 @@
-package poo.dados;
+package poo.dados.DAO;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import poo.dados.iRepositorioDisciplina;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Disciplina;
 import poo.negocios.beans.Horario;
@@ -177,6 +178,47 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 				String codigo = resultSet.getString("CODIGO_DIS");
 				String nome = resultSet.getString("NOME");
                 a = new Disciplina(codigo, nome);
+			}			
+			statement.close();
+		}catch(SQLException e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+		return a;
+	}
+    
+    
+    /*
+     * BUSCA QUE IRÁ RETORNAR AS DISCIPLINAS QUE POSSUAM DETERMINADA PALAVRA NO SEU NOME     * 
+     */
+    public ArrayList<Disciplina> searchAdvanced(String nomeD){
+		ArrayList<Disciplina> a = new ArrayList<Disciplina>();
+		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \"%"+nomeD+"\"%";
+		try{
+			Connection con = getConexao();
+			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+			resultSet = statement.executeQuery();
+			while(resultSet.next()){
+				String codigo = resultSet.getString("CODIGO_DIS");
+				String nome = resultSet.getString("NOME");
+				int carga = resultSet.getInt("CARGA_HORARIA");
+				int optativa = resultSet.getInt("OPTATIVA");
+				int obrigatoria = resultSet.getInt("OBRIGATORIA");
+				
+				boolean value = false;
+				boolean value2 = false;
+				
+				if(optativa == 1){
+					value = true;
+				}
+				
+				if(obrigatoria == 1){
+					value = true;
+				}
+				
+                Disciplina b = new Disciplina(codigo, nome, carga, value, value2);
+                a.add(b);
 			}			
 			statement.close();
 		}catch(SQLException e){

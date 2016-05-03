@@ -16,6 +16,8 @@ public class FachadaSistema {
     private CadastroDepartamento cadDepat;
     private ListarDepartamentos listDepat;
     private CadastroCurso cadCurso;
+    private BuscaAvancada advanced;
+    private InfoUsuario info;
         
     public FachadaSistema(){
     	addDisciplina = new CadastroDisciplina();
@@ -25,6 +27,8 @@ public class FachadaSistema {
         cadDepat = new CadastroDepartamento();
         listDepat = new ListarDepartamentos();
         cadCurso = new CadastroCurso();
+        advanced = new BuscaAvancada();
+        info = new InfoUsuario();
     }
 	
 	public static FachadaSistema getInstance(){
@@ -74,6 +78,14 @@ public class FachadaSistema {
 	public void cadastroCurso(Curso curso, Departamento depat) {
 		cadCurso.cadastroCurso(curso, depat);
 	}
+
+	public ArrayList<Disciplina> searchAdvanced(String nom) {
+//		int cursoUser = info.cursoUsuario(cpf);
+//		if()
+		return advanced.searchAdvanced(nom);
+	}
+	
+	
 	
 	
 	

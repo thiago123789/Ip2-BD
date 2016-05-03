@@ -3,16 +3,16 @@ package poo.negocios.beans;
 
 import poo.excecoes.CPFInvalidoException;
 
-public class Professor extends Pessoa{
+public class Professor extends Funcionario{
 	private String titulo;
 	private Curso curso;
 	private String lattes;
 	
 	public Professor(String titulo, String lattes,boolean sexo, String senha, 
-			String email, Endereco endereco, Curso curso, 
-			String pNome, String uNome, String cpf) throws CPFInvalidoException
+			String email, Endereco endereco, Curso curso,
+			String pNome, String uNome, String cpf, String cargo) throws CPFInvalidoException
 	{
-		super(pNome, uNome, cpf, sexo, senha, email, endereco, 1);
+		super(pNome, uNome, cpf, sexo, senha, email, endereco, cargo);
 		this.setTitulo(titulo);
 		this.setCurso(curso);
 		this.setLattes(lattes);

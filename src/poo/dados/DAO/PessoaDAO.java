@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package poo.dados;
+package poo.dados.DAO;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -29,7 +29,7 @@ import poo.negocios.beans.Pessoa;
  *
  * @author Thiago Gomes
  */
-public class UsuarioDAO {
+public class PessoaDAO {
     private Connection conexao;
 	public static ResultSet resultSet;
 	public static ResultSetMetaData metaData;
@@ -46,23 +46,11 @@ public class UsuarioDAO {
 		}		
 	}
 
-
-	public static iRepositorioDisciplina getInstance() throws IOException, SQLException{
-
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//				System.out.println("carregou");
-		} catch (Exception e) {
-			System.out.println("Problemas carregando o Driver do MySQL");
-		}
-		return instance;
-	}
-
-	public UsuarioDAO(){
+	public PessoaDAO(){
             try {		
                 this.conexao = getConexao();
             } catch (SQLException ex) {
-                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
 	}
 	/**
@@ -210,6 +198,26 @@ public class UsuarioDAO {
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
 		return completo;
+    }
+    
+    public int cursoUsuario(String cpf){
+        int completo = -1;
+        String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
+        	try{
+        		Connection con = getConexao();
+        		PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+        		resultSet = statement.executeQuery();
+        		while(resultSet.next()){
+        			int curso= resultSet.getInt("CURSO");
+        			completo = curso;
+        		}
+        		statement.close();
+        	}catch(SQLException e){
+        		JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+        	}catch(Exception e){
+        		JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+        	}
+        return completo;
     }
     
     public boolean existeUsuario(String cpf){
