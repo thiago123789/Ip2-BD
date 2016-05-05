@@ -6,8 +6,9 @@ public class Curso {
 	private Aluno [] alunos;
 	private Disciplina [] disciplinas;
 	private boolean graduacao, posgraduacao;
+        private int ano_inicio;
 	
-	public Curso(int codigo, String nome)
+	public Curso(int codigo, String nome, int ano_inicio)
 	{
 		this.setCodigo(codigo);
 		this.setNome(nome);
@@ -20,7 +21,15 @@ public class Curso {
 		this.setGraduacao(graduacao);
 		this.setPosGraducao(!graduacao);	
 	}
+        
+        public int getAnoInicio(){
+            return this.ano_inicio;
+        }
 	
+        public void setAnoInicio(int ano){
+            this.ano_inicio = ano;
+        }
+        
 	public boolean getPosGraduacao(){
 		return this.posgraduacao;
 	}

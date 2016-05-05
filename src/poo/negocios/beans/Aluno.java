@@ -1,7 +1,8 @@
 package poo.negocios.beans;
 
+import java.util.Calendar;
+
 import poo.excecoes.CPFInvalidoException;
-import poo.negocios.beans.*;
 
 public class Aluno extends Pessoa{
 	private Curso curso;
@@ -13,11 +14,11 @@ public class Aluno extends Pessoa{
 	private boolean prioridade;
 	
         
-    public Aluno(Curso curso, Graduacao graduacao,OfertaDisciplina ofertaDisciplina, String pNome, 
+    public Aluno(Curso curso, String pNome, 
     		String uNome, String cpf, String turno, int anoEntrada, 
-    		int semestreEntrada, Historico historico,
-    		boolean prioridade, boolean sexo, String senha, String email, Endereco endereco) throws CPFInvalidoException {
-	super(pNome, uNome, cpf, sexo, senha, email, endereco, 0);
+    		int semestreEntrada, boolean prioridade, boolean sexo, String senha, String email, 
+    		Endereco endereco, Calendar nascimento) throws CPFInvalidoException {
+	super(pNome, uNome, cpf, sexo, senha, email, endereco, 0, nascimento);
 	this.setCurso(curso);
 	this.setGraduacao(graduacao);
 	this.setSemestre(ofertaDisciplina);
@@ -62,7 +63,7 @@ public String getTurno() {
 }
 
 public void setTurno(String turno) {
-	if(ofertaDisciplina != null){
+	if(turno != null){
 	this.turno = turno;
 	}
 }
@@ -72,7 +73,7 @@ public int getAnoEntrada() {
 }
 
 public void setAnoEntrada(int anoEntrada) {
-	if(ofertaDisciplina != null){
+	if(anoEntrada >= 2000){
 	this.anoEntrada = anoEntrada;
 	}
 }
@@ -82,7 +83,7 @@ public int getSemestreEntrada() {
 }
 
 public void setSemestreEntrada(int semestreEntrada) {
-	if(ofertaDisciplina != null){
+	if(semestreEntrada >= 1 && semestreEntrada <= 2){
 	this.semestreEntrada = semestreEntrada;
 	}
 }

@@ -5,6 +5,7 @@
  */
 package poo.gui.myframes;
 
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
 import poo.negocios.FachadaSistema;
@@ -15,40 +16,74 @@ import poo.negocios.ListarDisciplinas;
  * @author Thiago Gomes
  */
 public class FrameListarDisciplinas extends javax.swing.JInternalFrame {
-	private FachadaSistema auto;
+	private FachadaSistema fachada;
 	private String[] lista;
         private String[] lista2;
+        private String[] lista3;
+        private String[] lista4;
 	private DefaultListModel model;
 	private DefaultListModel model2;
+        private DefaultListModel model3;
+	private DefaultListModel model4;
+
 
     /**
      * Creates new form FrameListarDisciplinas
      */
     public FrameListarDisciplinas() {
-        auto = FachadaSistema.getInstance();
+        fachada = FachadaSistema.getInstance();
         initComponents();
         model = new DefaultListModel();
         model2 = new DefaultListModel();
+        model3 = new DefaultListModel();
+        model4 = new DefaultListModel();
         this.preencherModel();
         this.preencherModel2();
+        this.preencherModel3();
+        this.preencherModel4();
         jList1.setModel(model);
         jList2.setModel(model2);
+        jList2.setEnabled(false);
+        jLCodsPRE.setModel(model3);
+        jLNomesPRE.setModel(model4);
+        
     }
     
     public void preencherModel(){
-    	lista = auto.listarCodigo();
+    	lista = fachada.listarCodigo();
     	for(int i = 0; i < lista.length; i++){
-        	System.out.println(lista[i]);
         	model.addElement(lista[i]);
         }
     }
     
     public void preencherModel2(){
-    	lista2 = auto.listarNomes();
+    	lista2 = fachada.listarNomes();
     	for(int i = 0; i < lista2.length; i++){
-        	System.out.println(lista2[i]);
         	model2.addElement(lista2[i]);
         }
+    }
+    
+    public void preencherModel3(){
+    	ArrayList<String> temp = fachada.listarCodigosPreRequisitos(jList1.getSelectedValue());
+        if(temp == null){
+            model3.addElement(" ");
+            
+        }else{
+            for(String a : temp){
+                model3.addElement(a);
+            } 
+        }
+    }
+    
+    public void preencherModel4(){
+    	ArrayList<String> temp = fachada.listarNomesPreRequisitos(jList1.getSelectedValue());
+        if(temp == null){
+            model4.addElement(" ");
+        }else{
+            for(String a : temp){
+                model4.addElement(a);
+            } 
+        } 
     }
 
     /**
@@ -59,7 +94,9 @@ public class FrameListarDisciplinas extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        jFrame1 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
@@ -70,9 +107,20 @@ public class FrameListarDisciplinas extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList<>();
+        jLNomesPRE = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        jLCodsPRE = new javax.swing.JList<>();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setBorder(null);
         setClosable(true);
@@ -80,13 +128,16 @@ public class FrameListarDisciplinas extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("    Codigo                       Nome"));
 
-        jScrollPane1.setViewportView(jList1);
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jLCodsPRE, org.jdesktop.beansbinding.ObjectProperty.create(), jList1, org.jdesktop.beansbinding.BeanProperty.create("elements"));
+        bindingGroup.addBinding(binding);
 
-        jList2.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jList2ValueChanged(evt);
+                jList1ValueChanged(evt);
             }
         });
+        jScrollPane1.setViewportView(jList1);
+
         jScrollPane2.setViewportView(jList2);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -96,17 +147,17 @@ public class FrameListarDisciplinas extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(11, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -130,9 +181,12 @@ public class FrameListarDisciplinas extends javax.swing.JInternalFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("    Codigo                       Nome"));
 
-        jScrollPane4.setViewportView(jList4);
+        jScrollPane4.setViewportView(jLNomesPRE);
 
-        jScrollPane3.setViewportView(jList3);
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jList1, org.jdesktop.beansbinding.ObjectProperty.create(), jLCodsPRE, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
+        bindingGroup.addBinding(binding);
+
+        jScrollPane3.setViewportView(jLCodsPRE);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -188,20 +242,29 @@ public class FrameListarDisciplinas extends javax.swing.JInternalFrame {
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
+        bindingGroup.bind();
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jList2ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList2ValueChanged
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jList2ValueChanged
+        fachada = FachadaSistema.getInstance();
+        model3.removeAllElements();
+        model4.removeAllElements();
+        this.preencherModel3();
+        this.preencherModel4();
+        textArea1.setText(fachada.detalheDisciplina(jList1.getSelectedValue()));
+    	
+    }//GEN-LAST:event_jList1ValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JList<String> jLCodsPRE;
+    private javax.swing.JList<String> jLNomesPRE;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
-    private javax.swing.JList<String> jList3;
-    private javax.swing.JList<String> jList4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -211,5 +274,6 @@ public class FrameListarDisciplinas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private java.awt.TextArea textArea1;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

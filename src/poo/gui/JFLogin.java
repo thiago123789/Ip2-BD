@@ -195,12 +195,10 @@ public class JFLogin extends javax.swing.JFrame {
         
         if(format == null){
             format = new FormatacaoAuxiliar();
-            System.out.println(format.soNumerosCPF(usuario1));
         }
         
         String usuario = format.soNumerosCPF(usuario1);
         try{
-        System.out.println("Senha na tela:"+senha);
         boolean existe = auto.usuarioExiste(usuario);
             if(existe){
                 if(auto.tipoDeUsuario(usuario) == 0){

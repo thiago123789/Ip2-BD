@@ -61,7 +61,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuUsuario">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Usuario"/>
+            <Property name="text" type="java.lang.String" value="Aluno"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mnuUsuarioAdicionar">

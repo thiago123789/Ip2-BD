@@ -6,6 +6,7 @@
 package poo.gui.myframes;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import poo.negocios.FachadaSistema;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Departamento;
@@ -22,6 +23,7 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
     public FrameCadastroCurso() {
         initComponents();
         preencher();
+        preencher2();
     }
     
     public void preencher(){
@@ -29,6 +31,14 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
         ArrayList<String> aux = fachada.listaDepartamentosPorNomeList();
         for(String a : aux ){
             jCDepartamentos.addItem(a);
+        }
+    }
+    
+    public void preencher2(){
+        fachada = FachadaSistema.getInstance();
+        ArrayList<Integer> aux = fachada.retornarAnosAteAtualList();
+        for(Integer a : aux ){
+            jCAnos.addItem(a.toString());
         }
     }
 
@@ -46,12 +56,12 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jTNomeCurso = new javax.swing.JTextField();
         jCDepartamentos = new javax.swing.JComboBox<>();
-        jTSiglaCurso = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jRGraduacao = new javax.swing.JRadioButton();
         jRPosGraducao = new javax.swing.JRadioButton();
+        jCAnos = new javax.swing.JComboBox<>();
         jBConfirma = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -73,13 +83,7 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
             }
         });
 
-        jTSiglaCurso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTSiglaCursoActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Sigla:");
+        jLabel2.setText("Ano Inicio:");
 
         jLabel1.setText("Nome:");
 
@@ -113,15 +117,15 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCDepartamentos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTNomeCurso)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTSiglaCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jRGraduacao)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRPosGraducao)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTNomeCurso))
+                                .addComponent(jRPosGraducao))
+                            .addComponent(jCAnos, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -134,7 +138,7 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTSiglaCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCAnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -215,27 +219,52 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTSiglaCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTSiglaCursoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTSiglaCursoActionPerformed
-
     private void jRGraduacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRGraduacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRGraduacaoActionPerformed
 
     private void jBConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConfirmaActionPerformed
         // TODO add your handling code here:
-        fachada = FachadaSistema.getInstance();
-        String nome = jTNomeCurso.getText();
-        String depat = jCDepartamentos.getSelectedItem().toString();
-        boolean graducao = false;
-        if(jRGraduacao.isSelected()){
-            graducao = true;
+        int result = 0;
+        boolean ok = false;
+        
+        
+        try{
+            fachada = FachadaSistema.getInstance();
+            String nome = jTNomeCurso.getText();
+            String depat = jCDepartamentos.getSelectedItem().toString();
+            int ano = Integer.parseInt(jCAnos.getSelectedItem().toString());
+            boolean graduacao = false;
+            if(jRGraduacao.isSelected()){
+                graduacao = true;
+            }
+            Curso aux = new Curso(nome, graduacao);
+            aux.setAnoInicio(ano);
+            Departamento depatN = new Departamento(depat);
+            fachada.cadastroCurso(aux, depatN);
+            ok = true;
+        }catch(Exception e){
+            
         }
-        System.out.println(depat);
-        Curso aux = new Curso(nome, graducao);
-        Departamento depatN = new Departamento(depat);
-        fachada.cadastroCurso(aux, depatN);
+        
+        if(ok){
+            JOptionPane.showConfirmDialog(null, "Curso Cadastrado com sucesso", "Sucesso", -1);
+        }else{
+            JOptionPane.showConfirmDialog(null, "Não foi possivel cadastrar o curso", "Erro", -1);
+        }
+        
+        result = fachada.okcancel("Deseja adicionar um novo departamento?", "Alerta");
+        
+        if( result == 2){
+            this.setVisible(false);
+        }
+        
+        ok = false;
+        jTNomeCurso.setText(null);
+        jCDepartamentos.setSelectedIndex(0);
+        jCAnos.setSelectedIndex(0);
+        
+    
         
     }//GEN-LAST:event_jBConfirmaActionPerformed
 
@@ -255,6 +284,7 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBConfirma;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jCAnos;
     private javax.swing.JComboBox<String> jCDepartamentos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -266,6 +296,5 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRGraduacao;
     private javax.swing.JRadioButton jRPosGraducao;
     private javax.swing.JTextField jTNomeCurso;
-    private javax.swing.JTextField jTSiglaCurso;
     // End of variables declaration//GEN-END:variables
 }

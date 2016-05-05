@@ -39,7 +39,6 @@ public class DepartamentoDAO {
 	static{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			//				System.out.println("carregou");
 		} catch (Exception e) {
 			System.out.println("Problemas carregando o Driver do MySQL");
 		}		
@@ -47,10 +46,8 @@ public class DepartamentoDAO {
 
 
 	public static iRepositorioDisciplina getInstance() throws IOException, SQLException{
-
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			//				System.out.println("carregou");
 		} catch (Exception e) {
 			System.out.println("Problemas carregando o Driver do MySQL");
 		}
@@ -84,9 +81,7 @@ public class DepartamentoDAO {
 		 * - Par�metro 3: senha
 		 */
 		retorno = DriverManager.getConnection(
-
 				"jdbc:mysql://127.0.0.1:3306/deinfo?autoReconnect=true&useSSL=false", "projetoipbd", "ufrpe@2016"); // nome do esquema, usu�rio e senha
-//		System.out.println("conectou");
 		return retorno;
 	}
 
@@ -174,16 +169,11 @@ public class DepartamentoDAO {
 		String query = "SELECT * FROM deinfo.disciplina WHERE nome = \""+nomeBusca+"\"";
 		try{
 			Connection con = getConexao();
-//			System.out.println("teste1");
 			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
 			resultSet = statement.executeQuery();
-//			System.out.println("teste2");
-//			metaData = resultSet.getMetaData();
 			while(resultSet.next()){
 				int codigo = resultSet.getInt("CODIGO_DIS");
-//				System.out.println(codigo);
 				String nome = resultSet.getString("NOME");
-//				System.out.println(nome);
                                 String sigla = resultSet.getString("SIGLA");
                                 a = new Departamento();
                                 a.setId(codigo);

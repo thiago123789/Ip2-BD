@@ -31,7 +31,6 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 	static{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			//				System.out.println("carregou");
 		} catch (Exception e) {
 			System.out.println("Problemas carregando o Driver do MySQL");
 		}		
@@ -42,7 +41,6 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			//				System.out.println("carregou");
 		} catch (Exception e) {
 			System.out.println("Problemas carregando o Driver do MySQL");
 		}
@@ -68,8 +66,8 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 	 */
 	public static Connection getConexao() throws SQLException {
 
-              
-                Connection retorno = null;
+
+		Connection retorno = null;
 		/*
 		 * Formato: 
 		 * - Par�metro 1: URLConex�o:@endere�o:porta 
@@ -78,8 +76,7 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		 */
 		retorno = DriverManager.getConnection(
 
-				"jdbc:mysql://127.0.0.1:3306/deinfo?autoReconnect=true&useSSL=false", "projetoipbd", "ufrpe@2016"); // nome do esquema, usu�rio e senha
-//		System.out.println("conectou");
+				"jdbc:mysql://127.0.0.1:3306/deinfo?autoReconnect=true&useSSL=false", "projetoipbd", "ufrpe@2016");
 		return retorno;
 	}
 
@@ -166,8 +163,8 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		}
 		return a;
 	}
-        
-    public Disciplina buscaCN(String codigoDis){
+
+	public Disciplina buscaCN(String codigoDis){
 		Disciplina a = null;
 		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \""+codigoDis+"\"";
 		try{
@@ -177,7 +174,24 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 			while(resultSet.next()){
 				String codigo = resultSet.getString("CODIGO_DIS");
 				String nome = resultSet.getString("NOME");
-                a = new Disciplina(codigo, nome);
+				int carga = resultSet.getInt("CARGA_HORARIA");
+				int optativa = resultSet.getInt("OPTATIVA");
+				int obrigatoria = resultSet.getInt("OBRIGATORIA");
+				int curso = resultSet.getInt("CURSO");
+				boolean value = false;
+				boolean value2 = false;
+				if(optativa == 1){
+					value = true;
+				}
+
+				if(obrigatoria == 1){
+					value = true;
+				}
+                                Curso temp = new Curso(curso, "nada", 0);
+
+				a = new Disciplina(codigo, nome, carga, value, value2);
+				a.setCurso(temp);
+				
 			}			
 			statement.close();
 		}catch(SQLException e){
@@ -187,12 +201,12 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		}
 		return a;
 	}
-    
-    
-    /*
-     * BUSCA QUE IRÁ RETORNAR AS DISCIPLINAS QUE POSSUAM DETERMINADA PALAVRA NO SEU NOME     * 
-     */
-    public ArrayList<Disciplina> searchAdvanced(String nomeD){
+
+
+	/*
+	 * BUSCA QUE IRÁ RETORNAR AS DISCIPLINAS QUE POSSUAM DETERMINADA PALAVRA NO SEU NOME     * 
+	 */
+	public ArrayList<Disciplina> searchAdvanced(String nomeD){
 		ArrayList<Disciplina> a = new ArrayList<Disciplina>();
 		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \"%"+nomeD+"\"%";
 		try{
@@ -205,20 +219,20 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 				int carga = resultSet.getInt("CARGA_HORARIA");
 				int optativa = resultSet.getInt("OPTATIVA");
 				int obrigatoria = resultSet.getInt("OBRIGATORIA");
-				
+
 				boolean value = false;
 				boolean value2 = false;
-				
+
 				if(optativa == 1){
 					value = true;
 				}
-				
+
 				if(obrigatoria == 1){
 					value = true;
 				}
-				
-                Disciplina b = new Disciplina(codigo, nome, carga, value, value2);
-                a.add(b);
+
+				Disciplina b = new Disciplina(codigo, nome, carga, value, value2);
+				a.add(b);
 			}			
 			statement.close();
 		}catch(SQLException e){
@@ -228,8 +242,8 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 		}
 		return a;
 	}
-        
-    public boolean buscaDis(String codigoDis){
+
+	public boolean buscaDis(String codigoDis){
 		boolean a = false;
 		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \""+codigoDis+"\"";
 		try{
@@ -239,7 +253,7 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 			while(resultSet.next()){
 				String codigo = resultSet.getString("CODIGO_DIS");
 				String nome = resultSet.getString("NOME");
-                a = true;
+				a = true;
 			}			
 			statement.close();
 		}catch(SQLException e){

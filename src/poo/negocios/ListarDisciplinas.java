@@ -25,7 +25,6 @@ public class ListarDisciplinas {
 		String[] codigos = new String[aux.length];
 		int i = 0;
 		for(Disciplina a : list){
-//			System.out.println(a.getCodigo());
 			aux[i] = a;
 			codigos[i] = a.getCodigo();
 			i++;
@@ -53,7 +52,6 @@ public class ListarDisciplinas {
 		String[] nomes = new String[aux.length];
 		int i = 0;
 		for(Disciplina a : list){
-//			System.out.println(a.getCodigo());
 			aux[i] = a;
 			nomes[i] = a.getNome();
 			i++;
@@ -66,11 +64,7 @@ public class ListarDisciplinas {
             detalhes += "Codigo: "+a.getCodigo();
             detalhes += "\nNome: "+a.getNome();
             detalhes += "\nCarga Horaria: "+a.getCargaHoraria();
-            if(a.getObrigatoria()){
-                detalhes += "\nTipo: Obrigatoria";
-            }else if(a.getOptativa()){
-                detalhes += "\nTipo: Optativa";
-            }
+            
             
             return detalhes;
         } 

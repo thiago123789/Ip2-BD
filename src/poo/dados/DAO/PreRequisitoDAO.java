@@ -39,7 +39,6 @@ public class PreRequisitoDAO {
 	static{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			//				System.out.println("carregou");
 		} catch (Exception e) {
 			System.out.println("Problemas carregando o Driver do MySQL");
 		}		
@@ -50,7 +49,6 @@ public class PreRequisitoDAO {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			//				System.out.println("carregou");
 		} catch (Exception e) {
 			System.out.println("Problemas carregando o Driver do MySQL");
 		}
@@ -83,9 +81,7 @@ public class PreRequisitoDAO {
 		 * - Par�metro 3: senha
 		 */
 		retorno = DriverManager.getConnection(
-
 				"jdbc:mysql://127.0.0.1:3306/deinfo?autoReconnect=true&useSSL=false", "projetoipbd", "ufrpe@2016"); // nome do esquema, usu�rio e senha
-//		System.out.println("conectou");
 		return retorno;
 	}
 
@@ -143,16 +139,11 @@ public class PreRequisitoDAO {
 		String query = "SELECT * FROM deinfo.disciplina";
 		try{
 			Connection con = getConexao();
-//			System.out.println("teste1");
 			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
 			resultSet = statement.executeQuery();
-//			System.out.println("teste2");
-//			metaData = resultSet.getMetaData();
 			while(resultSet.next()){
 				String codigo = resultSet.getString("CODIGO_DIS");
-//				System.out.println(codigo);
 				String nome = resultSet.getString("NOME");
-//				System.out.println(nome);
 				Disciplina b = new Disciplina(codigo, nome);
 				a.add(b);
 			}			
@@ -173,16 +164,11 @@ public class PreRequisitoDAO {
 		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \""+codigoDis+"\"";
 		try{
 			Connection con = getConexao();
-//			System.out.println("teste1");
 			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
 			resultSet = statement.executeQuery();
-//			System.out.println("teste2");
-//			metaData = resultSet.getMetaData();
 			while(resultSet.next()){
 				String codigo = resultSet.getString("CODIGO_DIS");
-//				System.out.println(codigo);
 				String nome = resultSet.getString("NOME");
-//				System.out.println(nome);
                                 a = new Disciplina(codigo, nome);
 				
 			}			
@@ -196,4 +182,28 @@ public class PreRequisitoDAO {
 		return a;
 
 	}
+        
+        public ArrayList<String> buscaPre(String codigoDis){
+		ArrayList<String> a = new ArrayList<String>() ;
+		String query = "SELECT * FROM deinfo.pre_requisito WHERE DISCIPLINA = \""+codigoDis+"\"";
+		try{
+			Connection con = getConexao();
+			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+			resultSet = statement.executeQuery();
+			while(resultSet.next()){
+				String codigo = resultSet.getString("PREREQUISITO");
+                                a.add(codigo);
+			}			
+			statement.close();
+		}catch(SQLException e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+		return a;
+
+	}
+        
+        
+        
 }

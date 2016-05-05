@@ -1,6 +1,8 @@
 //CLASSE PARA DAVI;
 package poo.negocios.beans;
 
+import java.util.Calendar;
+
 import poo.excecoes.CPFInvalidoException;
 
 public class Professor extends Funcionario{
@@ -10,9 +12,9 @@ public class Professor extends Funcionario{
 	
 	public Professor(String titulo, String lattes,boolean sexo, String senha, 
 			String email, Endereco endereco, Curso curso,
-			String pNome, String uNome, String cpf, String cargo) throws CPFInvalidoException
+			String pNome, String uNome, String cpf, String cargo, Calendar nascimento) throws CPFInvalidoException
 	{
-		super(pNome, uNome, cpf, sexo, senha, email, endereco, cargo);
+		super(pNome, uNome, cpf, sexo, senha, email, endereco, cargo, nascimento);
 		this.setTitulo(titulo);
 		this.setCurso(curso);
 		this.setLattes(lattes);

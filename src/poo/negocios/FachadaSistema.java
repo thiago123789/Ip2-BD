@@ -3,6 +3,7 @@ package poo.negocios;
 import java.util.ArrayList;
 
 import poo.excecoes.DisciplinaJaExisteException;
+import poo.negocios.beans.Aluno;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Departamento;
 import poo.negocios.beans.Disciplina;
@@ -18,7 +19,11 @@ public class FachadaSistema {
     private CadastroCurso cadCurso;
     private BuscaAvancada advanced;
     private InfoUsuario info;
-        
+    private CadastroAluno cadAlu;
+    private Auxiliar aux;
+    private ListarPreRequisitos preList;
+    private DetalhesDisciplina details;
+    
     public FachadaSistema(){
     	addDisciplina = new CadastroDisciplina();
     	addTeacher = new CadastroProfessor();
@@ -29,8 +34,12 @@ public class FachadaSistema {
         cadCurso = new CadastroCurso();
         advanced = new BuscaAvancada();
         info = new InfoUsuario();
+        cadAlu = new CadastroAluno();
+        aux = new Auxiliar();
+        preList = new ListarPreRequisitos();
+        details = new DetalhesDisciplina();
     }
-	
+
 	public static FachadaSistema getInstance(){
 		if(instance == null){
 			instance = new FachadaSistema();
@@ -84,6 +93,35 @@ public class FachadaSistema {
 //		if()
 		return advanced.searchAdvanced(nom);
 	}
+
+	public void cadastraAluno(Aluno a) {
+		cadAlu.cadastraAluno(a);
+	}
+
+	public int[] retornarAnosAteAtual() {
+		return aux.retornarAnosAteAtual();
+	}
+
+	public ArrayList<Integer> retornarAnosAteAtualList() {
+		return aux.retornarAnosAteAtualList();
+	}
+
+	public int okcancel(String theMessage, String titulo) {
+		return aux.okcancel(theMessage, titulo);
+	}
+
+	public ArrayList<String> listarCodigosPreRequisitos(String cod) {
+		return preList.listarCodigosPreRequisitos(cod);
+	}
+
+	public ArrayList<String> listarNomesPreRequisitos(String cod) {
+		return preList.listarNomesPreRequisitos(cod);
+	}
+
+	public String detalheDisciplina(String codig) {
+		return details.detalheDisciplina(codig);
+	}
+	
 	
 	
 	

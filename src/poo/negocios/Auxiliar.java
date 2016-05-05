@@ -1,6 +1,9 @@
 package poo.negocios;
 
+import java.awt.Component;
+import java.util.ArrayList;
 import java.util.Calendar;
+import javax.swing.JOptionPane;
 
 import sun.util.calendar.BaseCalendar.Date;
 
@@ -21,6 +24,25 @@ public class Auxiliar {
 		}
 		return anosTodos;
 	}
+        
+        public ArrayList<Integer> retornarAnosAteAtualList(){
+                ArrayList<Integer> anos = new ArrayList<Integer>();
+		Calendar a = Calendar.getInstance();
+		int ano = a.get(Calendar.YEAR);
+		int inicio = 1900;
+                anos.add(inicio);
+		while(inicio < ano){
+                    inicio++;
+                    anos.add(inicio);
+                }
+                return anos;
+        }
+        
+        public int okcancel(String theMessage, String titulo) {
+            int result = JOptionPane.showConfirmDialog((Component) null, theMessage,
+                 titulo, JOptionPane.OK_CANCEL_OPTION);
+            return result;
+        }
 	
 	
 }

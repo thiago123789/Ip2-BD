@@ -1,6 +1,7 @@
 //CLASSE P/ DAVI
 package poo.negocios.beans;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.InputMismatchException;
 
@@ -8,9 +9,9 @@ import poo.excecoes.CPFInvalidoException;
 
 public class Pessoa {
 	private String pNome;
-        private String uNome;
+    private String uNome;
 	private String cpf;
-	private Date dataNascimento;
+	private Calendar dataNascimento;
 	private boolean sexo;
 	private String senha;
 	private String email;
@@ -18,7 +19,7 @@ public class Pessoa {
     private int tipo_pessoa;
 	
 	public Pessoa(String pNome, String uNome, String cpf, boolean sexo, 
-                String senha, String email, Endereco endereco, int tipo_pessoa) throws CPFInvalidoException
+                String senha, String email, Endereco endereco, int tipo_pessoa, Calendar nascimento) throws CPFInvalidoException
 	{
 		this.setPnome(pNome);
 		this.setUnome(uNome);
@@ -27,7 +28,8 @@ public class Pessoa {
 		this.setSenha(senha);
 		this.setEmail(email);
 		this.setEndereco(endereco);
-                this.setTipo(tipo_pessoa);
+        this.setTipo(tipo_pessoa);
+        this.setDataNascimento(nascimento);
 	}
         
         
@@ -83,13 +85,13 @@ public class Pessoa {
 	}
 	
 	
-	public Date getDataNascimento() {
+	public Calendar getDataNascimento() {
 		return this.dataNascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
-		if(dataNascimento != null){
-		this.dataNascimento = dataNascimento;
+	public void setDataNascimento(Calendar nascimento) {
+		if(nascimento != null){
+		this.dataNascimento = nascimento;
 		}
 	}
 

@@ -18,6 +18,7 @@ import java.time.Clock;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 import javax.swing.JOptionPane;
 
 import poo.excecoes.SenhaIncorretaException;
@@ -40,7 +41,6 @@ public class PessoaDAO {
 	static{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			//				System.out.println("carregou");
 		} catch (Exception e) {
 			System.out.println("Problemas carregando o Driver do MySQL");
 		}		
@@ -79,8 +79,8 @@ public class PessoaDAO {
 	public boolean inserir(Pessoa p) throws SQLException{
 		boolean inseriu = false;
 		String sql = "INSERT INTO deinfo.pessoa(cpf_p, P_NOME, U_NOME, SEXO, SENHA, EMAIL, "
-				+ "logradouro, cep, tipo_pessoa, cidade, bairro, numero, estado) "
-                                + "values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "logradouro, cep, tipo_pessoa, cidade, bairro, numero, estado, data_nasc) "
+                                + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		this.conexao = getConexao();
 		Statement simplaStatement;
 		try{
@@ -99,6 +99,7 @@ public class PessoaDAO {
             smt.setString(11, p.getEndereco().getBairro());
             smt.setInt(12, p.getEndereco().getNumero());
             smt.setString(13, p.getEndereco().getEstado());
+            smt.setDate(14, new java.sql.Date(p.getDataNascimento().getTime().getTime()));
 			smt.execute();
 			smt.close();
 			inseriu = true;
@@ -274,11 +275,6 @@ public class PessoaDAO {
     
     public Pessoa buscaPessoa(String cpf){
 		Pessoa a = null;
-
-		///
-		///INSERT INTO deinfo.pessoa(cpf_p, P_NOME, U_NOME, SEXO, SENHA, EMAIL, "
-//		+ "logradouro, cep, tipo_pessoa, cidade, bairro, numero, estado) "
-//        + "values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
 			Connection con = getConexao();
@@ -298,13 +294,7 @@ public class PessoaDAO {
 				String bairro = resultSet.getString("bairro");
 				int numero = resultSet.getInt("numero");
 				String estado = resultSet.getString("estado");
-				//	public Endereco(String logradouro, int numero, String bairro, String cidade, String cep, String estado){
-
 				Endereco b = new Endereco(logradouro, numero, bairro, cidade, cep, estado);
-				
-				//Pessoa(String pNome, String uNome, String cpf, boolean sexo, 
-//                String senha, String email, Endereco endereco, int tipo_pessoa)
-                a = new Pessoa(p_nome, u_nome, cpf, sexo, senha, email, b, tipo_pessoa);
 			}			
 			statement.close();
 		}catch(SQLException e){

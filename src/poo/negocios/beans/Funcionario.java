@@ -1,5 +1,7 @@
 package poo.negocios.beans;
 
+import java.util.Calendar;
+
 import poo.excecoes.CPFInvalidoException;
 
 public class Funcionario extends Pessoa {
@@ -9,8 +11,8 @@ public class Funcionario extends Pessoa {
 	
 	public Funcionario(String pNome, String uNome, String cpf, boolean sexo, 
                 String senha, String email, Endereco endereco, 
-                String cargo) throws CPFInvalidoException{
-		super(pNome, uNome, cpf, sexo, senha, email, endereco, 2);
+                String cargo, Calendar nascimento) throws CPFInvalidoException{
+		super(pNome, uNome, cpf, sexo, senha, email, endereco, 2, nascimento);
 	
 	}
 	

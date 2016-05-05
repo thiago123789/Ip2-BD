@@ -51,13 +51,6 @@ public class Autenticar {
     public String nomeUsuario(String cpf){
         return comand.nomeUsuario(cpf);
     }
-//    
-//    public String getDateTime() { 
-//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-//        Date date = new Date();
-//        
-//        return dateFormat.format(date);; 
-//    }
 
     public void logar(String cpf) throws SQLException{
         comandA.inserir(cpf);
@@ -66,7 +59,6 @@ public class Autenticar {
     
     public String ultimoLogin(String cpf){
         String aux = comandA.buscaCN(cpf);
-        System.out.println(aux);
         if(aux.length() < 3){
             return null;
         }else{

@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class DisciplinaMatriculada{
 	
-	private Oferta oferta;
 	private Aluno aluno;
 	private Disciplina disciplina;
 	private float aV1, aV2, aV3, pFinal, media;
 	private String situacao;
+        private int faltas;
 	
 	public DisciplinaMatriculada(int codigo, Aluno aluno, float av1, float av2,
 			float av3, float pfinal, float media) {
@@ -20,7 +20,17 @@ public class DisciplinaMatriculada{
 		this.setpFinal(pfinal);
 		this.setMedia(media);
 	}
+        
+        public int getFaltas(){
+            return this.faltas;
+        }
 
+        public void setFaltas(int faltas){
+            if(faltas >= 0){
+                this.faltas = faltas;
+            }
+        }
+        
 	public Aluno getAluno() {
 		return aluno;
 	}

@@ -1,5 +1,7 @@
 package poo.negocios.beans;
 
+import java.util.Calendar;
+
 import poo.excecoes.CPFInvalidoException;
 import poo.excecoes.PermissaoInvalidaException;
 
@@ -7,8 +9,8 @@ public class Administrador extends Funcionario{
     private int permissao;
        
     public Administrador(String cpf, String pNome, String uNome, int permissao, 
-    		boolean sexo, Endereco endereco) throws PermissaoInvalidaException, CPFInvalidoException{
-        super(pNome, uNome, cpf, sexo, cpf, cpf, endereco, cpf);
+    		boolean sexo, Endereco endereco, Calendar nascimento) throws PermissaoInvalidaException, CPFInvalidoException{
+        super(pNome, uNome, cpf, sexo, cpf, cpf, endereco, cpf, nascimento);
         this.setPermissao(permissao);
     }
     

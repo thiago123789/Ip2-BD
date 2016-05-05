@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 import poo.gui.myframes.FrameBuscarUsuario;
+import poo.gui.myframes.FrameCadastrarAluno;
 import poo.gui.myframes.FrameCadastroCurso;
 import poo.gui.myframes.FrameCadastroDepartamento;
 import poo.gui.myframes.FrameCadastroDisciplina;
@@ -44,7 +45,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
     }
     
     public JFrameAdmin() {
-        System.out.println(nome+cpf);
         initComponents();
         Font nova = new Font("Arial", Font.BOLD, 14);
         Color branco = new Color(255,255,255);
@@ -234,7 +234,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        mnuUsuario.setText("Usuario");
+        mnuUsuario.setText("Aluno");
 
         mnuUsuarioAdicionar.setText("Adicionar");
         mnuUsuarioAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -450,7 +450,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
     private void mnuUsuarioAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUsuarioAdicionarActionPerformed
         // TODO add your handling code here:
-        FrameCadastroUsuario f = new FrameCadastroUsuario();
+        FrameCadastrarAluno f = new FrameCadastrarAluno();
         desktop.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_mnuUsuarioAdicionarActionPerformed

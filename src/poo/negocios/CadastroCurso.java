@@ -28,7 +28,7 @@ public class CadastroCurso {
     public void cadastroCurso(Curso curso, Departamento depat){
         
     	try {
-			comand.inserir(curso.getNome(), null, null, curso.getGraducao(), depat);
+			comand.inserir(curso.getNome(), null, null, curso.getGraducao(), depat, curso.getAnoInicio());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
