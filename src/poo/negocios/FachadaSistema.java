@@ -88,6 +88,10 @@ public class FachadaSistema {
 		cadCurso.cadastroCurso(curso, depat);
 	}
 
+	
+	/*
+	 * FALTA EDITAR ESTE METODO PARA MOSTRAR APENAS DISCIPLINAS DO CURSO NO QUAL A PESSOA QUE ESTÁ PESQUISANDO PERTENCE
+	 */
 	public ArrayList<Disciplina> searchAdvanced(String nom) {
 //		int cursoUser = info.cursoUsuario(cpf);
 //		if()
@@ -120,6 +124,26 @@ public class FachadaSistema {
 
 	public String detalheDisciplina(String codig) {
 		return details.detalheDisciplina(codig);
+	}
+
+	public String[] listarPorNome() {
+		return listCurso.listarPorNome();
+	}
+
+	public ArrayList<String> listarPorNomeList() {
+		return listCurso.listarPorNomeList();
+	}
+
+	public int anoInicioCurso(String nomeCurso) {
+		return listCurso.anoInicioCurso(nomeCurso);
+	}
+
+	public ArrayList<Integer> retornarAnosAPartirDeList(int inicio) {
+		return aux.retornarAnosAPartirDeList(inicio);
+	}
+
+	public int[] retornarAnosAPartirDe(int inicio) {
+		return aux.retornarAnosAPartirDe(inicio);
 	}
 	
 	

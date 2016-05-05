@@ -43,6 +43,29 @@ public class Auxiliar {
                  titulo, JOptionPane.OK_CANCEL_OPTION);
             return result;
         }
+        
+        public ArrayList<Integer> retornarAnosAPartirDeList(int inicio){
+                ArrayList<Integer> anos = new ArrayList<Integer>();
+		Calendar a = Calendar.getInstance();
+		int ano = a.get(Calendar.YEAR);
+                anos.add(inicio);
+		while(inicio < ano){
+                    inicio++;
+                    anos.add(inicio);
+                }
+                return anos;
+        }
+        
 	
+       public int[] retornarAnosAPartirDe(int inicio){
+		Calendar a = Calendar.getInstance();
+		int ano = a.get(Calendar.YEAR);
+		int total = ano - inicio;
+		int[] anosTodos = new int[total];
+		for(int i = 0; i <= total; i++, inicio++ ){
+			anosTodos[i] = inicio;
+		}
+		return anosTodos;
+	}
 	
 }

@@ -34,12 +34,15 @@ public class ListarCursos {
     
     public ArrayList<String> listarPorNomeList(){
         ArrayList<Curso> c = curso.consulta();
-        System.out.println(c.toString());
         ArrayList<String> nomes = new ArrayList<String>();
         for(Curso aux : c ){
         	nomes.add(aux.getNome());
         }        
         return nomes;
+    }
+    
+    public int anoInicioCurso(String nomeCurso){
+    	return curso.buscaAnoCurso(nomeCurso);
     }
     
 }
