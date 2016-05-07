@@ -16,9 +16,17 @@ import poo.negocios.beans.Pessoa;
  */
 class AlterarSenha {
     private PessoaDAO comand;
+    private static AlterarSenha instance;
     
-    public AlterarSenha(){
-    	comand = new PessoaDAO();
+    public static AlterarSenha getInstance(){
+    	if(instance == null){
+    		instance = new AlterarSenha();
+    	}
+    	return instance;
+    }
+    
+    private AlterarSenha(){
+    	comand = PessoaDAO.getInstance();
     }
     
     public boolean alterarSenha(String cpf, String novaSenha){

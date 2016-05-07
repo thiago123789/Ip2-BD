@@ -1,78 +1,37 @@
 package poo.dados.DAO;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.swing.JOptionPane;
-
 import poo.excecoes.SenhaIncorretaException;
 import poo.negocios.beans.Aluno;
 import poo.negocios.beans.Endereco;
 import poo.negocios.beans.Pessoa;
 
 public class AlunoDAO {
-	private Connection conexao;
-	public static ResultSet resultSet;
-	public static ResultSetMetaData metaData;
-	public static Statement statement;
-
-	public static DisciplinaDAO instance;
-
-	static{
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (Exception e) {
-			System.out.println("Problemas carregando o Driver do MySQL");
-		}		
+    private static AlunoDAO instance;
+	private ConnectionBanco bancoConect;
+    
+	public static AlunoDAO getInstance(){
+		if(instance == null){
+			instance = new AlunoDAO();
+		}
+		return instance;
 	}
-
-	public AlunoDAO(){
-            try {		
-                this.conexao = getConexao();
-            } catch (SQLException ex) {
-                Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
+	
+	private AlunoDAO(){
+		bancoConect = ConnectionBanco.getInstance();
 	}
-	/**
-	 * M�todo para retornar uma nova conex�o com o banco de dados
-	 * 
-	 * @return Uma nova Conex�o com banco de dados Postgres, base de dados
-	 *         HospitalDB
-	 * @throws SQLException
-	 *           Alguma poss�vel exce��o levantada durante o estabelecimento da
-	 *           conex�o
-	 */
-	public static Connection getConexao() throws SQLException {
-
-		Connection retorno = null;
-		/*
-		 * Formato: 
-		 * - Par�metro 1: URLConex�o:@endere�o:porta 
-		 * - Par�metro 2: usu�rio
-		 * - Par�metro 3: senha
-		 */
-		retorno = DriverManager.getConnection(
-				"jdbc:mysql://127.0.0.1:3306/deinfo?autoReconnect=true&useSSL=false", "projetoipbd", "ufrpe@2016"); 
-		return retorno;
-	}
-        
+	        
 	public boolean inserir(Aluno a) throws SQLException{
 		boolean inseriu = false;
 		String sql = "INSERT INTO deinfo.aluno(CPF_ALU, PRIORIDADE, CURSO, ANO_ENTRADA, SEMESTRE_ENTRADA, TURNO)"
 				   + "values(?,?,?,?,?,?)";
-		this.conexao = getConexao();
-		Statement simplaStatement;
 		try{
-			PreparedStatement smt = (PreparedStatement) conexao.prepareStatement(sql);
+			PreparedStatement smt = (PreparedStatement) bancoConect.retornoStatement(sql);
 			smt.setString(1, a.getCpf());
             smt.setInt(2, a.getPrioridade()? 1: 0);
 			smt.setInt(3, a.getCurso().getCodigo());
@@ -81,7 +40,6 @@ public class AlunoDAO {
 			System.out.println(a.getTurno());
             smt.setString(6, a.getTurno());
             smt.execute();
-			smt.close();
 			inseriu = true;
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
@@ -93,14 +51,10 @@ public class AlunoDAO {
         int tipo = -1;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
-			Connection con = getConexao();
-			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-			resultSet = statement.executeQuery();
+			ResultSet resultSet = bancoConect.comandoSQL(query);
 			while(resultSet.next()){
 				tipo = resultSet.getInt("TIPO_PESSOA");
-                                
 			}			
-			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -114,14 +68,11 @@ public class AlunoDAO {
         String aux = null;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
-			Connection con = getConexao();
-			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-			resultSet = statement.executeQuery();
+			ResultSet resultSet = bancoConect.comandoSQL(query);
 			while(resultSet.next()){
 				String senha_p = resultSet.getString("SENHA");
                 aux = senha_p;
             }
-			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -136,9 +87,7 @@ public class AlunoDAO {
         boolean ok = false;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
-			Connection con = getConexao();
-			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-			resultSet = statement.executeQuery();
+			ResultSet resultSet = bancoConect.comandoSQL(query);
 			while(resultSet.next()){
 				String senha_p = resultSet.getString("SENHA");
                 if(senha_p.equals(senha)){
@@ -149,7 +98,6 @@ public class AlunoDAO {
                 	throw new SenhaIncorretaException();
                 }
             }
-			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -161,18 +109,15 @@ public class AlunoDAO {
         }
         
     public String nomeUsuario(String cpf){
-                String completo = "";
+        String completo = "";
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
-			Connection con = getConexao();
-			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-			resultSet = statement.executeQuery();
+			ResultSet resultSet = bancoConect.comandoSQL(query);
 			while(resultSet.next()){
 				String nome1= resultSet.getString("p_nome");
                 String nome2= resultSet.getString("u_nome");
                 completo = nome1+" "+nome2;
             }
-			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -185,14 +130,11 @@ public class AlunoDAO {
         int completo = -1;
         String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
         	try{
-        		Connection con = getConexao();
-        		PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-        		resultSet = statement.executeQuery();
+        		ResultSet resultSet = bancoConect.comandoSQL(query);
         		while(resultSet.next()){
         			int curso= resultSet.getInt("CURSO");
         			completo = curso;
         		}
-        		statement.close();
         	}catch(SQLException e){
         		JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
         	}catch(Exception e){
@@ -205,14 +147,11 @@ public class AlunoDAO {
         boolean ok = false;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
-			Connection con = getConexao();
-			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-			resultSet = statement.executeQuery();
+			ResultSet resultSet = bancoConect.comandoSQL(query);
 			if(resultSet.isBeforeFirst()){
 				ok = true;
 				System.out.println(ok);
             }                        
-			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -226,10 +165,8 @@ public class AlunoDAO {
     		String sql = "UPDATE deinfo.pessoa SET cpf_p = ?, P_NOME = ?,  U_NOME = ?, SEXO = ?, SENHA = ?, "
     				+ "EMAIL = ?, logradouro = ?, cep = ?, tipo_pessoa = ?, cidade = ?, bairro = ?, numero = ?, estado = ?"
     				+ "WHERE cpf_p = ?";
-    		Connection con = getConexao();
-    		Statement simplaStatement;
     		try{
-    			PreparedStatement smt = (PreparedStatement) con.prepareStatement(sql);
+    			PreparedStatement smt = (PreparedStatement) bancoConect.retornoStatement(sql);
     			smt.setString(1, a.getCpf());
                 smt.setString(2, a.getPnome());
     			smt.setString(3, a.getUnome());
@@ -245,7 +182,6 @@ public class AlunoDAO {
                 smt.setString(13, a.getEndereco().getEstado());
     			smt.setString(14, a.getCpf());
     			smt.execute();
-    			smt.close();
     			atualizou = true;
     		}catch(Exception e){
     			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
@@ -257,9 +193,7 @@ public class AlunoDAO {
 		Pessoa a = null;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
-			Connection con = getConexao();
-			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-			resultSet = statement.executeQuery();
+			ResultSet resultSet = bancoConect.comandoSQL(query);
 			while(resultSet.next()){
 				String cpf_p = resultSet.getString("CPF_P");
 				String p_nome = resultSet.getString("P_NOME");
@@ -277,9 +211,8 @@ public class AlunoDAO {
                                 Calendar calendar = Calendar.getInstance();
                                 resultSet.getDate("DATA_NASC", calendar);
 				Endereco b = new Endereco(logradouro, numero, bairro, cidade, cep, estado);
-                a = new Pessoa(p_nome, u_nome, cpf, sexo, senha, email, b, tipo_pessoa, calendar);
+                a = new Pessoa(p_nome, u_nome, cpf_p, sexo, senha, email, b, tipo_pessoa, calendar);
 			}			
-			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){

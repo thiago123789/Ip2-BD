@@ -8,8 +8,16 @@ import javax.swing.JOptionPane;
 import sun.util.calendar.BaseCalendar.Date;
 
 public class Auxiliar {
+	public static Auxiliar instance;
 	
-	public Auxiliar(){
+	public static Auxiliar getInstance(){
+		if(instance == null){
+			instance = new Auxiliar();
+		}
+		return instance;
+	}
+	
+	private Auxiliar(){
 		
 	}
 	

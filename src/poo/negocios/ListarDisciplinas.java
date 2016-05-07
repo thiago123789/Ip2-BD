@@ -11,11 +11,19 @@ import poo.dados.DAO.PreRequisitoDAO;
 import poo.negocios.beans.Disciplina;
 
 public class ListarDisciplinas {
+	private static ListarDisciplinas instance;
 	private DisciplinaDAO repositorio;
-        private PreRequisitoDAO req;
+    private PreRequisitoDAO req;
 	
-	public ListarDisciplinas(){
-		repositorio = new DisciplinaDAO();
+    public static ListarDisciplinas getInstance(){
+    	if(instance == null){
+    		instance = new ListarDisciplinas();
+    	}
+    	return instance;
+    }
+    
+	private ListarDisciplinas(){
+		repositorio = DisciplinaDAO.getInstance();
 	}
 	
 	public String[] listarCodigo(){

@@ -22,11 +22,11 @@ public class FachadaUsuario {
     private Auxiliar aux;
     private FormatacaoAuxiliar auxFormat;
     
-    public FachadaUsuario(){
-        aux = new Auxiliar();
-        changePassword = new AlterarSenha();
-        auto = new Autenticar();
-        auxFormat = new FormatacaoAuxiliar();
+    private FachadaUsuario(){
+        aux = Auxiliar.getInstance();
+        changePassword = AlterarSenha.getInstance();
+        auto = Autenticar.getInstance();
+        auxFormat = FormatacaoAuxiliar.getInstance();
     }
     
     public static FachadaUsuario getInstance(){

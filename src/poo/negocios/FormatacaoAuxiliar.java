@@ -13,8 +13,16 @@ import poo.excecoes.CPFInvalidoException;
  * @author Thiago Gomes
  */
 public class FormatacaoAuxiliar {
+    public static FormatacaoAuxiliar instance;
     
-    public FormatacaoAuxiliar(){    }
+    public static FormatacaoAuxiliar getInstance(){
+    	if(instance == null){
+    		instance = new FormatacaoAuxiliar();
+    	}
+    	return instance;
+    }
+	
+    private FormatacaoAuxiliar(){    }
     
     public String formatarCpf(String cpf){
         String resultado = "";

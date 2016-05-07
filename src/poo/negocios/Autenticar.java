@@ -11,12 +11,20 @@ import poo.excecoes.SenhaIncorretaException;
 import poo.excecoes.UsuarioNaoExiste;
 
 public class Autenticar {
-    PessoaDAO comand;
-    HistoricoLoginDAO comandA;
+    private PessoaDAO comand;
+    private HistoricoLoginDAO comandA;
+    private static Autenticar instance;
     
-    public Autenticar(){
-        this.comand = new PessoaDAO();
-        this.comandA = new HistoricoLoginDAO();
+    public static Autenticar getInstance(){
+    	if(instance == null){
+    		instance = new Autenticar();
+    	}
+    	return instance;
+    }
+    
+    private Autenticar(){
+        this.comand = PessoaDAO.getInstance();
+        this.comandA = HistoricoLoginDAO.getInstance();
     }
     
     public String verificaSenha(String user){

@@ -31,60 +31,27 @@ import poo.negocios.beans.Pessoa;
  * @author Thiago Gomes
  */
 public class PessoaDAO {
-    private Connection conexao;
-	public static ResultSet resultSet;
-	public static ResultSetMetaData metaData;
-	public static Statement statement;
-
-	public static DisciplinaDAO instance;
-
-	static{
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (Exception e) {
-			System.out.println("Problemas carregando o Driver do MySQL");
-		}		
+	private static PessoaDAO instance;
+    private ConnectionBanco bancoConnect;
+	
+    public static PessoaDAO getInstance(){
+    	if(instance == null){
+    		instance = new PessoaDAO();
+    	}
+    	return instance;
+    }
+    
+	private PessoaDAO(){
+		bancoConnect = ConnectionBanco.getInstance();
 	}
-
-	public PessoaDAO(){
-            try {		
-                this.conexao = getConexao();
-            } catch (SQLException ex) {
-                Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-	}
-	/**
-	 * M�todo para retornar uma nova conex�o com o banco de dados
-	 * 
-	 * @return Uma nova Conex�o com banco de dados Postgres, base de dados
-	 *         HospitalDB
-	 * @throws SQLException
-	 *           Alguma poss�vel exce��o levantada durante o estabelecimento da
-	 *           conex�o
-	 */
-	public static Connection getConexao() throws SQLException {
-
-		Connection retorno = null;
-		/*
-		 * Formato: 
-		 * - Par�metro 1: URLConex�o:@endere�o:porta 
-		 * - Par�metro 2: usu�rio
-		 * - Par�metro 3: senha
-		 */
-		retorno = DriverManager.getConnection(
-				"jdbc:mysql://127.0.0.1:3306/deinfo?autoReconnect=true&useSSL=false", "projetoipbd", "ufrpe@2016"); // nome do esquema, usu�rio e senha
-		return retorno;
-	}
-        
+	        
 	public boolean inserir(Pessoa p) throws SQLException{
 		boolean inseriu = false;
 		String sql = "INSERT INTO deinfo.pessoa(cpf_p, P_NOME, U_NOME, SEXO, SENHA, EMAIL, "
 				+ "logradouro, cep, tipo_pessoa, cidade, bairro, numero, estado, data_nasc) "
                                 + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		this.conexao = getConexao();
-		Statement simplaStatement;
 		try{
-			PreparedStatement smt = (PreparedStatement) conexao.prepareStatement(sql);
+			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(sql);
 			smt.setString(1, p.getCpf());
             System.out.println(p.getCpf());
             smt.setString(2, p.getPnome());
@@ -101,7 +68,6 @@ public class PessoaDAO {
             smt.setString(13, p.getEndereco().getEstado());
             smt.setDate(14, new java.sql.Date(p.getDataNascimento().getTime().getTime()));
 			smt.execute();
-			smt.close();
 			inseriu = true;
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
@@ -113,14 +79,10 @@ public class PessoaDAO {
         int tipo = -1;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
-			Connection con = getConexao();
-			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-			resultSet = statement.executeQuery();
+			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			while(resultSet.next()){
 				tipo = resultSet.getInt("TIPO_PESSOA");
-                                
 			}			
-			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -134,31 +96,24 @@ public class PessoaDAO {
         String aux = null;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
-			Connection con = getConexao();
-			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-			resultSet = statement.executeQuery();
+			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			while(resultSet.next()){
 				String senha_p = resultSet.getString("SENHA");
                 aux = senha_p;
             }
-			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
-
 		return aux;
-
-        }
+	}
         
 	public boolean autenticar(String cpf, String senha){
         boolean ok = false;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
-			Connection con = getConexao();
-			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-			resultSet = statement.executeQuery();
+			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			while(resultSet.next()){
 				String senha_p = resultSet.getString("SENHA");
                 if(senha_p.equals(senha)){
@@ -169,30 +124,24 @@ public class PessoaDAO {
                 	throw new SenhaIncorretaException();
                 }
             }
-			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
-
 		return ok;
-
-        }
+	}
         
     public String nomeUsuario(String cpf){
-                String completo = "";
+    	String completo = "";
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
-			Connection con = getConexao();
-			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-			resultSet = statement.executeQuery();
+			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			while(resultSet.next()){
 				String nome1= resultSet.getString("p_nome");
                 String nome2= resultSet.getString("u_nome");
                 completo = nome1+" "+nome2;
             }
-			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -205,14 +154,11 @@ public class PessoaDAO {
         int completo = -1;
         String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
         	try{
-        		Connection con = getConexao();
-        		PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-        		resultSet = statement.executeQuery();
+        		ResultSet resultSet = bancoConnect.comandoSQL(query);
         		while(resultSet.next()){
         			int curso= resultSet.getInt("CURSO");
         			completo = curso;
         		}
-        		statement.close();
         	}catch(SQLException e){
         		JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
         	}catch(Exception e){
@@ -225,14 +171,11 @@ public class PessoaDAO {
         boolean ok = false;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
-			Connection con = getConexao();
-			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-			resultSet = statement.executeQuery();
+			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			if(resultSet.isBeforeFirst()){
 				ok = true;
 				System.out.println(ok);
             }                        
-			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -246,10 +189,8 @@ public class PessoaDAO {
     		String sql = "UPDATE deinfo.pessoa SET cpf_p = ?, P_NOME = ?,  U_NOME = ?, SEXO = ?, SENHA = ?, "
     				+ "EMAIL = ?, logradouro = ?, cep = ?, tipo_pessoa = ?, cidade = ?, bairro = ?, numero = ?, estado = ?"
     				+ "WHERE cpf_p = ?";
-    		Connection con = getConexao();
-    		Statement simplaStatement;
     		try{
-    			PreparedStatement smt = (PreparedStatement) con.prepareStatement(sql);
+    			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(sql);
     			smt.setString(1, a.getCpf());
                 smt.setString(2, a.getPnome());
     			smt.setString(3, a.getUnome());
@@ -265,7 +206,6 @@ public class PessoaDAO {
                 smt.setString(13, a.getEndereco().getEstado());
     			smt.setString(14, a.getCpf());
     			smt.execute();
-    			smt.close();
     			atualizou = true;
     		}catch(Exception e){
     			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
@@ -277,9 +217,7 @@ public class PessoaDAO {
 		Pessoa a = null;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
-			Connection con = getConexao();
-			PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
-			resultSet = statement.executeQuery();
+			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			while(resultSet.next()){
 				String cpf_p = resultSet.getString("CPF_P");
 				String p_nome = resultSet.getString("P_NOME");
@@ -296,7 +234,6 @@ public class PessoaDAO {
 				String estado = resultSet.getString("estado");
 				Endereco b = new Endereco(logradouro, numero, bairro, cidade, cep, estado);
 			}			
-			statement.close();
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){

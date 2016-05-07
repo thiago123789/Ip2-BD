@@ -8,19 +8,26 @@ import poo.excecoes.DisciplinaJaExisteException;
 import poo.negocios.beans.Disciplina;
 
 public class CadastroDisciplina {
-	DisciplinaDAO comand;
-	PreRequisitoDAO comandA;
+	private DisciplinaDAO comand;
+	private PreRequisitoDAO comandA;
+	public static CadastroDisciplina instance;
+	
+	public static CadastroDisciplina getInstance(){
+		if(instance == null){
+			instance = new CadastroDisciplina();
+		}
+		return instance;
+	}
         
-	public CadastroDisciplina(){
-            this.comand = new DisciplinaDAO();
-            this.comandA = new PreRequisitoDAO();
-//		this.inserirDisciplina(a);
+	private CadastroDisciplina(){
+            this.comand = DisciplinaDAO.getInstance();
+            this.comandA = PreRequisitoDAO.getInstance();
 	}
 	
 	public void inserirDisciplina(Disciplina a) throws DisciplinaJaExisteException{
 		
                 try {
-                    if(!comand.buscaDis(a.getCodigo())){
+                    if(!comand.existeDis(a.getCodigo())){
                         comand.inserir(a);
                         if(a.getPreRequisito() != null){
                             comandA.inserir(a);

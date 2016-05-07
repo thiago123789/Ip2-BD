@@ -6,10 +6,18 @@ import poo.dados.DAO.DisciplinaDAO;
 import poo.negocios.beans.Disciplina;
 
 public class BuscaAvancada {
+	private static BuscaAvancada instance;
 	private DisciplinaDAO command;
 	
-	public BuscaAvancada(){
-		command = new DisciplinaDAO();
+	public static BuscaAvancada getInstance(){
+		if(instance == null){
+			instance = new BuscaAvancada();
+		}
+		return instance;
+	}
+	
+	private BuscaAvancada(){
+		command = DisciplinaDAO.getInstance();
 	}
 	
 	public ArrayList<Disciplina> searchAdvanced(String nom){

@@ -7,7 +7,9 @@ public class Curso {
 	private Disciplina [] disciplinas;
 	private boolean graduacao, posgraduacao;
         private int ano_inicio;
-	
+    private Departamento depat;
+    private Professor coordenador, vice;
+    
 	public Curso(int codigo, String nome, int ano_inicio)
 	{
 		this.setCodigo(codigo);
@@ -21,7 +23,49 @@ public class Curso {
 		this.setGraduacao(graduacao);
 		this.setPosGraducao(!graduacao);	
 	}
+	
+	
+	
+	public int getAno_inicio() {
+		return ano_inicio;
+	}
+
+	public void setAno_inicio(int ano_inicio) {
+		if(ano_inicio >= 1900){
+			this.ano_inicio = ano_inicio;
+		}
+	}
+
+	public void setCoordenador(Professor a){
+		if(a != null){
+			this.coordenador = a;
+		}
+	}
+	
+	public void setVice(Professor a){
+		if(a != null){
+			this.vice = a;
+		}
+	}
+	
+	public Professor getCoordenador(){
+		return this.coordenador;
+	}
+	
+	public Professor getVice(){
+		return this.vice;
+	}
+	
+	public Departamento getDepat(){
+		return this.depat;
+	}
         
+	public void setDepat(Departamento depat){
+		if(depat != null){
+			this.depat = depat;
+		}
+	}
+	
         public int getAnoInicio(){
             return this.ano_inicio;
         }

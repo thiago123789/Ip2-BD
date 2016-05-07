@@ -15,10 +15,18 @@ import poo.negocios.beans.Departamento;
  * @author Thiago Gomes
  */
 public class ListarDepartamentos {
+	private static ListarDepartamentos instance;
     private DepartamentoDAO comand;
     
-    public ListarDepartamentos(){
-        comand = new DepartamentoDAO();
+    public static ListarDepartamentos getInstance(){
+    	if(instance == null){
+    		instance = new ListarDepartamentos();
+    	}
+    	return instance;
+    }
+    
+    private ListarDepartamentos(){
+        comand = DepartamentoDAO.getInstance();
     }
     
     public String[] listaDepartamentosPorNome(){

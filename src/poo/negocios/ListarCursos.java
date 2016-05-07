@@ -15,10 +15,18 @@ import poo.negocios.beans.Curso;
  * @author Thiago Gomes
  */
 public class ListarCursos {
+	private static ListarCursos instance;
     private CursoDAO curso;
     
-    public ListarCursos(){
-        curso = new CursoDAO();
+    public static ListarCursos getInstance(){
+    	if(instance == null){
+    		instance = new ListarCursos();
+    	}
+    	return instance;
+    }
+    
+    private ListarCursos(){
+        curso = CursoDAO.getInstance();
     }
     
     public String[] listarPorNome(){

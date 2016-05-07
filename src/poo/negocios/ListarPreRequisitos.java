@@ -16,12 +16,20 @@ import poo.negocios.beans.Disciplina;
  * @author Thiago Gomes
  */
 public class ListarPreRequisitos {
+	private static ListarPreRequisitos instance;
     private DisciplinaDAO command;
     private PreRequisitoDAO commandA;
     
+    public static ListarPreRequisitos getInstance(){
+    	if(instance == null){
+    		instance = new ListarPreRequisitos();
+    	}
+    	return instance;
+    }
+    
     public ListarPreRequisitos(){
-    	command = new DisciplinaDAO();
-    	commandA = new PreRequisitoDAO();
+    	command = DisciplinaDAO.getInstance();
+    	commandA = PreRequisitoDAO.getInstance();
     }
     
     private ArrayList<Disciplina> listarPreRequisitos(String cod){

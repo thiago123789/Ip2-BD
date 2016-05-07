@@ -7,12 +7,20 @@ import poo.dados.DAO.PessoaDAO;
 import poo.negocios.beans.Aluno;
 
 public class CadastroAluno {
+	private static CadastroAluno instance;
 	private AlunoDAO command;
 	private PessoaDAO commandA;
 	
-	public CadastroAluno(){
-		command = new AlunoDAO();
-		commandA = new PessoaDAO();
+	public static CadastroAluno getInstance(){
+		if(instance == null){
+			instance = new CadastroAluno();
+		}
+		return instance;
+	}
+	
+	private CadastroAluno(){
+		command = AlunoDAO.getInstance();
+		commandA = PessoaDAO.getInstance();
 	}
 	
 	public void cadastraAluno(Aluno a){

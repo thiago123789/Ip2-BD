@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="AbsoluteLayout.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/AbsoluteLayout.jar!/"/>
+	</lib>
+	<lib name="beansbinding-1.2.1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/beansbinding-1.2.1.jar!/"/>
+	</lib>
+	<lib name="org-jdesktop-beansbinding_ja.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/org-jdesktop-beansbinding_ja.jar!/"/>
+	</lib>
+	<lib name="org-jdesktop-beansbinding_pt_BR.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/org-jdesktop-beansbinding_pt_BR.jar!/"/>
+	</lib>
+	<lib name="org-jdesktop-beansbinding_ru.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/org-jdesktop-beansbinding_ru.jar!/"/>
+	</lib>
+	<lib name="org-jdesktop-beansbinding_zh_CN.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/org-jdesktop-beansbinding_zh_CN.jar!/"/>
+	</lib>
+	<lib name="org-jdesktop-beansbinding.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/org-jdesktop-beansbinding.jar!/"/>
+	</lib>
+	<lib name="mysql-connector-java-5.1.38-bin.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.38-bin.jar!/"/>
+	</lib>
+	<lib name="quaqua-7.3.4.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/quaqua-7.3.4.jar!/"/>
+	</lib>
+</component>

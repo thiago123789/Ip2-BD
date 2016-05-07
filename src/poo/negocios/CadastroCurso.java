@@ -17,18 +17,27 @@ import poo.negocios.beans.Departamento;
  * @author Thiago Gomes
  */
 public class CadastroCurso {
+	private static CadastroCurso instance;
     private CursoDAO comand;
     private DepartamentoDAO comandA;
     
-    public CadastroCurso(){
-        comand = new CursoDAO();
-        comandA = new DepartamentoDAO();
+    public static CadastroCurso getInstance(){
+    	if(instance == null){
+    		instance = new CadastroCurso();
+    	}
+    	return instance;
     }
     
-    public void cadastroCurso(Curso curso, Departamento depat){
-        
+    private CadastroCurso(){
+        comand = CursoDAO.getInstance();
+        comandA = DepartamentoDAO.getInstance();
+    }
+    
+    public void cadastroCurso(Curso curso){
+        int no = this.comandA.depatID(curso.getDepat().getNome());
+        curso.getDepat().setId(no);
     	try {
-			comand.inserir(curso.getNome(), null, null, curso.getGraducao(), depat, curso.getAnoInicio());
+			comand.inserir(curso);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

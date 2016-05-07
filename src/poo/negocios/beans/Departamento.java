@@ -3,7 +3,7 @@ package poo.negocios.beans;
 import java.util.ArrayList;
 
 public class Departamento {
-        private int id;
+    private int id;
 	private String nome;
 	private String sigla;
 	private ArrayList<Curso> cursos;
@@ -31,6 +31,10 @@ public class Departamento {
 		this.setSigla(sigla);
 		this.setFuncionarios(funcionarios);
 		this.setCursos(cursos);
+	}
+	
+	public int getId(){
+		return this.id;
 	}
 	
 	public void setId(int id){

@@ -241,7 +241,8 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
             Curso aux = new Curso(nome, graduacao);
             aux.setAnoInicio(ano);
             Departamento depatN = new Departamento(depat);
-            fachada.cadastroCurso(aux, depatN);
+            aux.setDepat(depatN);
+            fachada.cadastroCurso(aux);
             ok = true;
         }catch(Exception e){
             

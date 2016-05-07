@@ -24,20 +24,20 @@ public class FachadaSistema {
     private ListarPreRequisitos preList;
     private DetalhesDisciplina details;
     
-    public FachadaSistema(){
-    	addDisciplina = new CadastroDisciplina();
-    	addTeacher = new CadastroProfessor();
-        list = new ListarDisciplinas();
-        listCurso = new ListarCursos();
-        cadDepat = new CadastroDepartamento();
-        listDepat = new ListarDepartamentos();
-        cadCurso = new CadastroCurso();
-        advanced = new BuscaAvancada();
-        info = new InfoUsuario();
-        cadAlu = new CadastroAluno();
-        aux = new Auxiliar();
-        preList = new ListarPreRequisitos();
-        details = new DetalhesDisciplina();
+    private FachadaSistema(){
+    	addDisciplina = CadastroDisciplina.getInstance();
+    	addTeacher = CadastroProfessor.getInstance();
+        list = ListarDisciplinas.getInstance();
+        listCurso = ListarCursos.getInstance();
+        cadDepat = CadastroDepartamento.getInstance();
+        listDepat = ListarDepartamentos.getInstance();
+        cadCurso = CadastroCurso.getInstance();
+        advanced = BuscaAvancada.getInstance();
+        info = InfoUsuario.getInstance();
+        cadAlu = CadastroAluno.getInstance();
+        aux = Auxiliar.getInstance();
+        preList = ListarPreRequisitos.getInstance();
+        details = DetalhesDisciplina.getInstance();
     }
 
 	public static FachadaSistema getInstance(){
@@ -84,8 +84,8 @@ public class FachadaSistema {
 		return listDepat.listaDepartamentosPorNomeList();
 	}
 
-	public void cadastroCurso(Curso curso, Departamento depat) {
-		cadCurso.cadastroCurso(curso, depat);
+	public void cadastroCurso(Curso curso) {
+		cadCurso.cadastroCurso(curso);
 	}
 
 	

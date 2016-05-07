@@ -6,12 +6,20 @@ import poo.negocios.beans.Curso;
 import poo.negocios.beans.Disciplina;
 
 public class DetalhesDisciplina {
+	private static DetalhesDisciplina instance;
 	private DisciplinaDAO command;
 	private CursoDAO commandA;
 
-	public DetalhesDisciplina(){
-		command = new DisciplinaDAO();
-		commandA = new CursoDAO();
+	public static DetalhesDisciplina getInstance(){
+		if(instance == null){
+			instance = new DetalhesDisciplina();
+		}
+		return instance;
+	}
+	
+	private DetalhesDisciplina(){
+		command = DisciplinaDAO.getInstance(); 
+		commandA = CursoDAO.getInstance();
 	}
 
 	public String detalheDisciplina(String codig){

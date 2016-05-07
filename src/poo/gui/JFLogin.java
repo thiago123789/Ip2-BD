@@ -7,6 +7,7 @@ package poo.gui;
 
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 
 import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
@@ -29,6 +30,7 @@ public class JFLogin extends javax.swing.JFrame {
     JFrameAdmin admin;
     JFrameAluno aluno;
     FormatacaoAuxiliar format;
+    ImageIcon img;
     /**
      * Creates new form JFLogin
      */
@@ -37,6 +39,8 @@ public class JFLogin extends javax.swing.JFrame {
     
     public JFLogin() {
         initComponents();
+//        img = new ImageIcon("\");
+        
         JRootPane rootPane = SwingUtilities.getRootPane(jBLogar); 
         rootPane.setDefaultButton(jBLogar);
     }

@@ -15,10 +15,18 @@ import poo.negocios.beans.Departamento;
  * @author Thiago Gomes
  */
 public class CadastroDepartamento {
+	private static CadastroDepartamento instance;
     private DepartamentoDAO comand;
     
-    public CadastroDepartamento(){
-        this.comand = new DepartamentoDAO();
+    public static CadastroDepartamento getInstance(){
+    	if(instance == null){
+    		instance = new CadastroDepartamento();
+    	}
+    	return instance;
+    }
+    
+    private CadastroDepartamento(){
+        this.comand = DepartamentoDAO.getInstance();
     }
     
     public void cadastraDepat(Departamento depat){
