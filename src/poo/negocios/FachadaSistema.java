@@ -9,7 +9,7 @@ import poo.negocios.beans.Departamento;
 import poo.negocios.beans.Disciplina;
 
 public class FachadaSistema {
-	public static FachadaSistema instance;
+	private static FachadaSistema instance;
 	private CadastroDisciplina addDisciplina;
 	private CadastroProfessor addTeacher;
 	private ListarDisciplinas list;

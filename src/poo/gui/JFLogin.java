@@ -189,16 +189,13 @@ public class JFLogin extends javax.swing.JFrame {
     private void jBLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLogarActionPerformed
         // TODO add your handling code here:
         FachadaUsuario auto = FachadaUsuario.getInstance();
+        format = FormatacaoAuxiliar.getInstance();
         String usuario1 = jTUsuario.getText();
         char[] senhaC = jPSenhaLogin.getPassword();
         String senha = "";
         
         for(int i = 0; i < senhaC.length; i++){
             senha += senhaC[i];
-        }
-        
-        if(format == null){
-            format = new FormatacaoAuxiliar();
         }
         
         String usuario = format.soNumerosCPF(usuario1);
@@ -209,7 +206,6 @@ public class JFLogin extends javax.swing.JFrame {
                     boolean ok = auto.autenticaSenha(usuario, senha);
                     if(ok){
                         if(aluno == null || format == null){
-                            format = new FormatacaoAuxiliar();
                             aluno = new JFrameAluno();
                             aluno.setVisible(true);
                             aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
@@ -228,7 +224,6 @@ public class JFLogin extends javax.swing.JFrame {
                     boolean ok = auto.autenticaSenha(usuario, senha);
                     if(ok){
                         if(admin == null || format == null){
-                            format = new FormatacaoAuxiliar();
                             admin = new JFrameAdmin();
                             admin.setVisible(true);
                             admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));

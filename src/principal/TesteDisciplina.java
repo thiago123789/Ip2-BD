@@ -1,13 +1,9 @@
 package principal;
 
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import poo.dados.DAO.DisciplinaDAO;
-import poo.dados.DAO.PessoaDAO;
 import poo.excecoes.CPFInvalidoException;
 import poo.excecoes.DisciplinaJaExisteException;
 import poo.negocios.*;
@@ -15,12 +11,11 @@ import poo.negocios.beans.Aluno;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Disciplina;
 import poo.negocios.beans.Endereco;
-import poo.negocios.beans.Pessoa;
 
 public class TesteDisciplina {
 	public static void main(String[] args) throws SQLException, CPFInvalidoException, DisciplinaJaExisteException {
-        FachadaUsuario rep1 = new FachadaUsuario();
-        FachadaSistema rep = new FachadaSistema();
+        FachadaUsuario rep1 = FachadaUsuario.getInstance();
+        FachadaSistema rep = FachadaSistema.getInstance();
 //        CadastroDisciplina cad = new CadastroDisciplina();
         Curso bcc = new Curso(1, "Bacharelado em Ciencia da Computação", 2000);
 	Disciplina a, b, c, d, e, f, g, h, i;

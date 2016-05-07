@@ -13,7 +13,7 @@ import poo.excecoes.CPFInvalidoException;
  * @author Thiago Gomes
  */
 public class FormatacaoAuxiliar {
-    public static FormatacaoAuxiliar instance;
+    private static FormatacaoAuxiliar instance;
     
     public static FormatacaoAuxiliar getInstance(){
     	if(instance == null){
