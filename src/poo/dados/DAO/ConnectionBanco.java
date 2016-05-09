@@ -15,9 +15,7 @@ public class ConnectionBanco {
     private Connection conexao;
     private PreparedStatement statement;
     private ResultSet resultSet;
-	private ResultSetMetaData metaData;
-	
-    
+
     static{
 		try {
 	            Class.forName("com.mysql.jdbc.Driver");
@@ -52,7 +50,6 @@ public class ConnectionBanco {
     	try {
 			this.statement = (com.mysql.jdbc.PreparedStatement) this.conexao.prepareStatement(query);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	return this.statement;    	
@@ -64,7 +61,6 @@ public class ConnectionBanco {
 			this.statement = (com.mysql.jdbc.PreparedStatement) this.conexao.prepareStatement(query);
 			this.resultSet = this.statement.executeQuery();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	return this.resultSet;

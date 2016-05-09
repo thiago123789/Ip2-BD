@@ -16,7 +16,6 @@ public class TesteDisciplina {
 	public static void main(String[] args) throws SQLException, CPFInvalidoException, DisciplinaJaExisteException {
         FachadaUsuario rep1 = FachadaUsuario.getInstance();
         FachadaSistema rep = FachadaSistema.getInstance();
-//        CadastroDisciplina cad = new CadastroDisciplina();
         Curso bcc = new Curso(1, "Bacharelado em Ciencia da Computação", 2000);
 	Disciplina a, b, c, d, e, f, g, h, i;
 //        ArrayList<Disciplina> test = new ArrayList<Disciplina>();
