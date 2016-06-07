@@ -34,7 +34,7 @@ public class PosGraduacao extends Curso{
 		}
 	}
 		
-	///QUE PORRA É ISSO ?????????
+	///QUE PORRA E ISSO ?????????
 	public boolean isMestrado() {
 		return mestrado;
 	}
@@ -44,7 +44,7 @@ public class PosGraduacao extends Curso{
 		this.mestrado = mestrado;
 	}
 
-	///QUE KRALHO É ESSE ????????
+	///QUE KRALHO E ESSE ????????
 	public boolean isDoutorado() {
 		return doutorado;
 	}
