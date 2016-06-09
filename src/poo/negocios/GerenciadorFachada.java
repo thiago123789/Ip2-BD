@@ -1,5 +1,5 @@
 package poo.negocios;
 
-public class GerenciadorFachada {
+public class GerenciadorFachada{
 
 }

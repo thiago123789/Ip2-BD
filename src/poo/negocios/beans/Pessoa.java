@@ -28,10 +28,13 @@ public class Pessoa {
 		this.setSenha(senha);
 		this.setEmail(email);
 		this.setEndereco(endereco);
-        this.setTipo(tipo_pessoa);
-        this.setDataNascimento(nascimento);
+                this.setTipo(tipo_pessoa);
+                this.setDataNascimento(nascimento);
 	}
         
+        public Pessoa(String cpf) throws CPFInvalidoException{
+            this.setCpf(cpf);
+        }
         
         
         public int getTipo(){

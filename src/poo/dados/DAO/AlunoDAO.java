@@ -4,13 +4,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
+
 import javax.swing.JOptionPane;
+
+import poo.dados.IAlunoDAO;
 import poo.excecoes.SenhaIncorretaException;
 import poo.negocios.beans.Aluno;
 import poo.negocios.beans.Endereco;
 import poo.negocios.beans.Pessoa;
 
-public class AlunoDAO {
+public class AlunoDAO implements IAlunoDAO{
     private static AlunoDAO instance;
 	private ConnectionBanco bancoConect;
     

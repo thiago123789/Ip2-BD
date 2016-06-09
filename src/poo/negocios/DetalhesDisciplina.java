@@ -1,5 +1,6 @@
 package poo.negocios;
 
+import poo.dados.IDisciplinaDAO;
 import poo.dados.DAO.CursoDAO;
 import poo.dados.DAO.DisciplinaDAO;
 import poo.negocios.beans.Curso;
@@ -7,7 +8,7 @@ import poo.negocios.beans.Disciplina;
 
 public class DetalhesDisciplina {
 	private static DetalhesDisciplina instance;
-	private DisciplinaDAO command;
+	private IDisciplinaDAO command;
 	private CursoDAO commandA;
 
 	public static DetalhesDisciplina getInstance(){
