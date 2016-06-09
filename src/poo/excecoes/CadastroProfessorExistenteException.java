@@ -4,6 +4,6 @@ public class CadastroProfessorExistenteException extends Exception
 {
 	public CadastroProfessorExistenteException()
 	{
-		super("Professor já cadastrado!!");
+		super("Professor ja cadastrado!!");
 	}
 }
