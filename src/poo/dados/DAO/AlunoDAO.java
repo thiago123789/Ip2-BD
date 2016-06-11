@@ -3,31 +3,32 @@ package poo.dados.DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Calendar;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import poo.dados.IAlunoDAO;
 import poo.excecoes.SenhaIncorretaException;
 import poo.negocios.beans.Aluno;
-import poo.negocios.beans.Endereco;
-import poo.negocios.beans.Pessoa;
+import poo.negocios.beans.Curso;
 
 public class AlunoDAO implements IAlunoDAO{
     private static AlunoDAO instance;
 	private ConnectionBanco bancoConect;
-    
+
 	public static AlunoDAO getInstance(){
 		if(instance == null){
 			instance = new AlunoDAO();
 		}
 		return instance;
 	}
-	
+
 	private AlunoDAO(){
 		bancoConect = ConnectionBanco.getInstance();
 	}
-	        
+
+	/*
+	 * METODOS CRUD
+	 */
 	public boolean inserir(Aluno a) throws SQLException{
 		boolean inseriu = false;
 		String sql = "INSERT INTO deinfo.aluno(CPF_ALU, PRIORIDADE, CURSO, ANO_ENTRADA, SEMESTRE_ENTRADA, TURNO)"
@@ -39,7 +40,6 @@ public class AlunoDAO implements IAlunoDAO{
 			smt.setInt(3, a.getCurso().getCodigo());
             smt.setInt(4, a.getAnoEntrada());
 			smt.setInt(5, a.getSemestreEntrada());
-			System.out.println(a.getTurno());
             smt.setString(6, a.getTurno());
             smt.execute();
 			inseriu = true;
@@ -48,7 +48,72 @@ public class AlunoDAO implements IAlunoDAO{
 		}
 		return inseriu;
 	}
-        
+
+	public boolean atualizar(Aluno a) throws SQLException{
+		boolean atualizou = false;
+		String sql = "UPDATE deinfo.aluno SET PRIORIDADE = ?, CURSO = ?,"
+				+ " ANO_ENTRADA = ?, SEMESTRE_ENTRADA = ?,"
+				+ " TURNO = ?, MONITOR = ?, VOLUNTARIO = ?,"
+				+ " BOLSISTA = ?, DESISTIU = ? WHERE CPF_ALU = \""+a.getCpf()+"\"";
+		try{
+			PreparedStatement smt = (PreparedStatement) bancoConect.retornoStatement(sql);
+			smt.setInt(1, a.getPrioridade()?1:0);
+            smt.setInt(2, a.getCurso().getCodigo());
+            smt.setInt(3, a.getAnoEntrada());
+            smt.setInt(4, a.getSemestreEntrada());
+            smt.setString(5, a.getTurno());
+            smt.setInt(6, a.isMonitor()?1:0);
+            smt.setInt(7, a.isVoluntario()?1:0);
+            smt.setInt(8, a.isBolsista()?1:0);
+            smt.setInt(9, a.isDesistiu()?1:0);
+			smt.execute();
+			atualizou = true;
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+		return atualizou;
+	}
+
+	public ArrayList<Aluno> listar(){
+		ArrayList<Aluno> list = new ArrayList<Aluno>();
+		String query = "SELECT * FROM deinfo.aluno";
+		try{
+			ResultSet resultSet = bancoConect.comandoSQL(query);
+			while(resultSet.next()){
+				String cpf = resultSet.getString("CPF_ALU");
+				boolean prioridade = resultSet.getBoolean("PRIORIDADE");
+				int curso = resultSet.getInt("CURSO");
+				int ano_entrada = resultSet.getInt("ANO_ENTRADA");
+				int semestre_entrada = resultSet.getInt("SEMESTRE_ENTRADA");
+				String turno = resultSet.getString("TURNO");
+				boolean monitor = resultSet.getBoolean("MONITOR");
+				boolean voluntario = resultSet.getBoolean("VOLUNTARIO");
+				boolean bolsista = resultSet.getBoolean("BOLSISTA");
+				boolean desistiu = resultSet.getBoolean("DESISTIU");
+				float media_geral = resultSet.getFloat("MEDIA_GERAL");
+				Curso aux = new Curso(curso, null, 0);
+				Aluno a = new Aluno(cpf, prioridade, aux, ano_entrada, semestre_entrada, turno, monitor, voluntario,
+						bolsista, desistiu);
+				a.setMedia_geral(media_geral);
+				list.add(a);
+			}
+		}catch(SQLException e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+		return list;
+	}
+	
+	
+	/*
+	 * FIM DO CRUD DO SISTEMA
+	 */
+
+
+
+
+	//Excluir implementação
 	public int tipoDeUsuario(String cpf){
         int tipo = -1;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -56,7 +121,7 @@ public class AlunoDAO implements IAlunoDAO{
 			ResultSet resultSet = bancoConect.comandoSQL(query);
 			while(resultSet.next()){
 				tipo = resultSet.getInt("TIPO_PESSOA");
-			}			
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -64,8 +129,8 @@ public class AlunoDAO implements IAlunoDAO{
 		}
 		return tipo;
 	}
-    
-	
+
+
 	public String verificaSenha(String cpf){
         String aux = null;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -84,7 +149,7 @@ public class AlunoDAO implements IAlunoDAO{
 		return aux;
 
         }
-        
+
 	public boolean autenticar(String cpf, String senha){
         boolean ok = false;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -109,7 +174,7 @@ public class AlunoDAO implements IAlunoDAO{
 		return ok;
 
         }
-        
+
     public String nomeUsuario(String cpf){
         String completo = "";
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -127,7 +192,7 @@ public class AlunoDAO implements IAlunoDAO{
 		}
 		return completo;
     }
-    
+
     public int cursoUsuario(String cpf){
         int completo = -1;
         String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -144,7 +209,7 @@ public class AlunoDAO implements IAlunoDAO{
         	}
         return completo;
     }
-    
+
     public boolean existeUsuario(String cpf){
         boolean ok = false;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -153,7 +218,7 @@ public class AlunoDAO implements IAlunoDAO{
 			if(resultSet.isBeforeFirst()){
 				ok = true;
 				System.out.println(ok);
-            }                        
+            }
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -161,7 +226,8 @@ public class AlunoDAO implements IAlunoDAO{
 		}
 		return ok;
     }
-        
+
+    /*
     public boolean atualiza(Pessoa a) throws SQLException{
     		boolean atualizou = false;
     		String sql = "UPDATE deinfo.pessoa SET cpf_p = ?, P_NOME = ?,  U_NOME = ?, SEXO = ?, SENHA = ?, "
@@ -190,7 +256,9 @@ public class AlunoDAO implements IAlunoDAO{
     		}
     		return atualizou;
     	}
-    
+    	*/
+
+    /*
     public Pessoa buscaPessoa(String cpf){
 		Pessoa a = null;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -214,7 +282,7 @@ public class AlunoDAO implements IAlunoDAO{
                                 resultSet.getDate("DATA_NASC", calendar);
 				Endereco b = new Endereco(logradouro, numero, bairro, cidade, cep, estado);
                 a = new Pessoa(p_nome, u_nome, cpf_p, sexo, senha, email, b, tipo_pessoa, calendar);
-			}			
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -222,4 +290,5 @@ public class AlunoDAO implements IAlunoDAO{
 		}
 		return a;
 	}
+	*/
 }

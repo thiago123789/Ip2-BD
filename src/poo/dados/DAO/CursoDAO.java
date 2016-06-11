@@ -30,18 +30,22 @@ import com.mysql.jdbc.PreparedStatement;
 public class CursoDAO {
 	private static CursoDAO instance;
 	private ConnectionBanco bancoConnect;
-	
+
 	public static CursoDAO getInstance(){
 		if(instance == null){
 			instance = new CursoDAO();
 		}
 		return instance;
 	}
-	
+
 	private CursoDAO(){
 		bancoConnect = ConnectionBanco.getInstance();
 	}
-	
+
+	/*
+	 * INICIO DO CRUD
+	 */
+
 	public boolean inserir(Curso c) throws SQLException{
 		boolean inseriu = false;
 		String sql = "INSERT INTO deinfo.curso(id, nome, coordenador, vice_coordenador, "
@@ -73,15 +77,28 @@ public class CursoDAO {
 		return inseriu;
 	}
 
-	public boolean atualiza(String nome, String cpf_coo, String cpf_vice, boolean graduacao) throws SQLException{
+
+	//ID, NOME, COORDENADOR, VICE_COORDENADOR, GRADUACAO, POSGRADUACAO, DEPARTAMENTO_ID, ANO_INICIO
+	public boolean atualizar(Curso c) throws SQLException{
 		boolean atualizou = false;
-		String sql = "UPDATE deinfo.curso SET id = ?, nome=?, coordenador=?, vice_coordenador=?, graduacao = ?, posgraduacao= ?"
-				+ "WHERE id = ?";
+		String sql = "UPDATE deinfo.curso SET nome=?, coordenador=?, vice_coordenador=?, graduacao = ?, posgraduacao= ?"
+				+ "WHERE id = \""+c.getCodigo()+"\"";
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(sql);
-			smt.setString(2, nome);
-			smt.setString(2, cpf_coo);
-			smt.setString(3, cpf_vice);
+			smt.setString(1, c.getNome());
+
+			if(c.getCoordenador() == null){
+				smt.setNull(2, Types.VARCHAR);
+			}else{
+				smt.setString(2, c.getCoordenador().getCpf());
+			}
+
+			if(c.getVice() == null){
+				smt.setNull(3, Types.VARCHAR);
+			}else{
+				smt.setString(3, c.getVice().getCpf());
+			}
+
 			smt.execute();
 			atualizou = true;
 		}catch(Exception e){
@@ -90,7 +107,7 @@ public class CursoDAO {
 		return atualizou;
 	}
 
-	public ArrayList<Curso> consulta(){
+	public ArrayList<Curso> listar(){
 		ArrayList<Curso> c = new ArrayList<Curso>();
 		String query = "SELECT * FROM deinfo.curso";
 		try{
@@ -101,7 +118,7 @@ public class CursoDAO {
 				int ano = resultSet.getInt("ano_inicio");
 				Curso curso = new Curso(cod, nome, ano);
 				c.add(curso);
-			}			
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -120,7 +137,7 @@ public class CursoDAO {
 				String nome = resultSet.getString("NOME");
 				int ano = resultSet.getInt("ANO_INICIO");
 				a = new Curso(carga, nome, ano);
-			}			
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -128,7 +145,7 @@ public class CursoDAO {
 		}
 		return a;
 	}
-	
+
 	public int buscaAnoCurso(String nome){
 		int a = -1;
 		String query = "SELECT * FROM deinfo.curso WHERE nome = \""+nome+"\"";
@@ -137,7 +154,7 @@ public class CursoDAO {
 			while(resultSet.next()){
 				int ano = resultSet.getInt("ANO_INICIO");
 				a = ano;
-			}			
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -145,5 +162,5 @@ public class CursoDAO {
 		}
 		return a;
 	}
-	
+
 }

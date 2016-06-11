@@ -17,8 +17,8 @@ public class Pessoa {
 	private String email;
 	private Endereco endereco;
     private int tipo_pessoa;
-	
-	public Pessoa(String pNome, String uNome, String cpf, boolean sexo, 
+
+	public Pessoa(String pNome, String uNome, String cpf, boolean sexo,
                 String senha, String email, Endereco endereco, int tipo_pessoa, Calendar nascimento) throws CPFInvalidoException
 	{
 		this.setPnome(pNome);
@@ -31,32 +31,36 @@ public class Pessoa {
                 this.setTipo(tipo_pessoa);
                 this.setDataNascimento(nascimento);
 	}
-        
+
         public Pessoa(String cpf) throws CPFInvalidoException{
             this.setCpf(cpf);
         }
-        
-        
-        public int getTipo(){
+
+
+        public Pessoa() {
+			// TODO Auto-generated constructor stub
+		}
+
+		public int getTipo(){
             return this.tipo_pessoa;
         }
-        
+
         public void setTipo(int tp){
             if(tp >= 0 && tp <= 2){
                 this.tipo_pessoa = tp;
             }
         }
-        
+
         public void setUnome(String nome){
             if(nome != null){
                 this.uNome = nome;
             }
         }
-        
+
         public String getUnome(){
             return this.uNome;
         }
-	
+
 	public void setPnome(String nome)
 	{
 		if(nome != null)
@@ -64,7 +68,7 @@ public class Pessoa {
 			this.pNome = nome;
 		}
 	}
-	
+
 	public void setCpf(String cpf) throws CPFInvalidoException
 	{
 		if (this.validarCPF(cpf) == true)
@@ -76,18 +80,18 @@ public class Pessoa {
 			throw new CPFInvalidoException();
 		}
 	}
-	
+
 	public String getPnome()
 	{
 		return this.pNome;
 	}
-	
+
 	public String getCpf()
 	{
 		return this.cpf;
 	}
-	
-	
+
+
 	public Calendar getDataNascimento() {
 		return this.dataNascimento;
 	}
@@ -191,5 +195,5 @@ public class Pessoa {
 
 	}
 
-	
+
 }
