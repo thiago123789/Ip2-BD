@@ -7,7 +7,6 @@ package poo.negocios;
 
 import java.util.ArrayList;
 
-import poo.dados.IDisciplinaDAO;
 import poo.dados.DAO.DisciplinaDAO;
 import poo.dados.DAO.PreRequisitoDAO;
 import poo.negocios.beans.Disciplina;
@@ -18,7 +17,7 @@ import poo.negocios.beans.Disciplina;
  */
 public class ListarPreRequisitos {
 	private static ListarPreRequisitos instance;
-    private IDisciplinaDAO command;
+    private DisciplinaDAO command;
     private PreRequisitoDAO commandA;
     
     public static ListarPreRequisitos getInstance(){

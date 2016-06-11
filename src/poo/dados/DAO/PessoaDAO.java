@@ -232,10 +232,13 @@ public class PessoaDAO {
 				String bairro = resultSet.getString("bairro");
 				int numero = resultSet.getInt("numero");
 				String estado = resultSet.getString("estado");
+<<<<<<< HEAD
                                 a = new Pessoa(cpf_p);
 				a.setSenha(senha);
 				a.setPnome(p_nome);
 				a.setUnome(u_nome);
+=======
+>>>>>>> parent of 0831322... Alterações da reuniao
 				Endereco b = new Endereco(logradouro, numero, bairro, cidade, cep, estado);
 			}			
 		}catch(SQLException e){

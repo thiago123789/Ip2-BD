@@ -55,7 +55,7 @@ public class JFrameAlterarSenha extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jTUser = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Alterar Senha");
         setResizable(false);
 

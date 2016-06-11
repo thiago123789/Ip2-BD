@@ -21,8 +21,8 @@ import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
+import poo.dados.iRepositorioDisciplina;
 import poo.negocios.beans.Disciplina;
-import poo.dados.IDisciplinaDAO;
 
 /**
  *
