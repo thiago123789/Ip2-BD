@@ -8,22 +8,18 @@ package poo.negocios;
 import java.util.InputMismatchException;
 import poo.excecoes.CPFInvalidoException;
 
-/**
- *
- * @author Thiago Gomes
- */
 public class FormatacaoAuxiliar {
     private static FormatacaoAuxiliar instance;
-    
+
     public static FormatacaoAuxiliar getInstance(){
     	if(instance == null){
     		instance = new FormatacaoAuxiliar();
     	}
     	return instance;
     }
-	
+
     private FormatacaoAuxiliar(){    }
-    
+
     public String formatarCpf(String cpf){
         String resultado = "";
         String bloco1 = cpf.substring(0, 3);
@@ -33,7 +29,7 @@ public class FormatacaoAuxiliar {
         resultado = bloco1+"."+bloco2+"."+bloco3+"-"+bloco4;
         return resultado;
     }
-    
+
     public String soNumerosCPF(String cpf){
         String resultado = "";
         String bloco1 = cpf.substring(0, 3);
@@ -43,8 +39,8 @@ public class FormatacaoAuxiliar {
         resultado = bloco1+bloco2+bloco3+bloco4;
         return resultado;
     }
-    
-    
+
+
     public boolean validarCPF(String numeroCPF) throws CPFInvalidoException {
 
 		// considera-se erro CPF's formados por uma sequencia de numeros iguais
@@ -101,5 +97,5 @@ public class FormatacaoAuxiliar {
 		}
 
 	}
-    
+
 }

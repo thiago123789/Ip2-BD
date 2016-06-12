@@ -91,7 +91,7 @@ public class DepartamentoDAO implements IDepartamentoDAO{
 		return atualizou;
 	}
 
-	public ArrayList<Departamento> listar(){
+	public ArrayList<Departamento> listar() throws SQLException{
 		ArrayList<Departamento> listaDepartamentos = new ArrayList<Departamento>();
 		String query = "SELECT * FROM deinfo.departamento";
 		try{

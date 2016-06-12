@@ -8,49 +8,53 @@ package poo.negocios;
 import java.util.ArrayList;
 
 import poo.dados.DAO.CursoDAO;
+import poo.dados.DAO.interfaces.ICursoDAO;
 import poo.negocios.beans.Curso;
 
-/**
- *
- * @author Thiago Gomes
- */
 public class ListarCursos {
 	private static ListarCursos instance;
-    private CursoDAO curso;
-    
+    private ICursoDAO curso;
+
     public static ListarCursos getInstance(){
     	if(instance == null){
     		instance = new ListarCursos();
     	}
     	return instance;
     }
-    
+
     private ListarCursos(){
         curso = CursoDAO.getInstance();
     }
-    
+
     public String[] listarPorNome(){
-        ArrayList<Curso> c = curso.consulta();
+        ArrayList<Curso> c = curso.listar();
         String tudo[] = new String[c.size()];
         int i = 0;
         for(Curso aux : c ){
         	tudo[i] = aux.getNome();
         	i++;
-        }        
+        }
         return tudo;
     }
-    
+
     public ArrayList<String> listarPorNomeList(){
-        ArrayList<Curso> c = curso.consulta();
+        ArrayList<Curso> c = curso.listar();
         ArrayList<String> nomes = new ArrayList<String>();
         for(Curso aux : c ){
         	nomes.add(aux.getNome());
-        }        
+        }
         return nomes;
     }
-    
+
     public int anoInicioCurso(String nomeCurso){
-    	return curso.buscaAnoCurso(nomeCurso);
+    	int ano = 0;
+    	ArrayList<Curso> listando = curso.listar();
+        for(Curso aux : listando ){
+        	if(aux.getNome().equals(nomeCurso)){
+        		ano = aux.getAno_inicio();
+        	}
+        }
+        return ano;
     }
-    
+
 }

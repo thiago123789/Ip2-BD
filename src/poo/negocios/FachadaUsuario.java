@@ -6,29 +6,27 @@
 package poo.negocios;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import poo.excecoes.CPFInvalidoException;
 import poo.excecoes.SenhaIncorretaException;
 import poo.excecoes.UsuarioNaoExiste;
+import poo.negocios.beans.Pessoa;
 
-/**
- *
- * @author Thiago Gomes
- */
 public class FachadaUsuario {
     private static FachadaUsuario instance;
     private Autenticar auto;
     private AlterarSenha changePassword;
     private Auxiliar aux;
     private FormatacaoAuxiliar auxFormat;
-    
+
     private FachadaUsuario(){
         aux = Auxiliar.getInstance();
         changePassword = AlterarSenha.getInstance();
         auto = Autenticar.getInstance();
         auxFormat = FormatacaoAuxiliar.getInstance();
     }
-    
+
     public static FachadaUsuario getInstance(){
         if(instance == null){
             instance = new FachadaUsuario();
@@ -36,42 +34,52 @@ public class FachadaUsuario {
         return instance;
     }
 
-	public boolean autenticaSenha(String user, String senha)
-			throws SenhaIncorretaException {
-		
+	public String retornaSenha(String cpf) throws SQLException {
+		return auto.retornaSenha(cpf);
+	}
+
+	public boolean autenticaSenha(String user, String senha) throws SenhaIncorretaException, SQLException {
 		return auto.autenticaSenha(user, senha);
 	}
 
-	public boolean alterarSenha(String cpf, String novaSenha) {
-		return changePassword.alterarSenha(cpf, novaSenha);
-	}
-
-	public boolean usuarioExiste(String cpf) throws UsuarioNaoExiste {
+	public boolean usuarioExiste(String cpf) throws UsuarioNaoExiste, SQLException {
 		return auto.usuarioExiste(cpf);
 	}
 
-	public int tipoDeUsuario(String cpf) {
+	public int tipoDeUsuario(String cpf) throws SQLException {
 		return auto.tipoDeUsuario(cpf);
 	}
 
-	public String nomeUsuario(String cpf) {
+	public String nomeUsuario(String cpf) throws SQLException {
 		return auto.nomeUsuario(cpf);
-	}
-
-	public void logar(String cpf) throws SQLException {
-		auto.logar(cpf);
 	}
 
 	public String ultimoLogin(String cpf) {
 		return auto.ultimoLogin(cpf);
 	}
 
+	public Pessoa buscarPessoa(String cpf) throws SQLException {
+		return changePassword.buscarPessoa(cpf);
+	}
+
+	public boolean alterarSenha(String cpf, String novaSenha) {
+		return changePassword.alterarSenha(cpf, novaSenha);
+	}
+
 	public int[] retornarAnosAteAtual() {
 		return aux.retornarAnosAteAtual();
 	}
 
-	public String verificaSenha(String user) {
-		return auto.verificaSenha(user);
+	public ArrayList<Integer> retornarAnosAteAtualList() {
+		return aux.retornarAnosAteAtualList();
+	}
+
+	public ArrayList<Integer> retornarAnosAPartirDeList(int inicio) {
+		return aux.retornarAnosAPartirDeList(inicio);
+	}
+
+	public int[] retornarAnosAPartirDe(int inicio) {
+		return aux.retornarAnosAPartirDe(inicio);
 	}
 
 	public String formatarCpf(String cpf) {
@@ -85,8 +93,9 @@ public class FachadaUsuario {
 	public boolean validarCPF(String numeroCPF) throws CPFInvalidoException {
 		return auxFormat.validarCPF(numeroCPF);
 	}
-    
-    
-    
-    
+
+
+
+
+
 }

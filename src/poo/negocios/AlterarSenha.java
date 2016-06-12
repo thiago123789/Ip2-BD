@@ -6,46 +6,49 @@
 package poo.negocios;
 
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import poo.dados.DAO.interfaces.*;
 import poo.dados.DAO.PessoaDAO;
 import poo.negocios.beans.Pessoa;
 
-/**
- *
- * @author Thiago Gomes
- */
 class AlterarSenha {
-    private PessoaDAO comand;
-    private static AlterarSenha instance;
-    
-    public static AlterarSenha getInstance(){
-    	if(instance == null){
-    		instance = new AlterarSenha();
-    	}
-    	return instance;
-    }
-    
-    private AlterarSenha(){
-    	comand = PessoaDAO.getInstance();
-    }
-    
-    public boolean alterarSenha(String cpf, String novaSenha){
-    	boolean ok = false;       
-        Pessoa a = comand.buscaPessoa(cpf);
-        
-        System.out.println(cpf);
-        System.out.println(a.toString());
-        System.out.println(novaSenha);
-        a.setSenha(novaSenha);
-        System.out.println(a.toString());
-    	try {
-			comand.atualiza(a);
-                        ok = true;
+	private IPessoaDAO command;
+	private static AlterarSenha instance;
+
+	public static AlterarSenha getInstance(){
+		if(instance == null){
+			instance = new AlterarSenha();
+		}
+		return instance;
+	}
+
+	private AlterarSenha(){
+		command = PessoaDAO.getInstance();
+	}
+
+	public Pessoa buscarPessoa(String cpf) throws SQLException{
+		Pessoa a = null;
+		ArrayList<Pessoa> listando = command.listar();
+		for(Pessoa aux : listando){
+			if(aux.getCpf().equals(cpf)){
+				a = aux;
+				break;
+			}
+		}
+		return a;
+	}
+
+	public boolean alterarSenha(String cpf, String novaSenha){
+		boolean ok = false;
+		try {
+			Pessoa a = this.buscarPessoa(cpf);
+			a.setSenha(novaSenha);
+			command.atualiza(a);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-        return ok;
-    }
-    
-    
+		return ok;
+	}
+
+
 }

@@ -9,18 +9,18 @@ import sun.util.calendar.BaseCalendar.Date;
 
 public class Auxiliar {
 	public static Auxiliar instance;
-	
+
 	public static Auxiliar getInstance(){
 		if(instance == null){
 			instance = new Auxiliar();
 		}
 		return instance;
 	}
-	
+
 	private Auxiliar(){
-		
+
 	}
-	
+
 	public int[] retornarAnosAteAtual(){
 		Calendar a = Calendar.getInstance();
 		int ano = a.get(Calendar.YEAR);
@@ -32,40 +32,40 @@ public class Auxiliar {
 		}
 		return anosTodos;
 	}
-        
-        public ArrayList<Integer> retornarAnosAteAtualList(){
-                ArrayList<Integer> anos = new ArrayList<Integer>();
+
+	public ArrayList<Integer> retornarAnosAteAtualList(){
+		ArrayList<Integer> anos = new ArrayList<Integer>();
 		Calendar a = Calendar.getInstance();
 		int ano = a.get(Calendar.YEAR);
 		int inicio = 1900;
-                anos.add(inicio);
+		anos.add(inicio);
 		while(inicio < ano){
-                    inicio++;
-                    anos.add(inicio);
-                }
-                return anos;
-        }
-        
-        public int okcancel(String theMessage, String titulo) {
-            int result = JOptionPane.showConfirmDialog((Component) null, theMessage,
-                 titulo, JOptionPane.OK_CANCEL_OPTION);
-            return result;
-        }
-        
-        public ArrayList<Integer> retornarAnosAPartirDeList(int inicio){
-                ArrayList<Integer> anos = new ArrayList<Integer>();
+			inicio++;
+			anos.add(inicio);
+		}
+		return anos;
+	}
+
+	public int okcancel(String theMessage, String titulo) {
+		int result = JOptionPane.showConfirmDialog((Component) null, theMessage,
+				titulo, JOptionPane.OK_CANCEL_OPTION);
+		return result;
+	}
+
+	public ArrayList<Integer> retornarAnosAPartirDeList(int inicio){
+		ArrayList<Integer> anos = new ArrayList<Integer>();
 		Calendar a = Calendar.getInstance();
 		int ano = a.get(Calendar.YEAR);
-                anos.add(inicio);
+		anos.add(inicio);
 		while(inicio < ano){
-                    inicio++;
-                    anos.add(inicio);
-                }
-                return anos;
-        }
-        
-	
-       public int[] retornarAnosAPartirDe(int inicio){
+			inicio++;
+			anos.add(inicio);
+		}
+		return anos;
+	}
+
+
+	public int[] retornarAnosAPartirDe(int inicio){
 		Calendar a = Calendar.getInstance();
 		int ano = a.get(Calendar.YEAR);
 		int total = ano - inicio;
@@ -75,5 +75,5 @@ public class Auxiliar {
 		}
 		return anosTodos;
 	}
-	
+
 }

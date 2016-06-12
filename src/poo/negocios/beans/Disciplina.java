@@ -2,7 +2,7 @@ package poo.negocios.beans;
 import java.io.File;
 import java.util.ArrayList;
 
-public class Disciplina {
+public class Disciplina implements Comparable{
 	private String nome;
 	private String codigo;
 	private ArrayList<Disciplina> preRequisito, coRequisito;
@@ -12,13 +12,13 @@ public class Disciplina {
 	private int cargaHoraria;
 	private File ementa;
 
-    public Disciplina(String codigo, String nome, int carga, boolean optativa, boolean obrigatoria){
-    	this.setCodigo(codigo);
-    	this.setNome(nome);
-    	this.setCargaHoraria(carga);
-    	this.setOptativa(optativa);
-    	this.setObrigatoria(obrigatoria);
-    }
+	public Disciplina(String codigo, String nome, int carga, boolean optativa, boolean obrigatoria){
+		this.setCodigo(codigo);
+		this.setNome(nome);
+		this.setCargaHoraria(carga);
+		this.setOptativa(optativa);
+		this.setObrigatoria(obrigatoria);
+	}
 
 	public Disciplina(String nome, Trilha trilha, Curso curso, int tipoDisciplina,
 			int tipoDisciplinaCurso){
@@ -255,6 +255,29 @@ public class Disciplina {
 		}
 
 		return resultado;
+	}
+
+	public boolean equals(Object ob){
+		boolean igual = false;
+		if(ob instanceof Disciplina){
+			Disciplina aux = (Disciplina) ob;
+			if(this.getCodigo() == aux.getCodigo()){
+				igual = true;
+			}
+		}
+		return igual;
+	}
+
+
+	@Override
+	public int compareTo(Object ob) {
+		int igual = 0;
+		if(ob instanceof Disciplina){
+			if(this.equals(ob)){
+				igual = 1;
+			}
+		}
+		return igual;
 	}
 
 }

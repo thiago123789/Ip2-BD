@@ -5,24 +5,18 @@
  */
 package poo.dados.DAO;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Types;
-import java.time.Clock;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.swing.JOptionPane;
 
+import poo.dados.DAO.interfaces.IPessoaDAO;
 import poo.excecoes.SenhaIncorretaException;
-import poo.negocios.beans.Disciplina;
 import poo.negocios.beans.Endereco;
 import poo.negocios.beans.Pessoa;
 
@@ -30,7 +24,7 @@ import poo.negocios.beans.Pessoa;
  *
  * @author Thiago Gomes
  */
-public class PessoaDAO {
+public class PessoaDAO implements IPessoaDAO{
 	private static PessoaDAO instance;
     private ConnectionBanco bancoConnect;
 
@@ -104,7 +98,47 @@ public class PessoaDAO {
 		return atualizou;
 	}
 
+	public ArrayList<Pessoa> listar() throws SQLException{
+		ArrayList<Pessoa> listaPessoas = new ArrayList<Pessoa>();
+		String query = "SELECT * FROM deinfo.pessoa";
+		try{
+			ResultSet resultSet = bancoConnect.comandoSQL(query);
+			while(resultSet.next()){
+				//DADOS DA PESSOA
+				String cpf_p = resultSet.getString("CPF_P"); //CPF
+				String p_nome = resultSet.getString("P_NOME"); // PRIMEIRO NOME
+				String u_nome = resultSet.getString("U_NOME"); // ULTIMO NOME
+				boolean sexo = resultSet.getBoolean("SEXO"); // SEXO
+				String senha = resultSet.getString("SENHA"); // SENHA
+				String email = resultSet.getString("EMAIL"); // EMAIL
+				int tipo_pessoa = resultSet.getInt("tipo_pessoa"); //TIPO DA PESSOA
+				Date data_nasc = resultSet.getDate("DATA_NASC"); //data nasc;
+				@SuppressWarnings("deprecation")
+				Calendar data2 = new GregorianCalendar(data_nasc.getYear(), data_nasc.getMonth(), data_nasc.getDay());
+				//DADOS DO ENDERECO
+				String logradouro = resultSet.getString("logradouro"); //LOGRADOURO
+				String cep = resultSet.getString("cep"); //CEP
+				String cidade = resultSet.getString("cidade"); //CIDADE
+				String bairro = resultSet.getString("bairro"); //BAIRRO
+				int numero = resultSet.getInt("numero"); //NUMERO DA RESIDENCIA
+				String estado = resultSet.getString("estado"); // ESTADO
+                Endereco b = new Endereco(logradouro, numero, bairro, cidade, cep, estado);
+				Pessoa a = new Pessoa(cpf_p);
+				a.setSenha(senha);
+				a.setPnome(p_nome);
+				a.setUnome(u_nome);
+				a.setDataNascimento(data2);
+				a.setTipo(tipo_pessoa);
+				listaPessoas.add(a);
 
+			}
+		}catch(SQLException e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+		return listaPessoas;
+	}
 
 
 

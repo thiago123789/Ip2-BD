@@ -5,49 +5,47 @@
  */
 package poo.negocios;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import poo.dados.DAO.DepartamentoDAO;
+import poo.dados.DAO.interfaces.IDepartamentoDAO;
 import poo.negocios.beans.Departamento;
 
-/**
- *
- * @author Thiago Gomes
- */
 public class ListarDepartamentos {
 	private static ListarDepartamentos instance;
-    private DepartamentoDAO comand;
-    
+    private IDepartamentoDAO comand;
+
     public static ListarDepartamentos getInstance(){
     	if(instance == null){
     		instance = new ListarDepartamentos();
     	}
     	return instance;
     }
-    
+
     private ListarDepartamentos(){
         comand = DepartamentoDAO.getInstance();
     }
-    
-    public String[] listaDepartamentosPorNome(){
-    	ArrayList<Departamento> aux = comand.consulta();
+
+    public String[] listaDepartamentosPorNome() throws SQLException{
+    	ArrayList<Departamento> aux = comand.listar();
     	String[] total = new String[aux.size()];
     	int i = 0;
     	for(Departamento a : aux){
     		total[i] = a.getNome();
     		i++;
-    	}    	
+    	}
     	return total;
     }
-    
-    public ArrayList<String> listaDepartamentosPorNomeList(){
-    	ArrayList<Departamento> aux = comand.consulta();
+
+    public ArrayList<String> listaDepartamentosPorNomeList() throws SQLException{
+    	ArrayList<Departamento> aux = comand.listar();
     	ArrayList<String> total = new ArrayList<String>();
     	int i = 0;
     	for(Departamento a : aux){
     		total.add(a.getNome());
-    	}    	
+    	}
     	return total;
     }
-    
+
 }
