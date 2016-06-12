@@ -8,6 +8,7 @@ import java.util.Calendar;
 
 import javax.swing.JOptionPane;
 
+import poo.dados.DAO.interfaces.IMatriculaDAO;
 import poo.excecoes.CPFInvalidoException;
 import poo.negocios.beans.Aluno;
 import poo.negocios.beans.Matricula;

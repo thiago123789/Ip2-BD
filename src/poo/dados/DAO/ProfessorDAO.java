@@ -3,6 +3,7 @@ package poo.dados.DAO;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import poo.dados.DAO.interfaces.IProfessorDAO;
 import poo.negocios.beans.Professor;
 
 public class ProfessorDAO implements IProfessorDAO{

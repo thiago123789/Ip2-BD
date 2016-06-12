@@ -20,7 +20,6 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import poo.dados.iRepositorioDisciplina;
 import poo.dados.DAO.interfaces.IHistoricoLoginDAO;
 import poo.negocios.beans.Disciplina;
 

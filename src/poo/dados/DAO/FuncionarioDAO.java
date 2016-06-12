@@ -1,6 +1,7 @@
 package poo.dados.DAO;
 
 import java.sql.SQLException;
+import poo.dados.DAO.interfaces.IFuncionarioDAO;
 
 import com.mysql.jdbc.PreparedStatement;
 
@@ -33,9 +34,11 @@ public class FuncionarioDAO implements IFuncionarioDAO{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public boolean atualizar(Funcionario atua){
-		
+		boolean atualizado = false;
+
+		return atualizado;
 	}
 
 

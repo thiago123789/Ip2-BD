@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import poo.dados.iRepositorioDisciplina;
+
 import poo.dados.DAO.interfaces.ICursoDAO;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Departamento;
