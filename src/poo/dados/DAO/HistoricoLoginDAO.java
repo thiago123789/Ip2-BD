@@ -21,27 +21,28 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 import poo.dados.iRepositorioDisciplina;
+import poo.dados.DAO.interfaces.IHistoricoLoginDAO;
 import poo.negocios.beans.Disciplina;
 
 /**
  *
  * @author Thiago Gomes
  */
-public class HistoricoLoginDAO {
+public class HistoricoLoginDAO implements IHistoricoLoginDAO{
 	private static HistoricoLoginDAO instance;
 	private ConnectionBanco bancoConnect;
-	
+
 	public static HistoricoLoginDAO getInstance(){
 		if(instance == null){
 			instance = new HistoricoLoginDAO();
 		}
 		return instance;
 	}
-	
+
 	private HistoricoLoginDAO(){
 		bancoConnect = ConnectionBanco.getInstance();
 	}
-	
+
 	public void inserir(String cpf) throws SQLException{
 		String sql = "INSERT INTO deinfo.historico_login(id, cpf_log, data_login) values(?,?,?)";
 		try{
@@ -63,7 +64,7 @@ public class HistoricoLoginDAO {
 			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			while(resultSet.next()){
 				a = resultSet.getTimestamp("data_login").toString();
-			}			
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){

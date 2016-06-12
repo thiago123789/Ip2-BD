@@ -58,6 +58,11 @@ public class Aluno extends Pessoa{
 	}
 
 
+	public Aluno(String cpf) throws CPFInvalidoException{
+		super();
+		this.setCpf(cpf);
+	}
+
 
 	public float getMedia_geral() {
 		return media_geral;

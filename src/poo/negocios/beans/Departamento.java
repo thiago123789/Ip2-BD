@@ -3,26 +3,26 @@ package poo.negocios.beans;
 import java.util.ArrayList;
 
 public class Departamento {
-    private int id;
+	private int id;
 	private String nome;
 	private String sigla;
 	private ArrayList<Curso> cursos;
 	private ArrayList<Funcionario> funcionarios;
 	private Professor diretor,vice;
-	
+
 	public Departamento(String nome){
 		this.setNome(nome);
 	}
-	
-        public Departamento(String nome, String sigla){
-            this.setNome(nome);
-            this.setSigla(sigla);
-        }
-        
-	public Departamento(){
-		
+
+	public Departamento(String nome, String sigla){
+		this.setNome(nome);
+		this.setSigla(sigla);
 	}
-	
+
+	public Departamento(){
+
+	}
+
 	public Departamento(String nome, String sigla, Professor diretor, Professor vice,
 			ArrayList<Curso> cursos, ArrayList<Funcionario> funcionarios){
 		this.setNome(nome);
@@ -32,16 +32,16 @@ public class Departamento {
 		this.setFuncionarios(funcionarios);
 		this.setCursos(cursos);
 	}
-	
+
 	public int getId(){
 		return this.id;
 	}
-	
+
 	public void setId(int id){
-            if(id>=1){
-                this.id = id;
-            }
-        }
+		if(id>=1){
+			this.id = id;
+		}
+	}
 
 	public String getNome() {
 		return nome;
@@ -74,7 +74,7 @@ public class Departamento {
 	public void setFuncionarios(ArrayList<Funcionario> funcionarios) {
 		this.funcionarios = funcionarios;
 	}
-	
+
 
 	public Professor getDiretor() {
 		return diretor;
@@ -98,10 +98,10 @@ public class Departamento {
 		return "Departamento [nome=" + nome + ", sigla=" + sigla + ", cursos=" + Arrays.toString(cursos) + "]";
 	}
 	 */
-	
 
-	
-	
-	
-	
+
+
+
+
+
 }

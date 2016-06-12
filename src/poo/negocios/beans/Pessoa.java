@@ -9,17 +9,18 @@ import poo.excecoes.CPFInvalidoException;
 
 public class Pessoa {
 	private String pNome;
-    private String uNome;
+	private String uNome;
 	private String cpf;
 	private Calendar dataNascimento;
 	private boolean sexo;
 	private String senha;
 	private String email;
 	private Endereco endereco;
-    private int tipo_pessoa;
+	private int tipo_pessoa;
+	private String lattes;
 
 	public Pessoa(String pNome, String uNome, String cpf, boolean sexo,
-                String senha, String email, Endereco endereco, int tipo_pessoa, Calendar nascimento) throws CPFInvalidoException
+			String senha, String email, Endereco endereco, int tipo_pessoa, Calendar nascimento, String lattes) throws CPFInvalidoException
 	{
 		this.setPnome(pNome);
 		this.setUnome(uNome);
@@ -28,38 +29,46 @@ public class Pessoa {
 		this.setSenha(senha);
 		this.setEmail(email);
 		this.setEndereco(endereco);
-                this.setTipo(tipo_pessoa);
-                this.setDataNascimento(nascimento);
+		this.setTipo(tipo_pessoa);
+		this.setDataNascimento(nascimento);
 	}
 
-        public Pessoa(String cpf) throws CPFInvalidoException{
-            this.setCpf(cpf);
-        }
+	public Pessoa(String cpf) throws CPFInvalidoException{
+		this.setCpf(cpf);
+	}
 
 
-        public Pessoa() {
-			// TODO Auto-generated constructor stub
+	public Pessoa() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getLattes() {
+		return lattes;
+	}
+
+	public void setLattes(String lattes) {
+		this.lattes = lattes;
+	}
+
+	public int getTipo(){
+		return this.tipo_pessoa;
+	}
+
+	public void setTipo(int tp){
+		if(tp >= 0 && tp <= 2){
+			this.tipo_pessoa = tp;
 		}
+	}
 
-		public int getTipo(){
-            return this.tipo_pessoa;
-        }
+	public void setUnome(String nome){
+		if(nome != null){
+			this.uNome = nome;
+		}
+	}
 
-        public void setTipo(int tp){
-            if(tp >= 0 && tp <= 2){
-                this.tipo_pessoa = tp;
-            }
-        }
-
-        public void setUnome(String nome){
-            if(nome != null){
-                this.uNome = nome;
-            }
-        }
-
-        public String getUnome(){
-            return this.uNome;
-        }
+	public String getUnome(){
+		return this.uNome;
+	}
 
 	public void setPnome(String nome)
 	{
@@ -98,7 +107,7 @@ public class Pessoa {
 
 	public void setDataNascimento(Calendar nascimento) {
 		if(nascimento != null){
-		this.dataNascimento = nascimento;
+			this.dataNascimento = nascimento;
 		}
 	}
 
@@ -107,8 +116,8 @@ public class Pessoa {
 	}
 
 	public void setSexo(boolean sexo) {
-            this.sexo = sexo;
-        }
+		this.sexo = sexo;
+	}
 
 	public String getSenha() {
 		return senha;
@@ -116,7 +125,7 @@ public class Pessoa {
 
 	public void setSenha(String senha) {
 		if(senha != null){
-		this.senha = senha;
+			this.senha = senha;
 		}
 	}
 
@@ -126,7 +135,7 @@ public class Pessoa {
 
 	public void setEmail(String email) {
 		if(email != null){
-		this.email = email;
+			this.email = email;
 		}
 	}
 

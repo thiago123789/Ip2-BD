@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import poo.dados.DAO.interfaces.IAlunoDAO;
 import poo.excecoes.SenhaIncorretaException;
 import poo.negocios.beans.Aluno;
 import poo.negocios.beans.Curso;
@@ -104,8 +105,8 @@ public class AlunoDAO implements IAlunoDAO{
 		}
 		return list;
 	}
-	
-	
+
+
 	/*
 	 * FIM DO CRUD DO SISTEMA
 	 */

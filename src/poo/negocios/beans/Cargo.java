@@ -1,35 +1,26 @@
 package poo.negocios.beans;
 
-public class Trilha {
+public class Cargo {
 	private int codigo;
-	private AreaDePesquisa area;
 	private String nome;
 
-	public Trilha(int codigo, AreaDePesquisa area, String nome){
+	public Cargo(int codigo, String nome){
 		this.setCodigo(codigo);
-		this.setArea(area);
 		this.setNome(nome);
-	}
-
-	public Trilha(int codigo){
-		this.setCodigo(codigo);
 	}
 
 	public int getCodigo() {
 		return codigo;
 	}
+
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	public AreaDePesquisa getArea() {
-		return area;
-	}
-	public void setArea(AreaDePesquisa area) {
-		this.area = area;
-	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}

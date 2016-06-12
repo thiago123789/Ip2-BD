@@ -1,4 +1,4 @@
-package poo.dados.DAO;
+package poo.dados.DAO.interfaces;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

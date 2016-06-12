@@ -1,7 +1,7 @@
 package poo.negocios.beans;
 
 public class Localizacao {
-        private int codigo;
+	private int codigo;
 	private int sala;
 	private String predio;
 
@@ -19,17 +19,17 @@ public class Localizacao {
 			this.sala = sala;
 		}
 	}
-        
-        public void setCodigo(int codigo){
-            if(codigo > 0){
-                this.codigo = codigo;
-            }
-        }
-        
-        public int getCodigo(){
-            return this.codigo;
-        }
-        
+
+	public void setCodigo(int codigo){
+		if(codigo > 0){
+			this.codigo = codigo;
+		}
+	}
+
+	public int getCodigo(){
+		return this.codigo;
+	}
+
 	public String getPredio() {
 		return predio;
 	}

@@ -1,15 +1,16 @@
 package poo.negocios.beans;
+import java.io.File;
 import java.util.ArrayList;
 
 public class Disciplina {
 	private String nome;
 	private String codigo;
 	private ArrayList<Disciplina> preRequisito, coRequisito;
-//	private Disciplina[] preReq;
-	private boolean optativa, obrigatoria, graduacao, posGraducao;
+	private boolean optativa, obrigatoria, graduacao, posGraduacao;
 	private Curso curso;
 	private Trilha trilha;
 	private int cargaHoraria;
+	private File ementa;
 
     public Disciplina(String codigo, String nome, int carga, boolean optativa, boolean obrigatoria){
     	this.setCodigo(codigo);
@@ -18,21 +19,21 @@ public class Disciplina {
     	this.setOptativa(optativa);
     	this.setObrigatoria(obrigatoria);
     }
-	
-	public Disciplina(String nome, Trilha trilha, Curso curso, int tipoDisciplina, 
+
+	public Disciplina(String nome, Trilha trilha, Curso curso, int tipoDisciplina,
 			int tipoDisciplinaCurso){
 		this.setNome(nome);
 		this.setTipoDisciplina(tipoDisciplina);
-		this.setTipoDisciplinaCurso(tipoDisciplinaCurso);	
+		this.setTipoDisciplinaCurso(tipoDisciplinaCurso);
 		this.setTrilha(trilha);
 		this.setCurso(curso);
 		this.setCodigo();
 	}
-        
+
 	public Disciplina(String nome, int requisito,
 			ArrayList<Disciplina> preRequisito, int corequisito,
-			ArrayList<Disciplina> coRequisito, 
-			Trilha trilha, Curso curso, int tipoDisciplina, 
+			ArrayList<Disciplina> coRequisito,
+			Trilha trilha, Curso curso, int tipoDisciplina,
 			int tipoDisciplinaCurso){
 		this.setNome(nome);
 		if(requisito == 1){
@@ -42,13 +43,36 @@ public class Disciplina {
 			this.setCoRequisito(coRequisito);
 		}
 		this.setTipoDisciplina(tipoDisciplina);
-		this.setTipoDisciplinaCurso(tipoDisciplinaCurso);	
+		this.setTipoDisciplinaCurso(tipoDisciplinaCurso);
 		this.setTrilha(trilha);
 		this.setCurso(curso);
 		this.setCodigo();
 	}
 
-	
+	public Disciplina(String codigo){
+		this.setCodigo();
+	}
+
+	public File getEmenta() {
+		return ementa;
+	}
+
+	public void setEmenta(File ementa) {
+		this.ementa = ementa;
+	}
+
+	public boolean isPosGraducao() {
+		return posGraduacao;
+	}
+
+	public void setPosGraducao(boolean posGraducao) {
+		this.posGraduacao = posGraducao;
+	}
+
+	public boolean isGraduacao() {
+		return graduacao;
+	}
+
 	public Disciplina() {
 		// TODO Auto-generated constructor stub
 	}
@@ -73,7 +97,7 @@ public class Disciplina {
 	}
 
 	public boolean getPosGraduacao(){
-		return this.posGraducao;
+		return this.posGraduacao;
 	}
 
 	public Trilha getTrilha(){
@@ -102,12 +126,12 @@ public class Disciplina {
 		}
 	}
 
-	private void setGraduacao(boolean value){
+	public void setGraduacao(boolean value){
 		this.graduacao = value;
 	}
 
-	private void setPosGraduacao(boolean value){
-		this.posGraducao = value;
+	public void setPosGraduacao(boolean value){
+		this.posGraduacao = value;
 	}
 
 	public boolean getOptativa(){
@@ -118,7 +142,7 @@ public class Disciplina {
 		return this.obrigatoria;
 	}
 
-	//SE FOR O � OBRIGATORIA SE FOR QUALQUER OUTRO VALOR SER� OPTATIVA;
+	//SE FOR OBRIGATORIA SE FOR QUALQUER OUTRO VALOR SER� OPTATIVA;
 	public void setTipoDisciplina(int op){
 		if(op == 0){
 			this.setObrigatoria(true);
@@ -129,11 +153,11 @@ public class Disciplina {
 		}
 	}
 
-	private void setOptativa(boolean value){
+	public void setOptativa(boolean value){
 		this.optativa = value;
 	}
 
-	private void setObrigatoria(boolean value){
+	public void setObrigatoria(boolean value){
 		this.obrigatoria = value;
 	}
 
@@ -155,7 +179,7 @@ public class Disciplina {
 	private void setCodigo(String codigo){
 		this.codigo = codigo;
 	}
-	
+
 	private void setCodigo() {
 		String codigoFinal = "";
 		boolean espace = false;
@@ -194,19 +218,6 @@ public class Disciplina {
 				break;
 			}
 		}
-
-//		codigoFinal+="-";
-//		if(this.getGraducao()){
-//			codigoFinal+="GRA";
-//		}else{
-//			codigoFinal+="POS";
-//		}
-//		codigoFinal+="-";
-//		if(this.getObrigatoria()){
-//			codigoFinal+="OBG";
-//		}else{
-//			codigoFinal+="OPT";
-//		}
 		this.codigo = codigoFinal.toUpperCase();
 	}
 
@@ -242,7 +253,7 @@ public class Disciplina {
 		}else{
 			resultado += "Pos-graducao";
 		}
-		
+
 		return resultado;
 	}
 

@@ -9,23 +9,32 @@ public class Curso {
         private int ano_inicio;
     private Departamento depat;
     private Professor coordenador, vice;
-    
+
 	public Curso(int codigo, String nome, int ano_inicio)
 	{
 		this.setCodigo(codigo);
 		this.setNome(nome);
 	}
-	
+
 	public Curso(String nome, boolean graducao)
 	{
 		this.setCodigo(codigo);
 		this.setNome(nome);
 		this.setGraduacao(graduacao);
-		this.setPosGraducao(!graduacao);	
+		this.setPosGraducao(!graduacao);
 	}
-	
-	
-	
+
+	public Curso(Professor coordenador, Professor vice, Departamento depat){
+		this.setCoordenador(coordenador);
+		this.setVice(vice);
+		this.setDepat(depat);
+	}
+
+	public Curso(int codigo){
+		this.setCodigo(codigo);
+	}
+
+
 	public int getAno_inicio() {
 		return ano_inicio;
 	}
@@ -41,59 +50,59 @@ public class Curso {
 			this.coordenador = a;
 		}
 	}
-	
+
 	public void setVice(Professor a){
 		if(a != null){
 			this.vice = a;
 		}
 	}
-	
+
 	public Professor getCoordenador(){
 		return this.coordenador;
 	}
-	
+
 	public Professor getVice(){
 		return this.vice;
 	}
-	
+
 	public Departamento getDepat(){
 		return this.depat;
 	}
-        
+
 	public void setDepat(Departamento depat){
 		if(depat != null){
 			this.depat = depat;
 		}
 	}
-	
+
         public int getAnoInicio(){
             return this.ano_inicio;
         }
-	
+
         public void setAnoInicio(int ano){
             this.ano_inicio = ano;
         }
-        
+
 	public boolean getPosGraduacao(){
 		return this.posgraduacao;
 	}
-	
+
 	public boolean getGraducao(){
 		return this.graduacao;
 	}
-	
+
 	public void setGraduacao(boolean b){
 		this.graduacao = b;
 	}
-	
+
 	public void setPosGraducao(boolean c){
 		this.posgraduacao = c;
 	}
-	
+
 	public Curso(){
-		
+
 	}
-	
+
 	public int getCodigo() {
 		return codigo;
 	}
@@ -107,10 +116,10 @@ public class Curso {
 		if(nome != null)
 		{
 			this.nome = nome;
-		}	
+		}
 	}
-	
-	
+
+
 	public String getNome()
 	{
 		return this.nome;
@@ -134,10 +143,10 @@ public class Curso {
 
 	@Override
 	public String toString() {
-		return "Curso [nome=" + nome + "]"; 
+		return "Curso [nome=" + nome + "]";
 	}
-	
-	
-	
-	
+
+
+
+
 }

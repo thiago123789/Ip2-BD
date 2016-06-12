@@ -3,16 +3,29 @@ package poo.negocios.beans;
 import java.util.ArrayList;
 
 public class OfertaDisciplina {
+	private int codigo;
 	private Disciplina disciplina;
 	private int ano, semestre;
 	private int id;
 	private Localizacao local;
-	
+
 	public OfertaDisciplina(Disciplina disciplina, int ano, int semetre, Localizacao local){
 		this.setDisciplina(disciplina);
 		this.setAno(ano);
 		this.setSemestre(semetre);
 		this.setLocal(local);
+	}
+
+	public OfertaDisciplina(int codigo){
+		this.setCodigo(codigo);
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 	public Disciplina getDisciplina() {
@@ -66,7 +79,7 @@ public class OfertaDisciplina {
 			this.local = local;
 		}
 	}
-	
-	
-	
+
+
+
 }

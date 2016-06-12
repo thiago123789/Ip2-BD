@@ -1,27 +1,31 @@
  package poo.dados.DAO;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import poo.dados.DAO.interfaces.ILocalizacaoDAO;
 import poo.negocios.beans.Localizacao;
 
-public class LocalizacaoDAO {
+public class LocalizacaoDAO implements ILocalizacaoDAO{
 	private static LocalizacaoDAO instance;
 	private ConnectionBanco bancoConnect;
-	
+
 	public static LocalizacaoDAO getInstance(){
 		if(instance == null){
 			instance = new LocalizacaoDAO();
 		}
 		return instance;
 	}
-	
+
 	private LocalizacaoDAO(){
 		bancoConnect = ConnectionBanco.getInstance();
 	}
-	
-	public boolean inserir(Localizacao l){
+
+	public boolean inserir(Localizacao l) throws SQLException{
 		boolean inseriu = false;
 		String sql = "INSERT INTO deinfo.localizacao(SALA, PREDIO) "
                                 + "values(?,?)";
@@ -36,15 +40,41 @@ public class LocalizacaoDAO {
 		}
 		return inseriu;
 	}
-	
-	public int idLocalizacao(){
-		int id = -1;
-		
-		
-		return id;
+
+	public boolean atualizar(Localizacao l) throws SQLException{
+		boolean atualizou = false;
+		String query = "UPDATE deinfo.localizacao SET SALA = ?, PREDIO = ? WHERE ID = ?";
+		try{
+			PreparedStatement smt = bancoConnect.retornoStatement(query);
+			smt.setInt(1, l.getSala());
+			smt.setString(2, l.getPredio());
+			smt.setInt(3, l.getCodigo());
+			smt.execute();
+			atualizou = true;
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return atualizou;
 	}
-	
-	
-	
-	
+
+	public ArrayList<Localizacao> listar() throws SQLException{
+		ArrayList<Localizacao> listaLocalizacoes = new ArrayList<Localizacao>();
+		String query = "SELECT * FROM deinfo.localizcao";
+		try{
+			ResultSet rs = bancoConnect.comandoSQL(query);
+			while(rs.next()){
+				int id = rs.getInt(1);
+				int sala = rs.getInt(2);
+				String predio = rs.getString(3);
+				Localizacao aux = new Localizacao(predio, sala);
+				aux.setCodigo(id);
+				listaLocalizacoes.add(aux);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return listaLocalizacoes;
+	}
+
+
 }

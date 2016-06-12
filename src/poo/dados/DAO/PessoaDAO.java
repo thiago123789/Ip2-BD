@@ -33,18 +33,18 @@ import poo.negocios.beans.Pessoa;
 public class PessoaDAO {
 	private static PessoaDAO instance;
     private ConnectionBanco bancoConnect;
-	
+
     public static PessoaDAO getInstance(){
     	if(instance == null){
     		instance = new PessoaDAO();
     	}
     	return instance;
     }
-    
+
 	private PessoaDAO(){
 		bancoConnect = ConnectionBanco.getInstance();
 	}
-	        
+
 	public boolean inserir(Pessoa p) throws SQLException{
 		boolean inseriu = false;
 		String sql = "INSERT INTO deinfo.pessoa(cpf_p, P_NOME, U_NOME, SEXO, SENHA, EMAIL, "
@@ -74,7 +74,48 @@ public class PessoaDAO {
 		}
 		return inseriu;
 	}
-        
+
+	public boolean atualiza(Pessoa a) throws SQLException{
+		boolean atualizou = false;
+		String sql = "UPDATE deinfo.pessoa SET cpf_p = ?, P_NOME = ?,  U_NOME = ?, SEXO = ?, SENHA = ?, "
+				+ "EMAIL = ?, logradouro = ?, cep = ?, tipo_pessoa = ?, cidade = ?, bairro = ?, numero = ?, estado = ?"
+				+ "WHERE cpf_p = ?";
+		try{
+			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(sql);
+			smt.setString(1, a.getCpf());
+            smt.setString(2, a.getPnome());
+			smt.setString(3, a.getUnome());
+            smt.setInt(4, (a.getSexo())? 0 : 1);
+			smt.setString(5, a.getSenha());
+            smt.setString(6, a.getEmail());
+            smt.setString(7, a.getEndereco().getLogradouro());
+            smt.setString(8, a.getEndereco().getCep());
+            smt.setInt(9, a.getTipo());
+            smt.setString(10, a.getEndereco().getCidade());
+            smt.setString(11, a.getEndereco().getBairro());
+            smt.setInt(12, a.getEndereco().getNumero());
+            smt.setString(13, a.getEndereco().getEstado());
+			smt.setString(14, a.getCpf());
+			smt.execute();
+			atualizou = true;
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+		return atualizou;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public int tipoDeUsuario(String cpf){
         int tipo = -1;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -82,7 +123,7 @@ public class PessoaDAO {
 			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			while(resultSet.next()){
 				tipo = resultSet.getInt("TIPO_PESSOA");
-			}			
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -90,8 +131,8 @@ public class PessoaDAO {
 		}
 		return tipo;
 	}
-    
-	
+
+
 	public String verificaSenha(String cpf){
         String aux = null;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -108,7 +149,7 @@ public class PessoaDAO {
 		}
 		return aux;
 	}
-        
+
 	public boolean autenticar(String cpf, String senha){
         boolean ok = false;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -131,7 +172,7 @@ public class PessoaDAO {
 		}
 		return ok;
 	}
-        
+
     public String nomeUsuario(String cpf){
     	String completo = "";
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -149,7 +190,7 @@ public class PessoaDAO {
 		}
 		return completo;
     }
-    
+
     public int cursoUsuario(String cpf){
         int completo = -1;
         String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -166,7 +207,7 @@ public class PessoaDAO {
         	}
         return completo;
     }
-    
+
     public boolean existeUsuario(String cpf){
         boolean ok = false;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -175,7 +216,7 @@ public class PessoaDAO {
 			if(resultSet.isBeforeFirst()){
 				ok = true;
 				System.out.println(ok);
-            }                        
+            }
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -183,36 +224,9 @@ public class PessoaDAO {
 		}
 		return ok;
     }
-        
-    public boolean atualiza(Pessoa a) throws SQLException{
-    		boolean atualizou = false;
-    		String sql = "UPDATE deinfo.pessoa SET cpf_p = ?, P_NOME = ?,  U_NOME = ?, SEXO = ?, SENHA = ?, "
-    				+ "EMAIL = ?, logradouro = ?, cep = ?, tipo_pessoa = ?, cidade = ?, bairro = ?, numero = ?, estado = ?"
-    				+ "WHERE cpf_p = ?";
-    		try{
-    			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(sql);
-    			smt.setString(1, a.getCpf());
-                smt.setString(2, a.getPnome());
-    			smt.setString(3, a.getUnome());
-                smt.setInt(4, (a.getSexo())? 0 : 1);
-    			smt.setString(5, a.getSenha());
-                smt.setString(6, a.getEmail());
-                smt.setString(7, a.getEndereco().getLogradouro());
-                smt.setString(8, a.getEndereco().getCep());
-                smt.setInt(9, a.getTipo());
-                smt.setString(10, a.getEndereco().getCidade());
-                smt.setString(11, a.getEndereco().getBairro());
-                smt.setInt(12, a.getEndereco().getNumero());
-                smt.setString(13, a.getEndereco().getEstado());
-    			smt.setString(14, a.getCpf());
-    			smt.execute();
-    			atualizou = true;
-    		}catch(Exception e){
-    			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-    		}
-    		return atualizou;
-    	}
-    
+
+
+
     public Pessoa buscaPessoa(String cpf){
 		Pessoa a = null;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -237,7 +251,7 @@ public class PessoaDAO {
 				a.setPnome(p_nome);
 				a.setUnome(u_nome);
 				Endereco b = new Endereco(logradouro, numero, bairro, cidade, cep, estado);
-			}			
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){

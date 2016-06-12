@@ -18,16 +18,18 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import poo.dados.iRepositorioDisciplina;
+import poo.dados.DAO.interfaces.ICursoDAO;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Departamento;
 import poo.negocios.beans.Disciplina;
+import poo.negocios.beans.Professor;
 
 import com.mysql.jdbc.PreparedStatement;
 /**
  *
  * @author Marcos Eduardo
  */
-public class CursoDAO {
+public class CursoDAO implements ICursoDAO{
 	private static CursoDAO instance;
 	private ConnectionBanco bancoConnect;
 
@@ -107,26 +109,42 @@ public class CursoDAO {
 		return atualizou;
 	}
 
+	//ID, NOME, COORDENADOR, VICE_COORDENADOR, GRADUACAO, POSGRADUACAO, DEPARTAMENTO_ID, ANO_INICIO
 	public ArrayList<Curso> listar(){
-		ArrayList<Curso> c = new ArrayList<Curso>();
+		ArrayList<Curso> listaCursos = new ArrayList<Curso>();
 		String query = "SELECT * FROM deinfo.curso";
 		try{
 			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			while(resultSet.next()){
-				int cod = resultSet.getInt("id");
-				String nome = resultSet.getString("nome");
-				int ano = resultSet.getInt("ano_inicio");
+				int cod = resultSet.getInt("ID");
+				String nome = resultSet.getString("NOME");
+				String coordenador = resultSet.getString("COORDENADOR");
+				String vice = resultSet.getString("VICE_COORDENADOR");
+				boolean graducao = resultSet.getBoolean("GRADUACAO");
+				boolean posgraduacao = resultSet.getBoolean("POSGRADUACAO");
+				int departamento = resultSet.getInt("DEPARTAMENTO_ID");
+				int ano = resultSet.getInt("ANO_INICIO");
+				Departamento aux = new Departamento();
+				aux.setId(departamento);
 				Curso curso = new Curso(cod, nome, ano);
-				c.add(curso);
+				curso.setCoordenador(new Professor(coordenador));
+				curso.setVice(new Professor(vice));
+				curso.setDepat(aux);
+				curso.setGraduacao(graducao);
+				curso.setPosGraducao(posgraduacao);
+				listaCursos.add(curso);
 			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
-		return c;
+		return listaCursos;
 	}
 
+
+
+	//EXCLUIR DO CRUD
 	public Curso buscaCursoPorID(int id){
 		Curso a = null;
 		String query = "SELECT * FROM deinfo.curso WHERE ID = "+id+"";
@@ -146,6 +164,9 @@ public class CursoDAO {
 		return a;
 	}
 
+
+
+	//EXCLUIR DO CRUD
 	public int buscaAnoCurso(String nome){
 		int a = -1;
 		String query = "SELECT * FROM deinfo.curso WHERE nome = \""+nome+"\"";
