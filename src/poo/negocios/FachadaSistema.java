@@ -1,5 +1,6 @@
 package poo.negocios;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import poo.excecoes.DisciplinaJaExisteException;
@@ -23,7 +24,7 @@ public class FachadaSistema {
     private Auxiliar aux;
     private ListarPreRequisitos preList;
     private DetalhesDisciplina details;
-    
+
     private FachadaSistema(){
     	addDisciplina = CadastroDisciplina.getInstance();
     	addTeacher = CadastroProfessor.getInstance();
@@ -47,8 +48,11 @@ public class FachadaSistema {
 		return instance;
 	}
 
-	public void inserirDisciplina(Disciplina a)
-			throws DisciplinaJaExisteException {
+	public boolean existeDisciplina(String codigo) {
+		return addDisciplina.existeDisciplina(codigo);
+	}
+
+	public void inserirDisciplina(Disciplina a) throws DisciplinaJaExisteException {
 		addDisciplina.inserirDisciplina(a);
 	}
 
@@ -64,38 +68,56 @@ public class FachadaSistema {
 		return list.listarNomes();
 	}
 
-	public String[] listarCursosPorNome() {
+	public String mostrarDetalhes(Disciplina a) {
+		return list.mostrarDetalhes(a);
+	}
+
+	public String[] listarCodigosPreRequisitos1(String cod) throws SQLException {
+		return list.listarCodigosPreRequisitos(cod);
+	}
+
+	public String[] listarNomesPreRequisitos1(String cod) {
+		return list.listarNomesPreRequisitos(cod);
+	}
+
+	public String[] listarPorNome() {
 		return listCurso.listarPorNome();
 	}
 
-	public ArrayList<String> listarCursosPorNomeList() {
+	public ArrayList<String> listarPorNomeList() {
 		return listCurso.listarPorNomeList();
+	}
+
+	public int anoInicioCurso(String nomeCurso) {
+		return listCurso.anoInicioCurso(nomeCurso);
 	}
 
 	public void cadastraDepat(Departamento depat) {
 		cadDepat.cadastraDepat(depat);
 	}
 
-	public String[] listaDepartamentosPorNome() {
+	public String[] listaDepartamentosPorNome() throws SQLException {
 		return listDepat.listaDepartamentosPorNome();
 	}
 
-	public ArrayList<String> listaDepartamentosPorNomeList() {
+	public ArrayList<String> listaDepartamentosPorNomeList() throws SQLException {
 		return listDepat.listaDepartamentosPorNomeList();
+	}
+
+	public int idDepartamento(String nome) {
+		return cadCurso.idDepartamento(nome);
 	}
 
 	public void cadastroCurso(Curso curso) {
 		cadCurso.cadastroCurso(curso);
 	}
 
-	
-	/*
-	 * FALTA EDITAR ESTE METODO PARA MOSTRAR APENAS DISCIPLINAS DO CURSO NO QUAL A PESSOA QUE ESTÁ PESQUISANDO PERTENCE
-	 */
 	public ArrayList<Disciplina> searchAdvanced(String nom) {
-//		int cursoUser = info.cursoUsuario(cpf);
-//		if()
 		return advanced.searchAdvanced(nom);
+	}
+
+	public int cursoAluno(String cpf) {
+		return info.cursoAluno(cpf);
 	}
 
 	public void cadastraAluno(Aluno a) {
@@ -114,30 +136,6 @@ public class FachadaSistema {
 		return aux.okcancel(theMessage, titulo);
 	}
 
-	public ArrayList<String> listarCodigosPreRequisitos(String cod) {
-		return preList.listarCodigosPreRequisitos(cod);
-	}
-
-	public ArrayList<String> listarNomesPreRequisitos(String cod) {
-		return preList.listarNomesPreRequisitos(cod);
-	}
-
-	public String detalheDisciplina(String codig) {
-		return details.detalheDisciplina(codig);
-	}
-
-	public String[] listarPorNome() {
-		return listCurso.listarPorNome();
-	}
-
-	public ArrayList<String> listarPorNomeList() {
-		return listCurso.listarPorNomeList();
-	}
-
-	public int anoInicioCurso(String nomeCurso) {
-		return listCurso.anoInicioCurso(nomeCurso);
-	}
-
 	public ArrayList<Integer> retornarAnosAPartirDeList(int inicio) {
 		return aux.retornarAnosAPartirDeList(inicio);
 	}
@@ -145,14 +143,32 @@ public class FachadaSistema {
 	public int[] retornarAnosAPartirDe(int inicio) {
 		return aux.retornarAnosAPartirDe(inicio);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	public Disciplina buscarDisciplina(String codigo) {
+		return preList.buscarDisciplina(codigo);
+	}
+
+	public Curso buscarCursoPorID(int id) {
+		return details.buscarCursoPorID(id);
+	}
+
+	public Disciplina buscarDisciplinaPorCodigo(String codigo) {
+		return details.buscarDisciplinaPorCodigo(codigo);
+	}
+
+	public String detalheDisciplina(String codig) {
+		return details.detalheDisciplina(codig);
+	}
+
+	public ArrayList<String> listarCodigosPreRequisitos(String cod) throws SQLException {
+		return preList.listarCodigosPreRequisitos(cod);
+	}
+
+	public ArrayList<String> listarNomesPreRequisitos(String cod) throws SQLException {
+		return preList.listarNomesPreRequisitos(cod);
+	}
+
+
+
+
 }
