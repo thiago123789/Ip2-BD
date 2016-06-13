@@ -94,6 +94,10 @@ public class FachadaUsuario {
 		return auxFormat.validarCPF(numeroCPF);
 	}
 
+	public void logar(String cpf) throws SQLException {
+		auto.logar(cpf);
+	}
+
 
 
 

@@ -34,14 +34,14 @@ public class JFLogin extends javax.swing.JFrame {
     /**
      * Creates new form JFLogin
      */
-    
-    
-    
+
+
+
     public JFLogin() {
         initComponents();
 //        img = new ImageIcon("\");
-        
-        JRootPane rootPane = SwingUtilities.getRootPane(jBLogar); 
+
+        JRootPane rootPane = SwingUtilities.getRootPane(jBLogar);
         rootPane.setDefaultButton(jBLogar);
     }
 
@@ -195,11 +195,11 @@ public class JFLogin extends javax.swing.JFrame {
         String usuario1 = jTUsuario.getText();
         char[] senhaC = jPSenhaLogin.getPassword();
         String senha = "";
-        
+
         for(int i = 0; i < senhaC.length; i++){
             senha += senhaC[i];
         }
-        
+
         String usuario = format.soNumerosCPF(usuario1);
         try{
         boolean existe = auto.usuarioExiste(usuario);
@@ -221,7 +221,7 @@ public class JFLogin extends javax.swing.JFrame {
                             this.setVisible(false);
                             auto.logar(usuario);
                         }
-                    }       
+                    }
                 }else if(auto.tipoDeUsuario(usuario) == 2){
                     boolean ok = auto.autenticaSenha(usuario, senha);
                     if(ok){
@@ -241,7 +241,7 @@ public class JFLogin extends javax.swing.JFrame {
                             this.setVisible(false);
                             auto.logar(usuario);
                         }
-                    }           
+                    }
                 }
             }
         }catch(UsuarioNaoExiste e){
@@ -251,11 +251,11 @@ public class JFLogin extends javax.swing.JFrame {
         }catch(SenhaIncorretaException e){
             jPSenhaLogin.setText(null);
             JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-            
+
         }catch(SQLException e){
             jPSenhaLogin.setText(null);
             JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-            
+
         }
     }//GEN-LAST:event_jBLogarActionPerformed
 
@@ -273,7 +273,7 @@ public class JFLogin extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
