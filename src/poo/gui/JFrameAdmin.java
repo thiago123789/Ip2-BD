@@ -8,6 +8,8 @@ package poo.gui;
 import java.awt.Color;
 import java.awt.Font;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -534,7 +536,12 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
         // TODO add your handling code here:
-        FrameCadastroCurso f = new FrameCadastroCurso();
+        FrameCadastroCurso f = null;
+        try {
+            f = new FrameCadastroCurso();
+        } catch (SQLException ex) {
+            Logger.getLogger(JFrameAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
         desktop.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItem14ActionPerformed

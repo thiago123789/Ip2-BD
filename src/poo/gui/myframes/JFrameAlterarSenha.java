@@ -7,6 +7,9 @@ package poo.gui.myframes;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import poo.negocios.FachadaUsuario;
 
@@ -172,25 +175,29 @@ public class JFrameAlterarSenha extends javax.swing.JFrame {
             novaAgain += novaAgainChar[i];
         }
         System.out.println(senha);
-        if(fachada.verificaSenha(fachada.soNumerosCPF(usuario)).equals(senha)){
-            if(!nova.equals(novaAgain)){
-                jPNova.setText(null);
-                jPNovaConfirmar.setText(null);
-                JOptionPane.showConfirmDialog(null, "Senhas não correspondem.", "Erro", -1);
-            }else{
-                alterou = fachada.alterarSenha(fachada.soNumerosCPF(usuario), nova);
-                if(alterou){
-                    JOptionPane.showConfirmDialog(null, "Senha alterada com sucesso.", "Sucesso", -1);
-                    this.setVisible(false);
-                }else{
+        try {
+            if(fachada.retornaSenha(fachada.soNumerosCPF(usuario)).equals(senha)){
+                if(!nova.equals(novaAgain)){
                     jPNova.setText(null);
                     jPNovaConfirmar.setText(null);
-                    JOptionPane.showConfirmDialog(null, "Não foi possivel alterar a senha.", "Erro", -1);
+                    JOptionPane.showConfirmDialog(null, "Senhas não correspondem.", "Erro", -1);
+                }else{
+                    alterou = fachada.alterarSenha(fachada.soNumerosCPF(usuario), nova);
+                    if(alterou){
+                        JOptionPane.showConfirmDialog(null, "Senha alterada com sucesso.", "Sucesso", -1);
+                        this.setVisible(false);
+                    }else{
+                        jPNova.setText(null);
+                        jPNovaConfirmar.setText(null);
+                        JOptionPane.showConfirmDialog(null, "Não foi possivel alterar a senha.", "Erro", -1);
+                    }
                 }
+            }else{
+                jPAtual.setText(null);
+                JOptionPane.showConfirmDialog(null, "Senha atual informada está incorreta", "Erro", -1);
             }
-        }else{
-            jPAtual.setText(null);
-            JOptionPane.showConfirmDialog(null, "Senha atual informada está incorreta", "Erro", -1);
+        } catch (SQLException ex) {
+            Logger.getLogger(JFrameAlterarSenha.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

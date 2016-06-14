@@ -37,10 +37,6 @@ public class FrameListarDisciplinas extends javax.swing.JInternalFrame {
         model2 = new DefaultListModel();
         model3 = new DefaultListModel();
         model4 = new DefaultListModel();
-        this.preencherModel();
-        this.preencherModel2();
-        this.preencherModel3();
-        this.preencherModel4();
         jList1.setModel(model);
         jList2.setModel(model2);
         jList2.setEnabled(false);
@@ -63,28 +59,9 @@ public class FrameListarDisciplinas extends javax.swing.JInternalFrame {
         }
     }
     
-    public void preencherModel3(){
-    	ArrayList<String> temp = fachada.listarCodigosPreRequisitos(jList1.getSelectedValue());
-        if(temp == null){
-            model3.addElement(" ");
-            
-        }else{
-            for(String a : temp){
-                model3.addElement(a);
-            } 
-        }
-    }
     
-    public void preencherModel4(){
-    	ArrayList<String> temp = fachada.listarNomesPreRequisitos(jList1.getSelectedValue());
-        if(temp == null){
-            model4.addElement(" ");
-        }else{
-            for(String a : temp){
-                model4.addElement(a);
-            } 
-        } 
-    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -252,8 +229,6 @@ public class FrameListarDisciplinas extends javax.swing.JInternalFrame {
         fachada = FachadaSistema.getInstance();
         model3.removeAllElements();
         model4.removeAllElements();
-        this.preencherModel3();
-        this.preencherModel4();
         textArea1.setText(fachada.detalheDisciplina(jList1.getSelectedValue()));
     	
     }//GEN-LAST:event_jList1ValueChanged

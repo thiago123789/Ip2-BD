@@ -35,7 +35,7 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
     
     public void preencher2(){
         fachada = FachadaSistema.getInstance();
-        ArrayList<String> aux = fachada.listarCursosPorNomeList();
+        ArrayList<String> aux = fachada.listarPorNomeList();
         for(String a : aux ){
             jCCursos.addItem(a);
         }

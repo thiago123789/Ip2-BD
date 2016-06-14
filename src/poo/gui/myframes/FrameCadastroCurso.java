@@ -5,6 +5,7 @@
  */
 package poo.gui.myframes;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import poo.negocios.FachadaSistema;
@@ -20,13 +21,13 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
     /**
      * Creates new form FrameCadastroCurso
      */
-    public FrameCadastroCurso() {
+    public FrameCadastroCurso() throws SQLException {
         initComponents();
         preencher();
         preencher2();
     }
     
-    public void preencher(){
+    public void preencher() throws SQLException{
         fachada = FachadaSistema.getInstance();
         ArrayList<String> aux = fachada.listaDepartamentosPorNomeList();
         for(String a : aux ){
