@@ -26,7 +26,7 @@ public class JFrameAlterarSenha extends javax.swing.JFrame {
     public JFrameAlterarSenha() {
         initComponents();
         jTUser.setEditable(false);
-        
+
         Color padrao = new Color(255, 255, 255);
         jTUser.setBackground(padrao);
         Font nova = new Font("Arial", Font.BOLD, 14);
@@ -37,7 +37,7 @@ public class JFrameAlterarSenha extends javax.swing.JFrame {
         this.usuario = cpf;
         jTUser.setText(cpf);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -162,19 +162,18 @@ public class JFrameAlterarSenha extends javax.swing.JFrame {
         for(int i = 0; i < senhaChar.length; i++){
             senha += senhaChar[i];
         }
-        
+
         char[] novaChar = jPNova.getPassword();
         String nova = "";
         for(int i = 0; i < novaChar.length; i++){
             nova += novaChar[i];
         }
-        
+
         char[] novaAgainChar = jPNovaConfirmar.getPassword();
         String novaAgain = "";
         for(int i = 0; i < novaAgainChar.length; i++){
             novaAgain += novaAgainChar[i];
         }
-        System.out.println(senha);
         try {
             if(fachada.retornaSenha(fachada.soNumerosCPF(usuario)).equals(senha)){
                 if(!nova.equals(novaAgain)){
@@ -182,6 +181,7 @@ public class JFrameAlterarSenha extends javax.swing.JFrame {
                     jPNovaConfirmar.setText(null);
                     JOptionPane.showConfirmDialog(null, "Senhas não correspondem.", "Erro", -1);
                 }else{
+                    
                     alterou = fachada.alterarSenha(fachada.soNumerosCPF(usuario), nova);
                     if(alterou){
                         JOptionPane.showConfirmDialog(null, "Senha alterada com sucesso.", "Sucesso", -1);
@@ -199,7 +199,7 @@ public class JFrameAlterarSenha extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(JFrameAlterarSenha.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -214,7 +214,7 @@ public class JFrameAlterarSenha extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

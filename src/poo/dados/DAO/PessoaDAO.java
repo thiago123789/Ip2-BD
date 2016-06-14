@@ -71,7 +71,7 @@ public class PessoaDAO implements IPessoaDAO{
 
 	public boolean atualiza(Pessoa a) throws SQLException{
 		boolean atualizou = false;
-		String sql = "UPDATE deinfo.pessoa SET cpf_p = ?, P_NOME = ?,  U_NOME = ?, SEXO = ?, SENHA = ?, "
+		String sql = "UPDATE deinfo.pessoa SET cpf_p = ?, P_NOME = ?, U_NOME = ?, SEXO = ?, SENHA = ?, "
 				+ "EMAIL = ?, logradouro = ?, cep = ?, tipo_pessoa = ?, cidade = ?, bairro = ?, numero = ?, estado = ?"
 				+ "WHERE cpf_p = ?";
 		try{
@@ -91,9 +91,9 @@ public class PessoaDAO implements IPessoaDAO{
             smt.setString(13, a.getEndereco().getEstado());
 			smt.setString(14, a.getCpf());
 			smt.execute();
-			atualizou = true;
+ 			atualizou = true;
 		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			JOptionPane.showConfirmDialog(null, "Erro ao atualizar uma pessoa", "Erro", -1);
 		}
 		return atualizou;
 	}
@@ -127,6 +127,9 @@ public class PessoaDAO implements IPessoaDAO{
 				a.setSenha(senha);
 				a.setPnome(p_nome);
 				a.setUnome(u_nome);
+                                a.setEndereco(b);
+                                a.setEmail(email);
+                                a.setSexo(sexo);
 				a.setDataNascimento(data2);
 				a.setTipo(tipo_pessoa);
 				listaPessoas.add(a);

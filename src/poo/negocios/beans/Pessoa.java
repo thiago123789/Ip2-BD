@@ -204,5 +204,12 @@ public class Pessoa {
 
 	}
 
+    @Override
+    public String toString() {
+        return "Pessoa{" + "pNome=" + pNome + ", uNome=" + uNome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + ", senha=" + senha + ", email=" + email + ", endereco=" + endereco + ", tipo_pessoa=" + tipo_pessoa + ", lattes=" + lattes + '}';
+    }
+
+        
+        
 
 }

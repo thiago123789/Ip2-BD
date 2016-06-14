@@ -43,7 +43,8 @@ class AlterarSenha {
 		try {
 			Pessoa a = this.buscarPessoa(cpf);
 			a.setSenha(novaSenha);
-			command.atualiza(a);
+                        command.atualiza(a);
+                        ok = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
