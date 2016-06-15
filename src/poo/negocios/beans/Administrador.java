@@ -7,13 +7,13 @@ import poo.excecoes.PermissaoInvalidaException;
 
 public class Administrador extends Funcionario{
     private int permissao;
-       
-    public Administrador(String cpf, String pNome, String uNome, int permissao, 
-    		boolean sexo, Endereco endereco, Calendar nascimento) throws PermissaoInvalidaException, CPFInvalidoException{
-        super(pNome, uNome, cpf, sexo, cpf, cpf, endereco, cpf, nascimento);
+
+    public Administrador(String cpf, String pNome, String uNome, int permissao, String senha, String email, Cargo cargo, Departamento depat,
+    		boolean sexo, Endereco endereco, Calendar nascimento, String lattes) throws PermissaoInvalidaException, CPFInvalidoException{
+        super(pNome, uNome, cpf, sexo, senha, email, endereco, cargo, depat, lattes, nascimento);
         this.setPermissao(permissao);
     }
-    
+
 	public int getPermissao() {
 		return permissao;
 	}
@@ -25,5 +25,5 @@ public class Administrador extends Funcionario{
             throw new PermissaoInvalidaException();
         }
     }
-   
+
 }

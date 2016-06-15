@@ -61,11 +61,11 @@ public class TesteDisciplina {
 //		String uNome, String cpf, String turno, int anoEntrada, 
 //		int semestreEntrada, boolean prioridade, boolean sexo, String senha, String email, 
 //		Endereco endereco) throws CPFInvalidoException {
-	Aluno teste = new Aluno(bcc, "Thiago", "Gomes", "67666811799", "Tarde", 2014, 2, false, 
-				true, "teste", "thiagohfg@hotmail.com", endereco,aux );
+//	Aluno teste = new Aluno(bcc, "Thiago", "Gomes", "67666811799", "Tarde", 2014, 2, false, 
+//				true, "teste", "thiagohfg@hotmail.com", endereco,aux );
 		
-	System.out.println(teste.getTurno());
-	rep.cadastraAluno(teste);
+//	System.out.println(teste.getTurno());
+//	rep.cadastraAluno(teste);
 		
        
        // Pessoa admin = new Pessoa("Thiago", "Gomes", "09198875469", false, "teste", "thiago123789@gmail.com", endereco, 0);

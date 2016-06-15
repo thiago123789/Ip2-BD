@@ -35,8 +35,8 @@ public class Aluno extends Pessoa{
 			String uNome, String cpf, String turno, int anoEntrada,
 			int semestreEntrada, boolean prioridade, boolean sexo, String senha, String email,
 			Endereco endereco, boolean monitor, boolean bolsista,
-			boolean voluntario, boolean desistiu, Calendar nascimento) throws CPFInvalidoException {
-		super(pNome, uNome, cpf, sexo, senha, email, endereco, 0, nascimento);
+			boolean voluntario, boolean desistiu, Calendar nascimento, String lattes) throws CPFInvalidoException {
+		super(pNome, uNome, cpf, sexo, senha, email, endereco, 0, nascimento, lattes);
 		this.setCurso(curso);
 		this.setGraduacao(graduacao);
 		this.setSemestre(ofertaDisciplina);
