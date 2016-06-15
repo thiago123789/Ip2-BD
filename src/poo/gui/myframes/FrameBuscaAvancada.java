@@ -7,9 +7,11 @@ package poo.gui.myframes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 import javax.swing.JTable;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import poo.negocios.FachadaSistema;
 import poo.negocios.beans.Disciplina;
@@ -20,78 +22,55 @@ import poo.negocios.beans.Disciplina;
  */
 public class FrameBuscaAvancada extends javax.swing.JInternalFrame {
     private FachadaSistema fachada;
-    
-    private class MeuModeloComMuitasLinhas extends AbstractTableModel {
-        private List<Disciplina> linhas;
-        private String[] colunas = {"Codigo", "Nome", "Carga Horaria", "Obrigatoria", "Optativa"};
-        
-        public MeuModeloComMuitasLinhas(){
-            linhas = new ArrayList<Disciplina>();
-        }
-        
-        public MeuModeloComMuitasLinhas(ArrayList<Disciplina> listaDisciplinas){
-            
-        }
-        /**
-         * A JTable chama esse método para saber quantas colunas ela possui
-         */
-        public int getColumnCount() {
-            // minha JTable terá 3 colunas
-            // poderia ter tantas quanto eu quisesse
-            return colunas.length;
-        }
-
-        /**
-         * A JTable chama esse método para saber qual é o nome da coluna informada
-         */
-        public String getColumnName(int col) {
-            // o nome das colunas será "coluna 0", "coluna 1" e "coluna 2"
-            // mas poderia ser algo mais óbvio como "Nome", "Idade" e "Gênero" por exemplo
-            return colunas[col];
-        }
-
-        /**
-         * A JTable chama esse método para saber quantos itens ela possui
-         */
-        public int getRowCount() {
-            // minha JTable terá 10 mil linhas
-            // mas poderia por exemplo retornar o tamanho da lista de objetos que quero renderizar
-            return linhas.size();
-        }
-
-        /**
-         * A JTable chama esse método para saber qual o valor que ela deve apresentar na célula informada
-         */
-        public Object getValueAt(int lin, int col) {
-            // cada célula da minha JTable vai renderizar sua linha e sua coluna
-            // mas poderia fazer o seguinte:
-            // pegar o objeto na posição "lin" da lista
-            // um switch da coluna e com isso
-            // devolver o valor dos atributos "nome", "idade" e "genero"
-            Disciplina p = linhas.get(lin);
-            switch (col) {  
-                case 0: // Primeira coluna é a Descrição.  
-                    return p.getCodigo();  
-                case 1: // Segunda coluna é o PreçoUnitario.  
-                    return p.getNome();  
-                case 2: // Terceira coluna é a Quantidade.  
-                    return p.getCargaHoraria();  
-                case 3: // Quarta coluna é o SubTotal.  
-                    return p.getObrigatoria();  
-                default:  
-                    throw new IndexOutOfBoundsException("columnIndex out of bounds");  
-            }
-        }
-    }
+    private DefaultTableModel modelo = new DefaultTableModel();
+    private String textoBusca;
+   
     /**
      * Creates new form FrameBuscaAvancada
      */
     public FrameBuscaAvancada() {
         initComponents();
-        jTResultados = new JTable(new MeuModeloComMuitasLinhas());
+        //fachada = FachadaSistema.getInstance();
+        
+        this.criaJTable();
+        this.pesquisar(modelo);
+        
 //        jTResultados.
     }
 
+    private void criaJTable() {
+		jTResultados = new JTable(modelo);
+		modelo.addColumn("Codio");
+		modelo.addColumn("Nome");
+		modelo.addColumn("Periodizacao");
+		modelo.addColumn("Carga Horaria");
+                modelo.addColumn("Ementa");
+		jTResultados.getColumnModel().getColumn(0).setPreferredWidth(10);
+		jTResultados.getColumnModel().getColumn(1).setPreferredWidth(120);
+		jTResultados.getColumnModel().getColumn(2).setPreferredWidth(10);
+		jTResultados.getColumnModel().getColumn(3).setPreferredWidth(10);
+                jTResultados.getColumnModel().getColumn(4).setPreferredWidth(10);
+		pesquisar(modelo);
+                
+	}
+    
+    
+        public void pesquisar(DefaultTableModel modelo) {
+                fachada = FachadaSistema.getInstance();
+                String[] resultados = new String[5];
+                int posicao = 0;
+                StringTokenizer st = new StringTokenizer(textoBusca, ",", false);
+                while(st.hasMoreTokens()){
+                    resultados[posicao] = st.nextToken();
+                    posicao++;
+                }
+		modelo.setNumRows(0);
+		ArrayList<Disciplina> list = fachada.searchAdvancedVariasChaves(resultados);
+
+		for (Disciplina aux : list) {
+			modelo.addRow(new Object[]{aux.getCodigo(), aux.getNome(), aux.getCurso(), aux.getCargaHoraria(), null});
+		}
+        }
     
    
     
@@ -194,8 +173,11 @@ public class FrameBuscaAvancada extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        textoBusca = jTBusca.getText();
         fachada = FachadaSistema.getInstance();
         String busca = jTBusca.getText();
+        this.criaJTable();
+        this.pesquisar(modelo);
 //        TableModel model = new TableModel.ge
     }//GEN-LAST:event_jButton1ActionPerformed
 

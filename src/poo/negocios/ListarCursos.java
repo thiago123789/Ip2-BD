@@ -26,7 +26,7 @@ public class ListarCursos {
         curso = CursoDAO.getInstance();
     }
 
-    public String[] listarPorNome(){
+    public String[] listarCursosPorNome(){
         ArrayList<Curso> c = curso.listar();
         String tudo[] = new String[c.size()];
         int i = 0;
@@ -37,11 +37,12 @@ public class ListarCursos {
         return tudo;
     }
 
-    public ArrayList<String> listarPorNomeList(){
+    public ArrayList<String> listarCursosPorNomeList(){
         ArrayList<Curso> c = curso.listar();
         ArrayList<String> nomes = new ArrayList<String>();
         for(Curso aux : c ){
         	nomes.add(aux.getNome());
+        	System.out.println(aux);
         }
         return nomes;
     }

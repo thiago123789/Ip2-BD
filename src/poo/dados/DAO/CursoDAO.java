@@ -53,29 +53,29 @@ public class CursoDAO implements ICursoDAO{
 		String sql = "INSERT INTO deinfo.curso(id, nome, coordenador, vice_coordenador, "
 				+ "graduacao, posgraduacao, DEPARTAMENTO_ID, ANO_INICIO) "
 				+ "values(?,?,?,?,?,?,?,?)";
-			try{
-				PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(sql);
-				smt.setInt(1, 0);
-				smt.setString(2, c.getNome());
-				if(c.getCoordenador() == null){
-					smt.setNull(3, Types.VARCHAR);
-				}else{
-					smt.setString(3, c.getCoordenador().getCpf());
-				}
-				if(c.getVice() == null){
-					smt.setNull(4, Types.VARCHAR);
-				}else{
-					smt.setString(4, c.getVice().getCpf());
-				}
-				smt.setInt(5, (c.getGraducao())? 1 : 0);
-				smt.setInt(6, (c.getGraducao())? 0 : 1);
-				smt.setInt(7, c.getDepat().getId());
-				smt.setInt(8, c.getAno_inicio());
-				smt.execute();
-				inseriu = true;
-			}catch(Exception e){
-				JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		try{
+			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(sql);
+			smt.setInt(1, 0);
+			smt.setString(2, c.getNome());
+			if(c.getCoordenador() == null){
+				smt.setNull(3, Types.VARCHAR);
+			}else{
+				smt.setString(3, c.getCoordenador().getCpf());
 			}
+			if(c.getVice() == null){
+				smt.setNull(4, Types.VARCHAR);
+			}else{
+				smt.setString(4, c.getVice().getCpf());
+			}
+			smt.setInt(5, (c.getGraducao())? 1 : 0);
+			smt.setInt(6, (c.getGraducao())? 0 : 1);
+			smt.setInt(7, c.getDepat().getId());
+			smt.setInt(8, c.getAno_inicio());
+			smt.execute();
+			inseriu = true;
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
 		return inseriu;
 	}
 
@@ -110,6 +110,7 @@ public class CursoDAO implements ICursoDAO{
 	}
 
 	//ID, NOME, COORDENADOR, VICE_COORDENADOR, GRADUACAO, POSGRADUACAO, DEPARTAMENTO_ID, ANO_INICIO
+	//ID, NOME, COORDENADOR, VICE_COORDENADOR, GRADUACAO, POSGRADUACAO, DEPARTAMENTO_ID, ANO_INICIO
 	public ArrayList<Curso> listar(){
 		ArrayList<Curso> listaCursos = new ArrayList<Curso>();
 		String query = "SELECT * FROM deinfo.curso";
@@ -127,12 +128,18 @@ public class CursoDAO implements ICursoDAO{
 				Departamento aux = new Departamento();
 				aux.setId(departamento);
 				Curso curso = new Curso(cod, nome, ano);
-				curso.setCoordenador(new Professor(coordenador));
-				curso.setVice(new Professor(vice));
+				if(coordenador != null && vice != null ){
+					Professor coor = new Professor(coordenador);
+					Professor vice1 = new Professor(vice);
+					curso.setCoordenador(coor);
+					curso.setVice(vice1);
+				}
 				curso.setDepat(aux);
 				curso.setGraduacao(graducao);
 				curso.setPosGraducao(posgraduacao);
+				curso.setAno_inicio(ano);
 				listaCursos.add(curso);
+				System.out.println(curso);
 			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);

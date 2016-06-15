@@ -103,8 +103,8 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 				int trilha = resultSet.getInt("TRILHA");
 				boolean optativa = resultSet.getBoolean("OPTATIVA");
 				boolean obrigatoria = resultSet.getBoolean("OBRIGATORIA");
-				boolean graduacao = resultSet.getBoolean("GRADUCAO");
-				boolean posgraduacao = resultSet.getBoolean("POSGRADUCAO");
+				boolean graduacao = resultSet.getBoolean("GRADUACAO");
+				boolean posgraduacao = resultSet.getBoolean("POSGRADUACAO");
 				byte[] arquivo = resultSet.getBytes("EMENTA");
 				Disciplina b = new Disciplina(codigo, nome);
 				b.setCargaHoraria(carga_horaria);

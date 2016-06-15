@@ -80,12 +80,12 @@ public class FachadaSistema {
 		return list.listarNomesPreRequisitos(cod);
 	}
 
-	public String[] listarPorNome() {
-		return listCurso.listarPorNome();
+	public String[] listarCursosPorNome() {
+		return listCurso.listarCursosPorNome();
 	}
 
-	public ArrayList<String> listarPorNomeList() {
-		return listCurso.listarPorNomeList();
+	public ArrayList<String> listarCursosPorNomeList() {
+		return listCurso.listarCursosPorNomeList();
 	}
 
 	public int anoInicioCurso(String nomeCurso) {
@@ -166,6 +166,10 @@ public class FachadaSistema {
 
 	public ArrayList<String> listarNomesPreRequisitos(String cod) throws SQLException {
 		return preList.listarNomesPreRequisitos(cod);
+	}
+
+	public ArrayList<Disciplina> searchAdvancedVariasChaves(String[] chaves) {
+		return advanced.searchAdvancedVariasChaves(chaves);
 	}
 
 

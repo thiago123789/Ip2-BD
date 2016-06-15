@@ -22,6 +22,7 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
         initComponents();
         preencher();
         preencher2();
+        preencher3();
     }
     
     public void preencher(){
@@ -35,13 +36,15 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
     
     public void preencher2(){
         fachada = FachadaSistema.getInstance();
-        ArrayList<String> aux = fachada.listarPorNomeList();
+        ArrayList<String> aux = fachada.listarCursosPorNomeList();
         for(String a : aux ){
             jCCursos.addItem(a);
+            System.out.println(a);
         }
     }
     
     public void preencher3(){
+        fachada = FachadaSistema.getInstance();
         ArrayList<Integer> temp = fachada.retornarAnosAPartirDeList(fachada.anoInicioCurso(jCCursos.getSelectedItem().toString()));
         for(Integer a : temp){
             jCAnoIn.addItem(a.toString());

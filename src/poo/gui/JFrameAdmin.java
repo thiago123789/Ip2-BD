@@ -13,6 +13,8 @@ import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import poo.gui.myframes.FrameBuscaAvancada;
+import poo.gui.myframes.FrameBuscaAvancada2;
 
 import poo.gui.myframes.FrameBuscarUsuario;
 import poo.gui.myframes.FrameCadastrarAluno;
@@ -88,6 +90,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem19 = new javax.swing.JMenuItem();
         desktop = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -120,6 +123,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem20 = new javax.swing.JMenuItem();
         mnuBuscar = new javax.swing.JMenu();
         mnuBuscarNovaConsulta = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -147,6 +151,8 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenuItem11.setText("jMenuItem11");
 
         jMenuItem2.setText("jMenuItem2");
+
+        jMenuItem19.setText("jMenuItem19");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Academico - DEINFO (Administrador)");
@@ -340,6 +346,14 @@ public class JFrameAdmin extends javax.swing.JFrame {
             }
         });
         mnuDisciplina.add(jMenuItem10);
+
+        jMenuItem20.setText("Busca Avancada");
+        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem20ActionPerformed(evt);
+            }
+        });
+        mnuDisciplina.add(jMenuItem20);
 
         jMenuBar1.add(mnuDisciplina);
 
@@ -554,6 +568,13 @@ public class JFrameAdmin extends javax.swing.JFrame {
                 
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
+    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+        // TODO add your handling code here:
+        FrameBuscaAvancada2 f = new FrameBuscaAvancada2();
+        desktop.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenuItem20ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -610,7 +631,9 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
+    private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

@@ -35,5 +35,24 @@ public class BuscaAvancada {
 		return retorno;
 	}
 
+	public ArrayList<Disciplina> searchAdvancedVariasChaves(String[] chaves){
+		ArrayList<Disciplina> retorno = new ArrayList<Disciplina>();
+
+		for(int i = 0; i < chaves.length; i++){
+			ArrayList<Disciplina> listando = this.searchAdvanced(chaves[i]);
+			for(Disciplina aux : listando){
+				if(aux.getNome().contains(chaves[i])){
+					if(!retorno.contains(aux)){
+						retorno.add(aux);
+					}
+				}
+			}
+		}
+
+
+		return retorno;
+	}
+
+
 
 }
