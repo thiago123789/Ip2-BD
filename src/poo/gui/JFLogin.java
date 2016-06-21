@@ -126,6 +126,11 @@ public class JFLogin extends javax.swing.JFrame {
                 jPSenhaLoginActionPerformed(evt);
             }
         });
+        jPSenhaLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPSenhaLoginKeyPressed(evt);
+            }
+        });
 
         try {
             jTUsuario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -265,6 +270,79 @@ public class JFLogin extends javax.swing.JFrame {
 //             this.jBLogarActionPerformed(java.awt.event.ActionEvent a);
 //         }
     }//GEN-LAST:event_jBLogarKeyPressed
+
+    private void jPSenhaLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPSenhaLoginKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            FachadaUsuario auto = FachadaUsuario.getInstance();
+        format = FormatacaoAuxiliar.getInstance();
+        String usuario1 = jTUsuario.getText();
+        char[] senhaC = jPSenhaLogin.getPassword();
+        String senha = "";
+
+        for(int i = 0; i < senhaC.length; i++){
+            senha += senhaC[i];
+        }
+
+        String usuario = format.soNumerosCPF(usuario1);
+        try{
+        boolean existe = auto.usuarioExiste(usuario);
+            if(existe){
+                if(auto.tipoDeUsuario(usuario) == 0){
+                    boolean ok = auto.autenticaSenha(usuario, senha);
+                    if(ok){
+                        if(aluno == null || format == null){
+                            aluno = new JFrameAluno();
+                            aluno.setVisible(true);
+                            aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
+                            aluno.setExtendedState(aluno.MAXIMIZED_BOTH);
+                            this.setVisible(false);
+                            auto.logar(usuario);
+                        }else{
+                            aluno.setVisible(true);
+                            aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
+                            aluno.setExtendedState(aluno.MAXIMIZED_BOTH);
+                            this.setVisible(false);
+                            auto.logar(usuario);
+                        }
+                    }
+                }else if(auto.tipoDeUsuario(usuario) == 2){
+                    boolean ok = auto.autenticaSenha(usuario, senha);
+                    if(ok){
+                        if(admin == null || format == null){
+                            admin = new JFrameAdmin();
+                            admin.setVisible(true);
+                            admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
+                            admin.setExtendedState(admin.MAXIMIZED_BOTH);
+                            admin.setResizable(false);
+                            this.setVisible(false);
+                            auto.logar(usuario);
+                        }else{
+                            admin.setVisible(true);
+                            admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario),  auto.ultimoLogin(usuario));
+                            admin.setExtendedState(admin.MAXIMIZED_BOTH);
+                            admin.setResizable(false);
+                            this.setVisible(false);
+                            auto.logar(usuario);
+                        }
+                    }
+                }
+            }
+        }catch(UsuarioNaoExiste e){
+            jTUsuario.setText(null);
+            jPSenhaLogin.setText(null);
+            JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+        }catch(SenhaIncorretaException e){
+            jPSenhaLogin.setText(null);
+            JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+
+        }catch(SQLException e){
+            jPSenhaLogin.setText(null);
+            JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+
+        }
+        }
+    }//GEN-LAST:event_jPSenhaLoginKeyPressed
 
     /**
      * @param args the command line arguments

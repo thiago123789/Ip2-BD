@@ -60,7 +60,7 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
     
     public void preencherNomesCursos(){
     	auto = FachadaSistema.getInstance();
-    	ArrayList<String> aux = auto.listarPorNomeList();
+    	ArrayList<String> aux = auto.listarCursosPorNomeList();
         System.out.println(aux.toString());
     	for(String a : aux){
             System.out.println(a);

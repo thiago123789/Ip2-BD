@@ -59,11 +59,7 @@ public class DetalhesDisciplina {
 				+ "\nNome: "+temp.getNome()+""
 				+ "\nCarga Horária: "+temp.getCargaHoraria()+""
 				+ "\nCurso: "+aux.getNome();
-		if(temp.getObrigatoria()){
-			resultado += "\nTipo: Obrigatoria";
-		}else if(temp.getOptativa()){
-			resultado += "\nTipo: Optativa";
-		}
+		
 		return resultado;
 	}
 

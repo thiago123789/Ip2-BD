@@ -10,6 +10,10 @@ public class Localizacao {
 		this.setSala(sala);
 	}
 
+	public Localizacao(int codigo){
+		this.setCodigo(codigo);
+	}
+
 	public int getSala() {
 		return sala;
 	}

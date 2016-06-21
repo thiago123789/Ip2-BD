@@ -8,8 +8,10 @@ public class OfertaDisciplina {
 	private int ano, semestre;
 	private int id;
 	private Localizacao local;
+	private Aluno monitor;
 
-	public OfertaDisciplina(Disciplina disciplina, int ano, int semetre, Localizacao local){
+	public OfertaDisciplina(int codigo, Disciplina disciplina, int ano, int semetre, Localizacao local, Aluno monitor){
+		this.setCodigo(codigo);
 		this.setDisciplina(disciplina);
 		this.setAno(ano);
 		this.setSemestre(semetre);
@@ -18,6 +20,14 @@ public class OfertaDisciplina {
 
 	public OfertaDisciplina(int codigo){
 		this.setCodigo(codigo);
+	}
+
+	public Aluno getMonitor() {
+		return monitor;
+	}
+
+	public void setMonitor(Aluno monitor) {
+		this.monitor = monitor;
 	}
 
 	public int getCodigo() {
