@@ -6,25 +6,23 @@ public class Disciplina implements Comparable{
 	private String nome;
 	private String codigo;
 	private ArrayList<Disciplina> preRequisito, coRequisito;
-	private boolean optativa, obrigatoria, graduacao, posGraduacao;
+	private String tipo_disciplina;
 	private Curso curso;
 	private Trilha trilha;
 	private int cargaHoraria;
 	private File ementa;
+	private int periodoDisciplina;
 
-	public Disciplina(String codigo, String nome, int carga, boolean optativa, boolean obrigatoria){
+	public Disciplina(String codigo, String nome, int carga){
 		this.setCodigo(codigo);
 		this.setNome(nome);
 		this.setCargaHoraria(carga);
-		this.setOptativa(optativa);
-		this.setObrigatoria(obrigatoria);
 	}
 
-	public Disciplina(String nome, Trilha trilha, Curso curso, int tipoDisciplina,
+	public Disciplina(String nome, Trilha trilha, Curso curso, String tipo_disciplina,
 			int tipoDisciplinaCurso){
+		this.setTipo_disciplina(tipo_disciplina);
 		this.setNome(nome);
-		this.setTipoDisciplina(tipoDisciplina);
-		this.setTipoDisciplinaCurso(tipoDisciplinaCurso);
 		this.setTrilha(trilha);
 		this.setCurso(curso);
 		this.setCodigo();
@@ -42,8 +40,6 @@ public class Disciplina implements Comparable{
 		if(corequisito == 1){
 			this.setCoRequisito(coRequisito);
 		}
-		this.setTipoDisciplina(tipoDisciplina);
-		this.setTipoDisciplinaCurso(tipoDisciplinaCurso);
 		this.setTrilha(trilha);
 		this.setCurso(curso);
 		this.setCodigo();
@@ -53,24 +49,29 @@ public class Disciplina implements Comparable{
 		this.setCodigo();
 	}
 
+	public int getPeriodoDisciplina() {
+		return periodoDisciplina;
+	}
+
+
+	public void setPeriodoDisciplina(int periodoDisciplina) {
+		this.periodoDisciplina = periodoDisciplina;
+	}
+
+	public String getTipo_disciplina() {
+		return tipo_disciplina;
+	}
+
+	public void setTipo_disciplina(String tipo_disciplina) {
+		this.tipo_disciplina = tipo_disciplina;
+	}
+
 	public File getEmenta() {
 		return ementa;
 	}
 
 	public void setEmenta(File ementa) {
 		this.ementa = ementa;
-	}
-
-	public boolean isPosGraducao() {
-		return posGraduacao;
-	}
-
-	public void setPosGraducao(boolean posGraducao) {
-		this.posGraduacao = posGraducao;
-	}
-
-	public boolean isGraduacao() {
-		return graduacao;
 	}
 
 	public Disciplina() {
@@ -92,14 +93,6 @@ public class Disciplina implements Comparable{
 		this.cargaHoraria = carga;
 	}
 
-	public boolean getGraducao(){
-		return this.graduacao;
-	}
-
-	public boolean getPosGraduacao(){
-		return this.posGraduacao;
-	}
-
 	public Trilha getTrilha(){
 		return this.trilha;
 	}
@@ -116,52 +109,6 @@ public class Disciplina implements Comparable{
 		return this.curso;
 	}
 
-	public void setTipoDisciplinaCurso(int op){
-		if(op == 0){
-			this.setGraduacao(true);
-			this.setPosGraduacao(false);
-		}else{
-			this.setGraduacao(false);
-			this.setPosGraduacao(true);
-		}
-	}
-
-	public void setGraduacao(boolean value){
-		this.graduacao = value;
-	}
-
-	public void setPosGraduacao(boolean value){
-		this.posGraduacao = value;
-	}
-
-	public boolean getOptativa(){
-		return this.optativa;
-	}
-
-	public boolean getObrigatoria(){
-		return this.obrigatoria;
-	}
-
-	//SE FOR OBRIGATORIA SE FOR QUALQUER OUTRO VALOR SER� OPTATIVA;
-	public void setTipoDisciplina(int op){
-		if(op == 0){
-			this.setObrigatoria(true);
-			this.setOptativa(false);
-		}else{
-			this.setObrigatoria(false);
-			this.setOptativa(true);
-		}
-	}
-
-	public void setOptativa(boolean value){
-		this.optativa = value;
-	}
-
-	public void setObrigatoria(boolean value){
-		this.obrigatoria = value;
-	}
-
-
 	public String getNome(){
 		return nome;
 	}
@@ -176,7 +123,7 @@ public class Disciplina implements Comparable{
 		return codigo;
 	}
 
-	private void setCodigo(String codigo){
+	public void setCodigo(String codigo){
 		this.codigo = codigo;
 	}
 
@@ -243,17 +190,7 @@ public class Disciplina implements Comparable{
 
 	public String toString(){
 		String resultado = "";
-		resultado += "COD: "+this.getCodigo()+"\nNome: "+this.getNome()+"\nCurso: "+this.getCurso().getNome()+"\nTipo: ";
-		if(this.getGraducao()){
-			if(this.getObrigatoria()){
-				resultado += "Gradu��o / Obrigatoria";
-			}else{
-				resultado += "Gradu��o / Optativa";
-			}
-		}else{
-			resultado += "Pos-graducao";
-		}
-
+		resultado += "COD: "+this.getCodigo()+"\nNome: "+this.getNome()+"\nCurso: "+this.getCurso().getNome()+"\nTipo: "+this.getTipo_disciplina();
 		return resultado;
 	}
 
@@ -261,7 +198,7 @@ public class Disciplina implements Comparable{
 		boolean igual = false;
 		if(ob instanceof Disciplina){
 			Disciplina aux = (Disciplina) ob;
-			if(this.getCodigo() == aux.getCodigo()){
+			if(this.getCodigo().equals(aux.getCodigo())){
 				igual = true;
 			}
 		}

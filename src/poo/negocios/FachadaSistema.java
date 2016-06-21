@@ -168,7 +168,7 @@ public class FachadaSistema {
 		return preList.listarNomesPreRequisitos(cod);
 	}
 
-	public ArrayList<Disciplina> searchAdvancedVariasChaves(String[] chaves) {
+	public ArrayList<Disciplina> searchAdvancedVariasChaves(ArrayList<String> chaves) {
 		return advanced.searchAdvancedVariasChaves(chaves);
 	}
 

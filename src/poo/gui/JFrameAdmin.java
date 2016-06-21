@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-import poo.gui.myframes.FrameBuscaAvancada;
 import poo.gui.myframes.FrameBuscaAvancada2;
 
 import poo.gui.myframes.FrameBuscarUsuario;
@@ -36,18 +35,18 @@ import poo.gui.myframes.JFrameAlterarSenha;
  */
 public class JFrameAdmin extends javax.swing.JFrame {
     private String nome, cpf, lastLogin;
-    
+
     /**
      * Creates new form JFrameAdmin
      */
-    
-    
+
+
     public void setValores(String nome, String cpf, String last){
         this.nome = nome;
-        this.cpf = cpf;   
+        this.cpf = cpf;
         this.lastLogin = last;
     }
-    
+
     public JFrameAdmin() {
         initComponents();
         Font nova = new Font("Arial", Font.BOLD, 14);
@@ -67,7 +66,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jTLastLogin.setForeground(branco);
     }
 
-    
+
     public void recebeValor(String nome, String cpf, String last){
         this.nome = nome;
         this.cpf = cpf;
@@ -498,7 +497,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         f.setVisible(true);
         f.recebeUsuario(jTCPFUser.getText());
         f.setLocation(new java.awt.Point(500, 200));
-        
+
     }//GEN-LAST:event_mnuMinhaContaAlterarSenhaActionPerformed
 
     private void mnuMinhaContaSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMinhaContaSairActionPerformed
@@ -565,7 +564,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         FrameCadastroDepartamento f = new FrameCadastroDepartamento();
         desktop.add(f);
         f.setVisible(true);
-                
+
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
@@ -582,16 +581,16 @@ public class JFrameAdmin extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
-            UIManager.setLookAndFeel("ch.randelshofer.quaqua.QuaquaLookAndFeel");
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
+//            UIManager.setLookAndFeel("ch.randelshofer.quaqua.QuaquaLookAndFeel");
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(JFrameAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {

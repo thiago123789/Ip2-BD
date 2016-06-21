@@ -27,5 +27,7 @@
 	<classpathentry kind="lib" path="lib/org-netbeans-upgrader.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.38-bin.jar"/>
 	<classpathentry kind="lib" path="lib/quaqua-7.3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Thiago Gomes/Desktop/pdf-renderer.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Thiago Gomes/Desktop/PDFRenderer-0.9.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

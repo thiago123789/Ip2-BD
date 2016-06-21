@@ -19,6 +19,8 @@ import poo.negocios.beans.Disciplina;
 import poo.negocios.beans.Trilha;
 
 public class DisciplinaDAO implements IDisciplinaDAO{
+
+
 	private static DisciplinaDAO instance;
 	private ConnectionBanco bancoConect;
 
@@ -33,10 +35,11 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 		bancoConect = ConnectionBanco.getInstance();
 	}
 
+	//CODIGO_DIS, NOME, CURSO, CARGA_HORARIA, TRILHA, TIPO_DISCIPLINA, PERIODO_DISCIPLINA, EMENTA
 	public boolean inserir(Disciplina disciplina) throws SQLException{
 		boolean inseriu = false;
-		String sql = "INSERT INTO deinfo.disciplina(codigo_dis, nome, curso, carga_horaria, trilha, "
-				+ "optativa, OBRIGATORIOA, graduacao, posgraduacao, ementa) values(?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO deinfo.disciplina(CODIGO_DIS, NOME, CURSO, CARGA_HORARIA, TRILHA, "
+				+ "TIPO_DISCIPLINA, PERIODO_DISCIPLINA, EMENTA) values(?,?,?,?,?,?,?,?)";
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConect.retornoStatement(sql);
 			smt.setString(1, disciplina.getCodigo());
@@ -48,11 +51,10 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 			} else {
 				smt.setInt(5, disciplina.getTrilha().getCodigo());
 			}
-			smt.setInt(6, (disciplina.getOptativa())? 1 : 0);
-			smt.setInt(7, (disciplina.getObrigatoria())? 1 : 0);
-			smt.setInt(8, (disciplina.getGraducao())? 1 : 0);
-			smt.setInt(9, (disciplina.getPosGraduacao())? 1 : 0);
-			smt.setBytes(10, this.converteArquivoEmBytes(disciplina.getEmenta()));
+
+			smt.setString(6, disciplina.getTipo_disciplina());
+			smt.setInt(7, disciplina.getPeriodoDisciplina());
+			smt.setBytes(8, this.converteArquivoEmBytes(disciplina.getEmenta()));
 			smt.execute();
 			inseriu = true;
 		}catch(Exception e){
@@ -61,11 +63,12 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 		return inseriu;
 	}
 
-
+	//CODIGO_DIS, NOME, CURSO, CARGA_HORARIA, TRILHA, TIPO_DISCIPLINA, PERIODO_DISCIPLINA, EMENTA
 	public boolean atualizar(Disciplina disciplina) throws SQLException{
+
 		boolean atualizou = false;
 		String sql = "UPDATE deinfo.disciplina SET nome = ?, curso = ?, carga_horaria = ?, trilha = ?, "
-				+ "optativa = ?, OBRIGATORIOA = ?, graduacao = ?, posgraduacao = ?, EMENTA = ?"
+				+ "TIPO_DISCIPLINA = ?, PERIODO_DISCIPLINA = ?, EMENTA = ?"
 				+ "WHERE CODIGO_DIS = \""+disciplina.getCodigo()+"\"";
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConect.retornoStatement(sql);
@@ -77,11 +80,9 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 			} else {
 				smt.setInt(4, disciplina.getTrilha().getCodigo());
 			}
-			smt.setInt(5, (disciplina.getOptativa())? 1 : 0);
-			smt.setInt(6, (disciplina.getObrigatoria())? 1 : 0);
-			smt.setInt(7, (disciplina.getGraducao())? 1 : 0);
-			smt.setInt(8, (disciplina.getPosGraduacao())? 1 : 0);
-			smt.setBytes(9, this.converteArquivoEmBytes(disciplina.getEmenta()));
+			smt.setString(5, disciplina.getTipo_disciplina());
+			smt.setInt(6, disciplina.getPeriodoDisciplina());
+			smt.setBytes(7, this.converteArquivoEmBytes(disciplina.getEmenta()));
 			smt.execute();
 			atualizou = true;
 		}catch(Exception e){
@@ -90,6 +91,9 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 		return atualizou;
 	}
 
+
+    enum tiposD{OBG, OPT}
+	//CODIGO_DIS, NOME, CURSO, CARGA_HORARIA, TRILHA, TIPO_DISCIPLINA, PERIODO_DISCIPLINA, EMENTA
 	public ArrayList<Disciplina> listar(){
 		ArrayList<Disciplina> listaDisciplinas = new ArrayList<Disciplina>();
 		String query = "SELECT * FROM deinfo.disciplina";
@@ -101,26 +105,26 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 				int curso = resultSet.getInt("CURSO");
 				int carga_horaria = resultSet.getInt("CARGA_HORARIA");
 				int trilha = resultSet.getInt("TRILHA");
-				boolean optativa = resultSet.getBoolean("OPTATIVA");
-				boolean obrigatoria = resultSet.getBoolean("OBRIGATORIA");
-				boolean graduacao = resultSet.getBoolean("GRADUACAO");
-				boolean posgraduacao = resultSet.getBoolean("POSGRADUACAO");
+				String tipo = resultSet.getString("TIPO_DISCIPLINA");
+				int periodo = resultSet.getInt("PERIODO_DISCIPLINA");
 				byte[] arquivo = resultSet.getBytes("EMENTA");
 				Disciplina b = new Disciplina(codigo, nome);
 				b.setCargaHoraria(carga_horaria);
 				b.setTrilha(new Trilha(trilha));
 				b.setCurso(new Curso(curso));
-				b.setObrigatoria(obrigatoria);
-				b.setOptativa(optativa);
-				b.setGraduacao(graduacao);
-				b.setPosGraducao(posgraduacao);
-				b.setEmenta(this.converterBytesParaArquivo(arquivo, codigo));
+				b.setTipo_disciplina(tipo);
+				b.setPeriodoDisciplina(periodo);
+				if(arquivo != null){
+					b.setEmenta(this.converterBytesParaArquivo(arquivo, codigo));
+				}
 				listaDisciplinas.add(b);
 			}
 		}catch(SQLException e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			e.printStackTrace();
+			//JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			e.printStackTrace();
+			//JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
 		return listaDisciplinas;
 	}
@@ -153,95 +157,5 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 		return f;
 	}
 
-
-	//================================= INTERFACE ACABA AQUI ================================================
-
-
-	/*/
-	 *
-	 *EXCLUIR DO CRUD
-	 */
-
-	public Disciplina buscaCN(String codigoDis){
-		Disciplina a = null;
-		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \""+codigoDis+"\"";
-		try{
-			ResultSet resultSet = bancoConect.comandoSQL(query);
-			while(resultSet.next()){
-				String codigo = resultSet.getString("CODIGO_DIS");
-				String nome = resultSet.getString("NOME");
-				int carga = resultSet.getInt("CARGA_HORARIA");
-				int optativa = resultSet.getInt("OPTATIVA");
-				int obrigatoria = resultSet.getInt("OBRIGATORIA");
-				int curso = resultSet.getInt("CURSO");
-				boolean value = false;
-				boolean value2 = false;
-				if(optativa == 1){
-					value = true;
-				}
-				if(obrigatoria == 1){
-					value = true;
-				}
-				Curso temp = new Curso(curso, "nada", 0);
-				a = new Disciplina(codigo, nome, carga, value, value2);
-				a.setCurso(temp);
-			}
-		}catch(SQLException e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-		}
-		return a;
-	}
-
-
-	/*
-	 * BUSCA QUE IRÁ RETORNAR AS DISCIPLINAS QUE POSSUAM DETERMINADA PALAVRA NO SEU NOME     *
-	 */
-	public ArrayList<Disciplina> searchAdvanced(String nomeD){
-		ArrayList<Disciplina> a = new ArrayList<Disciplina>();
-		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \"%"+nomeD+"\"%";
-		try{
-			ResultSet resultSet = bancoConect.comandoSQL(query);
-			while(resultSet.next()){
-				String codigo = resultSet.getString("CODIGO_DIS");
-				String nome = resultSet.getString("NOME");
-				int carga = resultSet.getInt("CARGA_HORARIA");
-				int optativa = resultSet.getInt("OPTATIVA");
-				int obrigatoria = resultSet.getInt("OBRIGATORIA");
-				boolean value = false;
-				boolean value2 = false;
-				if(optativa == 1){
-					value = true;
-				}
-				if(obrigatoria == 1){
-					value = true;
-				}
-				Disciplina b = new Disciplina(codigo, nome, carga, value, value2);
-				a.add(b);
-			}
-		}catch(SQLException e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-		}
-		return a;
-	}
-
-	public boolean existeDis(String codigoDis){
-		boolean a = false;
-		String query = "SELECT * FROM deinfo.disciplina WHERE codigo_dis = \""+codigoDis+"\"";
-		try{
-			ResultSet resultSet = bancoConect.comandoSQL(query);
-			while(resultSet.next()){
-				a = true;
-			}
-		}catch(SQLException e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-		}
-		return a;
-	}
-
 }
+	//================================= INTERFACE ACABA AQUI ================================================
