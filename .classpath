@@ -9,25 +9,8 @@
 	<classpathentry kind="lib" path="lib/org-jdesktop-beansbinding_ru.jar"/>
 	<classpathentry kind="lib" path="lib/org-jdesktop-beansbinding_zh_CN.jar"/>
 	<classpathentry kind="lib" path="lib/org-jdesktop-beansbinding.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-annotations-common_ja.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-annotations-common_pt_BR.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-annotations-common_ru.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-annotations-common_zh_CN.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-annotations-common.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-debugger_ja.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-debugger_pt_BR.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-debugger_ru.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-debugger_zh_CN.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-debugger-jpda_ja.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-debugger-jpda_pt_BR.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-debugger-jpda_ru.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-debugger-jpda_zh_CN.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-debugger-jpda.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-api-debugger.jar"/>
-	<classpathentry kind="lib" path="lib/org-netbeans-upgrader.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.38-bin.jar"/>
 	<classpathentry kind="lib" path="lib/quaqua-7.3.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Thiago Gomes/Desktop/pdf-renderer.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Thiago Gomes/Desktop/PDFRenderer-0.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/PDFRenderer-0.9.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

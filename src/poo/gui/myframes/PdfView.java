@@ -151,7 +151,7 @@ public class PdfView {
 	private void jbtnActionAnt(ActionEvent evt){
 		if(paginaAutal != (0)){
 			page1 =  pdffile.getPage(paginaAutal-1);
-			System.out.println("Pagina atual: "+paginaAutal-1);
+			System.out.println("Pagina atual: "+(paginaAutal-1));
 			panel.showPage(page1);
 			paginaAutal--;
 		}	
