@@ -212,16 +212,7 @@ public class FrameBuscaAvancada2 extends javax.swing.JInternalFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				int i = jTable1.getSelectedRow();
-//	            Object codigo = jTable1.getModel().getValueAt(i, 0);
-//	            PdfView pdf = new PdfView();
-//	            try {
-//					pdf.setup(codigo.toString());
-//				} catch (IOException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}
+
 			}
 		});
 		//jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

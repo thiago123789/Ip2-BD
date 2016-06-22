@@ -13,7 +13,7 @@ import poo.dados.DAO.interfaces.IDepartamentoDAO;
 import poo.negocios.beans.Departamento;
 
 public class ListarDepartamentos {
-	private static ListarDepartamentos instance;
+    private static ListarDepartamentos instance;
     private IDepartamentoDAO comand;
 
     public static ListarDepartamentos getInstance(){
@@ -26,6 +26,8 @@ public class ListarDepartamentos {
     private ListarDepartamentos(){
         comand = DepartamentoDAO.getInstance();
     }
+    
+    
 
     public String[] listaDepartamentosPorNome() throws SQLException{
     	ArrayList<Departamento> aux = comand.listar();
@@ -41,7 +43,6 @@ public class ListarDepartamentos {
     public ArrayList<String> listaDepartamentosPorNomeList() throws SQLException{
     	ArrayList<Departamento> aux = comand.listar();
     	ArrayList<String> total = new ArrayList<String>();
-    	int i = 0;
     	for(Departamento a : aux){
     		total.add(a.getNome());
     	}

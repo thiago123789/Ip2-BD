@@ -106,8 +106,12 @@ public class DepartamentoDAO implements IDepartamentoDAO{
 				b.setId(codigo);
 				b.setNome(nome);
 				b.setSigla(sigla);
-				b.setDiretor(new Professor(diretor));
-				b.setVice(new Professor(vice));
+                                if(diretor != null){
+                                    b.setDiretor(new Professor(diretor));
+                                }
+                                if(vice != null){
+                                    b.setVice(new Professor(vice));
+                                }			
 				listaDepartamentos.add(b);
 			}
 		}catch(SQLException e){

@@ -172,7 +172,9 @@ public class FachadaSistema {
 		return advanced.searchAdvancedVariasChaves(chaves);
 	}
 
-
+	public ArrayList<String> listarCursosPorDepartamentoList(String depat){
+		return listCurso.listarCursosPorDepartamentoList(depat);
+	}
 
 
 }

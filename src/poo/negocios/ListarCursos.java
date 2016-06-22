@@ -5,15 +5,23 @@
  */
 package poo.negocios;
 
+import com.sun.istack.internal.FinalArrayList;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import poo.dados.DAO.CursoDAO;
+import poo.dados.DAO.DepartamentoDAO;
 import poo.dados.DAO.interfaces.ICursoDAO;
+import poo.dados.DAO.interfaces.IDepartamentoDAO;
 import poo.negocios.beans.Curso;
+import poo.negocios.beans.Departamento;
 
 public class ListarCursos {
 	private static ListarCursos instance;
     private ICursoDAO curso;
+    private IDepartamentoDAO depat;
 
     public static ListarCursos getInstance(){
     	if(instance == null){
@@ -24,7 +32,42 @@ public class ListarCursos {
 
     private ListarCursos(){
         curso = CursoDAO.getInstance();
+        depat = DepartamentoDAO.getInstance();
     }
+    
+    public int idDepartamento(String nome){
+        int id = -1;
+        if((nome != null) && (!nome.equals(""))){
+            try {
+                ArrayList<Departamento> aux = depat.listar();
+                System.out.println(aux.toString());
+                for(Departamento a : aux){
+                    if(a.getNome().equals(nome)){
+                        id = a.getId();
+                    }
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ListarCursos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return id;
+    }
+    
+    public ArrayList<String> listarCursosPorDepartamentoList(String depat){
+        ArrayList<Curso> listarCursos = curso.listar();
+        ArrayList<String> retorno = new ArrayList<>();
+        if((depat != null) && (depat != "")){
+        int id = this.idDepartamento(depat);
+        for(Curso a: listarCursos){
+            if(a.getDepat().getId() == id){
+                retorno.add(a.getNome());
+            }
+        }
+        }
+        return retorno;
+    }
+    
+    
 
     public String[] listarCursosPorNome(){
         ArrayList<Curso> c = curso.listar();
