@@ -4,6 +4,13 @@
  * and open the template in the editor.
  */
 package poo.gui;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+
 import com.sun.pdfview.PDFFile;
 import com.sun.pdfview.PDFPage;
 import com.sun.pdfview.PagePanel;
@@ -13,12 +20,34 @@ import com.sun.prism.Image;
  * @author Thiago Gomes
  */
 public class PDFViewer extends javax.swing.JFrame {
-	
+	private int tamanho = 0;
+	private PDFFile pdffile;
+	private RandomAccessFile raf;
+	private FileChannel channel;
+	private ByteBuffer buf;
+	private static String codigo1;
+	private int paginaAtual = 1;
+	private PDFPage page1 = null;
+
     /**
      * Creates new form PDFViewer
+     * @throws IOException
      */
-    public PDFViewer() {
+    public PDFViewer(String codigo) throws IOException {
         initComponents();
+        codigo1 = codigo;
+    	File file = new File("EMENTAS\\" + codigo+".pdf");
+		if(file != null){
+			raf = new RandomAccessFile(file, "r");
+			channel = raf.getChannel();
+			buf = channel.map(FileChannel.MapMode.READ_ONLY,
+					0, channel.size());
+			pdffile = new PDFFile(buf);
+			page1 =  pdffile.getPage(1);
+	        paginaPDF.showPage(page1);
+                tamanho = pdffile.getNumPages();
+
+		}
     }
 
     /**
@@ -31,12 +60,12 @@ public class PDFViewer extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        paginaPDF = new javax.swing.JPanel();
+        paginaPDF = new PagePanel();
         jPanel4 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonUltima = new javax.swing.JButton();
+        jButtonAnterior = new javax.swing.JButton();
+        jButtonPrimeira = new javax.swing.JButton();
+        jButtonProxima = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -64,16 +93,31 @@ public class PDFViewer extends javax.swing.JFrame {
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        jButton4.setText("ultima");
-
-        jButton2.setText("Anterior");
-
-        jButton1.setText("Primeira");
-
-        jButton3.setText("Proxima");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonUltima.setText("ultima");
+        jButtonUltima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonUltimaActionPerformed(evt);
+            }
+        });
+
+        jButtonAnterior.setText("Anterior");
+        jButtonAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnteriorActionPerformed(evt);
+            }
+        });
+
+        jButtonPrimeira.setText("Primeira");
+        jButtonPrimeira.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPrimeiraActionPerformed(evt);
+            }
+        });
+
+        jButtonProxima.setText("Proxima");
+        jButtonProxima.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProximaActionPerformed(evt);
             }
         });
 
@@ -83,13 +127,13 @@ public class PDFViewer extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(jButtonPrimeira)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(jButtonAnterior)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(jButtonProxima)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addComponent(jButtonUltima)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -97,10 +141,10 @@ public class PDFViewer extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(jButtonPrimeira)
+                    .addComponent(jButtonAnterior)
+                    .addComponent(jButtonProxima)
+                    .addComponent(jButtonUltima))
                 .addContainerGap())
         );
 
@@ -145,9 +189,60 @@ public class PDFViewer extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonProximaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProximaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    	if(paginaAtual < tamanho){
+            jButtonAnterior.setEnabled(true);
+                jButtonPrimeira.setEnabled(true);
+            page1 =  pdffile.getPage(paginaAtual+1);
+            paginaPDF.showPage(page1);
+            paginaAtual++;
+            jButtonPrimeira.setEnabled(true);
+            if(paginaAtual == tamanho){
+                jButtonProxima.setEnabled(false);
+                jButtonUltima.setEnabled(false);
+            }
+        }
+        
+    }//GEN-LAST:event_jButtonProximaActionPerformed
+
+    private void jButtonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        // TODO add your handling code here:
+    	if(paginaAtual > 1){
+            jButtonProxima.setEnabled(true);
+            jButtonUltima.setEnabled(true);
+            page1 =  pdffile.getPage(paginaAtual-1);
+            paginaPDF.showPage(page1);
+            paginaAtual--;            
+            jButtonUltima.setEnabled(true);
+            if(paginaAtual == 1){
+                jButtonAnterior.setEnabled(false);
+                jButtonPrimeira.setEnabled(false);
+            }
+        }
+        
+        
+    }                                               
+
+
+    private void jButtonUltimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnteriorActionPerformed
+        // TODO add your handling code here:
+    	jButtonAnterior.setEnabled(true);
+        jButtonPrimeira.setEnabled(true);
+        page1 =  pdffile.getPage(tamanho);
+        paginaPDF.showPage(page1);
+        paginaAtual = tamanho;
+        jButtonUltima.setEnabled(false);
+    }//GEN-LAST:event_jButtonAnteriorActionPerformed
+
+    private void jButtonPrimeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrimeiraActionPerformed
+        // TODO add your handling code here:
+        jButtonProxima.setEnabled(true);
+        jButtonUltima.setEnabled(true);
+        page1 =  pdffile.getPage(1);
+        paginaPDF.showPage(page1);
+        jButtonPrimeira.setEnabled(false);
+    }//GEN-LAST:event_jButtonPrimeiraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,7 +251,7 @@ public class PDFViewer extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -179,19 +274,24 @@ public class PDFViewer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PDFViewer().setVisible(true);
+                try {
+					new PDFViewer(codigo1).setVisible(true);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonAnterior;
+    private javax.swing.JButton jButtonPrimeira;
+    private javax.swing.JButton jButtonProxima;
+    private javax.swing.JButton jButtonUltima;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel paginaPDF;
+    private PagePanel paginaPDF;
     // End of variables declaration//GEN-END:variables
 }
