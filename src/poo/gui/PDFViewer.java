@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package poo.gui;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,39 +16,41 @@ import com.sun.pdfview.PDFFile;
 import com.sun.pdfview.PDFPage;
 import com.sun.pdfview.PagePanel;
 import com.sun.prism.Image;
+
 /**
  *
  * @author Thiago Gomes
  */
 public class PDFViewer extends javax.swing.JFrame {
-	private int tamanho = 0;
-	private PDFFile pdffile;
-	private RandomAccessFile raf;
-	private FileChannel channel;
-	private ByteBuffer buf;
-	private static String codigo1;
-	private int paginaAtual = 1;
-	private PDFPage page1 = null;
+
+    private int tamanho = 0;
+    private PDFFile pdffile;
+    private RandomAccessFile raf;
+    private FileChannel channel;
+    private ByteBuffer buf;
+    private static String codigo1;
+    private int paginaAtual = 1;
+    private PDFPage page1 = null;
 
     /**
      * Creates new form PDFViewer
+     *
      * @throws IOException
      */
     public PDFViewer(String codigo) throws IOException {
         initComponents();
         codigo1 = codigo;
-    	File file = new File("EMENTAS\\" + codigo+".pdf");
-		if(file != null){
-			raf = new RandomAccessFile(file, "r");
-			channel = raf.getChannel();
-			buf = channel.map(FileChannel.MapMode.READ_ONLY,
-					0, channel.size());
-			pdffile = new PDFFile(buf);
-			page1 =  pdffile.getPage(1);
-	        paginaPDF.showPage(page1);
-                tamanho = pdffile.getNumPages();
-
-		}
+        File file = new File("EMENTAS\\" + codigo + ".pdf");
+        if (file.exists() && !file.isDirectory()) {
+            raf = new RandomAccessFile(file, "r");
+            channel = raf.getChannel();
+            buf = channel.map(FileChannel.MapMode.READ_ONLY,
+                    0, channel.size());
+            pdffile = new PDFFile(buf);
+            page1 = pdffile.getPage(1);
+            paginaPDF.showPage(page1);
+            tamanho = pdffile.getNumPages();
+        }
     }
 
     /**
@@ -191,45 +194,45 @@ public class PDFViewer extends javax.swing.JFrame {
 
     private void jButtonProximaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProximaActionPerformed
         // TODO add your handling code here:
-    	if(paginaAtual < tamanho){
+        if (paginaAtual < tamanho) {
             jButtonAnterior.setEnabled(true);
-                jButtonPrimeira.setEnabled(true);
-            page1 =  pdffile.getPage(paginaAtual+1);
+            jButtonPrimeira.setEnabled(true);
+            page1 = pdffile.getPage(paginaAtual + 1);
             paginaPDF.showPage(page1);
             paginaAtual++;
             jButtonPrimeira.setEnabled(true);
-            if(paginaAtual == tamanho){
+            if (paginaAtual == tamanho) {
                 jButtonProxima.setEnabled(false);
                 jButtonUltima.setEnabled(false);
             }
         }
-        
+
     }//GEN-LAST:event_jButtonProximaActionPerformed
 
-    private void jButtonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {                                                
+    private void jButtonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    	if(paginaAtual > 1){
+        if (paginaAtual > 1) {
             jButtonProxima.setEnabled(true);
             jButtonUltima.setEnabled(true);
-            page1 =  pdffile.getPage(paginaAtual-1);
+            page1 = pdffile.getPage(paginaAtual - 1);
             paginaPDF.showPage(page1);
-            paginaAtual--;            
+            paginaAtual--;
             jButtonUltima.setEnabled(true);
-            if(paginaAtual == 1){
+            if (paginaAtual == 1) {
                 jButtonAnterior.setEnabled(false);
                 jButtonPrimeira.setEnabled(false);
             }
         }
-        
-        
-    }                                               
+
+    }
 
 
     private void jButtonUltimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnteriorActionPerformed
         // TODO add your handling code here:
-    	jButtonAnterior.setEnabled(true);
+        jButtonAnterior.setEnabled(true);
         jButtonPrimeira.setEnabled(true);
-        page1 =  pdffile.getPage(tamanho);
+        jButtonProxima.setEnabled(false);
+        page1 = pdffile.getPage(tamanho);
         paginaPDF.showPage(page1);
         paginaAtual = tamanho;
         jButtonUltima.setEnabled(false);
@@ -239,7 +242,8 @@ public class PDFViewer extends javax.swing.JFrame {
         // TODO add your handling code here:
         jButtonProxima.setEnabled(true);
         jButtonUltima.setEnabled(true);
-        page1 =  pdffile.getPage(1);
+        jButtonAnterior.setEnabled(false);
+        page1 = pdffile.getPage(1);
         paginaPDF.showPage(page1);
         jButtonPrimeira.setEnabled(false);
     }//GEN-LAST:event_jButtonPrimeiraActionPerformed
@@ -275,11 +279,11 @@ public class PDFViewer extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-					new PDFViewer(codigo1).setVisible(true);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+                    new PDFViewer(codigo1).setVisible(true);
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
     }

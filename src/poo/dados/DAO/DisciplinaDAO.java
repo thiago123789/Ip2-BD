@@ -38,23 +38,16 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 	//CODIGO_DIS, NOME, CURSO, CARGA_HORARIA, TRILHA, TIPO_DISCIPLINA, PERIODO_DISCIPLINA, EMENTA
 	public boolean inserir(Disciplina disciplina) throws SQLException{
 		boolean inseriu = false;
-		String sql = "INSERT INTO deinfo.disciplina(CODIGO_DIS, NOME, CURSO, CARGA_HORARIA, TRILHA, "
+		String sql = "INSERT INTO deinfo.disciplina(CODIGO_DIS, NOME, CARGA_HORARIA,"
 				+ "TIPO_DISCIPLINA, PERIODO_DISCIPLINA, EMENTA) values(?,?,?,?,?,?,?,?)";
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConect.retornoStatement(sql);
 			smt.setString(1, disciplina.getCodigo());
 			smt.setString(2, disciplina.getNome());
-			smt.setInt(3, disciplina.getCurso().getCodigo());
-			smt.setInt(4, disciplina.getCargaHoraria());
-			if (disciplina.getTrilha() == null) {
-				smt.setNull(5, Types.INTEGER);
-			} else {
-				smt.setInt(5, disciplina.getTrilha().getCodigo());
-			}
-
-			smt.setString(6, disciplina.getTipo_disciplina());
-			smt.setInt(7, disciplina.getPeriodoDisciplina());
-			smt.setBytes(8, this.converteArquivoEmBytes(disciplina.getEmenta()));
+			smt.setInt(3, disciplina.getCargaHoraria());
+                        smt.setString(4, disciplina.getTipo_disciplina());
+			smt.setInt(5, disciplina.getPeriodoDisciplina());
+			smt.setBytes(6, this.converteArquivoEmBytes(disciplina.getEmenta()));
 			smt.execute();
 			inseriu = true;
 		}catch(Exception e){
@@ -67,22 +60,16 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 	public boolean atualizar(Disciplina disciplina) throws SQLException{
 
 		boolean atualizou = false;
-		String sql = "UPDATE deinfo.disciplina SET nome = ?, curso = ?, carga_horaria = ?, trilha = ?, "
+		String sql = "UPDATE deinfo.disciplina SET nome = ?, carga_horaria = ?,"
 				+ "TIPO_DISCIPLINA = ?, PERIODO_DISCIPLINA = ?, EMENTA = ?"
 				+ "WHERE CODIGO_DIS = \""+disciplina.getCodigo()+"\"";
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConect.retornoStatement(sql);
 			smt.setString(1, disciplina.getNome());
-			smt.setInt(2, disciplina.getCurso().getCodigo());
-			smt.setInt(3, disciplina.getCargaHoraria());
-			if (disciplina.getTrilha() == null) {
-				smt.setNull(4, Types.INTEGER);
-			} else {
-				smt.setInt(4, disciplina.getTrilha().getCodigo());
-			}
-			smt.setString(5, disciplina.getTipo_disciplina());
-			smt.setInt(6, disciplina.getPeriodoDisciplina());
-			smt.setBytes(7, this.converteArquivoEmBytes(disciplina.getEmenta()));
+			smt.setInt(2, disciplina.getCargaHoraria());
+			smt.setString(3, disciplina.getTipo_disciplina());
+			smt.setInt(4, disciplina.getPeriodoDisciplina());
+			smt.setBytes(5, this.converteArquivoEmBytes(disciplina.getEmenta()));
 			smt.execute();
 			atualizou = true;
 		}catch(Exception e){
@@ -102,16 +89,12 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 			while(resultSet.next()){
 				String codigo = resultSet.getString("CODIGO_DIS");
 				String nome = resultSet.getString("NOME");
-				int curso = resultSet.getInt("CURSO");
 				int carga_horaria = resultSet.getInt("CARGA_HORARIA");
-				int trilha = resultSet.getInt("TRILHA");
 				String tipo = resultSet.getString("TIPO_DISCIPLINA");
 				int periodo = resultSet.getInt("PERIODO_DISCIPLINA");
 				byte[] arquivo = resultSet.getBytes("EMENTA");
 				Disciplina b = new Disciplina(codigo, nome);
 				b.setCargaHoraria(carga_horaria);
-				b.setTrilha(new Trilha(trilha));
-				b.setCurso(new Curso(curso));
 				b.setTipo_disciplina(tipo);
 				b.setPeriodoDisciplina(periodo);
 				if(arquivo != null){

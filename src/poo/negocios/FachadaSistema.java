@@ -24,6 +24,7 @@ public class FachadaSistema {
     private Auxiliar aux;
     private ListarPreRequisitos preList;
     private DetalhesDisciplina details;
+    private EditarDisciplina edit;
 
     private FachadaSistema(){
     	addDisciplina = CadastroDisciplina.getInstance();
@@ -39,6 +40,7 @@ public class FachadaSistema {
         aux = Auxiliar.getInstance();
         preList = ListarPreRequisitos.getInstance();
         details = DetalhesDisciplina.getInstance();
+        edit = EditarDisciplina.getInstance();
     }
 
 	public static FachadaSistema getInstance(){
@@ -176,5 +178,12 @@ public class FachadaSistema {
 		return listCurso.listarCursosPorDepartamentoList(depat);
 	}
 
+	public ArrayList<Disciplina> listarDisciplinasPorCurso(String nomeCurso) {
+		return list.listarDisciplinasPorCurso(nomeCurso);
+	}
+
+//	public Disciplina buscarDisciplinaPorCodigo(String codigo){
+//		return edit.buscarDisciplinaPorCodigo(codigo);
+//	}
 
 }

@@ -79,7 +79,12 @@ public class TableModelSistema extends AbstractTableModel {
 		case TIPO:
 			return ob.getTipo_disciplina();
 		case EMENTA:
-			return pdf;
+                    if(ob.getEmenta() != null) {
+                        return pdf;
+                    }else{
+                        return null;
+                    }
+			
 		default:
 			// Não deve ocorrer, pois só existem 2 colunas
 			throw new IndexOutOfBoundsException("columnIndex out of bounds");

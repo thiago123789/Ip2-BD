@@ -190,7 +190,7 @@ public class Disciplina implements Comparable{
 
 	public String toString(){
 		String resultado = "";
-		resultado += "COD: "+this.getCodigo()+"\nNome: "+this.getNome()+"\nCurso: "+this.getCurso().getNome()+"\nTipo: "+this.getTipo_disciplina();
+		resultado += "COD: "+this.getCodigo()+"\nNome: "+this.getNome()+"\nTipo: "+this.getTipo_disciplina();
 		return resultado;
 	}
 

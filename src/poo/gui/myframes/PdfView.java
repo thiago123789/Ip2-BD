@@ -95,20 +95,6 @@ public class PdfView {
 		frame.pack();
 		frame.setVisible(true);
 
-		//load a pdf from a byte buffer
-
-//		File file = new File("EMENTAS\\" + codigo+".pdf");
-//		if(file != null){
-//			RandomAccessFile raf = new RandomAccessFile(file, "r");
-//			FileChannel channel = raf.getChannel();
-//			ByteBuffer buf = channel.map(FileChannel.MapMode.READ_ONLY,
-//					0, channel.size());
-//			pdffile = new PDFFile(buf);
-//			page1 = pdffile.getPage(0);
-//			tamanho = pdffile.getNumPages();
-//			panel.showPage(page1);
-//		}
-
 	}
 	
 	public void initComponents(String codigo) throws IOException{
@@ -135,14 +121,12 @@ public class PdfView {
 	
 	private void jbtnActionUltima(ActionEvent evt){
 		page1 =  pdffile.getPage(tamanho -1);
-		System.out.println("Pagina atual: "+(tamanho-1));
 		panel.showPage(page1);		
 	}
 	
 	private void jbtnActionProx(ActionEvent evt){
 		if(paginaAutal != (tamanho-1)){
 			page1 =  pdffile.getPage(paginaAutal+1);
-			System.out.println("Pagina atual: "+paginaAutal+1);
 			panel.showPage(page1);
 			paginaAutal++;
 		}		
@@ -151,7 +135,6 @@ public class PdfView {
 	private void jbtnActionAnt(ActionEvent evt){
 		if(paginaAutal != (0)){
 			page1 =  pdffile.getPage(paginaAutal-1);
-			System.out.println("Pagina atual: "+(paginaAutal-1));
 			panel.showPage(page1);
 			paginaAutal--;
 		}	
@@ -159,9 +142,6 @@ public class PdfView {
 
 	public void  pagedelay(int delay){
 		int showtime = delay;
-		/*Thread viewThread = new Thread();
-        viewThread = Thread.currentThread();
-        /*synchronized(viewThread){*/
 		try {Thread.sleep(delay*100);}
 		catch(InterruptedException e){
 			System.out.println("thrown");      
