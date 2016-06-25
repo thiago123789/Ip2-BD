@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class OfertaDisciplina {
 	private int codigo;
 	private Disciplina disciplina;
+	private ArrayList<Horario> horarios;
+	private ArrayList<Professor> professores;
 	private int ano, semestre;
 	private int id;
 	private Localizacao local;
@@ -17,6 +19,26 @@ public class OfertaDisciplina {
 		this.setSemestre(semetre);
 		this.setLocal(local);
 	}
+
+	public ArrayList<Horario> getHorarios() {
+		return horarios;
+	}
+
+	public void setHorarios(ArrayList<Horario> horarios) {
+		if(horarios != null){
+			this.horarios = horarios;
+		}
+	}
+
+	public ArrayList<Professor> getProfessores() {
+		return professores;
+	}
+
+	public void setProfessores(ArrayList<Professor> professores) {
+		if(professores != null){
+			this.professores = professores;
+		}
+	}		
 
 	public OfertaDisciplina(int codigo){
 		this.setCodigo(codigo);

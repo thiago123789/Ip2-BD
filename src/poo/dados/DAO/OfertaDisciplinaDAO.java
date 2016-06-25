@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
+
 import poo.negocios.beans.Aluno;
 import poo.negocios.beans.Disciplina;
 import poo.negocios.beans.Localizacao;
@@ -26,22 +28,27 @@ public class OfertaDisciplinaDAO {
 		bancoConnect = ConnectionBanco.getInstance();
 	}
 
-	public boolean inserir(OfertaDisciplina offer){
-		boolean inseriu = false;
+	public int inserir(OfertaDisciplina offer){
+		int id = 0;
 		String sql = "INSERT INTO deinfo.oferta_disciplina(ano, semetrstre, disciplina_oferta, localizalicao) "
 				+ "values(?,?,?,?)";
 		try{
+			
 			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(sql);
 			smt.setInt(1, offer.getAno());
 			smt.setInt(2, offer.getSemestre());
 			smt.setString(3, offer.getDisciplina().getCodigo());
 			smt.setInt(4, offer.getLocal().getCodigo());
 			smt.execute();
-			inseriu = true;
+			
+			ResultSet st = smt.getGeneratedKeys();
+			st.next();
+			
+			id = st.getInt(1);
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
-		return inseriu;
+		return id;
 	}
 
 	//ID_OFERTA, ANO, SEMESTRE, DISCIPLINA_OFERTA, LOCALIZACAO, MONITOR_OFERTA

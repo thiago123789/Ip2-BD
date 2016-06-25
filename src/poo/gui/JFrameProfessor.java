@@ -5,6 +5,9 @@
  */
 package poo.gui;
 
+import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -12,14 +15,46 @@ import javax.swing.JOptionPane;
  * @author Thiago Gomes
  */
 public class JFrameProfessor extends javax.swing.JFrame {
-
+	private String nome, cpf, lastLogin;
     /**
      * Creates new form JFrameAdmin
      */
+	public void setValores(String nome, String cpf, String last){
+        this.nome = nome;
+        this.cpf = cpf;
+        this.lastLogin = last;
+    }
+	
+	
     public JFrameProfessor() {
         initComponents();
+        Font nova = new Font("Arial", Font.BOLD, 14);
+        Color branco = new Color(255,255,255);
+        jTNameUser.setFont(nova);
+        Color padrao = new Color(22, 34, 58);
+        jTNameUser.setText(this.nome);
+        jTCPFUser.setText(this.cpf);
+        jTCPFUser.setEditable(false);
+        jTNameUser.setEditable(false);
+        jTLastLogin.setEditable(false);
+        jTCPFUser.setBackground(padrao);
+        jTNameUser.setBackground(padrao);
+        jTLastLogin.setBackground(padrao);
+        jTCPFUser.setForeground(branco);
+        jTNameUser.setForeground(branco);
+        jTLastLogin.setForeground(branco);
     }
-
+    
+    
+    public void recebeValor(String nome, String cpf, String last){
+        this.nome = nome;
+        this.cpf = cpf;
+        this.lastLogin = last;
+        jTLastLogin.setText(last);
+        jTNameUser.setText(nome.toUpperCase());
+        jTCPFUser.setText(cpf);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,6 +70,13 @@ public class JFrameProfessor extends javax.swing.JFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         desktop = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTNameUser = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTCPFUser = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTLastLogin = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -70,11 +112,62 @@ public class JFrameProfessor extends javax.swing.JFrame {
         desktop.setLayout(desktopLayout);
         desktopLayout.setHorizontalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 821, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         desktopLayout.setVerticalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 419, Short.MAX_VALUE)
+            .addGap(0, 362, Short.MAX_VALUE)
+        );
+
+        jLabel1.setText("NOME USUÁRIO: ");
+
+        jLabel2.setText("CPF:");
+
+        jTCPFUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTCPFUserActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("ULTIMO LOGIN: ");
+
+        jTLastLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTLastLoginActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTNameUser, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTCPFUser, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTLastLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTNameUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jTCPFUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTLastLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -144,10 +237,14 @@ public class JFrameProfessor extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(desktop)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktop)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(desktop))
         );
 
         pack();
@@ -168,6 +265,14 @@ public class JFrameProfessor extends javax.swing.JFrame {
         f.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_mnuMyAccSairActionPerformed
+
+    private void jTCPFUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCPFUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTCPFUserActionPerformed
+
+    private void jTLastLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTLastLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTLastLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,6 +311,9 @@ public class JFrameProfessor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -216,8 +324,12 @@ public class JFrameProfessor extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JTextField jTCPFUser;
+    private javax.swing.JTextField jTLastLogin;
+    private javax.swing.JTextField jTNameUser;
     private javax.swing.JMenu mnuBuscar;
     private javax.swing.JMenu mnuDisciplina;
     private javax.swing.JMenuItem mnuMyAccSair;

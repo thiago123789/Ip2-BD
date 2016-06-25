@@ -8,5 +8,5 @@ import poo.negocios.beans.Aluno;
 public interface IAlunoDAO {
 	public boolean inserir(Aluno a) throws SQLException;
 	public boolean atualizar(Aluno a) throws SQLException;
-	public ArrayList<Aluno> listar();
+	public ArrayList<Aluno> listar() throws SQLException;
 }

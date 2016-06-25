@@ -43,17 +43,21 @@ public class ConnectionBanco {
 		Connection retorno = null;
 		retorno = DriverManager.getConnection(
 				"jdbc:mysql://127.0.0.1:3306/deinfo?autoReconnect=true&useSSL=false", "projetoipbd", "ufrpe@2016"); 
+		retorno.setAutoCommit(true);
 		return retorno;
 	}
     
     public PreparedStatement retornoStatement(String query){
     	try {
-			this.statement = (com.mysql.jdbc.PreparedStatement) this.conexao.prepareStatement(query);
+			this.statement = (com.mysql.jdbc.PreparedStatement) this.conexao.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
     	return this.statement;    	
     }
+    
+    
+    
     
     
     public ResultSet comandoSQL(String query){

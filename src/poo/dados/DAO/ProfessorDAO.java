@@ -1,9 +1,12 @@
 package poo.dados.DAO;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import poo.dados.DAO.interfaces.IProfessorDAO;
+import poo.excecoes.CPFInvalidoException;
 import poo.negocios.beans.Professor;
 
 public class ProfessorDAO implements IProfessorDAO{
@@ -39,5 +42,27 @@ public class ProfessorDAO implements IProfessorDAO{
 		return inseriu;
 	}
 
+	public ArrayList<Professor> listar(){
+		ArrayList<Professor> retorno = new ArrayList<Professor>();
+		String query = "SELECT * FROM deinfo.professor";
+		try{
+			ResultSet rs = bancoConnect.comandoSQL(query);
+			while(rs.next()){
+				String cpf = rs.getString(1);
+				boolean externo = rs.getBoolean(2);
+				String ies = rs.getString(3);
+				String titulo = rs.getString(4);
+				Professor aux = new Professor(cpf);
+				aux.setIes(ies);
+				aux.setTitulo(titulo);
+				retorno.add(aux);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}catch(CPFInvalidoException e){
+			e.printStackTrace();
+		}
+		return retorno;
+	}
 
 }

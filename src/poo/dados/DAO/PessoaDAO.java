@@ -50,7 +50,7 @@ public class PessoaDAO implements IPessoaDAO{
             System.out.println(p.getCpf());
             smt.setString(2, p.getPnome());
 			smt.setString(3, p.getUnome());
-            smt.setInt(4, (p.getSexo())? 0 : 1);
+            smt.setInt(4, (p.getSexo())? 1 : 2);
 			smt.setString(5, p.getSenha());
             smt.setString(6, p.getEmail());
             smt.setString(7, p.getEndereco().getLogradouro());

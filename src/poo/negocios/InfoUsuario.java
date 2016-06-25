@@ -1,5 +1,6 @@
 package poo.negocios;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import poo.dados.DAO.AlunoDAO;
@@ -23,11 +24,16 @@ public class InfoUsuario {
 
 	public int cursoAluno(String cpf){
 		int curso = -1;
-		ArrayList<Aluno> listando = command.listar();
-		for(Aluno aux : listando){
-			if(aux.getCpf().equals(cpf)){
-				curso = aux.getCurso().getCodigo();
+		ArrayList<Aluno> listando;
+		try {
+			listando = command.listar();
+			for(Aluno aux : listando){
+				if(aux.getCpf().equals(cpf)){
+					curso = aux.getCurso().getCodigo();
+				}
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return curso;
 	}

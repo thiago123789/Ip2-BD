@@ -8,12 +8,13 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import poo.dados.DAO.interfaces.IAlunoDAO;
+import poo.excecoes.CPFInvalidoException;
 import poo.excecoes.SenhaIncorretaException;
 import poo.negocios.beans.Aluno;
 import poo.negocios.beans.Curso;
 
 public class AlunoDAO implements IAlunoDAO{
-    private static AlunoDAO instance;
+	private static AlunoDAO instance;
 	private ConnectionBanco bancoConect;
 
 	public static AlunoDAO getInstance(){
@@ -33,22 +34,23 @@ public class AlunoDAO implements IAlunoDAO{
 	public boolean inserir(Aluno a) throws SQLException{
 		boolean inseriu = false;
 		String sql = "INSERT INTO deinfo.aluno(CPF_ALU, PRIORIDADE, CURSO, ANO_ENTRADA, SEMESTRE_ENTRADA, TURNO)"
-				   + "values(?,?,?,?,?,?)";
+				+ "values(?,?,?,?,?,?)";
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConect.retornoStatement(sql);
 			smt.setString(1, a.getCpf());
-            smt.setInt(2, a.getPrioridade()? 1: 0);
+			smt.setInt(2, a.getPrioridade()? 1: 0);
 			smt.setInt(3, a.getCurso().getCodigo());
-            smt.setInt(4, a.getAnoEntrada());
+			smt.setInt(4, a.getAnoEntrada());
 			smt.setInt(5, a.getSemestreEntrada());
-            smt.setString(6, a.getTurno());
-            smt.execute();
+			smt.setString(6, a.getTurno());
+			smt.execute();
 			inseriu = true;
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
 		return inseriu;
 	}
+
 
 	public boolean atualizar(Aluno a) throws SQLException{
 		boolean atualizou = false;
@@ -59,27 +61,72 @@ public class AlunoDAO implements IAlunoDAO{
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConect.retornoStatement(sql);
 			smt.setInt(1, a.getPrioridade()?1:0);
-            smt.setInt(2, a.getCurso().getCodigo());
-            smt.setInt(3, a.getAnoEntrada());
-            smt.setInt(4, a.getSemestreEntrada());
-            smt.setString(5, a.getTurno());
-            smt.setInt(6, a.isMonitor()?1:0);
-            smt.setInt(7, a.isVoluntario()?1:0);
-            smt.setInt(8, a.isBolsista()?1:0);
-            smt.setInt(9, a.isDesistiu()?1:0);
+			smt.setInt(2, a.getCurso().getCodigo());
+			smt.setInt(3, a.getAnoEntrada());
+			smt.setInt(4, a.getSemestreEntrada());
+			smt.setString(5, a.getTurno());
+			smt.setInt(6, a.isMonitor()?1:0);
+			smt.setInt(7, a.isVoluntario()?1:0);
+			smt.setInt(8, a.isBolsista()?1:0);
+			smt.setInt(9, a.isDesistiu()?1:0);
 			smt.execute();
+
+			bancoConect.getConexao().commit();
 			atualizou = true;
-		}catch(Exception e){
+		}catch(SQLException e){
+			bancoConect.getConexao().rollback();
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
 		return atualizou;
 	}
 
-	public ArrayList<Aluno> listar(){
+
+	//METODO TESTE
+	public boolean atualizar(ArrayList<Aluno> list) throws SQLException{
+		boolean atualizou = false;
+		try{
+			for(Aluno a: list){
+				String sql = "UPDATE deinfo.aluno SET PRIORIDADE = ?, CURSO = ?,"
+						+ " ANO_ENTRADA = ?, SEMESTRE_ENTRADA = ?,"
+						+ " TURNO = ?, MONITOR = ?, VOLUNTARIO = ?,"
+						+ " BOLSISTA = ?, DESISTIU = ? WHERE CPF_ALU = \""+a.getCpf()+"\"";
+				try{
+					PreparedStatement smt = (PreparedStatement) bancoConect.retornoStatement(sql);
+					smt.setInt(1, a.getPrioridade()?1:0);
+					smt.setInt(2, a.getCurso().getCodigo());
+					smt.setInt(3, a.getAnoEntrada());
+					smt.setInt(4, a.getSemestreEntrada());
+					smt.setString(5, a.getTurno());
+					smt.setInt(6, a.isMonitor()?1:0);
+					smt.setInt(7, a.isVoluntario()?1:0);
+					smt.setInt(8, a.isBolsista()?1:0);
+					smt.setInt(9, a.isDesistiu()?1:0);
+					smt.execute();
+
+				}catch(SQLException e){
+					JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+				}
+
+			}
+			bancoConect.getConexao().commit();
+			atualizou = true;
+		}catch(SQLException e){
+			bancoConect.getConexao().rollback();
+		}finally{
+			if(bancoConect.getConexao() != null){
+				bancoConect.getConexao().close();
+			}
+		}
+
+		return atualizou;
+	}
+
+	public ArrayList<Aluno> listar() throws SQLException{
 		ArrayList<Aluno> list = new ArrayList<Aluno>();
 		String query = "SELECT * FROM deinfo.aluno";
 		try{
 			ResultSet resultSet = bancoConect.comandoSQL(query);
+			bancoConect.getConexao().commit();
 			while(resultSet.next()){
 				String cpf = resultSet.getString("CPF_ALU");
 				boolean prioridade = resultSet.getBoolean("PRIORIDADE");
@@ -97,11 +144,14 @@ public class AlunoDAO implements IAlunoDAO{
 						bolsista, desistiu);
 				a.setMedia_geral(media_geral);
 				list.add(a);
+				
 			}
 		}catch(SQLException e){
+			bancoConect.getConexao().rollback();
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		} catch (CPFInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return list;
 	}
@@ -116,7 +166,7 @@ public class AlunoDAO implements IAlunoDAO{
 
 	//Excluir implementação
 	public int tipoDeUsuario(String cpf){
-        int tipo = -1;
+		int tipo = -1;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
 			ResultSet resultSet = bancoConect.comandoSQL(query);
@@ -133,14 +183,14 @@ public class AlunoDAO implements IAlunoDAO{
 
 
 	public String verificaSenha(String cpf){
-        String aux = null;
+		String aux = null;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
 			ResultSet resultSet = bancoConect.comandoSQL(query);
 			while(resultSet.next()){
 				String senha_p = resultSet.getString("SENHA");
-                aux = senha_p;
-            }
+				aux = senha_p;
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -149,23 +199,23 @@ public class AlunoDAO implements IAlunoDAO{
 
 		return aux;
 
-        }
+	}
 
 	public boolean autenticar(String cpf, String senha){
-        boolean ok = false;
+		boolean ok = false;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
 			ResultSet resultSet = bancoConect.comandoSQL(query);
 			while(resultSet.next()){
 				String senha_p = resultSet.getString("SENHA");
-                if(senha_p.equals(senha)){
-                	ok = true;
-                    break;
-                }
-                else{
-                	throw new SenhaIncorretaException();
-                }
-            }
+				if(senha_p.equals(senha)){
+					ok = true;
+					break;
+				}
+				else{
+					throw new SenhaIncorretaException();
+				}
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -174,61 +224,61 @@ public class AlunoDAO implements IAlunoDAO{
 
 		return ok;
 
-        }
+	}
 
-    public String nomeUsuario(String cpf){
-        String completo = "";
+	public String nomeUsuario(String cpf){
+		String completo = "";
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
 			ResultSet resultSet = bancoConect.comandoSQL(query);
 			while(resultSet.next()){
 				String nome1= resultSet.getString("p_nome");
-                String nome2= resultSet.getString("u_nome");
-                completo = nome1+" "+nome2;
-            }
+				String nome2= resultSet.getString("u_nome");
+				completo = nome1+" "+nome2;
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
 		return completo;
-    }
+	}
 
-    public int cursoUsuario(String cpf){
-        int completo = -1;
-        String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
-        	try{
-        		ResultSet resultSet = bancoConect.comandoSQL(query);
-        		while(resultSet.next()){
-        			int curso= resultSet.getInt("CURSO");
-        			completo = curso;
-        		}
-        	}catch(SQLException e){
-        		JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-        	}catch(Exception e){
-        		JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-        	}
-        return completo;
-    }
+	public int cursoUsuario(String cpf){
+		int completo = -1;
+		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
+		try{
+			ResultSet resultSet = bancoConect.comandoSQL(query);
+			while(resultSet.next()){
+				int curso= resultSet.getInt("CURSO");
+				completo = curso;
+			}
+		}catch(SQLException e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+		return completo;
+	}
 
-    public boolean existeUsuario(String cpf){
-        boolean ok = false;
+	public boolean existeUsuario(String cpf){
+		boolean ok = false;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
 			ResultSet resultSet = bancoConect.comandoSQL(query);
 			if(resultSet.isBeforeFirst()){
 				ok = true;
 				System.out.println(ok);
-            }
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
 		return ok;
-    }
+	}
 
-    /*
+	/*
     public boolean atualiza(Pessoa a) throws SQLException{
     		boolean atualizou = false;
     		String sql = "UPDATE deinfo.pessoa SET cpf_p = ?, P_NOME = ?,  U_NOME = ?, SEXO = ?, SENHA = ?, "
@@ -257,9 +307,9 @@ public class AlunoDAO implements IAlunoDAO{
     		}
     		return atualizou;
     	}
-    	*/
+	 */
 
-    /*
+	/*
     public Pessoa buscaPessoa(String cpf){
 		Pessoa a = null;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
@@ -291,5 +341,5 @@ public class AlunoDAO implements IAlunoDAO{
 		}
 		return a;
 	}
-	*/
+	 */
 }

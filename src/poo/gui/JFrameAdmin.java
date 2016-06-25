@@ -20,6 +20,7 @@ import poo.gui.myframes.FrameCadastrarAluno;
 import poo.gui.myframes.FrameCadastroCurso;
 import poo.gui.myframes.FrameCadastroDepartamento;
 import poo.gui.myframes.FrameCadastroDisciplina;
+import poo.gui.myframes.FrameCadastroOferta;
 import poo.gui.myframes.FrameCadastroProfessor;
 import poo.gui.myframes.FrameCadastroUsuario;
 import poo.gui.myframes.FrameDesativarUsuario;
@@ -105,6 +106,8 @@ public class JFrameAdmin extends javax.swing.JFrame {
         mnuMinhaContaAlterarSenha = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         mnuMinhaContaSair = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem21 = new javax.swing.JMenuItem();
         mnuUsuario = new javax.swing.JMenu();
         mnuUsuarioAdicionar = new javax.swing.JMenuItem();
         mnuUsuarioEditar = new javax.swing.JMenuItem();
@@ -241,6 +244,18 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenu1.add(mnuMinhaContaSair);
 
         jMenuBar1.add(jMenu1);
+
+        jMenu5.setText("Oferta Disciplina");
+
+        jMenuItem21.setText("Cadastro Oferta");
+        jMenuItem21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem21ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem21);
+
+        jMenuBar1.add(jMenu5);
 
         mnuUsuario.setText("Aluno");
 
@@ -575,6 +590,13 @@ public class JFrameAdmin extends javax.swing.JFrame {
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
+    private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
+        // TODO add your handling code here:
+        FrameCadastroOferta f = new FrameCadastroOferta();
+        desktop.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenuItem21ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -620,6 +642,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
@@ -634,6 +657,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem20;
+    private javax.swing.JMenuItem jMenuItem21;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

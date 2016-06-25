@@ -8,6 +8,7 @@ import poo.negocios.beans.Aluno;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Departamento;
 import poo.negocios.beans.Disciplina;
+import poo.negocios.beans.Professor;
 
 public class FachadaSistema {
 	private static FachadaSistema instance;
@@ -25,6 +26,8 @@ public class FachadaSistema {
     private ListarPreRequisitos preList;
     private DetalhesDisciplina details;
     private EditarDisciplina edit;
+    private ListarProfessores prof;
+    private ListarLocalizacao local;
 
     private FachadaSistema(){
     	addDisciplina = CadastroDisciplina.getInstance();
@@ -41,6 +44,8 @@ public class FachadaSistema {
         preList = ListarPreRequisitos.getInstance();
         details = DetalhesDisciplina.getInstance();
         edit = EditarDisciplina.getInstance();
+        prof = ListarProfessores.getInstance();
+        local = ListarLocalizacao.getInstance();
     }
 
 	public static FachadaSistema getInstance(){
@@ -182,8 +187,22 @@ public class FachadaSistema {
 		return list.listarDisciplinasPorCurso(nomeCurso);
 	}
 
-//	public Disciplina buscarDisciplinaPorCodigo(String codigo){
-//		return edit.buscarDisciplinaPorCodigo(codigo);
-//	}
+	public ArrayList<Professor> listarProfessores() {
+		return prof.listarProfessores();
+	}
+
+	public ArrayList<String> listaPredios() {
+		return local.listaPredios();
+	}
+
+	public ArrayList<Integer> listaSalasPorPredio(String predio) {
+		return local.listaSalasPorPredio(predio);
+	}
+
+	public int buscarIdLocalizacao(String predio, int sala) {
+		return local.buscarIdLocalizacao(predio, sala);
+	}
+
+
 
 }
