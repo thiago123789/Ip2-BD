@@ -208,27 +208,31 @@ public class JFLogin extends javax.swing.JFrame {
 
 		String usuario = format.soNumerosCPF(usuario1);
 		try{
+			System.out.println("Qual tipo ??????? "+auto.tipoDeUsuario(usuario));
+
 			boolean existe = auto.usuarioExiste(usuario);
 			if(existe){
 				if(auto.tipoDeUsuario(usuario) == 3){
+					System.out.println(auto.tipoDeUsuario(usuario));
 					boolean ok = auto.autenticaSenha(usuario, senha);
 					if(ok){
 						if(aluno == null || format == null){
 							aluno = new JFrameAluno();
 							aluno.setVisible(true);
-							aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
+							aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
 							aluno.setExtendedState(aluno.MAXIMIZED_BOTH);
 							this.setVisible(false);
 							auto.logar(usuario);
 						}else{
 							aluno.setVisible(true);
-							aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
+							aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
 							aluno.setExtendedState(aluno.MAXIMIZED_BOTH);
 							this.setVisible(false);
 							auto.logar(usuario);
 						}
 					}
 				}else if(auto.tipoDeUsuario(usuario) == 2){
+					System.out.println(auto.tipoDeUsuario(usuario));
 					boolean ok = auto.autenticaSenha(usuario, senha);
 					if(ok){
 						if(admin == null || format == null){
@@ -249,6 +253,7 @@ public class JFLogin extends javax.swing.JFrame {
 						}
 					}
 				}else if(auto.tipoDeUsuario(usuario) == 1){
+					System.out.println("Profeissor : >>>> "+auto.tipoDeUsuario(usuario));
 					boolean ok = auto.autenticaSenha(usuario, senha);
 					if(ok){
 						if(admin == null || format == null){
@@ -315,13 +320,13 @@ public class JFLogin extends javax.swing.JFrame {
 							if(aluno == null || format == null){
 								aluno = new JFrameAluno();
 								aluno.setVisible(true);
-								aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
+								aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
 								aluno.setExtendedState(aluno.MAXIMIZED_BOTH);
 								this.setVisible(false);
 								auto.logar(usuario);
 							}else{
 								aluno.setVisible(true);
-								aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario));
+								aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
 								aluno.setExtendedState(aluno.MAXIMIZED_BOTH);
 								this.setVisible(false);
 								auto.logar(usuario);
@@ -347,24 +352,26 @@ public class JFLogin extends javax.swing.JFrame {
 								auto.logar(usuario);
 							}
 						}
-					}else if(auto.tipoDeUsuario(usuario) == 1){
-						boolean ok = auto.autenticaSenha(usuario, senha);
-						if(ok){
-							if(admin == null || format == null){
-								prof = new JFrameProfessor();
-								prof.setVisible(true);
-								prof.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
-								prof.setExtendedState(prof.MAXIMIZED_BOTH);
-								prof.setResizable(false);
-								prof.setVisible(false);
-								auto.logar(usuario);
-							}else{
-								prof.setVisible(true);
-								prof.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario),  auto.ultimoLogin(usuario));
-								prof.setExtendedState(admin.MAXIMIZED_BOTH);
-								prof.setResizable(false);
-								this.setVisible(false);
-								auto.logar(usuario);
+					}else{
+						if(auto.tipoDeUsuario(usuario) == 1){
+							boolean ok = auto.autenticaSenha(usuario, senha);
+							if(ok){
+								if(admin == null || format == null){
+									prof = new JFrameProfessor();
+									prof.setVisible(true);
+									prof.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
+									prof.setExtendedState(prof.MAXIMIZED_BOTH);
+									prof.setResizable(false);
+									this.setVisible(false);
+									auto.logar(usuario);
+								}else{
+									prof.setVisible(true);
+									prof.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario),  auto.ultimoLogin(usuario));
+									prof.setExtendedState(admin.MAXIMIZED_BOTH);
+									prof.setResizable(false);
+									this.setVisible(false);
+									auto.logar(usuario);
+								}
 							}
 						}
 					}

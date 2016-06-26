@@ -7,6 +7,7 @@ package poo.gui;
 
 import java.awt.Color;
 import java.awt.Font;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -14,18 +15,21 @@ import javax.swing.JOptionPane;
  * @author Thiago Gomes
  */
 public class JFrameAluno extends javax.swing.JFrame {
-    private String nome, cpf;
+	private String nome, cpf, lastLogin;
 
-    
-     public void setValores(String nome, String cpf){
-        this.nome = nome;
-        this.cpf = cpf;   
-    }
     /**
      * Creates new form JFrameAdmin
      */
+
+
+    public void setValores(String nome, String cpf, String last){
+        this.nome = nome;
+        this.cpf = cpf;
+        this.lastLogin = last;
+    }
+    
     public JFrameAluno() {
-        this.setValores(nome, cpf);
+        this.setValores(nome, cpf, lastLogin);
         System.out.println(nome+cpf);
         initComponents();
         Font nova = new Font("Arial", Font.BOLD, 14);
@@ -43,13 +47,16 @@ public class JFrameAluno extends javax.swing.JFrame {
         jTCPFUser.setForeground(branco);
         jTNameUser.setForeground(branco);
         jTLastLogin.setForeground(branco);
+        this.setVisible(true);
     }
 
     
-    public void recebeValor(String nome, String cpf){
+    public void recebeValor(String nome, String cpf, String last){
         this.nome = nome;
         this.cpf = cpf;
-        jTNameUser.setText(nome);
+        this.lastLogin = last;
+        jTLastLogin.setText(last);
+        jTNameUser.setText(nome.toUpperCase());
         jTCPFUser.setText(cpf);
     }
 

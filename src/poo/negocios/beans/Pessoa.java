@@ -55,7 +55,7 @@ public class Pessoa {
 	}
 
 	public void setTipo(int tp){
-		if(tp >= 0 && tp <= 2){
+		if(tp >= 1 && tp <= 3){
 			this.tipo_pessoa = tp;
 		}
 	}

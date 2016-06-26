@@ -26,14 +26,14 @@ import poo.negocios.beans.Pessoa;
  */
 public class PessoaDAO implements IPessoaDAO{
 	private static PessoaDAO instance;
-    private ConnectionBanco bancoConnect;
+	private ConnectionBanco bancoConnect;
 
-    public static PessoaDAO getInstance(){
-    	if(instance == null){
-    		instance = new PessoaDAO();
-    	}
-    	return instance;
-    }
+	public static PessoaDAO getInstance(){
+		if(instance == null){
+			instance = new PessoaDAO();
+		}
+		return instance;
+	}
 
 	private PessoaDAO(){
 		bancoConnect = ConnectionBanco.getInstance();
@@ -43,24 +43,24 @@ public class PessoaDAO implements IPessoaDAO{
 		boolean inseriu = false;
 		String sql = "INSERT INTO deinfo.pessoa(cpf_p, P_NOME, U_NOME, SEXO, SENHA, EMAIL, "
 				+ "logradouro, cep, tipo_pessoa, cidade, bairro, numero, estado, data_nasc) "
-                                + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(sql);
 			smt.setString(1, p.getCpf());
-            System.out.println(p.getCpf());
-            smt.setString(2, p.getPnome());
+			System.out.println(p.getCpf());
+			smt.setString(2, p.getPnome());
 			smt.setString(3, p.getUnome());
-            smt.setInt(4, (p.getSexo())? 1 : 2);
+			smt.setInt(4, (p.getSexo())? 1 : 2);
 			smt.setString(5, p.getSenha());
-            smt.setString(6, p.getEmail());
-            smt.setString(7, p.getEndereco().getLogradouro());
-            smt.setString(8, p.getEndereco().getCep());
-            smt.setInt(9, p.getTipo());
-            smt.setString(10, p.getEndereco().getCidade());
-            smt.setString(11, p.getEndereco().getBairro());
-            smt.setInt(12, p.getEndereco().getNumero());
-            smt.setString(13, p.getEndereco().getEstado());
-            smt.setDate(14, new java.sql.Date(p.getDataNascimento().getTime().getTime()));
+			smt.setString(6, p.getEmail());
+			smt.setString(7, p.getEndereco().getLogradouro());
+			smt.setString(8, p.getEndereco().getCep());
+			smt.setInt(9, p.getTipo());
+			smt.setString(10, p.getEndereco().getCidade());
+			smt.setString(11, p.getEndereco().getBairro());
+			smt.setInt(12, p.getEndereco().getNumero());
+			smt.setString(13, p.getEndereco().getEstado());
+			smt.setDate(14, new java.sql.Date(p.getDataNascimento().getTime().getTime()));
 			smt.execute();
 			inseriu = true;
 		}catch(Exception e){
@@ -77,34 +77,34 @@ public class PessoaDAO implements IPessoaDAO{
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(sql);
 			smt.setString(1, a.getCpf());
-            smt.setString(2, a.getPnome());
+			smt.setString(2, a.getPnome());
 			smt.setString(3, a.getUnome());
-            smt.setInt(4, (a.getSexo())? 0 : 1);
+			smt.setInt(4, (a.getSexo())? 0 : 1);
 			smt.setString(5, a.getSenha());
-            smt.setString(6, a.getEmail());
-            smt.setString(7, a.getEndereco().getLogradouro());
-            smt.setString(8, a.getEndereco().getCep());
-            smt.setInt(9, a.getTipo());
-            smt.setString(10, a.getEndereco().getCidade());
-            smt.setString(11, a.getEndereco().getBairro());
-            smt.setInt(12, a.getEndereco().getNumero());
-            smt.setString(13, a.getEndereco().getEstado());
+			smt.setString(6, a.getEmail());
+			smt.setString(7, a.getEndereco().getLogradouro());
+			smt.setString(8, a.getEndereco().getCep());
+			smt.setInt(9, a.getTipo());
+			smt.setString(10, a.getEndereco().getCidade());
+			smt.setString(11, a.getEndereco().getBairro());
+			smt.setInt(12, a.getEndereco().getNumero());
+			smt.setString(13, a.getEndereco().getEstado());
 			smt.setString(14, a.getCpf());
 			smt.execute();
- 			atualizou = true;
+			atualizou = true;
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, "Erro ao atualizar uma pessoa", "Erro", -1);
 		}
 		return atualizou;
 	}
-	enum MyEnum{A(1),R(2),P(2);
-		int valorLetra;
-		MyEnum(int valor){
-			this.valorLetra = valor;
-		}
-		int getValor(){
-			return this.valorLetra;
-		}
+	enum MyEnum{P(1),R(2),A(3);
+	int valorLetra;
+	MyEnum(int valor){
+		this.valorLetra = valor;
+	}
+	int getValor(){
+		return this.valorLetra;
+	}
 	};
 	public ArrayList<Pessoa> listar() throws SQLException{
 		ArrayList<Pessoa> listaPessoas = new ArrayList<Pessoa>();
@@ -124,6 +124,7 @@ public class PessoaDAO implements IPessoaDAO{
 				Date data_nasc = resultSet.getDate("DATA_NASC"); //data nasc;
 				@SuppressWarnings("deprecation")
 				Calendar data2 = new GregorianCalendar(data_nasc.getYear(), data_nasc.getMonth(), data_nasc.getDay());
+
 				//DADOS DO ENDERECO
 				String logradouro = resultSet.getString("logradouro"); //LOGRADOURO
 				String cep = resultSet.getString("cep"); //CEP
@@ -131,14 +132,14 @@ public class PessoaDAO implements IPessoaDAO{
 				String bairro = resultSet.getString("bairro"); //BAIRRO
 				int numero = resultSet.getInt("numero"); //NUMERO DA RESIDENCIA
 				String estado = resultSet.getString("estado"); // ESTADO
-                Endereco b = new Endereco(logradouro, numero, bairro, cidade, cep, estado);
+				Endereco b = new Endereco(logradouro, numero, bairro, cidade, cep, estado);
 				Pessoa a = new Pessoa(cpf_p);
 				a.setSenha(senha);
 				a.setPnome(p_nome);
 				a.setUnome(u_nome);
-                                a.setEndereco(b);
-                                a.setEmail(email);
-                                a.setSexo(sexo);
+				a.setEndereco(b);
+				a.setEmail(email);
+				a.setSexo(sexo);
 				a.setDataNascimento(data2);
 				a.setTipo(tipo_pessoa);
 				listaPessoas.add(a);
@@ -154,10 +155,10 @@ public class PessoaDAO implements IPessoaDAO{
 
 
 
-/*
- * =========================== INTERFACE ACABA AQUI ========================================== 
- *
- */
+	/*
+	 * =========================== INTERFACE ACABA AQUI ========================================== 
+	 *
+	 */
 
 
 
@@ -166,7 +167,7 @@ public class PessoaDAO implements IPessoaDAO{
 
 
 	public int tipoDeUsuario(String cpf){
-        int tipo = -1;
+		int tipo = -1;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
 			ResultSet resultSet = bancoConnect.comandoSQL(query);
@@ -183,14 +184,14 @@ public class PessoaDAO implements IPessoaDAO{
 
 
 	public String verificaSenha(String cpf){
-        String aux = null;
+		String aux = null;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
 			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			while(resultSet.next()){
 				String senha_p = resultSet.getString("SENHA");
-                aux = senha_p;
-            }
+				aux = senha_p;
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -200,20 +201,20 @@ public class PessoaDAO implements IPessoaDAO{
 	}
 
 	public boolean autenticar(String cpf, String senha){
-        boolean ok = false;
+		boolean ok = false;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
 			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			while(resultSet.next()){
 				String senha_p = resultSet.getString("SENHA");
-                if(senha_p.equals(senha)){
-                	ok = true;
-                    break;
-                }
-                else{
-                	throw new SenhaIncorretaException();
-                }
-            }
+				if(senha_p.equals(senha)){
+					ok = true;
+					break;
+				}
+				else{
+					throw new SenhaIncorretaException();
+				}
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
@@ -222,61 +223,61 @@ public class PessoaDAO implements IPessoaDAO{
 		return ok;
 	}
 
-    public String nomeUsuario(String cpf){
-    	String completo = "";
+	public String nomeUsuario(String cpf){
+		String completo = "";
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
 			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			while(resultSet.next()){
 				String nome1= resultSet.getString("p_nome");
-                String nome2= resultSet.getString("u_nome");
-                completo = nome1+" "+nome2;
-            }
+				String nome2= resultSet.getString("u_nome");
+				completo = nome1+" "+nome2;
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
 		return completo;
-    }
+	}
 
-    public int cursoUsuario(String cpf){
-        int completo = -1;
-        String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
-        	try{
-        		ResultSet resultSet = bancoConnect.comandoSQL(query);
-        		while(resultSet.next()){
-        			int curso= resultSet.getInt("CURSO");
-        			completo = curso;
-        		}
-        	}catch(SQLException e){
-        		JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-        	}catch(Exception e){
-        		JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-        	}
-        return completo;
-    }
+	public int cursoUsuario(String cpf){
+		int completo = -1;
+		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
+		try{
+			ResultSet resultSet = bancoConnect.comandoSQL(query);
+			while(resultSet.next()){
+				int curso= resultSet.getInt("CURSO");
+				completo = curso;
+			}
+		}catch(SQLException e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+		return completo;
+	}
 
-    public boolean existeUsuario(String cpf){
-        boolean ok = false;
+	public boolean existeUsuario(String cpf){
+		boolean ok = false;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
 			ResultSet resultSet = bancoConnect.comandoSQL(query);
 			if(resultSet.isBeforeFirst()){
 				ok = true;
 				System.out.println(ok);
-            }
+			}
 		}catch(SQLException e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 		}
 		return ok;
-    }
+	}
 
 
 
-    public Pessoa buscaPessoa(String cpf){
+	public Pessoa buscaPessoa(String cpf){
 		Pessoa a = null;
 		String query = "SELECT * FROM deinfo.pessoa WHERE cpf_p = \""+cpf+"\"";
 		try{
@@ -295,7 +296,7 @@ public class PessoaDAO implements IPessoaDAO{
 				String bairro = resultSet.getString("bairro");
 				int numero = resultSet.getInt("numero");
 				String estado = resultSet.getString("estado");
-                a = new Pessoa(cpf_p);
+				a = new Pessoa(cpf_p);
 				a.setSenha(senha);
 				a.setPnome(p_nome);
 				a.setUnome(u_nome);

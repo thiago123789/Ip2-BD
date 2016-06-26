@@ -30,6 +30,8 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 	private FachadaSistema fachada;
 	private DefaultListModel<String> modeloListaProfessor = new DefaultListModel<String>();
 	private ArrayList<String> listaProfessoresString = new ArrayList<String>();
+	
+	//ATRIBUTOS PARA CRIACAO DA OFERTA
 	private ArrayList<Professor> listaProfessores = new ArrayList<Professor>();
 	private ArrayList<Horario> horarios = new ArrayList<Horario>();
 	private Localizacao local;
@@ -141,7 +143,6 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-
 			}
 
 			@Override
@@ -158,13 +159,11 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
-
 			}
 
 			@Override

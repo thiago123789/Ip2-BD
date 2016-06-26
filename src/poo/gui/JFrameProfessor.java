@@ -43,6 +43,7 @@ public class JFrameProfessor extends javax.swing.JFrame {
         jTCPFUser.setForeground(branco);
         jTNameUser.setForeground(branco);
         jTLastLogin.setForeground(branco);
+        this.setVisible(true);
     }
     
     
