@@ -27,6 +27,13 @@ public class Professor extends Funcionario{
 
 	}
 
+    public Professor(String titulo, String pNome, String uNome, String cpf, boolean sexo, String senha, String email, Endereco endereco, Cargo cargo, Departamento depat, String lattes, Calendar nascimento) throws CPFInvalidoException {
+        super(pNome, uNome, cpf, sexo, senha, email, endereco, cargo, depat, lattes, nascimento);
+        this.titulo = titulo;
+    }
+        
+        
+
 	public String getIes() {
 		return ies;
 	}

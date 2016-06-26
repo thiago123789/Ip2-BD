@@ -197,97 +197,95 @@ public class JFLogin extends javax.swing.JFrame {
 	private void jBLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLogarActionPerformed
 		// TODO add your handling code here:
 		FachadaUsuario auto = FachadaUsuario.getInstance();
-		format = FormatacaoAuxiliar.getInstance();
-		String usuario1 = jTUsuario.getText();
-		char[] senhaC = jPSenhaLogin.getPassword();
-		String senha = "";
+			format = FormatacaoAuxiliar.getInstance();
+			String usuario1 = jTUsuario.getText();
+			char[] senhaC = jPSenhaLogin.getPassword();
+			String senha = "";
 
-		for(int i = 0; i < senhaC.length; i++){
-			senha += senhaC[i];
-		}
+			for(int i = 0; i < senhaC.length; i++){
+				senha += senhaC[i];
+			}
 
-		String usuario = format.soNumerosCPF(usuario1);
-		try{
-			System.out.println("Qual tipo ??????? "+auto.tipoDeUsuario(usuario));
-
-			boolean existe = auto.usuarioExiste(usuario);
-			if(existe){
-				if(auto.tipoDeUsuario(usuario) == 3){
-					System.out.println(auto.tipoDeUsuario(usuario));
-					boolean ok = auto.autenticaSenha(usuario, senha);
-					if(ok){
-						if(aluno == null || format == null){
-							aluno = new JFrameAluno();
-							aluno.setVisible(true);
-							aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
-							aluno.setExtendedState(aluno.MAXIMIZED_BOTH);
-							this.setVisible(false);
-							auto.logar(usuario);
-						}else{
-							aluno.setVisible(true);
-							aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
-							aluno.setExtendedState(aluno.MAXIMIZED_BOTH);
-							this.setVisible(false);
-							auto.logar(usuario);
+			String usuario = format.soNumerosCPF(usuario1);
+			try{
+				boolean existe = auto.usuarioExiste(usuario);
+				if(existe){
+					if(auto.tipoDeUsuario(usuario) == 3){
+						boolean ok = auto.autenticaSenha(usuario, senha);
+						if(ok){
+							if(aluno == null || format == null){
+								aluno = new JFrameAluno();
+								aluno.setVisible(true);
+								aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
+								aluno.setExtendedState(aluno.MAXIMIZED_BOTH);
+								this.setVisible(false);
+								auto.logar(usuario);
+							}else{
+								aluno.setVisible(true);
+								aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
+								aluno.setExtendedState(aluno.MAXIMIZED_BOTH);
+								this.setVisible(false);
+								auto.logar(usuario);
+							}
 						}
-					}
-				}else if(auto.tipoDeUsuario(usuario) == 2){
-					System.out.println(auto.tipoDeUsuario(usuario));
-					boolean ok = auto.autenticaSenha(usuario, senha);
-					if(ok){
-						if(admin == null || format == null){
-							admin = new JFrameAdmin();
-							admin.setVisible(true);
-							admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
-							admin.setExtendedState(admin.MAXIMIZED_BOTH);
-							admin.setResizable(false);
-							this.setVisible(false);
-							auto.logar(usuario);
-						}else{
-							admin.setVisible(true);
-							admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario),  auto.ultimoLogin(usuario));
-							admin.setExtendedState(admin.MAXIMIZED_BOTH);
-							admin.setResizable(false);
-							this.setVisible(false);
-							auto.logar(usuario);
+					}else if(auto.tipoDeUsuario(usuario) == 2){
+						boolean ok = auto.autenticaSenha(usuario, senha);
+						if(ok){
+							if(admin == null || format == null){
+								admin = new JFrameAdmin();
+								admin.setVisible(true);
+								admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
+								admin.setExtendedState(admin.MAXIMIZED_BOTH);
+								admin.setResizable(false);
+								this.setVisible(false);
+								auto.logar(usuario);
+							}else{
+								admin.setVisible(true);
+								admin.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario),  auto.ultimoLogin(usuario));
+								admin.setExtendedState(admin.MAXIMIZED_BOTH);
+								admin.setResizable(false);
+								this.setVisible(false);
+								auto.logar(usuario);
+							}
 						}
-					}
-				}else if(auto.tipoDeUsuario(usuario) == 1){
-					System.out.println("Profeissor : >>>> "+auto.tipoDeUsuario(usuario));
-					boolean ok = auto.autenticaSenha(usuario, senha);
-					if(ok){
-						if(admin == null || format == null){
-							prof = new JFrameProfessor();
-							prof.setVisible(true);
-							prof.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
-							prof.setExtendedState(prof.MAXIMIZED_BOTH);
-							prof.setResizable(false);
-							prof.setVisible(false);
-							auto.logar(usuario);
-						}else{
-							prof.setVisible(true);
-							prof.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario),  auto.ultimoLogin(usuario));
-							prof.setExtendedState(admin.MAXIMIZED_BOTH);
-							prof.setResizable(false);
-							this.setVisible(false);
-							auto.logar(usuario);
+					}else{
+						if(auto.tipoDeUsuario(usuario) == 1){
+							boolean ok = auto.autenticaSenha(usuario, senha);
+							if(ok){
+								if(admin == null || format == null){
+									prof = new JFrameProfessor();
+									prof.setVisible(true);
+									prof.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
+									prof.setExtendedState(prof.MAXIMIZED_BOTH);
+									prof.setResizable(false);
+									this.setVisible(false);
+									auto.logar(usuario);
+								}else{
+									prof.setVisible(true);
+									prof.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario),  auto.ultimoLogin(usuario));
+									prof.setExtendedState(admin.MAXIMIZED_BOTH);
+									prof.setResizable(false);
+									this.setVisible(false);
+									auto.logar(usuario);
+								}
+							}
 						}
 					}
 				}
+			}catch(UsuarioNaoExiste e){
+				jTUsuario.setText(null);
+				jPSenhaLogin.setText(null);
+				JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			}catch(SenhaIncorretaException e){
+				jPSenhaLogin.setText(null);
+				JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+
+			}catch(SQLException e){
+				jPSenhaLogin.setText(null);
+				JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+
 			}
-		}catch(UsuarioNaoExiste e){
-			jTUsuario.setText(null);
-			jPSenhaLogin.setText(null);
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-		}catch(SenhaIncorretaException e){
-			jPSenhaLogin.setText(null);
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
 
-		}catch(SQLException e){
-			jPSenhaLogin.setText(null);
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-
-		}
 	}//GEN-LAST:event_jBLogarActionPerformed
 
 	private void jBLogarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jBLogarKeyPressed

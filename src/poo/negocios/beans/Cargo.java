@@ -9,6 +9,11 @@ public class Cargo {
 		this.setNome(nome);
 	}
 
+    public Cargo(String nome) {
+        this.nome = nome;
+    }
+        
+
 	public int getCodigo() {
 		return codigo;
 	}

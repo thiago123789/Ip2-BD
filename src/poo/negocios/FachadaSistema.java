@@ -134,6 +134,10 @@ public class FachadaSistema {
 	public void cadastraAluno(Aluno a) {
 		cadAlu.cadastraAluno(a);
 	}
+        
+        public void cadastraProfessor(Professor p) {
+		addTeacher.cadastraProfessor(p);
+	}
 
 	public int[] retornarAnosAteAtual() {
 		return aux.retornarAnosAteAtual();

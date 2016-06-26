@@ -43,6 +43,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 	public FrameCadastroOferta() {
 		initComponents();
 		jTCodigoDisciplina.setEditable(false);
+                jTextField2.setEditable(false);
 		jTNomeDisciplina.setEditable(false);
 		this.preencherDepartamentos();
 		jListProfessores = new JList<String>();
@@ -153,6 +154,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 				Professor aux = fachada.buscarProfessorPorCPF(soNumerosCPF(codigo.toString()));
 				modeloListaProfessor.addElement(aux.getPnome()+" "+aux.getUnome());
 				listaProfessoresString.add(aux.getPnome()+" "+aux.getUnome());
+                                //jListProfessores.setListData(listaProfessoresString.toString());
 				listaProfessores.add(aux);
 			}
 
@@ -433,10 +435,28 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Professores da Oferta:");
 
+        jTCodigoDisciplina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTCodigoDisciplinaActionPerformed(evt);
+            }
+        });
+
         jListProfessores.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane4.setViewportView(jListProfessores);
 
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
         jLabel7.setText("Nome Disciplina:");
+
+        jTNomeDisciplina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTNomeDisciplinaActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Remover");
 
@@ -599,6 +619,18 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
         local.setSala(Integer.parseInt(jCListaSalas.getSelectedItem().toString()));
         jTextField2.setText(jCListaPredios.getSelectedItem().toString()+" Sala: "+jCListaSalas.getSelectedItem().toString());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTCodigoDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCodigoDisciplinaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTCodigoDisciplinaActionPerformed
+
+    private void jTNomeDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNomeDisciplinaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTNomeDisciplinaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

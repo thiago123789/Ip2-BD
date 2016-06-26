@@ -18,6 +18,7 @@ public class Funcionario extends Pessoa {
 		this.setDepartamento(departamento);
 
 	}
+        
 
 	public void setProfessor(boolean value){
 		this.professor = value;

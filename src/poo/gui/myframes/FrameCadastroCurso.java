@@ -255,7 +255,7 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
             JOptionPane.showConfirmDialog(null, "Não foi possivel cadastrar o curso", "Erro", -1);
         }
         
-        result = fachada.okcancel("Deseja adicionar um novo departamento?", "Alerta");
+        result = fachada.okcancel("Deseja adicionar um novo curso?", "Alerta");
         
         if( result == 2){
             this.setVisible(false);

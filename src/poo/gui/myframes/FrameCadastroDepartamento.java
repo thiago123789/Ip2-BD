@@ -45,6 +45,12 @@ public class FrameCadastroDepartamento extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações Departamento"));
 
+        jTNomeDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTNomeDepartamentoActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Sigla:");
 
         jLabel1.setText("Nome:");
@@ -169,6 +175,9 @@ public class FrameCadastroDepartamento extends javax.swing.JInternalFrame {
         jTNomeDepartamento.setText("");
         jTSigla.setText("");
     }//GEN-LAST:event_jBClearActionPerformed
+    private void jTNomeDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNomeDepartamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTNomeDepartamentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
