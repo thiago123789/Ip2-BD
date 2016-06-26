@@ -8,6 +8,8 @@ import poo.negocios.beans.Aluno;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Departamento;
 import poo.negocios.beans.Disciplina;
+import poo.negocios.beans.Horario;
+import poo.negocios.beans.Pessoa;
 import poo.negocios.beans.Professor;
 
 public class FachadaSistema {
@@ -28,6 +30,7 @@ public class FachadaSistema {
     private EditarDisciplina edit;
     private ListarProfessores prof;
     private ListarLocalizacao local;
+    private ListarHorario hora;
 
     private FachadaSistema(){
     	addDisciplina = CadastroDisciplina.getInstance();
@@ -46,6 +49,7 @@ public class FachadaSistema {
         edit = EditarDisciplina.getInstance();
         prof = ListarProfessores.getInstance();
         local = ListarLocalizacao.getInstance();
+        hora = ListarHorario.getInstance();
     }
 
 	public static FachadaSistema getInstance(){
@@ -203,6 +207,18 @@ public class FachadaSistema {
 		return local.buscarIdLocalizacao(predio, sala);
 	}
 
+	public ArrayList<Professor> listarProfessoresPorDepartamento(String departamento) {
+		return prof.listarProfessoresPorDepartamento(departamento);
+	}
 
+	public Professor buscarProfessorPorCPF(String cpf) {
+		return prof.buscarProfessorPorCPF(cpf);
+	}
+
+	public ArrayList<Horario> listarHorarios() {
+		return hora.listarHorarios();
+	}
+
+	
 
 }

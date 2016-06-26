@@ -56,10 +56,20 @@ public class LocalizacaoDAO implements ILocalizacaoDAO{
 		}
 		return atualizou;
 	}
-
+	
+	enum MyEnum{
+		DOM(1), SEG(2), TER(3), QUA(4), QUI(5), SEX(6), SAB(7);
+		int valorDia;
+		MyEnum(int valor){
+			this.valorDia =valor;
+		}
+		public int getValorDia() {
+			return valorDia;
+		}
+	}
 	public ArrayList<Localizacao> listar() throws SQLException{
 		ArrayList<Localizacao> listaLocalizacoes = new ArrayList<Localizacao>();
-		String query = "SELECT * FROM deinfo.localizcao";
+		String query = "SELECT * FROM deinfo.localizacao";
 		try{
 			ResultSet rs = bancoConnect.comandoSQL(query);
 			while(rs.next()){

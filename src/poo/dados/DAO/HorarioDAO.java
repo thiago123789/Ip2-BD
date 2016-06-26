@@ -30,7 +30,7 @@ public class HorarioDAO implements IHorarioDAO{
 		String query = "INSERT INTO deinfo.horario(DIA, HORA_INICIO, HORA_FIM) values(?,?,?)";
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(query);
-			smt.setInt(1, a.getDia());
+			smt.setString(1, a.getDia());
 			smt.setTime(2, a.getHoraInicio());
 			smt.setTime(3, a.getHoraTermino());
 			smt.execute();
@@ -46,7 +46,7 @@ public class HorarioDAO implements IHorarioDAO{
 		String query = "UPDATE deinfo.horario SET DIA = ?, HORA_INICIO = ?, HORA_FIM = ? WHERE ID = ?";
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(query);
-			smt.setInt(1, a.getDia());
+			smt.setString(1, a.getDia());
 			smt.setTime(2, a.getHoraInicio());
 			smt.setTime(3, a.getHoraTermino());
 			smt.setInt(4, a.getId());
@@ -57,7 +57,19 @@ public class HorarioDAO implements IHorarioDAO{
 		}
 		return atualizou;
 	}
-
+	
+	
+	enum MyEnum{
+		DOM(1), SEG(2), TER(3), QUA(4), QUI(5), SEX(6), SAB(7);
+		int valorDia;
+		MyEnum(int valor){
+			this.valorDia =valor;
+		}
+		public int getValorDia() {
+			return valorDia;
+		}
+	}
+	
 	public ArrayList<Horario> listar() throws SQLException{
 		ArrayList<Horario> listaHorarios = new ArrayList<Horario>();
 		String query = "SELECT * FROM deinfo.horario";
@@ -65,12 +77,14 @@ public class HorarioDAO implements IHorarioDAO{
 			ResultSet rs = bancoConnect.comandoSQL(query);
 			while(rs.next()){
 				int id = rs.getInt("ID");
-				int dia = rs.getInt("DIA");
+				MyEnum dia1 = MyEnum.valueOf(rs.getString("DIA"));
+				int dia = dia1.getValorDia();
 				Time hora_inicio = rs.getTime("HORA_INICIO");
-				Time hora_termino = rs.getTime("HORA_TERMINO");
+				Time hora_termino = rs.getTime("HORA_FIM");
+			
 				Horario h = new Horario();
 				h.setId(id);
-				h.setDia(dia);
+				h.setDia(dia1.toString());
 				h.setHoraInicio(hora_inicio);
 				h.setHoraTermino(hora_termino);
 				listaHorarios.add(h);
@@ -78,8 +92,6 @@ public class HorarioDAO implements IHorarioDAO{
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-
-
 		return listaHorarios;
 	}
 

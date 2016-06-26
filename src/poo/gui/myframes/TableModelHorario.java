@@ -1,26 +1,28 @@
 package poo.gui.myframes;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import poo.excecoes.CPFInvalidoException;
-import poo.negocios.beans.Disciplina;
-import poo.negocios.beans.Professor;
+import poo.negocios.beans.Horario;
 
-public class TableModelProfessor extends AbstractTableModel {
-	private static final int CPF = 0;
-	private static final int NOME = 1;
+public class TableModelHorario extends AbstractTableModel {
+	private static final int ID = 0;
+	private static final int DIA = 1;
+	private static final int HORA_INICIO = 2;
+	private static final int HORA_TERMINO = 3;
+	
 	private static final long serialVersionUID = 1L;
-	private String[] colunas = {"CPF", "Nome"};
-	private List<Professor> linhas;
+	private String[] colunas = {"ID", "Dia", "Hora Inicio", "Hora Termino"};
+	private List<Horario> linhas;
 
-	public TableModelProfessor(){
-		this.linhas = new ArrayList<Professor>();
+	public TableModelHorario(){
+		this.linhas = new ArrayList<Horario>();
 	}
 
-	public TableModelProfessor(ArrayList<Professor> lista) {
+	public TableModelHorario(ArrayList<Horario> lista) {
 		this.linhas = lista;
 	}
 
@@ -38,19 +40,6 @@ public class TableModelProfessor extends AbstractTableModel {
 		return linhas.size();
 	}
 
-	private Object formatoComSimbolos(Object object){
-		String cpf = (String) object;
-		String retorno = "";
-		retorno += cpf.substring(0, 3);
-		retorno += ".";
-		retorno += cpf.substring(3, 6);
-		retorno += ".";
-		retorno += cpf.substring(6, 9);
-		retorno += "-";
-		retorno += cpf.substring(9, 11);		
-		return retorno;
-	}
-	
 	public void removeAll(){
 		int indice = getRowCount();
 
@@ -61,12 +50,16 @@ public class TableModelProfessor extends AbstractTableModel {
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		Professor ob = linhas.get(rowIndex);
+		Horario ob = linhas.get(rowIndex);
 		switch (columnIndex) {
-		case CPF:
-			return this.formatoComSimbolos(ob.getCpf());
-		case NOME:
-			return ob.getPnome()+" "+ob.getUnome();
+		case ID:
+			return ob.getId();
+		case DIA:
+			return ob.getDia();
+		case HORA_INICIO:
+			return ob.getHoraInicio().toString();
+		case HORA_TERMINO:
+			return ob.getHoraTermino().toString();
 		default:
 			throw new IndexOutOfBoundsException("columnIndex out of bounds");
 		}
@@ -75,9 +68,13 @@ public class TableModelProfessor extends AbstractTableModel {
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
 		switch (columnIndex) {
-		case CPF:
+		case ID:
+			return Integer.class;
+		case DIA:
 			return String.class;
-		case NOME:
+		case HORA_INICIO:
+			return String.class;
+		case HORA_TERMINO:
 			return String.class;
 		default:
 			throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -91,18 +88,19 @@ public class TableModelProfessor extends AbstractTableModel {
 
 	@Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-		Professor ob = linhas.get(rowIndex);
+		Horario ob = linhas.get(rowIndex);
 		switch (columnIndex) {
-		case CPF:
-			try {
-				ob.setCpf((String) aValue);
-			} catch (CPFInvalidoException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			};
+		case ID:
+			ob.setId((Integer) aValue);;
 			break;
-		case NOME:
-			ob.setPnome((String) aValue);
+		case DIA:
+			ob.setDia((String) aValue);
+			break;
+		case HORA_INICIO:
+			ob.setHoraInicio((Time) aValue);
+			break;
+		case HORA_TERMINO:
+			ob.setHoraTermino((Time) aValue);
 			break;
 		default:
 			throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -111,11 +109,9 @@ public class TableModelProfessor extends AbstractTableModel {
 		fireTableCellUpdated(rowIndex, columnIndex); // Notifica a atualização da célula
 	}
 
-	
-
-	public void addDisciplina(Professor prof) {
+	public void addDisciplina(Horario horario) {
 		// Adiciona o registro.
-		linhas.add(prof);
+		linhas.add(horario);
 
 		// Pega a quantidade de registros e subtrai 1 para
 		// achar o último índice. A subtração é necessária
@@ -126,16 +122,16 @@ public class TableModelProfessor extends AbstractTableModel {
 		fireTableRowsInserted(ultimoIndice, ultimoIndice);
 	}
 
-	public void addListaDisciplinas(ArrayList<Professor> prof) {
+	public void addListaDisciplinas(ArrayList<Horario> horario) {
 		// Pega o tamanho antigo da tabela, que servirá
 		// como índice para o primeiro dos novos registros
 		int indice = getRowCount();
 
 		// Adiciona os registros.
-		linhas.addAll(prof);
+		linhas.addAll(horario);
 
 		// Notifica a mudança.
-		fireTableRowsInserted(indice, indice + prof.size());
+		fireTableRowsInserted(indice, indice + horario.size());
 	}
 
 

@@ -10,6 +10,11 @@ public class Departamento {
 	private ArrayList<Funcionario> funcionarios;
 	private Professor diretor,vice;
 
+	
+	public Departamento(int id){
+		this.setId(id);
+	}
+	
 	public Departamento(String nome){
 		this.setNome(nome);
 	}

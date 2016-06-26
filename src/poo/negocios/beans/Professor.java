@@ -59,6 +59,7 @@ public class Professor extends Funcionario{
 		}
 	}
 
+	
 
 
 	public String getTitulo()

@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 
 import poo.negocios.FachadaSistema;
@@ -26,6 +28,8 @@ import poo.negocios.beans.Professor;
  */
 public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 	private FachadaSistema fachada;
+	private DefaultListModel<String> modeloListaProfessor = new DefaultListModel<String>();
+	private ArrayList<String> listaProfessoresString = new ArrayList<String>();
 	private ArrayList<Professor> listaProfessores = new ArrayList<Professor>();
 	private ArrayList<Horario> horarios = new ArrayList<Horario>();
 	private Localizacao local;
@@ -39,7 +43,34 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 		jTCodigoDisciplina.setEditable(false);
 		jTNomeDisciplina.setEditable(false);
 		this.preencherDepartamentos();
+		jListProfessores = new JList<String>();
+		jListProfessores.setModel(modeloListaProfessor);
+		jListProfessores.setVisibleRowCount(5);
+		this.preencherLocalPredio();
+		this.preencherJTableHorarios();
 	}
+	
+	
+	public void preencherLocalPredio(){
+		fachada = FachadaSistema.getInstance();
+		ArrayList<String> aux = null;
+		aux = fachada.listaPredios();
+		for(String a: aux){
+			jCListaPredios.addItem(a);
+		}
+		
+	}
+	
+	public void preencherLocalSalas(){
+		jCListaSalas.removeAllItems();
+		fachada = FachadaSistema.getInstance();
+		ArrayList<Integer> aux = null;
+		aux = fachada.listaSalasPorPredio(jCListaPredios.getSelectedItem().toString());
+		for(Integer a : aux){
+			jCListaSalas.addItem(a.toString());
+		}
+	}
+	
 
 	public void preencherDepartamentos(){
 		fachada = FachadaSistema.getInstance();
@@ -53,7 +84,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 		for(String a : aux ){
 			jCDepartamentos.addItem(a);
 		}
-
+		
 
 	}
 
@@ -67,6 +98,82 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 		}
 	}
 
+	public String soNumerosCPF(String cpf){
+        String resultado = "";
+        String bloco1 = cpf.substring(0, 3);
+        String bloco2 = cpf.substring(4, 7);
+        String bloco3 = cpf.substring(8, 11);
+        String bloco4 = cpf.substring(12, 14);
+        resultado = bloco1+bloco2+bloco3+bloco4;
+        return resultado;
+    }
+	
+	public void preencherJTableHorarios(){
+		TableModelHorario modelo = new TableModelHorario();
+		jTableHorarios.setModel(modelo);
+		if(modelo.getRowCount() > 0){
+			modelo.removeAll();
+		}
+		fachada = FachadaSistema.getInstance();
+		modelo.addListaDisciplinas(fachada.listarHorarios());
+		
+		jTableHorarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		jTableHorarios.getColumnModel().getColumn(0).setMaxWidth(30);
+		jTableHorarios.getColumnModel().getColumn(0).setPreferredWidth(30);
+		jTableHorarios.getColumnModel().getColumn(0).setResizable(false);
+		jTableHorarios.getColumnModel().getColumn(1).setMaxWidth(40);
+		jTableHorarios.getColumnModel().getColumn(1).setPreferredWidth(40);
+		jTableHorarios.getColumnModel().getColumn(1).setResizable(false);
+		jTableHorarios.getTableHeader().setReorderingAllowed(false);
+		
+	}
+	
+	public void preencherJTableProfessores(){
+		TableModelProfessor modelo = new TableModelProfessor();
+		jTableProfessores.setModel(modelo);
+		if(modelo.getRowCount() > 0){
+			modelo.removeAll();
+		}
+		fachada = FachadaSistema.getInstance();
+		modelo.addListaDisciplinas(fachada.listarProfessoresPorDepartamento(jCDepartamentos.getSelectedItem().toString()));
+		listaProfessores = fachada.listarProfessoresPorDepartamento(jCDepartamentos.getSelectedItem().toString());
+		jTableProfessores.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				int i = jTableProfessores.getSelectedRow();
+				Object codigo = jTableProfessores.getModel().getValueAt(i, 0);
+				Professor aux = fachada.buscarProfessorPorCPF(soNumerosCPF(codigo.toString()));
+				modeloListaProfessor.addElement(aux.getPnome()+" "+aux.getUnome());
+				listaProfessoresString.add(aux.getPnome()+" "+aux.getUnome());
+				listaProfessores.add(aux);
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+			}
+		});
+		
+	}
 
 	public void preencherJTableDisciplinas(){
 		TableModelEdit modelo = new TableModelEdit();
@@ -93,6 +200,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 				Disciplina aux = fachada.buscarDisciplinaPorCodigo(codigo.toString());
 				jTCodigoDisciplina.setText(aux.getCodigo());
 				jTNomeDisciplina.setText(aux.getNome());
+				ofertaD = aux;
 			}
 
 			@Override
@@ -137,8 +245,6 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDisciplinas = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTableHorarios = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableProfessores = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
@@ -147,16 +253,18 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jCListaSalas = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableHorarios = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        jListHorarios = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTCodigoDisciplina = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jListProfessores = new javax.swing.JList<>();
         jTextField2 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTNomeDisciplina = new javax.swing.JTextField();
@@ -233,18 +341,6 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Disciplinas", jScrollPane1);
 
-        jTableHorarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane3.setViewportView(jTableHorarios);
-
-        jTabbedPane1.addTab("Horarios", jScrollPane3);
-
         jTableProfessores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -259,9 +355,20 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Predio:");
 
+        jCListaPredios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCListaPrediosActionPerformed(evt);
+            }
+        });
+
         jLabel6.setText("Sala: ");
 
         jButton1.setText("Selecionar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -298,10 +405,22 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
                     .addComponent(jCListaSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jButton1)
-                .addContainerGap(324, Short.MAX_VALUE))
+                .addContainerGap(280, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Localizações", jPanel4);
+
+        jTableHorarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(jTableHorarios);
+
+        jTabbedPane1.addTab("Horarios", jScrollPane3);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Detalhes da oferta"));
 
@@ -309,14 +428,14 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Localizacao:");
 
-        jScrollPane5.setViewportView(jList2);
+        jScrollPane5.setViewportView(jListHorarios);
 
         jLabel1.setText("Codigo Disciplina:");
 
         jLabel2.setText("Professores da Oferta:");
 
-        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane4.setViewportView(jList1);
+        jListProfessores.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane4.setViewportView(jListProfessores);
 
         jLabel7.setText("Nome Disciplina:");
 
@@ -392,7 +511,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -403,7 +522,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 56, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -436,21 +555,22 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton2)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jTabbedPane1))
-                .addContainerGap(19, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44))
         );
 
         pack();
@@ -464,7 +584,22 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
     private void jCDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCDepartamentosActionPerformed
         // TODO add your handling code here:
         preencherFiltroCursos();
+        preencherJTableProfessores();
     }//GEN-LAST:event_jCDepartamentosActionPerformed
+
+    private void jCListaPrediosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCListaPrediosActionPerformed
+        // TODO add your handling code here:
+        preencherLocalSalas();
+    }//GEN-LAST:event_jCListaPrediosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int i = fachada.buscarIdLocalizacao(jCListaPredios.getSelectedItem().toString(), Integer.parseInt(jCListaSalas.getSelectedItem().toString()));
+        local = new Localizacao(i);
+        local.setPredio(jCListaPredios.getSelectedItem().toString());
+        local.setSala(Integer.parseInt(jCListaSalas.getSelectedItem().toString()));
+        jTextField2.setText(jCListaPredios.getSelectedItem().toString()+" Sala: "+jCListaSalas.getSelectedItem().toString());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -483,8 +618,8 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jListHorarios;
+    private javax.swing.JList<String> jListProfessores;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

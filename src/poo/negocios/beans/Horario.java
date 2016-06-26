@@ -5,7 +5,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class Horario {
-	private int id, dia;
+	private int id;
+	private String dia;
 	private Time horaInicio, horaTermino;
 	private ArrayList<Aula> aulas;
 
@@ -21,11 +22,11 @@ public class Horario {
 		this.id = id;
 	}
 
-	public int getDia() {
+	public String getDia() {
 		return dia;
 	}
 
-	public void setDia(int dia) {
+	public void setDia(String dia) {
 		this.dia = dia;
 	}
 

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import poo.dados.DAO.interfaces.IProfessorDAO;
 import poo.excecoes.CPFInvalidoException;
+import poo.negocios.beans.Departamento;
 import poo.negocios.beans.Professor;
 
 public class ProfessorDAO implements IProfessorDAO{
@@ -27,13 +28,14 @@ public class ProfessorDAO implements IProfessorDAO{
 	//CPF_PROF, EXTERNO, IES, TITULACAO
 	public boolean inserir(Professor p) throws SQLException{
 		boolean inseriu = false;
-		String query = "INSERT INTO deinfo.professor(CPF_PROF, EXTERNO, IES, TITULACAO) values(?,?,?,?)";
+		String query = "INSERT INTO deinfo.professor(CPF_PROF, EXTERNO, IES, TITULACAO, DEPAT_PROF) values(?,?,?,?,?)";
 		try{
 			PreparedStatement smt = bancoConnect.retornoStatement(query);
 			smt.setString(1, p.getCpf());
 			smt.setString(2, p.getExterno());
 			smt.setString(3, p.getIes());
 			smt.setString(4, p.getTitulo());
+			smt.setInt(5, p.getDepartamento().getId());
 			smt.execute();
 			inseriu = true;
 		}catch(SQLException e){
@@ -52,10 +54,13 @@ public class ProfessorDAO implements IProfessorDAO{
 				boolean externo = rs.getBoolean(2);
 				String ies = rs.getString(3);
 				String titulo = rs.getString(4);
+				int depat = rs.getInt(5);
 				Professor aux = new Professor(cpf);
 				aux.setIes(ies);
 				aux.setTitulo(titulo);
+				aux.setDepartamento(new Departamento(depat));
 				retorno.add(aux);
+				
 			}
 		}catch(SQLException e){
 			e.printStackTrace();

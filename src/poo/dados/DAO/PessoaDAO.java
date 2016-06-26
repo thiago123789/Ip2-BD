@@ -97,7 +97,15 @@ public class PessoaDAO implements IPessoaDAO{
 		}
 		return atualizou;
 	}
-
+	enum MyEnum{A(1),R(2),P(2);
+		int valorLetra;
+		MyEnum(int valor){
+			this.valorLetra = valor;
+		}
+		int getValor(){
+			return this.valorLetra;
+		}
+	};
 	public ArrayList<Pessoa> listar() throws SQLException{
 		ArrayList<Pessoa> listaPessoas = new ArrayList<Pessoa>();
 		String query = "SELECT * FROM deinfo.pessoa";
@@ -111,7 +119,8 @@ public class PessoaDAO implements IPessoaDAO{
 				boolean sexo = resultSet.getBoolean("SEXO"); // SEXO
 				String senha = resultSet.getString("SENHA"); // SENHA
 				String email = resultSet.getString("EMAIL"); // EMAIL
-				int tipo_pessoa = resultSet.getInt("tipo_pessoa"); //TIPO DA PESSOA
+				MyEnum tipo_pessoa1 = (MyEnum.valueOf(resultSet.getString("tipo_pessoa")));//TIPO DA PESSOA
+				int tipo_pessoa = tipo_pessoa1.getValor();
 				Date data_nasc = resultSet.getDate("DATA_NASC"); //data nasc;
 				@SuppressWarnings("deprecation")
 				Calendar data2 = new GregorianCalendar(data_nasc.getYear(), data_nasc.getMonth(), data_nasc.getDay());
