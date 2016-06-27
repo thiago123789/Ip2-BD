@@ -87,6 +87,11 @@ public class FrameCadastroDepartamento extends javax.swing.JInternalFrame {
         });
 
         jBClear.setText("Limpar");
+        jBClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -158,6 +163,12 @@ public class FrameCadastroDepartamento extends javax.swing.JInternalFrame {
         Departamento depat = new Departamento(nome, sigla.toUpperCase());
         fachada.cadastraDepat(depat);        
     }//GEN-LAST:event_jBConfirmaActionPerformed
+
+    private void jBClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBClearActionPerformed
+        // TODO add your handling code here:
+        jTNomeDepartamento.setText("");
+        jTSigla.setText("");
+    }//GEN-LAST:event_jBClearActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
