@@ -165,7 +165,7 @@ public class FrameCadastroDepartamento extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBConfirmaActionPerformed
 
     private void jBClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBClearActionPerformed
-        // TODO add your handling code here:
+        
         jTNomeDepartamento.setText("");
         jTSigla.setText("");
     }//GEN-LAST:event_jBClearActionPerformed
