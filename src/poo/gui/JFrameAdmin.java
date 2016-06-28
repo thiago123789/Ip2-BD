@@ -447,6 +447,11 @@ public class JFrameAdmin extends javax.swing.JFrame {
         mnuSobre.add(jSeparator2);
 
         mnuSobreSistema.setText("Sobre o sistema");
+        mnuSobreSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSobreSistemaActionPerformed(evt);
+            }
+        });
         mnuSobre.add(mnuSobreSistema);
 
         jMenuBar1.add(mnuSobre);
@@ -596,6 +601,13 @@ public class JFrameAdmin extends javax.swing.JFrame {
         desktop.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItem21ActionPerformed
+
+    private void mnuSobreSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSobreSistemaActionPerformed
+        // TODO add your handling code here:
+        Object[] options = { "Sim", "Nao" };
+        JOptionPane.showOptionDialog(null, "Professor, gostou do nosso aplicativo?", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+
+    }//GEN-LAST:event_mnuSobreSistemaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -237,6 +237,11 @@ public class JFrameAluno extends javax.swing.JFrame {
         mnuSobre.add(jSeparator2);
 
         mnuSobreSistema.setText("Sobre o sistema");
+        mnuSobreSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSobreSistemaActionPerformed(evt);
+            }
+        });
         mnuSobre.add(mnuSobreSistema);
 
         jMenuBar1.add(mnuSobre);
@@ -286,6 +291,13 @@ public class JFrameAluno extends javax.swing.JFrame {
     private void jTLastLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTLastLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTLastLoginActionPerformed
+
+    private void mnuSobreSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSobreSistemaActionPerformed
+        // TODO add your handling code here:
+        Object[] options = { "Sim", "Nao" };
+        JOptionPane.showOptionDialog(null, "Professor, gostou do nosso aplicativo?", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+
+    }//GEN-LAST:event_mnuSobreSistemaActionPerformed
 
     /**
      * @param args the command line arguments
