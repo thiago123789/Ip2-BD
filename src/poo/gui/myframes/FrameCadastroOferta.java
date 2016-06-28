@@ -43,12 +43,12 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 	public FrameCadastroOferta() {
 		initComponents();
 		jTCodigoDisciplina.setEditable(false);
-                jTextField2.setEditable(false);
+                jTextFieldLocalizacao.setEditable(false);
 		jTNomeDisciplina.setEditable(false);
 		this.preencherDepartamentos();
-		jListProfessores = new JList<String>();
-		jListProfessores.setModel(modeloListaProfessor);
-		jListProfessores.setVisibleRowCount(5);
+//		jListProfessores = new JList<String>();
+//		jListProfessores.setModel(modeloListaProfessor);
+//		jListProfessores.setVisibleRowCount(5);
 		this.preencherLocalPredio();
 		this.preencherJTableHorarios();
 	}
@@ -148,12 +148,20 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 
 			@Override
 			public void mousePressed(MouseEvent e) {
+//                            int i = jTableDisciplinas.getSelectedRow();
+//				Object codigo = jTableDisciplinas.getModel().getValueAt(i, 0);
+//				Disciplina aux = fachada.buscarDisciplinaPorCodigo(codigo.toString());
+//				jTCodigoDisciplina.setText(aux.getCodigo());
+//				jTNomeDisciplina.setText(aux.getNome());
+//				ofertaD = aux;
+                            
 				// TODO Auto-generated method stub
 				int i = jTableProfessores.getSelectedRow();
 				Object codigo = jTableProfessores.getModel().getValueAt(i, 0);
 				Professor aux = fachada.buscarProfessorPorCPF(soNumerosCPF(codigo.toString()));
-				modeloListaProfessor.addElement(aux.getPnome()+" "+aux.getUnome());
-				listaProfessoresString.add(aux.getPnome()+" "+aux.getUnome());
+				//modeloListaProfessor.addElement(aux.getPnome()+" "+aux.getUnome());
+                                jTextFieldProfessor.setText(aux.getPnome()+" "+aux.getUnome());
+				//listaProfessoresString.add(aux.getPnome()+" "+aux.getUnome());
                                 //jListProfessores.setListData(listaProfessoresString.toString());
 				listaProfessores.add(aux);
 			}
@@ -253,7 +261,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
         jCListaPredios = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jCListaSalas = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        jButtonSelecionar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableHorarios = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
@@ -264,13 +272,11 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTCodigoDisciplina = new javax.swing.JTextField();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jListProfessores = new javax.swing.JList<>();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldLocalizacao = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTNomeDisciplina = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jTextFieldProfessor = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -364,10 +370,10 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Sala: ");
 
-        jButton1.setText("Selecionar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSelecionar.setText("Selecionar");
+        jButtonSelecionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSelecionarActionPerformed(evt);
             }
         });
 
@@ -390,7 +396,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
                                 .addComponent(jCListaSalas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(139, 139, 139)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -405,7 +411,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6)
                     .addComponent(jCListaSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addComponent(jButton1)
+                .addComponent(jButtonSelecionar)
                 .addContainerGap(280, Short.MAX_VALUE))
         );
 
@@ -441,12 +447,9 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
             }
         });
 
-        jListProfessores.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane4.setViewportView(jListProfessores);
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldLocalizacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jTextFieldLocalizacaoActionPerformed(evt);
             }
         });
 
@@ -460,7 +463,11 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 
         jButton3.setText("Remover");
 
-        jButton4.setText("Remover");
+        jTextFieldProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldProfessorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -476,18 +483,16 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField2)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTCodigoDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTNomeDisciplina))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(jTextFieldLocalizacao, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jTNomeDisciplina, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jTCodigoDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 85, Short.MAX_VALUE))
+                    .addComponent(jTextFieldProfessor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -501,11 +506,10 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTNomeDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                    .addComponent(jTextFieldProfessor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -516,7 +520,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldLocalizacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49))
         );
 
@@ -611,18 +615,18 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
         preencherLocalSalas();
     }//GEN-LAST:event_jCListaPrediosActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarActionPerformed
         // TODO add your handling code here:
         int i = fachada.buscarIdLocalizacao(jCListaPredios.getSelectedItem().toString(), Integer.parseInt(jCListaSalas.getSelectedItem().toString()));
         local = new Localizacao(i);
         local.setPredio(jCListaPredios.getSelectedItem().toString());
         local.setSala(Integer.parseInt(jCListaSalas.getSelectedItem().toString()));
-        jTextField2.setText(jCListaPredios.getSelectedItem().toString()+" Sala: "+jCListaSalas.getSelectedItem().toString());
-    }//GEN-LAST:event_jButton1ActionPerformed
+        jTextFieldLocalizacao.setText(jCListaPredios.getSelectedItem().toString()+" Sala: "+jCListaSalas.getSelectedItem().toString());
+    }//GEN-LAST:event_jButtonSelecionarActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jTextFieldLocalizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLocalizacaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jTextFieldLocalizacaoActionPerformed
 
     private void jTCodigoDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCodigoDisciplinaActionPerformed
         // TODO add your handling code here:
@@ -632,12 +636,15 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTNomeDisciplinaActionPerformed
 
+    private void jTextFieldProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProfessorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldProfessorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonSelecionar;
     private javax.swing.JComboBox<String> jCDepartamentos;
     private javax.swing.JComboBox<String> jCFiltroCursos;
     private javax.swing.JComboBox<String> jCListaPredios;
@@ -650,7 +657,6 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JList<String> jListHorarios;
-    private javax.swing.JList<String> jListProfessores;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -660,7 +666,6 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField jTCodigoDisciplina;
     private javax.swing.JTextField jTNomeDisciplina;
@@ -668,6 +673,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTableDisciplinas;
     private javax.swing.JTable jTableHorarios;
     private javax.swing.JTable jTableProfessores;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextFieldLocalizacao;
+    private javax.swing.JTextField jTextFieldProfessor;
     // End of variables declaration//GEN-END:variables
 }
