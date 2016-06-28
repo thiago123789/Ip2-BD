@@ -467,7 +467,12 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         String bairro = jTextFieldBairro.getText();
         String cidade = jTextFieldCidade.getText();
         String email = jTextFieldEmail.getText();
-        String cep = jFormattedTextFieldCep.getText();
+        String[] cep1 = jFormattedTextFieldCep.getText().toString().split("-");
+        String cep = "";
+        for(String aux : cep1){
+            cep += aux;
+        }
+        System.out.println("CEP: "+cep);
         String Estado = (String) jComboBoxEstado.getSelectedItem();
         //int numero = TextFieldNumero.getText();
         int numero = Integer.parseInt(jTextFieldNumero.getText());

@@ -48,15 +48,10 @@ public class PessoaDAO implements IPessoaDAO{
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(sql);
 			smt.setString(1, p.getCpf());
-			System.out.println(p.getCpf());
 			smt.setString(2, p.getPnome());
 			smt.setString(3, p.getUnome());
 			smt.setInt(4, (p.getSexo())? 1 : 2);
-                        if(p.getSenha().equals(null)){
-                            smt.setNull(5, Types.VARCHAR);
-                        }else{
-                            smt.setString(5, p.getSenha());
-                        }			
+			smt.setString(5, p.getSenha());
 			smt.setString(6, p.getEmail());
 			smt.setString(7, p.getEndereco().getLogradouro());
 			smt.setString(8, p.getEndereco().getCep());
@@ -103,13 +98,13 @@ public class PessoaDAO implements IPessoaDAO{
 		return atualizou;
 	}
 	enum MyEnum{P(1),R(2),A(3);
-	int valorLetra;
-	MyEnum(int valor){
-		this.valorLetra = valor;
-	}
-	int getValor(){
-		return this.valorLetra;
-	}
+		int valorLetra;
+		MyEnum(int valor){
+			this.valorLetra = valor;
+		}
+		int getValor(){
+			return this.valorLetra;
+		}
 	};
 	public ArrayList<Pessoa> listar() throws SQLException{
 		ArrayList<Pessoa> listaPessoas = new ArrayList<Pessoa>();
@@ -161,7 +156,7 @@ public class PessoaDAO implements IPessoaDAO{
 
 
 	/*
-	 * =========================== INTERFACE ACABA AQUI ========================================== 
+	 * =========================== INTERFACE ACABA AQUI ==========================================
 	 *
 	 */
 
