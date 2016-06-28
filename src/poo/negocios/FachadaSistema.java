@@ -31,6 +31,7 @@ public class FachadaSistema {
     private ListarProfessores prof;
     private ListarLocalizacao local;
     private ListarHorario hora;
+    private FormatacaoAuxiliar formAuxiliar;
 
     private FachadaSistema(){
     	addDisciplina = CadastroDisciplina.getInstance();
@@ -50,6 +51,7 @@ public class FachadaSistema {
         prof = ListarProfessores.getInstance();
         local = ListarLocalizacao.getInstance();
         hora = ListarHorario.getInstance();
+        formAuxiliar = FormatacaoAuxiliar.getInstance();
     }
 
 	public static FachadaSistema getInstance(){
@@ -59,6 +61,10 @@ public class FachadaSistema {
 		return instance;
 	}
 
+    public String soNumerosCPF(String cpf) {
+        return formAuxiliar.soNumerosCPF(cpf);
+    }
+    
 	public boolean existeDisciplina(String codigo) {
 		return addDisciplina.existeDisciplina(codigo);
 	}

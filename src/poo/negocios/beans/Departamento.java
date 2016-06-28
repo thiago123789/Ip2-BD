@@ -97,16 +97,9 @@ public class Departamento {
 		this.vice = vice;
 	}
 
-	/*
-	@Override
-	public String toString() {
-		return "Departamento [nome=" + nome + ", sigla=" + sigla + ", cursos=" + Arrays.toString(cursos) + "]";
-	}
-	 */
-
-
-
-
-
+    @Override
+    public String toString() {
+        return "Departamento{" + "id=" + id + ", nome=" + nome + ", sigla=" + sigla + '}';
+    }
 
 }

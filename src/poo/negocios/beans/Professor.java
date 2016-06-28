@@ -5,36 +5,35 @@ import java.util.Calendar;
 
 import poo.excecoes.CPFInvalidoException;
 
-public class Professor extends Funcionario{
+public class Professor extends Pessoa{
 	private String titulo;
-	private Curso curso;
+	private Departamento departamento;
 	private String ies;
 	private String externo;
 
 	public Professor(String titulo, String lattes,boolean sexo, String senha,
-			String email, Endereco endereco, Curso curso,
+			String email, Endereco endereco,
 			String pNome, String uNome, String cpf, Cargo cargo, Calendar nascimento,
 			Departamento depat, String lattes1) throws CPFInvalidoException	{
-		super(pNome, uNome, cpf, sexo, senha, email, endereco, cargo, depat, lattes1, nascimento);
+		super(pNome, uNome, cpf, sexo, senha, email, endereco, 1, nascimento, lattes);
 		this.setTitulo(titulo);
-		this.setCurso(curso);
-
+                this.setDepartamento(depat);
 	}
 
 	public Professor(String cpf) throws CPFInvalidoException{
 		super();
 		this.setCpf(cpf);
-
 	}
 
-    public Professor(String titulo, String pNome, String uNome, String cpf, boolean sexo, String senha, String email, Endereco endereco, Cargo cargo, Departamento depat, String lattes, Calendar nascimento) throws CPFInvalidoException {
-        super(pNome, uNome, cpf, sexo, senha, email, endereco, cargo, depat, lattes, nascimento);
+    public Professor(String titulo, String pNome, String uNome, String cpf, boolean sexo, String senha, String email, Endereco endereco, Departamento depat, String lattes, Calendar nascimento) throws CPFInvalidoException {
+        super(pNome, uNome, cpf, sexo, senha, email, endereco, 1, nascimento, lattes);
         this.titulo = titulo;
+        this.setDepartamento(depat);
+        this.setExterno("none");
+        this.setIes("UFRPE");
+        this.setTitulo("ADJUNTO");
     }
-        
-        
-
-	public String getIes() {
+       public String getIes() {
 		return ies;
 	}
 
@@ -58,25 +57,23 @@ public class Professor extends Funcionario{
 		}
 	}
 
-	public void setCurso(Curso curso)
-	{
-		if(curso != null)
-		{
-			this.curso = curso;
-		}
-	}
-
-	
-
-
 	public String getTitulo()
 	{
 		return this.titulo;
 	}
 
-	public Curso getCurso()
-	{
-		return this.curso;
-	}
+    public Departamento getDepartamento() {
+        return departamento;
+    }
 
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
+    }
+
+    @Override
+    public String toString() {
+        return "Professor{" + "titulo=" + titulo + ", departamento=" + departamento + ", ies=" + ies + ", externo=" + externo + '}';
+    }
+        
+        
 }

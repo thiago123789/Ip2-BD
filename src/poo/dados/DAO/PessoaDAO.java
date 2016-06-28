@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -51,7 +52,11 @@ public class PessoaDAO implements IPessoaDAO{
 			smt.setString(2, p.getPnome());
 			smt.setString(3, p.getUnome());
 			smt.setInt(4, (p.getSexo())? 1 : 2);
-			smt.setString(5, p.getSenha());
+                        if(p.getSenha().equals(null)){
+                            smt.setNull(5, Types.VARCHAR);
+                        }else{
+                            smt.setString(5, p.getSenha());
+                        }			
 			smt.setString(6, p.getEmail());
 			smt.setString(7, p.getEndereco().getLogradouro());
 			smt.setString(8, p.getEndereco().getCep());

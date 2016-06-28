@@ -54,8 +54,14 @@ public class Funcionario extends Pessoa {
 		}
 	}
 	public void setDepartamento(Departamento departamento){
-		if(departamento != null){
+		//if(departamento != null){
 			this.departamento = departamento;
-		}
+		//}
 	}
+
+    @Override
+    public String toString() {
+        return "Funcionario{" + "permissaoDeAcesso=" + permissaoDeAcesso + ", departamento=" + departamento + ", cargo=" + cargo + ", professor=" + professor + '}';
+    }
+        
 }

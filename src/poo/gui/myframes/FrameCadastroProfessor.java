@@ -448,13 +448,14 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        fachada = FachadaSistema.getInstance();
         System.out.println("imprimiu o comeco");
         int result = 0;
         Professor p = null;
         boolean ok = false;
         
         boolean sexo = jRMasculino.isSelected();
-        String cpf = jFormattedTextFieldCpf.getText();
+        String cpf = fachada.soNumerosCPF(jFormattedTextFieldCpf.getText());
         System.out.println(cpf);
         String pNome = jTextFieldPrimeiroNome.getText();
         String uNome = jTextFieldSobrenome.getText();
@@ -462,7 +463,7 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         String nomeCargo = jTextFieldCargo.getText();
         String lattes = jTextFieldLattes.getText();
         String logradouro = jTextFieldLogradouro.getText();
-        System.out.println("armazenou metade dos dados");
+        
         String bairro = jTextFieldBairro.getText();
         String cidade = jTextFieldCidade.getText();
         String email = jTextFieldEmail.getText();
@@ -470,9 +471,9 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         String Estado = (String) jComboBoxEstado.getSelectedItem();
         //int numero = TextFieldNumero.getText();
         int numero = Integer.parseInt(jTextFieldNumero.getText());
-        String d = (String)jComboBoxDepartamento.getSelectedItem();
+        String d = jComboBoxDepartamento.getSelectedItem().toString();
+        System.out.println(d);
         Calendar nascimento = Calendar.getInstance();
-        System.out.println(jComboBoxAno.getSelectedItem());
         System.out.println((String)jComboBoxAno.getSelectedItem());
         int anoInt = Integer.valueOf((String)jComboBoxAno.getSelectedItem());
         System.out.println(anoInt);
@@ -484,12 +485,13 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         System.out.println("armazenou todos os dados");
         
         Departamento depat = new Departamento(d);
+        System.out.println(depat.toString());
         Cargo c = new Cargo(nomeCargo);
         Endereco e = new Endereco(logradouro, numero, bairro, cidade, cep, Estado);
         //Ajustar campo SENHA que por hora esta null.
         try {
             System.out.println("constrói professor");
-            p = new Professor(titulo, pNome, uNome, cpf, sexo, null, email, e, c, depat, lattes, nascimento);
+            p = new Professor(titulo, pNome, uNome, cpf, sexo, null, email, e, depat, lattes, nascimento);
             System.out.println("criou professor");
         } catch (CPFInvalidoException ex) {
             Logger.getLogger(FrameCadastroProfessor.class.getName()).log(Level.SEVERE, null, ex);
@@ -500,7 +502,7 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         ok = true;
         
         if(ok){
-            JOptionPane.showConfirmDialog(null, "Curso Cadastrado com sucesso", "Sucesso", -1);
+            JOptionPane.showConfirmDialog(null, "Professor Cadastrado com sucesso", "Sucesso", -1);
         }else{
             JOptionPane.showConfirmDialog(null, "Não foi possivel cadastrar o curso", "Erro", -1);
         }
