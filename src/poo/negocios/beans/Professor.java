@@ -9,7 +9,6 @@ public class Professor extends Pessoa{
 	private String titulo;
 	private Departamento departamento;
 	private String ies;
-	private String externo;
 
 	public Professor(String titulo, String lattes,boolean sexo, String senha,
 			String email, Endereco endereco,
@@ -29,7 +28,6 @@ public class Professor extends Pessoa{
         super(pNome, uNome, cpf, sexo, senha, email, endereco, 1, nascimento, lattes);
         this.titulo = titulo;
         this.setDepartamento(depat);
-        this.setExterno("none");
         this.setIes("UFRPE");
         this.setTitulo("ADJUNTO");
     }
@@ -41,13 +39,6 @@ public class Professor extends Pessoa{
 		this.ies = ies;
 	}
 
-	public String getExterno() {
-		return externo;
-	}
-
-	public void setExterno(String externo) {
-		this.externo = externo;
-	}
 
 	public void setTitulo(String titulo)
 	{
@@ -70,10 +61,10 @@ public class Professor extends Pessoa{
         this.departamento = departamento;
     }
 
-    @Override
-    public String toString() {
-        return "Professor{" + "titulo=" + titulo + ", departamento=" + departamento + ", ies=" + ies + ", externo=" + externo + '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Professor{" + "titulo=" + titulo + ", departamento=" + departamento + ", ies=" + ies + ", externo=" + externo + '}';
+//    }
         
         
 }
