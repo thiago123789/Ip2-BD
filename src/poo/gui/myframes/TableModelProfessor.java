@@ -47,10 +47,10 @@ public class TableModelProfessor extends AbstractTableModel {
 		retorno += ".";
 		retorno += cpf.substring(6, 9);
 		retorno += "-";
-		retorno += cpf.substring(9, 11);		
+		retorno += cpf.substring(9, 11);
 		return retorno;
 	}
-	
+
 	public void removeAll(){
 		int indice = getRowCount();
 
@@ -70,6 +70,10 @@ public class TableModelProfessor extends AbstractTableModel {
 		default:
 			throw new IndexOutOfBoundsException("columnIndex out of bounds");
 		}
+	}
+
+	public Professor getProfessor(int rowIndex){
+		return linhas.get(rowIndex);
 	}
 
 	@Override
@@ -111,7 +115,7 @@ public class TableModelProfessor extends AbstractTableModel {
 		fireTableCellUpdated(rowIndex, columnIndex); // Notifica a atualização da célula
 	}
 
-	
+
 
 	public void addDisciplina(Professor prof) {
 		// Adiciona o registro.

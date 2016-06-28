@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
-
+import poo.dados.DAO.interfaces.IOfertaDisciplinaDAO;
 import poo.negocios.beans.Aluno;
+import poo.negocios.beans.Curso;
 import poo.negocios.beans.Disciplina;
 import poo.negocios.beans.Localizacao;
 import poo.negocios.beans.OfertaDisciplina;
 
-public class OfertaDisciplinaDAO {
+public class OfertaDisciplinaDAO implements IOfertaDisciplinaDAO{
 	private static OfertaDisciplinaDAO instance;
 	private ConnectionBanco bancoConnect;
 
@@ -28,22 +28,24 @@ public class OfertaDisciplinaDAO {
 		bancoConnect = ConnectionBanco.getInstance();
 	}
 
+//	ID_OFERTA, ANO, SEMESTRE, DISCIPLINA_OFERTA, ID_CURSO_DISPONIVEL, LOCALIZACAO, MONITOR_OFERTA
 	public int inserir(OfertaDisciplina offer){
 		int id = 0;
-		String sql = "INSERT INTO deinfo.oferta_disciplina(ano, semetrstre, disciplina_oferta, localizalicao) "
+		String sql = "INSERT INTO deinfo.oferta_disciplina(ano, semetrstre, disciplina_oferta, localizalicao, ID_CURSO_DISPONIVEL) "
 				+ "values(?,?,?,?)";
 		try{
-			
+
 			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(sql);
 			smt.setInt(1, offer.getAno());
 			smt.setInt(2, offer.getSemestre());
 			smt.setString(3, offer.getDisciplina().getCodigo());
 			smt.setInt(4, offer.getLocal().getCodigo());
+			smt.setInt(5, offer.getCurso().getCodigo());
 			smt.execute();
-			
+
 			ResultSet st = smt.getGeneratedKeys();
 			st.next();
-			
+
 			id = st.getInt(1);
 		}catch(Exception e){
 			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
@@ -64,8 +66,10 @@ public class OfertaDisciplinaDAO {
 				String cod_disciplina = rs.getString("DISCIPLINA_OFERTA");
 				int localizacao = rs.getInt("LOCALIZACAO");
 				String monitor = rs.getString("MONITOR_OFERTA");
+				int curso = rs.getInt("ID_CURSO_DISPONIVEL");
 				OfertaDisciplina off = new OfertaDisciplina(codigo, new Disciplina(cod_disciplina),
 						ano, semestre, new Localizacao(localizacao), new Aluno(monitor));
+				off.setCurso(new Curso(curso));
 				lista.add(off);
 			}
 		}catch(Exception e){

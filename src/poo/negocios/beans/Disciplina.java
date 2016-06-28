@@ -7,7 +7,7 @@ public class Disciplina implements Comparable{
 	private String codigo;
 	private ArrayList<Disciplina> preRequisito, coRequisito;
 	private String tipo_disciplina;
-	private Curso curso;
+	private ArrayList<Curso> curso;
 	private Trilha trilha;
 	private int cargaHoraria;
 	private File ementa;
@@ -19,7 +19,7 @@ public class Disciplina implements Comparable{
 		this.setCargaHoraria(carga);
 	}
 
-	public Disciplina(String nome, Trilha trilha, Curso curso, String tipo_disciplina,
+	public Disciplina(String nome, Trilha trilha, ArrayList<Curso> curso, String tipo_disciplina,
 			int tipoDisciplinaCurso){
 		this.setTipo_disciplina(tipo_disciplina);
 		this.setNome(nome);
@@ -31,7 +31,7 @@ public class Disciplina implements Comparable{
 	public Disciplina(String nome, int requisito,
 			ArrayList<Disciplina> preRequisito, int corequisito,
 			ArrayList<Disciplina> coRequisito,
-			Trilha trilha, Curso curso, int tipoDisciplina,
+			Trilha trilha, ArrayList<Curso> curso, int tipoDisciplina,
 			int tipoDisciplinaCurso){
 		this.setNome(nome);
 		if(requisito == 1){
@@ -101,11 +101,11 @@ public class Disciplina implements Comparable{
 		this.trilha = trilha;
 	}
 
-	public void setCurso(Curso curso){
+	public void setCurso(ArrayList<Curso> curso){
 		this.curso = curso;
 	}
 
-	public Curso getCurso(){
+	public ArrayList<Curso> getCurso(){
 		return this.curso;
 	}
 

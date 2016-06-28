@@ -64,7 +64,7 @@ public class FachadaSistema {
     public String soNumerosCPF(String cpf) {
         return formAuxiliar.soNumerosCPF(cpf);
     }
-    
+
 	public boolean existeDisciplina(String codigo) {
 		return addDisciplina.existeDisciplina(codigo);
 	}
@@ -140,7 +140,7 @@ public class FachadaSistema {
 	public void cadastraAluno(Aluno a) {
 		cadAlu.cadastraAluno(a);
 	}
-        
+
         public void cadastraProfessor(Professor p) {
 		addTeacher.cadastraProfessor(p);
 	}
@@ -177,9 +177,9 @@ public class FachadaSistema {
 		return details.buscarDisciplinaPorCodigo(codigo);
 	}
 
-	public String detalheDisciplina(String codig) {
-		return details.detalheDisciplina(codig);
-	}
+//	public String detalheDisciplina(String codig) {
+//		return details.detalheDisciplina(codig);
+//	}
 
 	public ArrayList<String> listarCodigosPreRequisitos(String cod) throws SQLException {
 		return preList.listarCodigosPreRequisitos(cod);
@@ -229,6 +229,6 @@ public class FachadaSistema {
 		return hora.listarHorarios();
 	}
 
-	
+
 
 }

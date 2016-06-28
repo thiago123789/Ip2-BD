@@ -50,18 +50,18 @@ public class DetalhesDisciplina {
 		return retorno;
 	}
 
-	public String detalheDisciplina(String codig){
-		Disciplina temp = this.buscarDisciplinaPorCodigo(codig);
-		String resultado = "";
-		Curso aux = this.buscarCursoPorID(temp.getCurso().getCodigo());
-		resultado += "------Detalhe Disciplina------"
-				+ "\nCodigo: "+temp.getCodigo()+""
-				+ "\nNome: "+temp.getNome()+""
-				+ "\nCarga Horária: "+temp.getCargaHoraria()+""
-				+ "\nCurso: "+aux.getNome();
-		
-		return resultado;
-	}
+//	public String detalheDisciplina(String codig){
+//		Disciplina temp = this.buscarDisciplinaPorCodigo(codig);
+//		String resultado = "";
+//		Curso aux = this.buscarCursoPorID(temp.getCurso().getCodigo());
+//		resultado += "------Detalhe Disciplina------"
+//				+ "\nCodigo: "+temp.getCodigo()+""
+//				+ "\nNome: "+temp.getNome()+""
+//				+ "\nCarga Horária: "+temp.getCargaHoraria()+""
+//				+ "\nCurso: "+aux.getNome();
+//
+//		return resultado;
+//	}
 
 
 

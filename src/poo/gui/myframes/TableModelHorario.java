@@ -13,7 +13,7 @@ public class TableModelHorario extends AbstractTableModel {
 	private static final int DIA = 1;
 	private static final int HORA_INICIO = 2;
 	private static final int HORA_TERMINO = 3;
-	
+
 	private static final long serialVersionUID = 1L;
 	private String[] colunas = {"ID", "Dia", "Hora Inicio", "Hora Termino"};
 	private List<Horario> linhas;
@@ -46,6 +46,10 @@ public class TableModelHorario extends AbstractTableModel {
 		this.linhas.clear();
 
 		fireTableRowsDeleted(0, indice-1);
+	}
+
+	public Horario getHorario(int rowIndex){
+		return linhas.get(rowIndex);
 	}
 
 	@Override

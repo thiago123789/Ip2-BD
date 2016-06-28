@@ -24,22 +24,22 @@ import poo.negocios.beans.Disciplina;
 public class FrameListarDisciplinas2 extends javax.swing.JInternalFrame {
         private TableModelEdit modelo = new TableModelEdit();
         private FachadaSistema fachada;
-	private String[] lista;
+        private String[] lista;
         private String[] lista2;
         private String[] lista3;
         private String[] lista4;
-	
+
     /**
      * Creates new form NovoJInternalFrame
      */
-    
+
     public FrameListarDisciplinas2() {
         initComponents();
         this.preencherDepartamentos();
         jTable1.setModel(modelo);
-        
+
     }
-    
+
     public void preencherDepartamentos(){
         fachada = FachadaSistema.getInstance();
         ArrayList<String> aux = null;
@@ -52,11 +52,11 @@ public class FrameListarDisciplinas2 extends javax.swing.JInternalFrame {
         for(String a : aux ){
             jCDepartamentos.addItem(a);
         }
-        
-        
+
+
     }
-    
-    
+
+
     public void preencherFiltroCursos(){
         jCFiltroCursos.removeAllItems();
         fachada = FachadaSistema.getInstance();
@@ -65,16 +65,16 @@ public class FrameListarDisciplinas2 extends javax.swing.JInternalFrame {
             jCFiltroCursos.addItem(a);
         }
     }
-    
-    
+
+
     public void preencherJTable(){
         TableModelEdit modelo = new TableModelEdit();
         jTable1.setModel(modelo);
-                
+
         if(modelo.getRowCount() > 0){
             modelo.removeAll();
         }
-        
+
     	fachada = FachadaSistema.getInstance();
         modelo.addListaDisciplinas(fachada.listarDisciplinasPorCurso(jCFiltroCursos.getSelectedItem().toString()));
         jTable1.addMouseListener(new MouseListener() {
@@ -115,9 +115,9 @@ public class FrameListarDisciplinas2 extends javax.swing.JInternalFrame {
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(80);
         jTable1.getColumnModel().getColumn(0).setResizable(false);
         jTable1.getTableHeader().setReorderingAllowed(false);
-        
+
     }
-    
+
     public void preencherDisciplina(Disciplina a){
         jTCodigoDisciplina.setEditable(false);
         jTCodigoDisciplina.setText(a.getCodigo());
@@ -127,9 +127,9 @@ public class FrameListarDisciplinas2 extends javax.swing.JInternalFrame {
         jCPeriodizacao.setSelectedIndex(a.getPeriodoDisciplina());
         jCTipo.setSelectedIndex(obg ? 0:1);
     }
-    
-    
-    
+
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -408,7 +408,7 @@ public class FrameListarDisciplinas2 extends javax.swing.JInternalFrame {
 
     private void jCDepartamentosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCDepartamentosItemStateChanged
         // TODO add your handling code here
-        
+
     }//GEN-LAST:event_jCDepartamentosItemStateChanged
 
     private void jCFiltroCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCFiltroCursosActionPerformed

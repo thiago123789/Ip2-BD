@@ -84,11 +84,16 @@ public class TableModelSistema extends AbstractTableModel {
                     }else{
                         return null;
                     }
-			
+
 		default:
 			// Não deve ocorrer, pois só existem 2 colunas
 			throw new IndexOutOfBoundsException("columnIndex out of bounds");
 		}
+	}
+
+
+	public Disciplina getDisciplina(int rowIndex){
+		return linhas.get(rowIndex);
 	}
 
 	@Override

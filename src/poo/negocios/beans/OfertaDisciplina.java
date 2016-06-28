@@ -11,6 +11,7 @@ public class OfertaDisciplina {
 	private int id;
 	private Localizacao local;
 	private Aluno monitor;
+	private Curso curso;
 
 	public OfertaDisciplina(int codigo, Disciplina disciplina, int ano, int semetre, Localizacao local, Aluno monitor){
 		this.setCodigo(codigo);
@@ -38,7 +39,7 @@ public class OfertaDisciplina {
 		if(professores != null){
 			this.professores = professores;
 		}
-	}		
+	}
 
 	public OfertaDisciplina(int codigo){
 		this.setCodigo(codigo);
@@ -76,7 +77,7 @@ public class OfertaDisciplina {
 
 	public void setAno(int ano) {
 		if(this.disciplina != null){
-			if(ano >= this.disciplina.getCurso().getAno_inicio()){
+			if(ano >= this.getCurso().getAno_inicio()){
 				this.ano = ano;
 			}
 		}
@@ -111,6 +112,15 @@ public class OfertaDisciplina {
 			this.local = local;
 		}
 	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
 
 
 

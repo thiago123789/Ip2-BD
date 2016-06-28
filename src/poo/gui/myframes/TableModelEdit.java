@@ -94,6 +94,10 @@ public class TableModelEdit extends AbstractTableModel {
 		fireTableCellUpdated(rowIndex, columnIndex); // Notifica a atualização da célula
 	}
 
+	public Disciplina getDisciplina(int rowIndex){
+		return linhas.get(rowIndex);
+	}
+
 	public void addDisciplina(Disciplina disciplina) {
 		// Adiciona o registro.
 		linhas.add(disciplina);
