@@ -32,10 +32,9 @@ public class ProfessorDAO implements IProfessorDAO{
 		try{
 			PreparedStatement smt = bancoConnect.retornoStatement(query);
 			smt.setString(1, p.getCpf());
-			smt.setString(2, p.getExterno());
-			smt.setString(3, p.getIes());
-			smt.setString(4, p.getTitulo());
-			smt.setInt(5, p.getDepartamento().getId());
+			smt.setString(2, p.getIes());
+			smt.setString(3, p.getTitulo());
+			smt.setInt(4, p.getDepartamento().getId());
 			smt.execute();
 			inseriu = true;
 		}catch(SQLException e){
@@ -44,6 +43,7 @@ public class ProfessorDAO implements IProfessorDAO{
 		return inseriu;
 	}
 
+
 	public ArrayList<Professor> listar(){
 		ArrayList<Professor> retorno = new ArrayList<Professor>();
 		String query = "SELECT * FROM deinfo.professor";
@@ -51,16 +51,15 @@ public class ProfessorDAO implements IProfessorDAO{
 			ResultSet rs = bancoConnect.comandoSQL(query);
 			while(rs.next()){
 				String cpf = rs.getString(1);
-				boolean externo = rs.getBoolean(2);
-				String ies = rs.getString(3);
-				String titulo = rs.getString(4);
-				int depat = rs.getInt(5);
+				String ies = rs.getString(2);
+				String titulo = rs.getString(3);
+				int depat = rs.getInt(4);
 				Professor aux = new Professor(cpf);
 				aux.setIes(ies);
 				aux.setTitulo(titulo);
 				aux.setDepartamento(new Departamento(depat));
 				retorno.add(aux);
-				
+
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
