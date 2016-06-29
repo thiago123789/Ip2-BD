@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JOptionPane;
+import poo.gui.myframes.FrameListarDisciplinas2;
+import poo.gui.myframes.JFrameAlterarSenha;
 
 /**
  *
@@ -204,6 +206,11 @@ public class JFrameProfessor extends javax.swing.JFrame {
         mnuDisciplina.setText("Disciplina");
 
         jMenuItem10.setText("Listar Disciplinas");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         mnuDisciplina.add(jMenuItem10);
 
         jMenuBar1.add(mnuDisciplina);
@@ -263,6 +270,10 @@ public class JFrameProfessor extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
+        JFrameAlterarSenha f = new JFrameAlterarSenha();
+        f.setVisible(true);
+        f.recebeUsuario(jTCPFUser.getText());
+        f.setLocation(new java.awt.Point(500, 200));
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void mnuMyAccSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMyAccSairActionPerformed
@@ -286,6 +297,11 @@ public class JFrameProfessor extends javax.swing.JFrame {
         JOptionPane.showOptionDialog(null, "Professor, gostou do nosso aplicativo?", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 
     }//GEN-LAST:event_mnuSobreSistemaActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
