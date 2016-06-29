@@ -31,9 +31,13 @@ public class AlunoDAO implements IAlunoDAO{
 	/*
 	 * METODOS CRUD
 	 */
+
+	//CPF_ALU, PRIORIDADE, CURSO, ANO_ENTRADA, SEMESTRE_ENTRADA, TURNO, MONITOR, VOLUNTARIO, BOLSISTA,
+	//DESISTIU, MEDIA_GERAL, PROJETO_C_BOLSA, VALOR_BOLSA, ORIENTADOR_TCC
 	public boolean inserir(Aluno a) throws SQLException{
 		boolean inseriu = false;
-		String sql = "INSERT INTO deinfo.aluno(CPF_ALU, PRIORIDADE, CURSO, ANO_ENTRADA, SEMESTRE_ENTRADA, TURNO)"
+		String sql = "INSERT INTO deinfo.aluno(CPF_ALU, PRIORIDADE, CURSO, ANO_ENTRADA, "
+				+ "SEMESTRE_ENTRADA, TURNO, MONITOR, VOLUNTARIO, BOLSISTA, DESISTIU)"
 				+ "values(?,?,?,?,?,?)";
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConect.retornoStatement(sql);
@@ -43,6 +47,10 @@ public class AlunoDAO implements IAlunoDAO{
 			smt.setInt(4, a.getAnoEntrada());
 			smt.setInt(5, a.getSemestreEntrada());
 			smt.setString(6, a.getTurno());
+			smt.setInt(7, a.isMonitor()? 1:0);
+			smt.setInt(8, a.isVoluntario()? 1:0);
+			smt.setInt(9, a.isBolsista()? 1:0);
+			smt.setInt(10, a.isDesistiu()? 1:0);
 			smt.execute();
 			inseriu = true;
 		}catch(Exception e){
@@ -144,7 +152,7 @@ public class AlunoDAO implements IAlunoDAO{
 						bolsista, desistiu);
 				a.setMedia_geral(media_geral);
 				list.add(a);
-				
+
 			}
 		}catch(SQLException e){
 			bancoConect.getConexao().rollback();
