@@ -26,7 +26,7 @@ import poo.gui.myframes.FrameCadastroUsuario;
 import poo.gui.myframes.FrameDesativarUsuario;
 import poo.gui.myframes.FrameEditarUsuario;
 import poo.gui.myframes.FrameListarDisciplinas2;
-import poo.gui.myframes.FrameListarUsuarios;
+import poo.gui.myframes.FrameListarProfessores;
 import poo.gui.myframes.FrameNovaConsulta;
 import poo.gui.myframes.JFrameAlterarSenha;
 
@@ -496,7 +496,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
     private void mnuUsuarioListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUsuarioListarActionPerformed
         // TODO add your handling code here:
-        FrameListarUsuarios f = new FrameListarUsuarios();
+        FrameListarProfessores f = new FrameListarProfessores();
         desktop.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_mnuUsuarioListarActionPerformed

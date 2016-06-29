@@ -132,6 +132,10 @@ public class FachadaSistema {
 	public ArrayList<Disciplina> searchAdvanced(String nom) {
 		return advanced.searchAdvanced(nom);
 	}
+        
+        public ArrayList<Professor> searchAdvancedProfessor(String nom) {
+		return advanced.searchAdvancedProfessor(nom);
+	}
 
 	public int cursoAluno(String cpf) {
 		return info.cursoAluno(cpf);
@@ -191,6 +195,9 @@ public class FachadaSistema {
 
 	public ArrayList<Disciplina> searchAdvancedVariasChaves(ArrayList<String> chaves) {
 		return advanced.searchAdvancedVariasChaves(chaves);
+	}
+        public ArrayList<Professor> searchAdvancedVariasChavesProfessor(ArrayList<String> chaves) {
+		return advanced.searchAdvancedVariasChavesProfessor(chaves);
 	}
 
 	public ArrayList<String> listarCursosPorDepartamentoList(String depat){

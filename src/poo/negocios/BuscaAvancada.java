@@ -5,13 +5,17 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 import poo.dados.DAO.DisciplinaDAO;
+import poo.dados.DAO.ProfessorDAO;
 import poo.dados.DAO.interfaces.IDisciplinaDAO;
+import poo.dados.DAO.interfaces.IProfessorDAO;
 import poo.negocios.beans.Disciplina;
 import poo.negocios.beans.Pessoa;
+import poo.negocios.beans.Professor;
 
 public class BuscaAvancada {
 	private static BuscaAvancada instance;
 	private IDisciplinaDAO command;
+        private IProfessorDAO commandA;
 
 	public static BuscaAvancada getInstance(){
 		if(instance == null){
@@ -22,6 +26,7 @@ public class BuscaAvancada {
 
 	private BuscaAvancada(){
 		command = DisciplinaDAO.getInstance();
+                commandA = ProfessorDAO.getInstance();
 	}
 
 	public ArrayList<Disciplina> searchAdvanced(String nom){
@@ -37,6 +42,24 @@ public class BuscaAvancada {
 		}
 		return retorno;
 	}
+        
+        public ArrayList<Professor> searchAdvancedProfessor(String nom){
+		ArrayList<Professor> listando = commandA.listar();
+		ArrayList<Professor> retorno = null;
+		retorno = new ArrayList<Professor>();
+                System.out.println("isso esta em listando" + listando.toString());
+		for(Professor aux : listando){
+                    	if(((aux.getPnome()).contains(nom))||((aux.getUnome()).contains(nom))){
+				if(!retorno.contains(aux)){
+					retorno.add(aux);
+				}
+			}
+//                        else{
+//                            retorno.addAll(listando);
+//                        }
+		}
+		return retorno;
+	}
 
 	public ArrayList<Disciplina> searchAdvancedVariasChaves(ArrayList<String> chaves){
 		ArrayList<Disciplina> retorno = null;
@@ -46,6 +69,23 @@ public class BuscaAvancada {
 				ArrayList<Disciplina> listando = this.searchAdvanced(a);
 				for(Disciplina aux : listando){
 					if(unAccent(aux.getNome()).contains(a.toUpperCase())){
+						if(!retorno.contains(aux)){
+							retorno.add(aux);
+						}
+					}
+				}
+			}
+		}
+		return retorno;
+	}
+        public ArrayList<Professor> searchAdvancedVariasChavesProfessor(ArrayList<String> chaves){
+		ArrayList<Professor> retorno = null;
+		retorno = new ArrayList<Professor>();
+		for(String a : chaves){
+			if(a != null){
+				ArrayList<Professor> listando = this.searchAdvancedProfessor(a);
+				for(Professor aux : listando){
+					if(((aux.getPnome()).contains(a.toUpperCase()))||((aux.getUnome()).contains(a.toUpperCase()))){
 						if(!retorno.contains(aux)){
 							retorno.add(aux);
 						}

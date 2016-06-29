@@ -10,8 +10,10 @@ import java.awt.Font;
 
 import javax.swing.JOptionPane;
 import poo.gui.myframes.FrameBuscaAvancada2;
+import poo.gui.myframes.FrameBuscaProfessor;
 import poo.gui.myframes.FrameEfetuarMatricula2;
 import poo.gui.myframes.FrameListarDisciplinas2;
+import poo.gui.myframes.FrameListarProfessores;
 import poo.gui.myframes.JFrameAlterarSenha;
 
 /**
@@ -205,9 +207,19 @@ public class JFrameAluno extends javax.swing.JFrame {
         mnuProfessor.setText("Professor");
 
         mnuProfessorListar.setText("Listar Professores");
+        mnuProfessorListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuProfessorListarActionPerformed(evt);
+            }
+        });
         mnuProfessor.add(mnuProfessorListar);
 
         jMenuItem4.setText("Buscar Professor");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         mnuProfessor.add(jMenuItem4);
 
         jMenuBar1.add(mnuProfessor);
@@ -340,6 +352,20 @@ public class JFrameAluno extends javax.swing.JFrame {
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void mnuProfessorListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuProfessorListarActionPerformed
+        // TODO add your handling code here:
+        FrameListarProfessores l = new FrameListarProfessores();
+        desktop.add(l);
+        l.setVisible(true);
+    }//GEN-LAST:event_mnuProfessorListarActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        FrameBuscaProfessor b = new FrameBuscaProfessor();
+        desktop.add(b);
+        b.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments

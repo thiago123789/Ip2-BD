@@ -9,6 +9,7 @@ import javax.swing.table.AbstractTableModel;
 import com.sun.prism.Image;
 
 import poo.negocios.beans.Disciplina;
+import poo.negocios.beans.Professor;
 
 public class TableModelSistema extends AbstractTableModel {
 	private static final int CODIGO = 0;
@@ -23,6 +24,7 @@ public class TableModelSistema extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
 	private String[] colunas = {"Codigo", "Nome", "Periodização", "Carga Horária", "Tipo", "Ementa"};
 	private List<Disciplina> linhas;
+        private List<Professor> linhasProfessor;
 	private ImageIcon pdf;
 
 	public TableModelSistema(){
@@ -159,6 +161,18 @@ public class TableModelSistema extends AbstractTableModel {
 		// Notifica a mudança.
 		fireTableRowsInserted(ultimoIndice, ultimoIndice);
 	}
+        public void addProfessor(Professor professor) {
+		// Adiciona o registro.
+		linhasProfessor.add(professor);
+
+		// Pega a quantidade de registros e subtrai 1 para
+		// achar o último índice. A subtração é necessária
+		// porque os índices começam em zero.
+		int ultimoIndice = getRowCount() - 1;
+
+		// Notifica a mudança.
+		fireTableRowsInserted(ultimoIndice, ultimoIndice);
+	}
 
 	public void addListaDisciplinas(ArrayList<Disciplina> disciplinas) {
 		// Pega o tamanho antigo da tabela, que servirá
@@ -170,6 +184,17 @@ public class TableModelSistema extends AbstractTableModel {
 
 		// Notifica a mudança.
 		fireTableRowsInserted(indice, indice + disciplinas.size());
+	}
+        public void addListaProfessores(ArrayList<Professor> professores) {
+		// Pega o tamanho antigo da tabela, que servirá
+		// como índice para o primeiro dos novos registros
+		int indice = getRowCount();
+
+		// Adiciona os registros.
+                linhasProfessor.addAll(professores);
+
+		// Notifica a mudança.
+		fireTableRowsInserted(indice, indice + professores.size());
 	}
 
 
