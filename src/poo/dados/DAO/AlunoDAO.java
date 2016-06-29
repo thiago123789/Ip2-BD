@@ -38,7 +38,7 @@ public class AlunoDAO implements IAlunoDAO{
 		boolean inseriu = false;
 		String sql = "INSERT INTO deinfo.aluno(CPF_ALU, PRIORIDADE, CURSO, ANO_ENTRADA, "
 				+ "SEMESTRE_ENTRADA, TURNO, MONITOR, VOLUNTARIO, BOLSISTA, DESISTIU)"
-				+ "values(?,?,?,?,?,?)";
+				+ "values(?,?,?,?,?,?,?,?,?,?)";
 		try{
 			PreparedStatement smt = (PreparedStatement) bancoConect.retornoStatement(sql);
 			smt.setString(1, a.getCpf());

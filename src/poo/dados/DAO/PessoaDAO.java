@@ -53,14 +53,21 @@ public class PessoaDAO implements IPessoaDAO{
 			smt.setInt(4, (p.getSexo())? 1 : 2);
 			smt.setString(5, p.getSenha());
 			smt.setString(6, p.getEmail());
-			smt.setString(7, p.getEndereco().getLogradouro());
-			smt.setString(8, p.getEndereco().getCep());
+			if(p.getEndereco() == null){
+				smt.setNull(7, Types.VARCHAR);
+				smt.setNull(8, Types.VARCHAR);
+				smt.setNull(10, Types.VARCHAR);
+				smt.setNull(11, Types.VARCHAR);
+			}else{
+				smt.setString(7, p.getEndereco().getLogradouro());
+				smt.setString(8, p.getEndereco().getCep());
+				smt.setString(10, p.getEndereco().getCidade());
+				smt.setString(11, p.getEndereco().getBairro());
+			}
 			smt.setInt(9, p.getTipo());
-			smt.setString(10, p.getEndereco().getCidade());
-			smt.setString(11, p.getEndereco().getBairro());
-			smt.setInt(12, p.getEndereco().getNumero());
-			smt.setString(13, p.getEndereco().getEstado());
+			System.out.println("PASOU ENDERECO");
 			smt.setDate(14, new java.sql.Date(p.getDataNascimento().getTime().getTime()));
+			System.out.println("PASSOU DATA");
 			smt.execute();
 			inseriu = true;
 		}catch(Exception e){
