@@ -67,8 +67,8 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonCadastrar = new javax.swing.JButton();
+        jButtonLimpar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -115,14 +115,19 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Cadastro Professor");
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonCadastrarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancelar");
+        jButtonLimpar.setText("Limpar");
+        jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -403,11 +408,11 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -422,8 +427,8 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonCadastrar)
+                    .addComponent(jButtonLimpar))
                 .addGap(283, 283, 283))
         );
 
@@ -446,11 +451,10 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldCpfActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         // TODO add your handling code here:
         fachada = FachadaSistema.getInstance();
-        System.out.println("imprimiu o comeco");
-        int result = 0;
+                int result = 0;
         Professor p = null;
         boolean ok = false;
         
@@ -474,36 +478,35 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         }
         System.out.println("CEP: "+cep);
         String Estado = (String) jComboBoxEstado.getSelectedItem();
-        //int numero = TextFieldNumero.getText();
+        
         int numero = Integer.parseInt(jTextFieldNumero.getText());
         String d = jComboBoxDepartamento.getSelectedItem().toString();
-        System.out.println(d);
+        
         Calendar nascimento = Calendar.getInstance();
-        System.out.println((String)jComboBoxAno.getSelectedItem());
+        
         int anoInt = Integer.valueOf((String)jComboBoxAno.getSelectedItem());
-        System.out.println(anoInt);
+        
         nascimento.set(Calendar.YEAR, anoInt);
         int mesInt = Integer.valueOf((String)jComboBoxMes.getSelectedItem());
         nascimento.set(Calendar.MONTH, mesInt);
         int diaInt = Integer.valueOf((String)jComboBoxDia.getSelectedItem());
         nascimento.set(Calendar.DAY_OF_MONTH, diaInt);
-        System.out.println("armazenou todos os dados");
-        
+               
         Departamento depat = new Departamento(d);
-        System.out.println(depat.toString());
+        
         Cargo c = new Cargo(nomeCargo);
         Endereco e = new Endereco(logradouro, numero, bairro, cidade, cep, Estado);
         //Ajustar campo SENHA que por hora esta null.
         try {
-            System.out.println("constrói professor");
+            
             p = new Professor(titulo, pNome, uNome, cpf, sexo, null, email, e, depat, lattes, nascimento);
-            System.out.println("criou professor");
+            
         } catch (CPFInvalidoException ex) {
             Logger.getLogger(FrameCadastroProfessor.class.getName()).log(Level.SEVERE, null, ex);
         }
-            System.out.println("imprimiu A");
+            
         fachada.cadastraProfessor(p);
-        System.out.println("imprimiu B");
+        
         ok = true;
         
         if(ok){
@@ -517,7 +520,7 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
             this.setVisible(false);
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jComboBoxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstadoActionPerformed
         // TODO add your handling code here:
@@ -535,11 +538,15 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRMasculinoActionPerformed
 
+    private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLimparActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonCadastrar;
+    private javax.swing.JButton jButtonLimpar;
     private javax.swing.JComboBox<String> jComboBoxAno;
     private javax.swing.JComboBox<String> jComboBoxDepartamento;
     private javax.swing.JComboBox<String> jComboBoxDia;
