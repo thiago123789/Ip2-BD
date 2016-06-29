@@ -9,6 +9,10 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JOptionPane;
+import poo.gui.myframes.FrameBuscaAvancada2;
+import poo.gui.myframes.FrameEfetuarMatricula2;
+import poo.gui.myframes.FrameListarDisciplinas2;
+import poo.gui.myframes.JFrameAlterarSenha;
 
 /**
  *
@@ -92,8 +96,8 @@ public class JFrameAluno extends javax.swing.JFrame {
         mnuDisciplina = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
-        mnuBuscar = new javax.swing.JMenu();
-        mnuBuscarNovaConsulta = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         mnuSobre = new javax.swing.JMenu();
         mnuSobreVersao = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -180,6 +184,11 @@ public class JFrameAluno extends javax.swing.JFrame {
         jMenu1.setText("Minha Conta");
 
         mnuMyAccAlterarSenha.setText("Alterar Senha");
+        mnuMyAccAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuMyAccAlterarSenhaActionPerformed(evt);
+            }
+        });
         jMenu1.add(mnuMyAccAlterarSenha);
         jMenu1.add(jSeparator3);
 
@@ -206,6 +215,11 @@ public class JFrameAluno extends javax.swing.JFrame {
         mnuDisciplina.setText("Disciplina");
 
         jMenuItem10.setText("Listar Disciplinas");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         mnuDisciplina.add(jMenuItem10);
 
         jMenuItem12.setText("Buscar Disciplina");
@@ -218,12 +232,17 @@ public class JFrameAluno extends javax.swing.JFrame {
 
         jMenuBar1.add(mnuDisciplina);
 
-        mnuBuscar.setText("Buscar");
+        jMenu2.setText("Matricula");
 
-        mnuBuscarNovaConsulta.setText("Nova consulta");
-        mnuBuscar.add(mnuBuscarNovaConsulta);
+        jMenuItem1.setText("Efetuar Matricula");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
 
-        jMenuBar1.add(mnuBuscar);
+        jMenuBar1.add(jMenu2);
 
         mnuSobre.setText("Sobre");
 
@@ -275,6 +294,9 @@ public class JFrameAluno extends javax.swing.JFrame {
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
+        FrameBuscaAvancada2 a = new FrameBuscaAvancada2();
+        desktop.add(a);
+        a.setVisible(true);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void mnuMyAccSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMyAccSairActionPerformed
@@ -298,6 +320,26 @@ public class JFrameAluno extends javax.swing.JFrame {
         JOptionPane.showOptionDialog(null, "Professor, gostou do nosso aplicativo?", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 
     }//GEN-LAST:event_mnuSobreSistemaActionPerformed
+
+    private void mnuMyAccAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMyAccAlterarSenhaActionPerformed
+        // TODO add your handling code here:JFrameAlterarSenha f = new JFrameAlterarSenha();
+        JFrameAlterarSenha f = new JFrameAlterarSenha();
+        f.setVisible(true);
+        f.recebeUsuario(jTCPFUser.getText());
+        f.setLocation(new java.awt.Point(500, 200));
+    }//GEN-LAST:event_mnuMyAccAlterarSenhaActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        FrameEfetuarMatricula2 m = new FrameEfetuarMatricula2();
+        desktop.add(m);
+        m.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,7 +383,9 @@ public class JFrameAluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
@@ -355,8 +399,6 @@ public class JFrameAluno extends javax.swing.JFrame {
     private javax.swing.JTextField jTCPFUser;
     private javax.swing.JTextField jTLastLogin;
     private javax.swing.JTextField jTNameUser;
-    private javax.swing.JMenu mnuBuscar;
-    private javax.swing.JMenuItem mnuBuscarNovaConsulta;
     private javax.swing.JMenu mnuDisciplina;
     private javax.swing.JMenuItem mnuMyAccAlterarSenha;
     private javax.swing.JMenuItem mnuMyAccSair;

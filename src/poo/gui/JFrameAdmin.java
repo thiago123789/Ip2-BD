@@ -107,6 +107,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         mnuMinhaContaSair = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem21 = new javax.swing.JMenuItem();
+        jMenuItem22 = new javax.swing.JMenuItem();
         mnuUsuario = new javax.swing.JMenu();
         mnuUsuarioAdicionar = new javax.swing.JMenuItem();
         mnuUsuarioEditar = new javax.swing.JMenuItem();
@@ -253,6 +254,9 @@ public class JFrameAdmin extends javax.swing.JFrame {
             }
         });
         jMenu5.add(jMenuItem21);
+
+        jMenuItem22.setText("Listar Ofertas");
+        jMenu5.add(jMenuItem22);
 
         jMenuBar1.add(jMenu5);
 
@@ -669,6 +673,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem21;
+    private javax.swing.JMenuItem jMenuItem22;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
