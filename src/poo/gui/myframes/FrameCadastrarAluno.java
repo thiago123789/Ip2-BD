@@ -6,8 +6,15 @@
 package poo.gui.myframes;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
+import javax.swing.JOptionPane;
+import poo.excecoes.CPFInvalidoException;
 import poo.negocios.FachadaSistema;
+import poo.negocios.beans.Aluno;
+import poo.negocios.beans.Curso;
 
 /**
  *
@@ -47,7 +54,7 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
         fachada = FachadaSistema.getInstance();
         ArrayList<Integer> temp = fachada.retornarAnosAPartirDeList(fachada.anoInicioCurso(jCCursos.getSelectedItem().toString()));
         for(Integer a : temp){
-            jCAnoIn.addItem(a.toString());
+            jCAnoEntrada.addItem(a.toString());
         }
     }
 
@@ -65,16 +72,16 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxTurno = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jCCursos = new javax.swing.JComboBox<>();
-        jCAnoIn = new javax.swing.JComboBox<>();
+        jCAnoEntrada = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jTEndereco = new javax.swing.JTextField();
+        jTLogradouro = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -88,19 +95,19 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboBoxDia = new javax.swing.JComboBox<>();
+        jComboBoxMes = new javax.swing.JComboBox<>();
         jCAnoNasc = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldCidade = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
+        jComboBoxEstado = new javax.swing.JComboBox<>();
+        jTextFieldBairro = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jTextFieldComplemento = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jTextFieldNumero = new javax.swing.JTextField();
         jBCadastrar = new javax.swing.JButton();
         jBCancel = new javax.swing.JButton();
 
@@ -117,10 +124,10 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Turno :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manhã", "Tarde", "Noite"}));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manhã", "Tarde", "Noite"}));
+        jComboBoxTurno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jComboBoxTurnoActionPerformed(evt);
             }
         });
 
@@ -135,7 +142,7 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Semestre de Entrada :");
 
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jCAnoIn, org.jdesktop.beansbinding.ObjectProperty.create(), jCCursos, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jCAnoEntrada, org.jdesktop.beansbinding.ObjectProperty.create(), jCCursos, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
         bindingGroup.addBinding(binding);
 
         jCCursos.addItemListener(new java.awt.event.ItemListener() {
@@ -149,12 +156,12 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
             }
         });
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jCCursos, org.jdesktop.beansbinding.ObjectProperty.create(), jCAnoIn, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jCCursos, org.jdesktop.beansbinding.ObjectProperty.create(), jCAnoEntrada, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
         bindingGroup.addBinding(binding);
 
-        jCAnoIn.addActionListener(new java.awt.event.ActionListener() {
+        jCAnoEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCAnoInActionPerformed(evt);
+                jCAnoEntradaActionPerformed(evt);
             }
         });
 
@@ -177,10 +184,10 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
                             .add(jComboBox3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .add(8, 8, 8))
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 102, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jComboBoxTurno, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 102, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(121, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(jCAnoIn, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jCAnoEntrada, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -193,11 +200,11 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
                 .add(18, 18, 18)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
                     .add(jLabel4)
-                    .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jComboBoxTurno, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel8)
-                    .add(jCAnoIn, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jCAnoEntrada, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel10)
@@ -229,9 +236,9 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações Pessoais"));
 
-        jTEndereco.addActionListener(new java.awt.event.ActionListener() {
+        jTLogradouro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTEnderecoActionPerformed(evt);
+                jTLogradouroActionPerformed(evt);
             }
         });
 
@@ -273,17 +280,17 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
 
         jLabel5.setText("E-mail :");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+        jComboBoxDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
+                jComboBoxDiaActionPerformed(evt);
             }
         });
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Mês","Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosoto", "Setembro", "Outubro", "Novembro", "Dezembro"}));
-        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Mês","Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosoto", "Setembro", "Outubro", "Novembro", "Dezembro"}));
+        jComboBoxMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox6ActionPerformed(evt);
+                jComboBoxMesActionPerformed(evt);
             }
         });
 
@@ -295,18 +302,18 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Cidade: ");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldCidadeActionPerformed(evt);
             }
         });
 
         jLabel11.setText("Estado");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        jComboBoxEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                jComboBoxEstadoActionPerformed(evt);
             }
         });
 
@@ -333,7 +340,7 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
                     .add(jLabel15))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jTEndereco)
+                    .add(jTLogradouro)
                     .add(jTEmail)
                     .add(jPanel2Layout.createSequentialGroup()
                         .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
@@ -342,33 +349,33 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(jLabel12))
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2Layout.createSequentialGroup()
-                                .add(jTextField1)
+                                .add(jTextFieldCidade)
                                 .add(24, 24, 24)
                                 .add(jLabel11)))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel2Layout.createSequentialGroup()
-                                .add(jComboBox2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jComboBoxEstado, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(0, 0, Short.MAX_VALUE))
-                            .add(jTextField3)))
+                            .add(jTextFieldComplemento)))
                     .add(jPanel2Layout.createSequentialGroup()
                         .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jFCPF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 117, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jTNome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 277, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jPanel2Layout.createSequentialGroup()
-                                .add(jComboBox5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 66, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jComboBoxDia, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 66, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(7, 7, 7)
-                                .add(jComboBox6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 113, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jComboBoxMes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 113, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jCAnoNasc, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 82, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(jPanel2Layout.createSequentialGroup()
                                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 242, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(jTextFieldBairro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 242, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jPanel2Layout.createSequentialGroup()
                                         .add(266, 266, 266)
                                         .add(jLabel16)))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jTextField4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 66, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                .add(jTextFieldNumero, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 66, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                         .add(0, 131, Short.MAX_VALUE)))
                 .addContainerGap())
             .add(jPanel2Layout.createSequentialGroup()
@@ -394,27 +401,27 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel13)
-                    .add(jTEndereco, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jTLogradouro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jTextFieldBairro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel15)
                     .add(jLabel16)
-                    .add(jTextField4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jTextFieldNumero, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(jPanel2Layout.createSequentialGroup()
                         .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                .add(jComboBox2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jComboBoxEstado, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(jLabel11))
                             .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jTextFieldCidade, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(jLabel7)))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jLabel12)
-                            .add(jTextField3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                            .add(jTextFieldComplemento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                     .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(jLabel6)
                         .add(jFCEP, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
@@ -425,10 +432,10 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(jComboBox6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jComboBoxMes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(jCAnoNasc, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(jComboBox5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jComboBoxDia, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(jLabel9)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -505,8 +512,84 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
 
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
         // TODO add your handling code here:
-        String cpf = jFCPF.getText();
-        String nome = jTNome.getText();
+        fachada = FachadaSistema.getInstance();
+                int result = 0;
+        Aluno a = null;
+        boolean ok = false;
+        
+        
+        String cpf = fachada.soNumerosCPF(jFCPF.getText());
+        //String nome = jTNome.getText();
+        String logradouro = jTLogradouro.getText();
+        String bairro = jTextFieldBairro.getText();
+        String cidade = jTextFieldCidade.getText();
+        String email = jTEmail.getText();
+        String Estado = (String) jComboBoxEstado.getSelectedItem();
+        int numero = Integer.parseInt(jTextFieldNumero.getText());
+        String[] cep1 = jFCEP.getText().toString().split("-");
+        String cep = "";
+        for(String aux : cep1){
+            cep += aux;
+        }
+        if(jTNome.getText().toString().contains(" ")){
+        String[] nome1 = jTNome.getText().toString().split(" ");
+        String pNome = nome1[0];
+        String uNome = nome1[nome1.length-1];
+        System.out.println(pNome + " " + uNome);
+        }
+        else{
+            String pNome = jTNome.getText().toString();
+            String uNome = jTNome.getText().toString();
+        }
+        
+        
+        //System.out.println("CEP: "+cep);
+        
+               
+       
+        Calendar nascimento = Calendar.getInstance();
+        
+        int posicaoAno = jCAnoNasc.getSelectedIndex();
+        nascimento.set(Calendar.YEAR, posicaoAno-1);
+        //retorna posicao do mes no array
+        int posicaoMes = jComboBoxMes.getSelectedIndex();
+        //int mesInt = Integer.valueOf((String)jComboBoxMes.getSelectedItem());
+        nascimento.set(Calendar.MONTH, posicaoMes);
+        int posicaoDia = jComboBoxDia.getSelectedIndex();
+        //int diaInt = Integer.valueOf((String)jComboBoxDia.getSelectedItem());
+        nascimento.set(Calendar.DAY_OF_MONTH, posicaoDia);
+        System.out.println("dia" + nascimento.get(Calendar.DAY_OF_MONTH));
+        System.out.println("mes" + nascimento.get(Calendar.MONTH) + "ano" + nascimento.get(Calendar.YEAR));
+       
+        int anoEntrada = Integer.parseInt((String)jCAnoEntrada.getSelectedItem());
+        int semestreEntrada = Integer.parseInt((String)jCAnoEntrada.getSelectedItem());
+        String turno = (String)jComboBoxTurno.getSelectedItem();
+        
+        String c = jCCursos.getSelectedItem().toString();
+        
+        Curso curso = new Curso();
+        curso.setNome(c);
+        
+        //Curso curso = null;
+        
+        try {
+            a = new Aluno(cpf, true, curso, anoEntrada, semestreEntrada, turno, false, false, false, false);
+        } catch (CPFInvalidoException ex) {
+            Logger.getLogger(FrameCadastrarAluno.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        fachada.cadastraAluno(a);
+        
+        ok = true;
+        if(ok){
+            JOptionPane.showConfirmDialog(null, "Aluno Cadastrado com sucesso", "Sucesso", -1);
+        }else{
+            JOptionPane.showConfirmDialog(null, "Não foi possivel cadastrar o aluno", "Erro", -1);
+        }
+        result = fachada.okcancel("Deseja adicionar um novo aluno?", "Alerta");
+        
+        if( result == 2){
+            this.setVisible(false);
+        }
         
     }//GEN-LAST:event_jBCadastrarActionPerformed
 
@@ -514,66 +597,66 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBCancelActionPerformed
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+    private void jComboBoxDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox5ActionPerformed
+    }//GEN-LAST:event_jComboBoxDiaActionPerformed
 
-    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+    private void jComboBoxMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox6ActionPerformed
+    }//GEN-LAST:event_jComboBoxMesActionPerformed
 
     private void jCCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCCursosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCCursosActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jComboBoxTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTurnoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jComboBoxTurnoActionPerformed
 
-    private void jTEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEnderecoActionPerformed
+    private void jTLogradouroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTLogradouroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTEnderecoActionPerformed
+    }//GEN-LAST:event_jTLogradouroActionPerformed
 
     private void jCAnoNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCAnoNascActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCAnoNascActionPerformed
 
-    private void jCAnoInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCAnoInActionPerformed
+    private void jCAnoEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCAnoEntradaActionPerformed
         // TODO add your handling code here:
        
-    }//GEN-LAST:event_jCAnoInActionPerformed
+    }//GEN-LAST:event_jCAnoEntradaActionPerformed
 
     private void jCCursosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCCursosItemStateChanged
         // TODO add your handling code here:
-        jCAnoIn.removeAllItems();
+        jCAnoEntrada.removeAllItems();
         preencher3();
     }//GEN-LAST:event_jCCursosItemStateChanged
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextFieldCidadeActionPerformed
 
     private void jTEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTEmailActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void jComboBoxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_jComboBoxEstadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBCadastrar;
     private javax.swing.JButton jBCancel;
-    private javax.swing.JComboBox<String> jCAnoIn;
+    private javax.swing.JComboBox<String> jCAnoEntrada;
     private javax.swing.JComboBox<String> jCAnoNasc;
     private javax.swing.JComboBox<String> jCCursos;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBoxDia;
+    private javax.swing.JComboBox<String> jComboBoxEstado;
+    private javax.swing.JComboBox<String> jComboBoxMes;
+    private javax.swing.JComboBox<String> jComboBoxTurno;
     private javax.swing.JFormattedTextField jFCEP;
     private javax.swing.JFormattedTextField jFCPF;
     private javax.swing.JLabel jLabel1;
@@ -599,12 +682,12 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTEmail;
-    private javax.swing.JTextField jTEndereco;
+    private javax.swing.JTextField jTLogradouro;
     private javax.swing.JTextField jTNome;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextFieldBairro;
+    private javax.swing.JTextField jTextFieldCidade;
+    private javax.swing.JTextField jTextFieldComplemento;
+    private javax.swing.JTextField jTextFieldNumero;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
