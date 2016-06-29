@@ -127,8 +127,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem20 = new javax.swing.JMenuItem();
-        mnuBuscar = new javax.swing.JMenu();
-        mnuBuscarNovaConsulta = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
@@ -375,18 +373,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
         jMenuBar1.add(mnuDisciplina);
 
-        mnuBuscar.setText("Buscar");
-
-        mnuBuscarNovaConsulta.setText("Nova consulta");
-        mnuBuscarNovaConsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuBuscarNovaConsultaActionPerformed(evt);
-            }
-        });
-        mnuBuscar.add(mnuBuscarNovaConsulta);
-
-        jMenuBar1.add(mnuBuscar);
-
         jMenu2.setText("Relatórios");
 
         jMenuItem1.setText("Relatório Professor");
@@ -538,13 +524,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void mnuBuscarNovaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBuscarNovaConsultaActionPerformed
-        // TODO add your handling code here:
-        FrameNovaConsulta f = new FrameNovaConsulta();
-        desktop.add(f);
-        f.setVisible(true);
-    }//GEN-LAST:event_mnuBuscarNovaConsultaActionPerformed
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         FrameCadastroDisciplina f = new FrameCadastroDisciplina();
@@ -689,8 +668,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField jTCPFUser;
     private javax.swing.JTextField jTLastLogin;
     private javax.swing.JTextField jTNameUser;
-    private javax.swing.JMenu mnuBuscar;
-    private javax.swing.JMenuItem mnuBuscarNovaConsulta;
     private javax.swing.JMenu mnuDisciplina;
     private javax.swing.JMenuItem mnuMinhaContaAlterarSenha;
     private javax.swing.JMenuItem mnuMinhaContaSair;
