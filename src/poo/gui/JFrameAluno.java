@@ -7,6 +7,8 @@ package poo.gui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ComponentListener;
+import java.awt.event.ContainerListener;
 
 import javax.swing.JOptionPane;
 import poo.gui.myframes.FrameBuscaAvancada2;
@@ -351,6 +353,10 @@ public class JFrameAluno extends javax.swing.JFrame {
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
+        FrameListarDisciplinas2 d = new FrameListarDisciplinas2();
+        desktop.add(d);
+        d.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void mnuProfessorListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuProfessorListarActionPerformed

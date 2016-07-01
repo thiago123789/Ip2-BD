@@ -26,6 +26,7 @@ import poo.gui.myframes.FrameCadastroUsuario;
 import poo.gui.myframes.FrameDesativarUsuario;
 import poo.gui.myframes.FrameEditarUsuario;
 import poo.gui.myframes.FrameListarDisciplinas2;
+import poo.gui.myframes.FrameListarEEditarDisciplinas;
 import poo.gui.myframes.FrameListarProfessores;
 import poo.gui.myframes.FrameNovaConsulta;
 import poo.gui.myframes.JFrameAlterarSenha;
@@ -327,6 +328,11 @@ public class JFrameAdmin extends javax.swing.JFrame {
         mnuProfessor.add(mnuProfessorRemover);
 
         mnuProfessorListar.setText("Listar Professores");
+        mnuProfessorListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuProfessorListarActionPerformed(evt);
+            }
+        });
         mnuProfessor.add(mnuProfessorListar);
 
         jMenuBar1.add(mnuProfessor);
@@ -482,9 +488,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
     private void mnuUsuarioListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUsuarioListarActionPerformed
         // TODO add your handling code here:
-        FrameListarProfessores f = new FrameListarProfessores();
-        desktop.add(f);
-        f.setVisible(true);
+        
     }//GEN-LAST:event_mnuUsuarioListarActionPerformed
 
     private void mnuUsuarioBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUsuarioBuscarActionPerformed
@@ -545,7 +549,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
-        FrameListarDisciplinas2 f = new FrameListarDisciplinas2();
+        FrameListarEEditarDisciplinas f = new FrameListarEEditarDisciplinas();
         desktop.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
@@ -590,6 +594,13 @@ public class JFrameAdmin extends javax.swing.JFrame {
         JOptionPane.showOptionDialog(null, "Professor, gostou do nosso aplicativo?", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 
     }//GEN-LAST:event_mnuSobreSistemaActionPerformed
+
+    private void mnuProfessorListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuProfessorListarActionPerformed
+        // TODO add your handling code here:
+        FrameListarProfessores f = new FrameListarProfessores();
+        desktop.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_mnuProfessorListarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -104,6 +104,8 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("Efetuar Matricula");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Curso"));

@@ -496,6 +496,7 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         
         Cargo c = new Cargo(nomeCargo);
         Endereco e = new Endereco(logradouro, numero, bairro, cidade, cep, Estado);
+        
         //Ajustar campo SENHA que por hora esta null.
         try {
             
@@ -504,7 +505,7 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         } catch (CPFInvalidoException ex) {
             Logger.getLogger(FrameCadastroProfessor.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
+            System.out.println("P contem "+ p.toString());
         fachada.cadastraProfessor(p);
         
         ok = true;

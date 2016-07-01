@@ -300,6 +300,9 @@ public class JFrameProfessor extends javax.swing.JFrame {
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
+        FrameListarDisciplinas2 d = new FrameListarDisciplinas2();
+        desktop.add(d);
+        d.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
