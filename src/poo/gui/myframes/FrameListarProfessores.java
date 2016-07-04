@@ -21,6 +21,7 @@ import poo.negocios.beans.Professor;
  */
 public class FrameListarProfessores extends javax.swing.JInternalFrame {
     private FachadaSistema fachada;
+    private String nome, cpf, lastLogin;
     
     private ArrayList<Professor> listaProfessores = new ArrayList<Professor>();
 

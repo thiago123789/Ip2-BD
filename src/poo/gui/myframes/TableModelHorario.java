@@ -138,5 +138,12 @@ public class TableModelHorario extends AbstractTableModel {
 		fireTableRowsInserted(indice, indice + horario.size());
 	}
 
+    @Override
+    public String toString() {
+        return "TableModelHorario{" + "linhas=" + linhas + '}';
+    }
+        
+        
+
 
 }

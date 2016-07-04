@@ -130,6 +130,45 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 		jTableHorarios.getColumnModel().getColumn(1).setPreferredWidth(40);
 		jTableHorarios.getColumnModel().getColumn(1).setResizable(false);
 		jTableHorarios.getTableHeader().setReorderingAllowed(false);
+                jTableHorarios.addMouseListener(new MouseListener() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        
+                    }
+
+                    @Override
+                    public void mousePressed(MouseEvent e) {
+                        int i = jTableHorarios.getSelectedRow();
+				Object dia = jTableHorarios.getModel().getValueAt(i, 1);
+                                Object horaInicio = jTableHorarios.getModel().getValueAt(i, 2);
+                                Object horaFim = jTableHorarios.getModel().getValueAt(i, 3);
+                                //System.out.println("codigo " + codigo.toString());
+                                //Horario aux = (Horario)codigo;
+                                jTextFieldHorario.setText(dia.toString() + " "+ horaInicio.toString() + " "+ horaFim.toString());
+				//horarios.add(aux);
+                                Horario aux = new Horario();
+                                aux.setDia(dia.toString());
+                                //Corrigir cast para adicionar hora
+//                                aux.setHoraInicio(horaInicio.toString());
+//                                aux.setHoraTermino(horaFim.toString());
+//                                horarios.add(aux);
+                    }
+
+                    @Override
+                    public void mouseReleased(MouseEvent e) {
+                        
+                    }
+
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+                        
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+                        
+                    }
+                });
 		
 	}
 	
@@ -161,6 +200,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 				int i = jTableProfessores.getSelectedRow();
 				Object codigo = jTableProfessores.getModel().getValueAt(i, 0);
 				Professor aux = fachada.buscarProfessorPorCPF(soNumerosCPF(codigo.toString()));
+                                System.out.println("to string do professor " + codigo.toString());
 				//modeloListaProfessor.addElement(aux.getPnome()+" "+aux.getUnome());
                                 jTextFieldProfessor.setText(aux.getPnome()+" "+aux.getUnome());
 				//listaProfessoresString.add(aux.getPnome()+" "+aux.getUnome());
@@ -269,19 +309,18 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jListHorarios = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTCodigoDisciplina = new javax.swing.JTextField();
         jTextFieldLocalizacao = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTNomeDisciplina = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
         jTextFieldProfessor = new javax.swing.JTextField();
+        jTextFieldHorario = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Cadastro Oferta Disciplina");
@@ -325,7 +364,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCFiltroCursos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jCFiltroCursos, 0, 356, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -437,8 +476,6 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Localizacao:");
 
-        jScrollPane5.setViewportView(jListHorarios);
-
         jLabel1.setText("Codigo Disciplina:");
 
         jLabel2.setText("Professores da Oferta:");
@@ -463,8 +500,6 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton3.setText("Remover");
-
         jTextFieldProfessor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldProfessorActionPerformed(evt);
@@ -485,17 +520,15 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldLocalizacao, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jTNomeDisciplina, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextFieldHorario)
+                    .addComponent(jTextFieldLocalizacao)
+                    .addComponent(jTNomeDisciplina)
+                    .addComponent(jTextFieldProfessor, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jTCodigoDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 85, Short.MAX_VALUE))
-                    .addComponent(jTextFieldProfessor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addContainerGap())
+                        .addGap(0, 192, Short.MAX_VALUE)))
+                .addGap(29, 29, 29))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -504,7 +537,7 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTCodigoDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTNomeDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
@@ -513,12 +546,11 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(jTextFieldProfessor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(85, 85, 85))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jTextFieldHorario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -550,6 +582,8 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
             .addGap(0, 56, Short.MAX_VALUE)
         );
 
+        jButton1.setText("Limpar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -560,22 +594,24 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(109, 109, 109))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(207, 207, 207))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(40, 40, 40))
-                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap())))))
+                                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -593,7 +629,8 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
                             .addComponent(jButton2)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButton1)))
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44))
         );
@@ -644,8 +681,8 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonSelecionar;
     private javax.swing.JComboBox<String> jCDepartamentos;
     private javax.swing.JComboBox<String> jCFiltroCursos;
@@ -658,7 +695,6 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JList<String> jListHorarios;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -668,13 +704,13 @@ public class FrameCadastroOferta extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField jTCodigoDisciplina;
     private javax.swing.JTextField jTNomeDisciplina;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTableDisciplinas;
     private javax.swing.JTable jTableHorarios;
     private javax.swing.JTable jTableProfessores;
+    private javax.swing.JTextField jTextFieldHorario;
     private javax.swing.JTextField jTextFieldLocalizacao;
     private javax.swing.JTextField jTextFieldProfessor;
     // End of variables declaration//GEN-END:variables

@@ -54,6 +54,11 @@ public class Horario {
 		this.aulas = aulas;
 	}
 
+    @Override
+    public String toString() {
+        return "Horario{" + "dia=" + dia + ", horaInicio=" + horaInicio + ", horaTermino=" + horaTermino + '}';
+    }
+
 
 
 

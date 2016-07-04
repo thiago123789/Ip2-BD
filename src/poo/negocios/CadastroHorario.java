@@ -15,19 +15,19 @@ import poo.dados.DAO.interfaces.IDepartamentoDAO;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Departamento;
 
-public class CadastroCurso {
-	private static CadastroCurso instance;
+public class CadastroHorario {
+	private static CadastroHorario instance;
     private ICursoDAO comand;
     private IDepartamentoDAO comandA;
 
-    public static CadastroCurso getInstance(){
+    public static CadastroHorario getInstance(){
     	if(instance == null){
-    		instance = new CadastroCurso();
+    		instance = new CadastroHorario();
     	}
     	return instance;
     }
 
-    private CadastroCurso(){
+    private CadastroHorario(){
         comand = CursoDAO.getInstance();
         comandA = DepartamentoDAO.getInstance();
     }

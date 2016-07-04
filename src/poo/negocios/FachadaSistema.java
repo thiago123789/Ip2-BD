@@ -32,6 +32,7 @@ public class FachadaSistema {
     private ListarLocalizacao local;
     private ListarHorario hora;
     private FormatacaoAuxiliar formAuxiliar;
+   
 
     private FachadaSistema(){
     	addDisciplina = CadastroDisciplina.getInstance();
