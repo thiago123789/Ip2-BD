@@ -14,7 +14,7 @@ import poo.negocios.beans.Departamento;
 
 /**
  *
- * @author Thiago Gomes
+ * @author Davi Sales
  */
 public class FrameCadastroCurso extends javax.swing.JInternalFrame {
     private FachadaSistema fachada;

@@ -10,7 +10,7 @@ import poo.negocios.beans.Departamento;
 
 /**
  *
- * @author Thiago Gomes
+ * @author Davi Sales
  */
 public class FrameCadastroDepartamento extends javax.swing.JInternalFrame {
     FachadaSistema fachada = FachadaSistema.getInstance();

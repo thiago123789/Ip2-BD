@@ -22,7 +22,7 @@ import poo.negocios.FormatacaoAuxiliar;
 
 /**
  *
- * @author Thiago Gomes
+ * @author Davi Sales
  */
 
 

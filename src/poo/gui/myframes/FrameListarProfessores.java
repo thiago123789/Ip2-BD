@@ -50,7 +50,10 @@ public class FrameListarProfessores extends javax.swing.JInternalFrame {
 	}
     
     public void preencherJTableProfessores(){
-		TableModelAlunoListaProfessor modelo = new TableModelAlunoListaProfessor();
+                //Lista cpf e nome
+                TableModelProfessor modelo = new TableModelProfessor();
+                //Lista nome, ies, email e titulo
+		//TableModelAlunoListaProfessor modelo = new TableModelAlunoListaProfessor();
 		jTableProfessores.setModel(modelo);
 		if(modelo.getRowCount() > 0){
 			modelo.removeAll();
