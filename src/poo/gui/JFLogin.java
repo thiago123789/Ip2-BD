@@ -192,6 +192,7 @@ public class JFLogin extends javax.swing.JFrame {
 		// TODO add your handling code here:
 		jTUsuario.setText(null);
 		jPSenhaLogin.setText("");
+                jTUsuario.requestFocus();
 	}//GEN-LAST:event_jBLimparLoginActionPerformed
 
 	private void jBLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLogarActionPerformed

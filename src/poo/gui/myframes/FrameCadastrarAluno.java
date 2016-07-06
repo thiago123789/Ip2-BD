@@ -110,6 +110,7 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
         jTextFieldNumero = new javax.swing.JTextField();
         jBCadastrar = new javax.swing.JButton();
         jBCancel = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         buttonGroup1.add(jRadioButton1);
         buttonGroup1.add(jRadioButton2);
@@ -459,6 +460,13 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setText("Limpar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -468,10 +476,15 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(layout.createSequentialGroup()
                         .add(jPanel4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jBCadastrar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 129, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(18, 18, 18)
-                        .add(jBCancel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 134, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(layout.createSequentialGroup()
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(jBCadastrar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 129, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(18, 18, 18)
+                                .add(jBCancel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 134, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(layout.createSequentialGroup()
+                                .add(111, 111, 111)
+                                .add(jButton1)))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(jPanel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
@@ -497,7 +510,9 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
                         .add(38, 38, 38)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jBCadastrar)
-                            .add(jBCancel))))
+                            .add(jBCancel))
+                        .add(18, 18, 18)
+                        .add(jButton1)))
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -644,11 +659,37 @@ public class FrameCadastrarAluno extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxEstadoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        jFCPF.setText("");
+        jFCEP.setText("");
+        jTNome.setText("");
+        jTEmail.setText("");
+        jTLogradouro.setText("");
+        jTextFieldBairro.setText("");
+        jTextFieldCidade.setText("");
+        jTextFieldNumero.setText("");
+        jTextFieldComplemento.setText("");
+        jComboBoxDia.setSelectedIndex(0);
+        jComboBoxMes.setSelectedIndex(0);
+        jCAnoNasc.setSelectedIndex(0);
+        jComboBoxEstado.setSelectedIndex(0);
+        jRadioButton1.setEnabled(true);
+        jRadioButton2.setSelected(false);
+        jCCursos.setSelectedIndex(0);
+        jComboBoxTurno.setSelectedIndex(0);
+        jCAnoEntrada.setSelectedIndex(0);
+        jComboBox3.setSelectedIndex(0);
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBCadastrar;
     private javax.swing.JButton jBCancel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jCAnoEntrada;
     private javax.swing.JComboBox<String> jCAnoNasc;
     private javax.swing.JComboBox<String> jCCursos;

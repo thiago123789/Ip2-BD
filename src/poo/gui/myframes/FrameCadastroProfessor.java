@@ -188,14 +188,29 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBoxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jComboBoxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Dia", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jComboBoxDia.setToolTipText("Dia");
         jComboBoxDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxDiaActionPerformed(evt);
             }
         });
 
-        jComboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jComboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Mês", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jComboBoxMes.setToolTipText("Mês");
+        jComboBoxMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxMesActionPerformed(evt);
+            }
+        });
+
+        jComboBoxAno.setModel(new javax.swing.DefaultComboBoxModel<>(new String [] { "Ano"}));
+        jComboBoxAno.setToolTipText("Ano");
+        jComboBoxAno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxAnoActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Numero:");
 
@@ -242,7 +257,7 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
                                         .addGap(152, 152, 152))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jComboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGap(18, 18, 18)
                                         .addComponent(jComboBoxAno, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jTextFieldEmail)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -373,7 +388,7 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldTitulo)
                     .addComponent(jTextFieldLattes)
-                    .addComponent(jComboBoxDepartamento, javax.swing.GroupLayout.Alignment.TRAILING, 0, 315, Short.MAX_VALUE)
+                    .addComponent(jComboBoxDepartamento, javax.swing.GroupLayout.Alignment.TRAILING, 0, 307, Short.MAX_VALUE)
                     .addComponent(jTextFieldCargo))
                 .addGap(27, 27, 27))
         );
@@ -540,8 +555,35 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRMasculinoActionPerformed
 
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
-        // TODO add your handling code here:
+        
+        jFormattedTextFieldCpf.setText("");
+        jFormattedTextFieldCep.setText("");
+        jTextFieldPrimeiroNome.setText("");
+        jTextFieldSobrenome.setText("");
+        jTextFieldLogradouro.setText("");
+        jTextFieldNumero.setText("");
+        jTextFieldBairro.setText("");
+        jTextFieldCidade.setText("");
+        jComboBoxEstado.setSelectedIndex(0);
+        jTextFieldEmail.setText("");
+        jComboBoxDia.setSelectedIndex(0);
+        jComboBoxMes.setSelectedIndex(0);
+        jComboBoxAno.setSelectedIndex(0);
+        jComboBoxDepartamento.setSelectedIndex(0);
+        jTextFieldCargo.setText("");
+        jTextFieldTitulo.setText("");
+        jTextFieldLattes.setText("");
+        
+        
     }//GEN-LAST:event_jButtonLimparActionPerformed
+
+    private void jComboBoxAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxAnoActionPerformed
+
+    private void jComboBoxMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxMesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
