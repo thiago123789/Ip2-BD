@@ -34,6 +34,17 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         initComponents();
         this.preencher2();
         this.preencherDepartamentos();
+        this.preencherTitulacao();
+    }
+    
+    
+    private void preencherTitulacao(){
+            jCtitulos.addItem("Selecione uma titulação...");
+            jCtitulos.addItem("ADJUNTO");
+            jCtitulos.addItem("TITULAR");
+            jCtitulos.addItem("SUBSTITUTO");
+            jCtitulos.addItem("TEMPORARIO");
+            jCtitulos.addItem("ASSISTENTE");          
     }
     
     public void preencherDepartamentos(){
@@ -102,11 +113,9 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jTextFieldLattes = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextFieldTitulo = new javax.swing.JTextField();
         jComboBoxDepartamento = new javax.swing.JComboBox<>();
-        jTextFieldCargo = new javax.swing.JTextField();
+        jCtitulos = new javax.swing.JComboBox<>();
 
         buttonGroup1.add(jRFeminino);
         buttonGroup1.add(jRMasculino);
@@ -342,15 +351,7 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Título :");
 
-        jLabel7.setText("Cargo :");
-
         jLabel11.setText("Lattes :");
-
-        jTextFieldTitulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTituloActionPerformed(evt);
-            }
-        });
 
         jComboBoxDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -367,14 +368,12 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldTitulo)
                     .addComponent(jTextFieldLattes)
                     .addComponent(jComboBoxDepartamento, javax.swing.GroupLayout.Alignment.TRAILING, 0, 315, Short.MAX_VALUE)
-                    .addComponent(jTextFieldCargo))
+                    .addComponent(jCtitulos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(27, 27, 27))
         );
         jPanel3Layout.setVerticalGroup(
@@ -386,17 +385,13 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
                     .addComponent(jComboBoxDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextFieldCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jCtitulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jTextFieldLattes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -439,10 +434,6 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldLogradouroActionPerformed
 
-    private void jTextFieldTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTituloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTituloActionPerformed
-
     private void jComboBoxDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDepartamentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxDepartamentoActionPerformed
@@ -463,8 +454,7 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
         System.out.println(cpf);
         String pNome = jTextFieldPrimeiroNome.getText();
         String uNome = jTextFieldSobrenome.getText();
-        String titulo = jTextFieldTitulo.getText();
-        String nomeCargo = jTextFieldCargo.getText();
+        String titulo = jCtitulos.getSelectedItem().toString();
         String lattes = jTextFieldLattes.getText();
         String logradouro = jTextFieldLogradouro.getText();
         
@@ -494,7 +484,6 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
                
         Departamento depat = new Departamento(d);
         
-        Cargo c = new Cargo(nomeCargo);
         Endereco e = new Endereco(logradouro, numero, bairro, cidade, cep, Estado);
         
         //Ajustar campo SENHA que por hora esta null.
@@ -553,6 +542,7 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBoxDia;
     private javax.swing.JComboBox<String> jComboBoxEstado;
     private javax.swing.JComboBox<String> jComboBoxMes;
+    private javax.swing.JComboBox<String> jCtitulos;
     private javax.swing.JFormattedTextField jFormattedTextFieldCep;
     private javax.swing.JFormattedTextField jFormattedTextFieldCpf;
     private javax.swing.JLabel jLabel1;
@@ -568,7 +558,6 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -577,7 +566,6 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRFeminino;
     private javax.swing.JRadioButton jRMasculino;
     private javax.swing.JTextField jTextFieldBairro;
-    private javax.swing.JTextField jTextFieldCargo;
     private javax.swing.JTextField jTextFieldCidade;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldLattes;
@@ -585,6 +573,5 @@ public class FrameCadastroProfessor extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextFieldNumero;
     private javax.swing.JTextField jTextFieldPrimeiroNome;
     private javax.swing.JTextField jTextFieldSobrenome;
-    private javax.swing.JTextField jTextFieldTitulo;
     // End of variables declaration//GEN-END:variables
 }

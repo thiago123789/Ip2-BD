@@ -19,20 +19,20 @@ public class ListarProfessores {
 	private IPessoaDAO pessoa;
 	private IDepartamentoDAO depat;
 	private static ListarProfessores instance;
-	
+
 	public static ListarProfessores getInstance(){
 		if(instance == null){
 			instance = new ListarProfessores();
 		}
 		return instance;
 	}
-	
+
 	private ListarProfessores(){
 		prof = ProfessorDAO.getInstance();
 		pessoa = PessoaDAO.getInstance();
 		depat = DepartamentoDAO.getInstance();
 	}
-	
+
 	private Pessoa buscarPessoa(String cpf){
 		Pessoa p = null;
 		ArrayList<Pessoa> listaPessoas;
@@ -49,7 +49,7 @@ public class ListarProfessores {
 		}
 		return p;
 	}
-	
+
 	public Professor buscarProfessorPorCPF(String cpf){
 		Professor retorno = null;
 		try {
@@ -68,7 +68,7 @@ public class ListarProfessores {
 				}
 			}
 		}
-		
+
 		retorno.setPnome(temp.getPnome());
 		retorno.setUnome(temp.getUnome());
 		retorno.setEmail(temp.getEmail());
@@ -77,19 +77,19 @@ public class ListarProfessores {
 		System.out.println("Professor na busca" + retorno);
 		return retorno;
 	}
-	
-	
-	
+
+
+
 	public ArrayList<Professor> listarProfessores(){
 		ArrayList<Professor> listProf = prof.listar();
 		ArrayList<Professor> retorno = new ArrayList<Professor>();
 		for(Professor p : listProf){
 			Professor aux = this.buscarProfessorPorCPF(p.getCpf());
-			retorno.add(aux);		
+			retorno.add(aux);
 		}
 		return retorno;
-	}	
-	
+	}
+
 	public int buscarIdDepartamento(String nomeDepartamento){
 		int id = -1;
 		try {
@@ -105,8 +105,8 @@ public class ListarProfessores {
 		}
 		return id;
 	}
-	
-	
+
+
 	public ArrayList<Professor> listarProfessoresPorDepartamento(String departamento){
 		ArrayList<Professor> retorno = new ArrayList<Professor>();
 		ArrayList<Professor> listaProfessor = prof.listar();
@@ -121,6 +121,13 @@ public class ListarProfessores {
 		}
 		return retorno;
 	}
-	
+
+	public ArrayList<String> listarTitulacoes(){
+		ArrayList<String> retorno = new ArrayList<String>();
+
+
+		return retorno;
+	}
+
 
 }

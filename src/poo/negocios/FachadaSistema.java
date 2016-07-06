@@ -32,7 +32,7 @@ public class FachadaSistema {
     private ListarLocalizacao local;
     private ListarHorario hora;
     private FormatacaoAuxiliar formAuxiliar;
-   
+
 
     private FachadaSistema(){
     	addDisciplina = CadastroDisciplina.getInstance();
@@ -133,7 +133,7 @@ public class FachadaSistema {
 	public ArrayList<Disciplina> searchAdvanced(String nom) {
 		return advanced.searchAdvanced(nom);
 	}
-        
+
         public ArrayList<Professor> searchAdvancedProfessor(String nom) {
 		return advanced.searchAdvancedProfessor(nom);
 	}
@@ -181,10 +181,6 @@ public class FachadaSistema {
 	public Disciplina buscarDisciplinaPorCodigo(String codigo) {
 		return details.buscarDisciplinaPorCodigo(codigo);
 	}
-
-//	public String detalheDisciplina(String codig) {
-//		return details.detalheDisciplina(codig);
-//	}
 
 	public ArrayList<String> listarCodigosPreRequisitos(String cod) throws SQLException {
 		return preList.listarCodigosPreRequisitos(cod);
@@ -235,6 +231,10 @@ public class FachadaSistema {
 
 	public ArrayList<Horario> listarHorarios() {
 		return hora.listarHorarios();
+	}
+
+	public ArrayList<String> listarTitulacoes() {
+		return prof.listarTitulacoes();
 	}
 
 

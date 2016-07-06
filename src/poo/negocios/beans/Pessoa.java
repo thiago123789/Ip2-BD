@@ -55,9 +55,7 @@ public class Pessoa {
 	}
 
 	public void setTipo(int tp){
-		if(tp >= 1 && tp <= 3){
 			this.tipo_pessoa = tp;
-		}
 	}
 
 	public void setUnome(String nome){
@@ -209,7 +207,7 @@ public class Pessoa {
         return "Pessoa{" + "pNome=" + pNome + ", uNome=" + uNome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + ", senha=" + senha + ", email=" + email + ", endereco=" + endereco + ", tipo_pessoa=" + tipo_pessoa + ", lattes=" + lattes + '}';
     }
 
-        
-        
+
+
 
 }

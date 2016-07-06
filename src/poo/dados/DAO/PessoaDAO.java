@@ -58,12 +58,17 @@ public class PessoaDAO implements IPessoaDAO{
 				smt.setNull(8, Types.VARCHAR);
 				smt.setNull(10, Types.VARCHAR);
 				smt.setNull(11, Types.VARCHAR);
+				smt.setNull(12, Types.INTEGER);
+				smt.setNull(13, Types.VARCHAR);
 			}else{
 				smt.setString(7, p.getEndereco().getLogradouro());
 				smt.setString(8, p.getEndereco().getCep());
 				smt.setString(10, p.getEndereco().getCidade());
 				smt.setString(11, p.getEndereco().getBairro());
+				smt.setInt(12, p.getEndereco().getNumero());
+				smt.setString(13, p.getEndereco().getEstado());
 			}
+			System.out.println("TIPO PESSOA DAO: "+p.getTipo());
 			smt.setInt(9, p.getTipo());
 			System.out.println("PASOU ENDERECO");
 			smt.setDate(14, new java.sql.Date(p.getDataNascimento().getTime().getTime()));

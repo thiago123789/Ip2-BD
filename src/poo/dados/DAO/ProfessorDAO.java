@@ -28,7 +28,7 @@ public class ProfessorDAO implements IProfessorDAO{
 	//CPF_PROF, EXTERNO, IES, TITULACAO
 	public boolean inserir(Professor p) throws SQLException{
 		boolean inseriu = false;
-		String query = "INSERT INTO deinfo.professor(CPF_PROF, EXTERNO, IES, TITULACAO, DEPAT_PROF) values(?,?,?,?,?)";
+		String query = "INSERT INTO deinfo.professor(CPF_PROF,IES, TITULACAO, DEPAT_PROF) values(?,?,?,?,?)";
 		try{
 			PreparedStatement smt = bancoConnect.retornoStatement(query);
 			smt.setString(1, p.getCpf());

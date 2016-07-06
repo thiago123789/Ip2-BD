@@ -325,8 +325,6 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jFCPF" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
-                              <Component id="jTNome" alignment="0" min="-2" pref="277" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jComboBoxDia" min="-2" pref="66" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
@@ -345,8 +343,16 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jTextFieldNumero" min="-2" pref="66" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jFCPF" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jTfirstName" min="-2" pref="161" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTLastname" min="-2" pref="182" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="0" pref="131" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="59" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -373,7 +379,9 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTfirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTLastname" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -495,7 +503,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTEmailActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTNome">
+        <Component class="javax.swing.JTextField" name="jTfirstName">
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton2">
           <Properties>
@@ -504,7 +512,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nome :"/>
+            <Property name="text" type="java.lang.String" value="Primeiro Nome :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -625,6 +633,13 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldNumero">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel17">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ultimo Nome: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTLastname">
         </Component>
       </SubComponents>
     </Container>
