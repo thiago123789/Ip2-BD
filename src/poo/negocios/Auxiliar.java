@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
-import sun.util.calendar.BaseCalendar.Date;
+//import sun.util.calendar.BaseCalendar.Date;
 
 public class Auxiliar {
 	public static Auxiliar instance;

@@ -15,6 +15,7 @@ import poo.gui.myframes.FrameBuscaAvancada2;
 import poo.gui.myframes.FrameBuscaProfessor;
 import poo.gui.myframes.FrameEfetuarMatricula2;
 import poo.gui.myframes.FrameListarDisciplinas2;
+import poo.gui.myframes.FrameListarOfertasAluno;
 import poo.gui.myframes.FrameListarProfessores;
 import poo.gui.myframes.JFrameAlterarSenha;
 
@@ -98,9 +99,9 @@ public class JFrameAluno extends javax.swing.JFrame {
         mnuProfessorListar = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         mnuDisciplina = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         mnuSobre = new javax.swing.JMenu();
         mnuSobreVersao = new javax.swing.JMenuItem();
@@ -119,17 +120,18 @@ public class JFrameAluno extends javax.swing.JFrame {
         setTitle("Sistema Academico - DEINFO (Aluno)");
         setLocation(new java.awt.Point(200, 150));
 
-        desktop.setBackground(new java.awt.Color(212, 52, 52));
+        desktop.setBackground(new java.awt.Color(255, 255, 255));
+        desktop.setBorder(new javax.swing.border.MatteBorder(null));
 
         javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
         desktop.setLayout(desktopLayout);
         desktopLayout.setHorizontalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 911, Short.MAX_VALUE)
+            .addGap(0, 909, Short.MAX_VALUE)
         );
         desktopLayout.setVerticalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
+            .addGap(0, 422, Short.MAX_VALUE)
         );
 
         jLabel1.setText("NOME USUÁRIO: ");
@@ -228,14 +230,6 @@ public class JFrameAluno extends javax.swing.JFrame {
 
         mnuDisciplina.setText("Disciplina");
 
-        jMenuItem10.setText("Listar Disciplinas");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        mnuDisciplina.add(jMenuItem10);
-
         jMenuItem12.setText("Buscar Disciplina");
         jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,6 +241,14 @@ public class JFrameAluno extends javax.swing.JFrame {
         jMenuBar1.add(mnuDisciplina);
 
         jMenu2.setText("Matricula");
+
+        jMenuItem2.setText("Listar Ofertas");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
 
         jMenuItem1.setText("Efetuar Matricula");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -287,8 +289,8 @@ public class JFrameAluno extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(desktop)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,17 +349,11 @@ public class JFrameAluno extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrameEfetuarMatricula2 m = new FrameEfetuarMatricula2();
         desktop.add(m);
+        m.setCPF(this.cpf);
         m.setVisible(true);
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
-        FrameListarDisciplinas2 d = new FrameListarDisciplinas2();
-        desktop.add(d);
-        d.setVisible(true);
         
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void mnuProfessorListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuProfessorListarActionPerformed
         // TODO add your handling code here:
@@ -372,6 +368,14 @@ public class JFrameAluno extends javax.swing.JFrame {
         desktop.add(b);
         b.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        FrameListarOfertasAluno f = new FrameListarOfertasAluno();
+        desktop.add(f);
+        f.setVisible(true);
+        f.setCPF(this.cpf);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -418,9 +422,9 @@ public class JFrameAluno extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;

@@ -7,6 +7,6 @@ import poo.excecoes.CPFInvalidoException;
 import poo.negocios.beans.Matricula;
 
 public interface IMatriculaDAO {
-	public boolean inserir(Matricula a) throws SQLException;
+	public int inserir(Matricula a) throws SQLException;
 	public ArrayList<Matricula> listar() throws SQLException, CPFInvalidoException;
 }

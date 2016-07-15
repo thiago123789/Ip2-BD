@@ -51,7 +51,7 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 			smt.execute();
 			inseriu = true;
 		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro Disciplina", -1);
 		}
 		return inseriu;
 	}
@@ -73,7 +73,7 @@ public class DisciplinaDAO implements IDisciplinaDAO{
 			smt.execute();
 			atualizou = true;
 		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro Disciplia", -1);
 		}
 		return atualizou;
 	}

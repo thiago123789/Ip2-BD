@@ -11,7 +11,10 @@ public class Matricula {
 	Calendar data_matricula;
 
 	public Matricula(OfertaDisciplina oferta, Aluno a, int ano, int semestre){
-
+            this.setAno(ano);
+            this.setSemestre(semestre);
+            this.setOferta(oferta);
+            this.setA(a);
 	}
 
 	public Calendar getData_matricula() {
@@ -62,6 +65,11 @@ public class Matricula {
 	public void setSemestre(int semestre) {
 		this.semestre = semestre;
 	}
+
+    @Override
+    public String toString() {
+        return "Matricula{" + "codigo=" + codigo + ", oferta=" + oferta + ", a=" + a + ", ano=" + ano + ", semestre=" + semestre + ", onus=" + onus + ", data_matricula=" + data_matricula + '}';
+    }
 
 
 

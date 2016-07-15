@@ -60,12 +60,19 @@ public class Professor extends Pessoa{
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
     }
-    
 
-//    @Override
-//    public String toString() {
-//        return "Professor{" + "titulo=" + titulo + ", departamento=" + departamento + ", ies=" + ies + ", externo=" + externo + '}';
-//    }
-        
-        
+    @Override
+    public boolean equals(Object o){
+    	boolean igual = false;
+    	if(o instanceof Professor){
+    		Professor aux = (Professor) o;
+    		if(this.getCpf().equals(aux.getCpf())){
+    			igual = true;
+    		}
+    	}
+
+    	return igual;
+    }
+
+
 }

@@ -167,6 +167,9 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Periodização:");
 
+        jCPeriodos.setModel(new javax.swing.DefaultComboBoxModel<>(new String [] { "Selecione","1","2","3","4","5","6","7","8","9","10"}));
+        jCPeriodos.setToolTipText("Selecione");
+
         jLabel7.setText("Ementa: ");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -204,6 +207,10 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
                                 .addGap(10, 10, 10)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel10)
                                         .addGap(31, 31, 31)
                                         .addComponent(jRObrigatoria)
@@ -212,11 +219,7 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jCPeriodos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jCPeriodos, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel7)
@@ -274,6 +277,11 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
         });
 
         jToggleButton7.setText("Limpar");
+        jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -380,6 +388,18 @@ public class FrameCadastroDisciplina extends javax.swing.JInternalFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
+        
+        jTextField2.setText("");
+        jTNomeDis.setText("");
+        jCNomeCurso.setSelectedIndex(0);
+        jCPeriodos.setSelectedIndex(0);
+        jCarga.setSelectedIndex(0);
+        
+        
+        
+    }//GEN-LAST:event_jToggleButton7ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

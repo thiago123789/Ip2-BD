@@ -5,10 +5,13 @@ import java.util.ArrayList;
 
 import poo.excecoes.DisciplinaJaExisteException;
 import poo.negocios.beans.Aluno;
+import poo.negocios.beans.AvaliacaoOferta;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Departamento;
 import poo.negocios.beans.Disciplina;
 import poo.negocios.beans.Horario;
+import poo.negocios.beans.Matricula;
+import poo.negocios.beans.OfertaDisciplina;
 import poo.negocios.beans.Pessoa;
 import poo.negocios.beans.Professor;
 
@@ -32,7 +35,10 @@ public class FachadaSistema {
     private ListarLocalizacao local;
     private ListarHorario hora;
     private FormatacaoAuxiliar formAuxiliar;
-
+    private CadastroOferta cadOffer;
+    private ListarOfertas listaOff;
+    private Matricula_Aluno matricula;
+    private AvaliarAluno ava;
 
     private FachadaSistema(){
     	addDisciplina = CadastroDisciplina.getInstance();
@@ -53,6 +59,10 @@ public class FachadaSistema {
         local = ListarLocalizacao.getInstance();
         hora = ListarHorario.getInstance();
         formAuxiliar = FormatacaoAuxiliar.getInstance();
+        cadOffer = CadastroOferta.getInstance();
+        listaOff = ListarOfertas.getInstance();
+        matricula = Matricula_Aluno.getInstance();
+        ava = AvaliarAluno.getInstance();
     }
 
 	public static FachadaSistema getInstance(){
@@ -236,6 +246,31 @@ public class FachadaSistema {
 	public ArrayList<String> listarTitulacoes() {
 		return prof.listarTitulacoes();
 	}
+
+	public boolean inserirOferta(OfertaDisciplina of) throws SQLException {
+		return cadOffer.inserirOferta(of);
+	}
+
+	public ArrayList<OfertaDisciplina> listarOfertas(String curso) {
+		return listaOff.listarOfertas(curso);
+	}
+
+    public ArrayList<OfertaDisciplina> listarTodasOfertas(String curso) {
+        return listaOff.listarTodasOfertas(curso);
+    }
+
+	public ArrayList<OfertaDisciplina> listarOfertasParaAluno(String cpf) {
+		return listaOff.listarOfertasParaAluno(cpf);
+	}
+
+	public boolean Matricular(ArrayList<Matricula> list) {
+		return matricula.Matricular(list);
+	}
+
+	public void avaliar(AvaliacaoOferta av) {
+		ava.avaliar(av);
+	}
+
 
 
 

@@ -30,23 +30,20 @@ public class MatriculaDAO implements IMatriculaDAO{
 	}
 
 	//COD_MATRICULA, CPF_ALUNO, ID_OFERTA, ANO, SEMESTRE, ONUS, DATA_MATRICULA
-	public boolean inserir(Matricula a) throws SQLException{
-		boolean inseriu = false;
+	public int inserir(Matricula a) throws SQLException{
+		int id = 0;
 		String query = "INSERT INTO deinfo.matricula(CPF_ALUNO, ID_OFERTA, "
 				+ "ANO, SEMESTRE, ONUS) values(?,?,?,?,?)";
-		try{
-			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(query);
-			smt.setString(1, a.getA().getCpf());
-            smt.setInt(2, a.getOferta().getId());
-            smt.setInt(3, a.getAno());
-            smt.setInt(4, a.getSemestre());
-            smt.setInt(5, a.haveOnus()?1:0);
-			smt.execute();
-			inseriu = true;
-		}catch(SQLException e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
-		}
-		return inseriu;
+		PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(query);
+		smt.setString(1, a.getA().getCpf());
+		smt.setInt(2, a.getOferta().getCodigo());
+		smt.setInt(3, a.getAno());
+		smt.setInt(4, a.getSemestre());
+		smt.setInt(5, a.haveOnus()?1:0);
+		smt.executeUpdate();
+
+                id =1;
+		return id;
 	}
 
 	//COD_MATRICULA, CPF_ALUNO, ID_OFERTA, ANO, SEMESTRE, ONUS, DATA_MATRICULA

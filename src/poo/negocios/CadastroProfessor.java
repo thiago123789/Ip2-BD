@@ -1,10 +1,14 @@
 package poo.negocios;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import poo.dados.DAO.ConnectionBanco;
 import poo.dados.DAO.DepartamentoDAO;
 import poo.dados.DAO.PessoaDAO;
 import poo.dados.DAO.ProfessorDAO;
+import poo.dados.DAO.interfaces.IBancoConnection;
 import poo.dados.DAO.interfaces.IDepartamentoDAO;
 import poo.dados.DAO.interfaces.IPessoaDAO;
 import poo.dados.DAO.interfaces.IProfessorDAO;
@@ -17,6 +21,7 @@ public class CadastroProfessor {
 	private IPessoaDAO command;
 	private IProfessorDAO commandA;
 	private IDepartamentoDAO depat;
+	private IBancoConnection banco;
 
 	public static CadastroProfessor getInstance(){
 		if(instance == null){
@@ -29,16 +34,28 @@ public class CadastroProfessor {
 		command = PessoaDAO.getInstance();
 		commandA = ProfessorDAO.getInstance();
 		depat = DepartamentoDAO.getInstance();
+		banco = ConnectionBanco.getInstance();
 	}
 
 	public void cadastraProfessor(Professor p){
+		Connection conexao = banco.getConexao();
 		try {
 			int id = this.retornaIdDepartamento(p.getDepartamento().getNome());
 			p.getDepartamento().setId(id);
 			command.inserir((Pessoa)p);
 			commandA.inserir(p);
+			conexao.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			try {
+				conexao.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} finally {
+			if(conexao != null){
+				banco.setConnectionNull();
+			}
 		}
 
 	}
@@ -53,7 +70,6 @@ public class CadastroProfessor {
 					break;
 				}
 			}
-
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}

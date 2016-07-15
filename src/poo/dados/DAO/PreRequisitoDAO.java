@@ -46,7 +46,7 @@ public class PreRequisitoDAO implements IPreRequisitoDAO{
 			smt.execute();
 			inseriu = true;
 		}catch(SQLException e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro PreRequisito", -1);
 		}
 		return inseriu;
 	}
@@ -64,9 +64,9 @@ public class PreRequisitoDAO implements IPreRequisitoDAO{
 				a.add(pre);
 			}
 		}catch(SQLException e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro PreRequisito", -1);
 		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro PreRequisito", -1);
 		}
 		return a;
 	}

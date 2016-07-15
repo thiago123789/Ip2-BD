@@ -46,7 +46,7 @@ public class Disciplina implements Comparable{
 	}
 
 	public Disciplina(String codigo){
-		this.setCodigo();
+		this.setCodigo(codigo);
 	}
 
 	public int getPeriodoDisciplina() {

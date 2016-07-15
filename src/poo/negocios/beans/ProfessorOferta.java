@@ -25,4 +25,11 @@ public class ProfessorOferta {
 		this.offer = offer;
 	}
 
+	@Override
+	public String toString() {
+		return "ProfessorOferta [professor=" + professor.getCpf() + ", offer=" + offer.getCodigo() + "]";
+	}
+
+
+
 }

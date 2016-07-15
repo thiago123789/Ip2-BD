@@ -128,9 +128,9 @@ public class DepartamentoDAO implements IDepartamentoDAO {
                 listaDepartamentos.add(b);
             }
         } catch (SQLException e) {
-            JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+            JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro Departamento", -1);
         } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+            JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro Departamento", -1);
         }
         return listaDepartamentos;
     }

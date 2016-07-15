@@ -7,6 +7,6 @@ import poo.negocios.beans.Localizacao;
 
 public interface ILocalizacaoDAO {
 	public boolean inserir(Localizacao l) throws SQLException;
-	public ArrayList<Localizacao> listar() throws SQLException;
+	public ArrayList<Localizacao> listar();
 	public boolean atualizar(Localizacao l) throws SQLException;
 }

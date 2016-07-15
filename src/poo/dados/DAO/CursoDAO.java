@@ -74,7 +74,7 @@ public class CursoDAO implements ICursoDAO{
 			smt.execute();
 			inseriu = true;
 		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro Curso", -1);
 		}
 		return inseriu;
 	}
@@ -104,7 +104,7 @@ public class CursoDAO implements ICursoDAO{
 			smt.execute();
 			atualizou = true;
 		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro Curso", -1);
 		}
 		return atualizou;
 	}
@@ -142,9 +142,9 @@ public class CursoDAO implements ICursoDAO{
 				System.out.println(curso);
 			}
 		}catch(SQLException e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro Curso", -1);
 		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro Curso", -1);
 		}
 		return listaCursos;
 	}

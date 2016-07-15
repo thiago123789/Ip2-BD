@@ -1,5 +1,6 @@
 package poo.dados.DAO;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -57,8 +58,8 @@ public class HorarioDAO implements IHorarioDAO{
 		}
 		return atualizou;
 	}
-	
-	
+
+
 	enum MyEnum{
 		DOM(1), SEG(2), TER(3), QUA(4), QUI(5), SEX(6), SAB(7);
 		int valorDia;
@@ -69,9 +70,10 @@ public class HorarioDAO implements IHorarioDAO{
 			return valorDia;
 		}
 	}
-	
-	public ArrayList<Horario> listar() throws SQLException{
+
+	public ArrayList<Horario> listar(){
 		ArrayList<Horario> listaHorarios = new ArrayList<Horario>();
+		Connection conexao = bancoConnect.getConexao();
 		String query = "SELECT * FROM deinfo.horario";
 		try{
 			ResultSet rs = bancoConnect.comandoSQL(query);
@@ -81,7 +83,7 @@ public class HorarioDAO implements IHorarioDAO{
 				int dia = dia1.getValorDia();
 				Time hora_inicio = rs.getTime("HORA_INICIO");
 				Time hora_termino = rs.getTime("HORA_FIM");
-			
+
 				Horario h = new Horario();
 				h.setId(id);
 				h.setDia(dia1.toString());
@@ -89,7 +91,14 @@ public class HorarioDAO implements IHorarioDAO{
 				h.setHoraTermino(hora_termino);
 				listaHorarios.add(h);
 			}
+//			conexao.commit();
 		}catch(SQLException e){
+//			try {
+//				conexao.rollback();
+//			} catch (SQLException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
 			e.printStackTrace();
 		}
 		return listaHorarios;

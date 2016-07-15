@@ -163,13 +163,12 @@ public class FrameBuscaAvancada2 extends javax.swing.JInternalFrame {
             jTable1.setColumnSelectionAllowed(true);
             jTable1.setRowHeight(40);
             jTable1.getTableHeader().setReorderingAllowed(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(80);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(100);
             jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(400);
             jTable1.getColumnModel().getColumn(1).setResizable(true);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(90);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(60);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(90);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(60);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
             jTable1.getColumnModel().getColumn(4).setPreferredWidth(50);
             jTable1.getColumnModel().getColumn(4).setResizable(false);

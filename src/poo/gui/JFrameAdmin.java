@@ -27,6 +27,7 @@ import poo.gui.myframes.FrameDesativarUsuario;
 import poo.gui.myframes.FrameEditarUsuario;
 import poo.gui.myframes.FrameListarDisciplinas2;
 import poo.gui.myframes.FrameListarEEditarDisciplinas;
+import poo.gui.myframes.FrameListarOfertas;
 import poo.gui.myframes.FrameListarProfessores;
 import poo.gui.myframes.FrameNovaConsulta;
 import poo.gui.myframes.JFrameAlterarSenha;
@@ -255,6 +256,11 @@ public class JFrameAdmin extends javax.swing.JFrame {
         jMenu5.add(jMenuItem21);
 
         jMenuItem22.setText("Listar Ofertas");
+        jMenuItem22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem22ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem22);
 
         jMenuBar1.add(jMenu5);
@@ -601,6 +607,13 @@ public class JFrameAdmin extends javax.swing.JFrame {
         desktop.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_mnuProfessorListarActionPerformed
+
+    private void jMenuItem22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem22ActionPerformed
+        // TODO add your handling code here:
+        FrameListarOfertas f = new FrameListarOfertas();
+        desktop.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenuItem22ActionPerformed
 
     /**
      * @param args the command line arguments

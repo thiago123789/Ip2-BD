@@ -68,7 +68,6 @@ public class ListarProfessores {
 				}
 			}
 		}
-
 		retorno.setPnome(temp.getPnome());
 		retorno.setUnome(temp.getUnome());
 		retorno.setEmail(temp.getEmail());

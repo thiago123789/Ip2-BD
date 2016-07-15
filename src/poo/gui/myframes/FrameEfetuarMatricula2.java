@@ -5,50 +5,122 @@
  */
 package poo.gui.myframes;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import poo.excecoes.CPFInvalidoException;
 import poo.negocios.FachadaSistema;
+import poo.negocios.beans.Aluno;
+import poo.negocios.beans.Matricula;
+import poo.negocios.beans.OfertaDisciplina;
+import poo.negocios.beans.Professor;
 
 /**
  *
  * @author Davi
  */
 public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
-    private TableModelEdit modelo = new TableModelEdit();
-        private FachadaSistema fachada;
-
+    private TableModelOfertas modelo = new TableModelOfertas();
+    private DefaultListModel<String> modeloListaProfessor = new DefaultListModel<String>();
+    private FachadaSistema fachada;
+    private ArrayList<Matricula> disciplina = new ArrayList<Matricula>();
+    private String cpf;
+    
     /**
      * Creates new form FrameEfetuarMatricula2
      */
     public FrameEfetuarMatricula2() {
         initComponents();
-        this.preencherDepartamentos();
-        this.preencherFiltroCursos();
+        jTableOfertas.setModel(modelo);
+        jList1.setModel(modeloListaProfessor);
     }
     
-    public void preencherDepartamentos(){
+    public void setCPF(String cpf){
         fachada = FachadaSistema.getInstance();
-        ArrayList<String> aux = null;
-            try {
-                aux = fachada.listaDepartamentosPorNomeList();
-            } catch (SQLException ex) {
-                Logger.getLogger(FrameListarDisciplinas2.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        jCDepartamento.addItem("Selecione um Departamento...");
-        for(String a : aux ){
-            jCDepartamento.addItem(a);
-        }
+        this.cpf = fachada.soNumerosCPF(cpf);
+        preencherJTableOfertas();
     }
-        public void preencherFiltroCursos(){
-        jCCurso.removeAllItems();
-        fachada = FachadaSistema.getInstance();
-        ArrayList<String> aux = fachada.listarCursosPorDepartamentoList(jCDepartamento.getSelectedItem().toString());
-        for(String a : aux ){
-            jCCurso.addItem(a);
-        }
-    }
+    
+    public void preencherList(){
+		modeloListaProfessor.clear();
+		if(disciplina != null){
+			for(Matricula p : disciplina){
+				modeloListaProfessor.addElement(p.toString());
+			}
+		}
+	}
+    
+    
+    public void preencherJTableOfertas(){
+		
+                jTableOfertas.setModel(modelo);
+		if(modelo.getRowCount() > 0){
+			modelo.removeAll();
+		}
+		fachada = FachadaSistema.getInstance();
+		modelo.addListaOferta(fachada.listarOfertasParaAluno(cpf));
+
+		jTableOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		jTableOfertas.setColumnSelectionAllowed(true);
+                jTableOfertas.setRowHeight(40);
+                jTableOfertas.getTableHeader().setReorderingAllowed(false);
+            jTableOfertas.getColumnModel().getColumn(0).setPreferredWidth(100);
+            jTableOfertas.getColumnModel().getColumn(0).setResizable(false);
+            jTableOfertas.getColumnModel().getColumn(1).setPreferredWidth(600);
+            jTableOfertas.getColumnModel().getColumn(1).setResizable(true);
+            jTableOfertas.getColumnModel().getColumn(2).setPreferredWidth(60);
+            jTableOfertas.getColumnModel().getColumn(2).setResizable(false);
+            jTableOfertas.getColumnModel().getColumn(3).setPreferredWidth(80);
+            jTableOfertas.getColumnModel().getColumn(3).setResizable(false);
+            jTableOfertas.getColumnModel().getColumn(4).setPreferredWidth(80);
+            jTableOfertas.getColumnModel().getColumn(4).setResizable(false);
+            jTableOfertas.getTableHeader().setReorderingAllowed(false);
+                jTableOfertas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+		jTableOfertas.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+                            try {
+                                int i = jTableOfertas.getSelectedRow();
+                                OfertaDisciplina aux = ((TableModelOfertas) jTableOfertas.getModel()).getOferta(i);
+                                System.out.println("ID OFERTA:"+aux.getCodigo());
+                                Matricula m = new Matricula(aux, new Aluno(cpf), aux.getAno(), aux.getSemestre());
+                                disciplina.add(m);
+                                preencherList();
+                            } catch (CPFInvalidoException ex) {
+                                Logger.getLogger(FrameEfetuarMatricula2.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+
+			}
+		});
+
+	}
+    
+ 
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,18 +134,14 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jCCurso = new javax.swing.JComboBox<>();
-        jPanel3 = new javax.swing.JPanel();
-        jCDepartamento = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableOfertas = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jBAdicionar = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         jPanel7 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -108,59 +176,9 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Efetuar Matricula");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Curso"));
-
-        jCCurso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCCursoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCCurso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Departamento"));
-
-        jCDepartamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCDepartamentoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCDepartamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Disciplinas Ofertadas"));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableOfertas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -171,7 +189,7 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTableOfertas);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -179,15 +197,15 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jBAdicionar.setText("Adicionar");
@@ -215,18 +233,7 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Disciplinas Adicionadas"));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane4.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -234,15 +241,15 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane4)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane4)
+                .addContainerGap())
         );
 
         jButton1.setText("Continuar");
@@ -258,7 +265,7 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 122, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,7 +294,7 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1)
                         .addComponent(jButton2)))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -296,49 +303,34 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addGap(11, 11, 11))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(13, 13, 13)))
+                .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jCCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCCursoActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jCCursoActionPerformed
-
-    private void jCDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCDepartamentoActionPerformed
-        // TODO add your handling code here:
-        this.preencherFiltroCursos();
-    }//GEN-LAST:event_jCDepartamentoActionPerformed
 
     private void jBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdicionarActionPerformed
         // TODO add your handling code here:
@@ -346,6 +338,15 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        fachada = FachadaSistema.getInstance();
+        boolean ok = fachada.Matricular(disciplina);
+        if(ok){
+            JOptionPane.showConfirmDialog(null, "Matricula Efetuada com sucesso", "Sucesso", -1);
+        }else{
+            JOptionPane.showConfirmDialog(null, "Não foi possivel efetuar matricula", "Erro Matricula", -1);
+        }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -353,11 +354,8 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBAdicionar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jCCurso;
-    private javax.swing.JComboBox<String> jCDepartamento;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -365,9 +363,8 @@ public class FrameEfetuarMatricula2 extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTableOfertas;
     // End of variables declaration//GEN-END:variables
 }

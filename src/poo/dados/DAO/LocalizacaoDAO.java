@@ -1,5 +1,6 @@
  package poo.dados.DAO;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -56,10 +57,11 @@ public class LocalizacaoDAO implements ILocalizacaoDAO{
 		}
 		return atualizou;
 	}
-	
-	
-	public ArrayList<Localizacao> listar() throws SQLException{
+
+
+	public ArrayList<Localizacao> listar(){
 		ArrayList<Localizacao> listaLocalizacoes = new ArrayList<Localizacao>();
+		Connection conexao = bancoConnect.getConexao();
 		String query = "SELECT * FROM deinfo.localizacao";
 		try{
 			ResultSet rs = bancoConnect.comandoSQL(query);
@@ -71,7 +73,14 @@ public class LocalizacaoDAO implements ILocalizacaoDAO{
 				aux.setCodigo(id);
 				listaLocalizacoes.add(aux);
 			}
+//			conexao.commit();
 		}catch(SQLException e){
+//			try {
+//				conexao.rollback();
+//			} catch (SQLException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
 			e.printStackTrace();
 		}
 		return listaLocalizacoes;

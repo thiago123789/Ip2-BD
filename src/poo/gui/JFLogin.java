@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 
+import poo.dados.DAO.ConnectionBanco;
 import poo.dados.DAO.PessoaDAO;
 import poo.excecoes.SenhaIncorretaException;
 import poo.excecoes.UsuarioNaoExiste;
@@ -192,11 +193,13 @@ public class JFLogin extends javax.swing.JFrame {
 		// TODO add your handling code here:
 		jTUsuario.setText(null);
 		jPSenhaLogin.setText("");
+                jTUsuario.requestFocus();
 	}//GEN-LAST:event_jBLimparLoginActionPerformed
 
 	private void jBLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLogarActionPerformed
 		// TODO add your handling code here:
 		FachadaUsuario auto = FachadaUsuario.getInstance();
+
 			format = FormatacaoAuxiliar.getInstance();
 			String usuario1 = jTUsuario.getText();
 			char[] senhaC = jPSenhaLogin.getPassword();
@@ -206,14 +209,20 @@ public class JFLogin extends javax.swing.JFrame {
 				senha += senhaC[i];
 			}
 
+
 			String usuario = format.soNumerosCPF(usuario1);
+
 			try{
+
 				boolean existe = auto.usuarioExiste(usuario);
+				int user = auto.tipoDeUsuario(usuario);
+				ConnectionBanco.setInstance(user);
 				if(existe){
 					if(auto.tipoDeUsuario(usuario) == 3){
 						boolean ok = auto.autenticaSenha(usuario, senha);
 						if(ok){
 							if(aluno == null || format == null){
+
 								aluno = new JFrameAluno();
 								aluno.setVisible(true);
 								aluno.recebeValor(auto.nomeUsuario(usuario), format.formatarCpf(usuario), auto.ultimoLogin(usuario));
@@ -311,6 +320,8 @@ public class JFLogin extends javax.swing.JFrame {
 			String usuario = format.soNumerosCPF(usuario1);
 			try{
 				boolean existe = auto.usuarioExiste(usuario);
+				int user = auto.tipoDeUsuario(usuario);
+				ConnectionBanco.setInstance(user);
 				if(existe){
 					if(auto.tipoDeUsuario(usuario) == 3){
 						boolean ok = auto.autenticaSenha(usuario, senha);

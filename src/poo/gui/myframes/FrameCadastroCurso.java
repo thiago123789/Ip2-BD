@@ -104,6 +104,9 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
             }
         });
 
+        jCAnos.setModel(new javax.swing.DefaultComboBoxModel<>(new String []{ "Selecione"}));
+        jCAnos.setToolTipText("Selecione");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -160,6 +163,11 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Limpar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -280,6 +288,14 @@ public class FrameCadastroCurso extends javax.swing.JInternalFrame {
     private void jRPosGraducaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRPosGraducaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRPosGraducaoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+        jTNomeCurso.setText("");
+        jCAnos.setSelectedIndex(0);
+        jCDepartamentos.setSelectedIndex(0);
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

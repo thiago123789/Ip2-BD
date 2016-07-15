@@ -56,9 +56,20 @@ public class Horario {
 
     @Override
     public String toString() {
-        return "Horario{" + "dia=" + dia + ", horaInicio=" + horaInicio + ", horaTermino=" + horaTermino + '}';
+        return "Dia: " + dia + " - Horario: " + horaInicio + " - " + horaTermino;
     }
 
+    @Override
+    public boolean equals(Object o){
+    	boolean igual = false;
+    	if(o instanceof Horario){
+    		Horario aux = (Horario) o;
+    		if(this.id == aux.getId()){
+    			igual = true;
+    		}
+    	}
+    	return igual;
+    }
 
 
 

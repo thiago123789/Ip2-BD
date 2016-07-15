@@ -68,15 +68,12 @@ public class PessoaDAO implements IPessoaDAO{
 				smt.setInt(12, p.getEndereco().getNumero());
 				smt.setString(13, p.getEndereco().getEstado());
 			}
-			System.out.println("TIPO PESSOA DAO: "+p.getTipo());
 			smt.setInt(9, p.getTipo());
-			System.out.println("PASOU ENDERECO");
 			smt.setDate(14, new java.sql.Date(p.getDataNascimento().getTime().getTime()));
-			System.out.println("PASSOU DATA");
 			smt.execute();
 			inseriu = true;
 		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro Pessoa", -1);
 		}
 		return inseriu;
 	}
@@ -105,7 +102,7 @@ public class PessoaDAO implements IPessoaDAO{
 			smt.execute();
 			atualizou = true;
 		}catch(Exception e){
-			JOptionPane.showConfirmDialog(null, "Erro ao atualizar uma pessoa", "Erro", -1);
+			JOptionPane.showConfirmDialog(null, "Erro ao atualizar uma pessoa", "Erro Pessoa", -1);
 		}
 		return atualizou;
 	}

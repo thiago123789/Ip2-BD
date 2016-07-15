@@ -1,5 +1,6 @@
 package poo.dados.DAO;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -29,24 +30,26 @@ public class ProfessorOfertaDAO implements IProfessorOfertaDAO{
 
 
 	//PROF_OFERTA, OFERTA_COD
-	public boolean inserir(ProfessorOferta po){
+	public boolean inserir(String cpf, int id) throws SQLException{
 		boolean inseriu = false;
 		String query = "INSERT INTO deinfo.professor_oferta_disciplina(PROF_OFERTA, OFERTA_COD) values(?,?)";
-		try{
-			PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(query);
-			smt.setString(1, po.getProfessor().getCpf());
-			smt.setInt(2, po.getOffer().getCodigo());
-			smt.execute();
-		}catch(SQLException e){
-			e.printStackTrace();
-		}
+
+		PreparedStatement smt = (PreparedStatement) bancoConnect.retornoStatement(query);
+		smt.setString(1, cpf);
+		smt.setInt(2, id);
+		smt.executeUpdate();
+
 		return inseriu;
 	}
 
+
+
 	public ArrayList<ProfessorOferta> listar(){
 		ArrayList<ProfessorOferta> retorno = new ArrayList<ProfessorOferta>();
+		Connection conexao = bancoConnect.getConexao();
 		String query = "SELECT * FROM deinfo.professor_oferta_disciplina";
 		try{
+
 			ResultSet rs = bancoConnect.comandoSQL(query);
 			while(rs.next()){
 				String cpf = rs.getString("PROF_OFERTA");
@@ -54,7 +57,14 @@ public class ProfessorOfertaDAO implements IProfessorOfertaDAO{
 				ProfessorOferta aux = new ProfessorOferta(new Professor(cpf), new OfertaDisciplina(codigo));
 				retorno.add(aux);
 			}
+//			conexao.commit();
 		}catch(SQLException e){
+//			try {
+//				conexao.rollback();
+//			} catch (SQLException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
 			e.printStackTrace();
 		}catch(CPFInvalidoException e){
 			e.printStackTrace();

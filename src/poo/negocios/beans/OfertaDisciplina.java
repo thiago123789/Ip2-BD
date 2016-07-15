@@ -8,7 +8,6 @@ public class OfertaDisciplina {
 	private ArrayList<Horario> horarios;
 	private ArrayList<Professor> professores;
 	private int ano, semestre;
-	private int id;
 	private Localizacao local;
 	private Aluno monitor;
 	private Curso curso;
@@ -19,7 +18,12 @@ public class OfertaDisciplina {
 		this.setAno(ano);
 		this.setSemestre(semetre);
 		this.setLocal(local);
+                this.setMonitor(monitor);
 	}
+
+        public OfertaDisciplina(){
+
+        }
 
 	public ArrayList<Horario> getHorarios() {
 		return horarios;
@@ -76,11 +80,11 @@ public class OfertaDisciplina {
 	}
 
 	public void setAno(int ano) {
-		if(this.disciplina != null){
-			if(ano >= this.getCurso().getAno_inicio()){
+//		if(this.disciplina != null){
+//			if(ano >= this.getCurso().getAno_inicio()){
 				this.ano = ano;
-			}
-		}
+//			}
+//		}
 	}
 
 	public int getSemestre() {
@@ -92,17 +96,7 @@ public class OfertaDisciplina {
 			this.semestre = semestre;
 		}
 	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		if(id > 0){
-			this.id = id;
-		}
-	}
-
+	
 	public Localizacao getLocal() {
 		return local;
 	}
@@ -121,7 +115,25 @@ public class OfertaDisciplina {
 		this.curso = curso;
 	}
 
+	public boolean equals(Object o){
+		boolean igual = false;
+		if(o instanceof OfertaDisciplina){
+			OfertaDisciplina aux = (OfertaDisciplina) o;
+			if(this.getCodigo() == aux.getCodigo()){
+				igual = true;
+			}
+		}
+		return igual;
+	}
+
+    @Override
+    public String toString() {
+        return "OfertaDisciplina{" + "codigo=" + codigo + ", disciplina=" + disciplina + ", ano=" + ano + ", semestre=" + semestre + ", id=" + codigo + '}';
+    }
 
 
-
+        
+        
+        
+        
 }
