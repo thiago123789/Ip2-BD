@@ -17,12 +17,12 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import poo.dados.iRepositorioDisciplina;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Departamento;
 import poo.negocios.beans.Disciplina;
 
 import com.mysql.jdbc.PreparedStatement;
+import poo.dados.IDisciplinaDAO;
 /**
  *
  * @author Marcos Eduardo
@@ -145,5 +145,23 @@ public class CursoDAO {
 		}
 		return a;
 	}
+	
+	public int buscaIdCursoByNome(String nome){
+		int a = -1;
+		String query = "SELECT * FROM deinfo.curso WHERE nome = \""+nome+"\"";
+		try{
+			ResultSet resultSet = bancoConnect.comandoSQL(query);
+			while(resultSet.next()){
+				int ano = resultSet.getInt("ID");
+				a = ano;
+			}			
+		}catch(SQLException e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+		return a;
+	}
+	
 	
 }

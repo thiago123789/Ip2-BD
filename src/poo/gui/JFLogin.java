@@ -69,6 +69,11 @@ public class JFLogin extends javax.swing.JFrame {
         setTitle("Sistema Academico - DEINFO");
         setLocation(new java.awt.Point(0, 0));
         setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
@@ -124,6 +129,11 @@ public class JFLogin extends javax.swing.JFrame {
         jPSenhaLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPSenhaLoginActionPerformed(evt);
+            }
+        });
+        jPSenhaLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPSenhaLoginKeyPressed(evt);
             }
         });
 
@@ -190,7 +200,32 @@ public class JFLogin extends javax.swing.JFrame {
 
     private void jBLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLogarActionPerformed
         // TODO add your handling code here:
-        FachadaUsuario auto = FachadaUsuario.getInstance();
+        this.telaLogin();
+    }//GEN-LAST:event_jBLogarActionPerformed
+
+    private void jBLogarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jBLogarKeyPressed
+        // TODO add your handling code here:
+         if (evt.getKeyCode()== KeyEvent.VK_ENTER){
+             this.telaLogin();
+         }
+    }//GEN-LAST:event_jBLogarKeyPressed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode()== KeyEvent.VK_ENTER){
+             this.telaLogin();
+         }
+    }//GEN-LAST:event_formKeyPressed
+
+    private void jPSenhaLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPSenhaLoginKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode()== (KeyEvent.VK_ENTER)){
+             this.telaLogin();
+         }
+    }//GEN-LAST:event_jPSenhaLoginKeyPressed
+
+    private void telaLogin(){
+    	FachadaUsuario auto = FachadaUsuario.getInstance();
         format = FormatacaoAuxiliar.getInstance();
         String usuario1 = jTUsuario.getText();
         char[] senhaC = jPSenhaLogin.getPassword();
@@ -257,15 +292,9 @@ public class JFLogin extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
             
         }
-    }//GEN-LAST:event_jBLogarActionPerformed
-
-    private void jBLogarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jBLogarKeyPressed
-        // TODO add your handling code here:
-//         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
-//             this.jBLogarActionPerformed(java.awt.event.ActionEvent a);
-//         }
-    }//GEN-LAST:event_jBLogarKeyPressed
-
+    }
+    
+    
     /**
      * @param args the command line arguments
      */

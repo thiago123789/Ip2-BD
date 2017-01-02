@@ -2,13 +2,14 @@ package poo.negocios;
 
 import java.sql.SQLException;
 
+import poo.dados.IDisciplinaDAO;
 import poo.dados.DAO.DisciplinaDAO;
 import poo.dados.DAO.PreRequisitoDAO;
 import poo.excecoes.DisciplinaJaExisteException;
 import poo.negocios.beans.Disciplina;
 
 public class CadastroDisciplina {
-	private DisciplinaDAO comand;
+	private IDisciplinaDAO comand;
 	private PreRequisitoDAO comandA;
 	public static CadastroDisciplina instance;
 	

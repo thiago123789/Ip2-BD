@@ -232,6 +232,10 @@ public class PessoaDAO {
 				String bairro = resultSet.getString("bairro");
 				int numero = resultSet.getInt("numero");
 				String estado = resultSet.getString("estado");
+				a.setCpf(cpf_p);
+				a.setSenha(senha);
+				a.setPnome(p_nome);
+				a.setUnome(u_nome);
 				Endereco b = new Endereco(logradouro, numero, bairro, cidade, cep, estado);
 			}			
 		}catch(SQLException e){

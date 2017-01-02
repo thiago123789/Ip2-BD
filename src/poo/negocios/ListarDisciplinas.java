@@ -1,19 +1,19 @@
 package poo.negocios;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
-//import poo.dados.RepositorioDisciplina;
-import poo.dados.iRepositorioDisciplina;
+import poo.dados.IDisciplinaDAO;
+import poo.dados.DAO.CursoDAO;
 import poo.dados.DAO.DisciplinaDAO;
 import poo.dados.DAO.PreRequisitoDAO;
 import poo.negocios.beans.Disciplina;
+//import poo.dados.RepositorioDisciplina;
 
 public class ListarDisciplinas {
 	private static ListarDisciplinas instance;
-	private DisciplinaDAO repositorio;
+	private IDisciplinaDAO repositorio;
     private PreRequisitoDAO req;
+    private CursoDAO repositorioCurso;
 	
     public static ListarDisciplinas getInstance(){
     	if(instance == null){
@@ -24,6 +24,7 @@ public class ListarDisciplinas {
     
 	private ListarDisciplinas(){
 		repositorio = DisciplinaDAO.getInstance();
+		repositorioCurso = CursoDAO.getInstance();
 	}
 	
 	public String[] listarCodigo(){
@@ -83,6 +84,7 @@ public class ListarDisciplinas {
             
             
             return aux;
+        
         }
 	
         public String[] listarNomesPreRequisitos(String cod){
@@ -90,6 +92,23 @@ public class ListarDisciplinas {
             
             
             return aux;
+        }
+        
+        public ArrayList<Disciplina> listarDisciplinasPorCurso(String nomeCurso){
+        	ArrayList<Disciplina> lista_de_disciplinas = new ArrayList<Disciplina>();
+        	int idCurso = repositorioCurso.buscaIdCursoByNome(nomeCurso);
+        	if(idCurso != -1){
+        		lista_de_disciplinas = repositorio.listarDisciplinasPorCurso(idCurso);
+        	}        	
+        	return lista_de_disciplinas;
+        }
+        
+        //METODO DE TESTE
+        public ArrayList<Disciplina> listarTodasAsDisciplinas(){
+        	ArrayList<Disciplina> lista_de_disciplinas = new ArrayList<Disciplina>();
+        	lista_de_disciplinas = repositorio.consulta();
+
+        	return lista_de_disciplinas;        	
         }
 	
 }

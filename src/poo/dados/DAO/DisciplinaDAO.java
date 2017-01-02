@@ -12,15 +12,15 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import poo.dados.iRepositorioDisciplina;
 import poo.negocios.beans.Curso;
 import poo.negocios.beans.Disciplina;
 import poo.negocios.beans.Horario;
 import poo.negocios.beans.Professor;
 
 import com.mysql.jdbc.PreparedStatement;
+import poo.dados.IDisciplinaDAO;
 
-public class DisciplinaDAO implements iRepositorioDisciplina{
+public class DisciplinaDAO implements IDisciplinaDAO{
 	private static DisciplinaDAO instance;
 	private ConnectionBanco bancoConect;
 	
@@ -94,6 +94,27 @@ public class DisciplinaDAO implements iRepositorioDisciplina{
 	public ArrayList<Disciplina> consulta(){
 		ArrayList<Disciplina> a = new ArrayList<Disciplina>();
 		String query = "SELECT * FROM deinfo.disciplina";
+		try{
+			ResultSet resultSet = bancoConect.comandoSQL(query);
+			while(resultSet.next()){
+				String codigo = resultSet.getString("CODIGO_DIS");
+				String nome = resultSet.getString("NOME");
+				int carga = resultSet.getInt("CARGA_HORARIA");
+				Disciplina b = new Disciplina(codigo, nome);
+				b.setCargaHoraria(carga);
+				a.add(b);
+			}			
+		}catch(SQLException e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}catch(Exception e){
+			JOptionPane.showConfirmDialog(null, e.getMessage(), "Erro", -1);
+		}
+		return a;
+	}
+	
+	public ArrayList<Disciplina> listarDisciplinasPorCurso(int curso){
+		ArrayList<Disciplina> a = new ArrayList<Disciplina>();
+		String query = "SELECT * FROM deinfo.disciplina WHERE curso = \""+curso+"\"";
 		try{
 			ResultSet resultSet = bancoConect.comandoSQL(query);
 			while(resultSet.next()){
